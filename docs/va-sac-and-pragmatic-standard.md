@@ -1,24 +1,74 @@
-# VA SAC vs the Pragmatic M Standard
+# VA SAC, the Pragmatic M Standard, and the Operational Subset
 
-Two standards layer over M for VistA development:
+Three M standards layer over each other for VistA development. They
+optimise for different things and produce different — increasingly
+restrictive — sets.
 
-1. **The pragmatic M standard** ([`integrated/pragmatic-m-standard.tsv`](../integrated/pragmatic-m-standard.tsv))
-   — what runs on both YottaDB and InterSystems IRIS. Auto-derived
-   from per-source documentation.
-2. **The VA Standards and Conventions (SAC)** — what the VA
-   officially permits or forbids in VistA M code. A policy
-   document, not a language definition.
+| Standard | Question it answers | Optimises for | Source | Size in v0.2 |
+| --- | --- | --- | --- | ---: |
+| **Pragmatic** | Will this run on both engines? | Portability (YDB ∩ IRIS) | Mechanical join over per-source documentation | **81 entries** |
+| **VA SAC** | Should we write this in VistA? | Security, code quality, decades of maintenance | Hand-curated by VA M Programming Standards Committee; encoded in XINDEX | 65 rules / 171 per-name flags |
+| **Operational** | What can a VistA developer actually use? | Portability **AND** policy-compliance | Intersection: pragmatic-core ∧ SAC-clean | **58 entries** |
 
-These layers answer different questions. The pragmatic standard
-asks "is this *possible* on both engines?" SAC asks "is this
-*allowed* in VistA?" An entry can be portable but forbidden by
-policy (e.g. `XECUTE` runs everywhere but SAC restricts it for
-security reasons). An entry can also be SAC-permitted but
-non-portable — that's a portability gap worth surfacing.
+The pragmatic standard is **strictly more permissive than
+operational** — it lets in 23 portable entries that SAC blocks for
+non-portability reasons (BREAK, HALT, JOB, VIEW, ZWRITE,
+$ZHOROLOG, $ZTRAP, ...). The operational subset is what a VistA
+developer can actually write that runs unmodified on both engines
+AND passes XINDEX.
 
-This artifact joins the two and flags the gaps.
+> **Common mis-reading.** "Pragmatic" doesn't mean "the wise
+> default." It means *portable*. SAC isn't impractical — it's
+> optimising for a different (equally legitimate) definition of
+> practical: long-term system maintainability over short-term
+> feature use. The operational standard is the answer to "wise AND
+> portable" — pick that one for new VistA code unless you have a
+> reason not to.
 
-## How the join works
+## What the layers look like
+
+```
+   ANSI 1995 (in_anno)  ──┐
+                          ├── pragmatic-core (in_ydb && in_iris)  81
+   YDB (in_ydb)         ──┤    │
+                          │    └── ∩ SAC-clean      = operational  58
+   IRIS (in_iris)       ──┘    └── ∩ SAC-blocked   = ban list     23
+                                    (BREAK, HALT, JOB, VIEW,
+                                     ZWRITE, $ZHOROLOG, ...)
+```
+
+## The operational standard
+
+[`integrated/operational-m-standard.tsv`](../integrated/operational-m-standard.tsv)
+holds the **58 entries** that satisfy both standards: portable
+across YDB and IRIS, and not blocked by SAC. Auto-derived by
+[`m_standard.tools.emit_operational_standard`](../src/m_standard/tools/emit_operational_standard.py)
+from the pragmatic standard ∩ SAC compliance. By concept:
+
+- 21 commands (CLOSE, DO, ELSE, FOR, GOTO, HANG, IF, KILL, LOCK,
+  MERGE, NEW, OPEN, QUIT, READ, SET, TCOMMIT, TROLLBACK, TSTART,
+  USE, WRITE, XECUTE)
+- 21 intrinsic functions ($ASCII, $CHAR, $DATA, $EXTRACT, ...)
+- 16 intrinsic special variables ($DEVICE, $ECODE, $ESTACK,
+  $ETRAP, $HOROLOG, $IO, $JOB, ...)
+
+For VistA development, **start from the operational standard**.
+A routine written entirely from the operational subset:
+
+- runs unmodified on YDB and IRIS, and
+- passes XINDEX SAC validation, and
+- doesn't depend on the 23 entries that are portable but
+  policy-blocked (BREAK, HALT, JOB, VIEW, ZWRITE, $ZHOROLOG,
+  $ZTRAP, ...).
+
+The smallness (58 of M's full lexical surface) is the cost of
+critical-system development on heterogeneous engines.
+
+For the pattern-level SAC rules — READ-without-timeout,
+LOCK-without-timeout, exclusive Kill, exclusive NEW, lowercase
+commands, line-too-long — see the lint_m tool below.
+
+## How the SAC compliance join works
 
 [`m_standard.tools.emit_sac_compliance`](../src/m_standard/tools/emit_sac_compliance.py)
 reads the SAC overlay ([`mappings/va-sac.tsv`](../mappings/va-sac.tsv))
@@ -124,12 +174,60 @@ This artifact handles only the language-subset overlap. The rest
 of SAC (naming, formatting, headers) belongs in vista-meta or
 similar tooling, where it can be applied to actual routine code.
 
+## The pattern-rule linter
+
+The va-sac.tsv overlay handles **per-name** rules — XINDEX rule 25
+"BREAK command used", rule 31 "Non-standard $Z function used", etc.
+The other ~57 XINDEX rules are **pattern rules** — they detect how
+a token is *used*, not just whether the name appears. Examples:
+
+- Rule 22: `KILL (X,Y)` — exclusive Kill (forbidden)
+- Rule 23: `KILL` with no argument (forbidden)
+- Rule 26: `NEW (X,Y)` or unargumented `NEW` (forbidden)
+- Rule 33: `READ X` without a `:T` timeout (forbidden)
+- Rule 47: lowercase commands (`write` instead of `WRITE`) (forbidden)
+- Rule 60: `LOCK` without timeout (forbidden)
+
+These need to look at usage context, not just names. The
+[`m_standard.tools.lint_m`](../src/m_standard/tools/lint_m.py)
+tool implements regex-based detectors for the most common pattern
+rules. Run on M source files:
+
+```bash
+.venv/bin/python -m m_standard.tools.lint_m routine.m
+
+# Or filter to specific severity:
+.venv/bin/python -m m_standard.tools.lint_m --severity FS routine.m
+
+# Or write findings to TSV:
+.venv/bin/python -m m_standard.tools.lint_m --out findings.tsv routine.m
+```
+
+Output format: file:line:column with severity-prefixed rule number
+and message. Exit code is non-zero if any F/S findings exist (so
+the linter can gate CI for VistA-targeting projects).
+
+**Coverage in v0.2:** rules 13, 19, 22, 23, 26, 33, 47, 60. The
+linter is regex-based, not a real M parser — it'll miss subtle
+patterns (matched parens across line breaks, indirection
+resolution, comments inside strings) and will false-positive on
+some edge cases. Treat findings as advisory.
+
+For full M parsing, the right tool is [tree-sitter-m](../README.md)
+(consumes the grammar surface). lint_m bridges the gap between
+"data we have" and "tooling that exists today."
+
 ## Future work
 
-- Populate from the authoritative SAC document (see "How to
-  populate" above).
-- Extend the overlay to operators and pattern codes once SAC's
-  treatment of those is incorporated.
 - Add an "M-language linter" downstream tool that consumes
-  `va-sac-compliance.json` and flags violations in routine
-  source.
+  `va-sac-compliance.json` and `integrated/va-sac-rules.tsv`
+  to flag violations in actual VistA routine source. **Done in
+  v0.2** as `m_standard.tools.lint_m` for 8 of the most common
+  pattern rules.
+- Extend the per-name overlay to operators and pattern codes once
+  SAC's treatment of those is incorporated.
+- Add a per-namespace exemption layer so the overlay can model
+  XINDEX's exempt-namespace lists (X, Z, DI, DD, KMP — kernel
+  internals that are exempt from many rules).
+- Severity-tier filtering on the compliance output so consumers
+  can ask "show me only F+S violations" vs "include W+I".

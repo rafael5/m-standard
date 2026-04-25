@@ -1,5 +1,22 @@
 # The Pragmatic M Standard
 
+> **What "pragmatic" means here.** Strictly: *portable across YottaDB
+> and InterSystems IRIS*. It is a mechanical set-intersection over
+> the source documentation, not a judgement about what's wise to
+> write. An entry being in the pragmatic standard means it **can run**
+> on both engines unmodified — not that you **should** use it.
+>
+> For VistA development specifically, you also need VA SAC compliance
+> (security, code-quality, long-term-maintainability rules that the
+> pragmatic standard does not model). The intersection of pragmatic +
+> SAC-clean is the **operational M standard**, published as a
+> separate output:
+> [`integrated/operational-m-standard.tsv`](../integrated/operational-m-standard.tsv)
+> and explained in [`docs/va-sac-and-pragmatic-standard.md`](va-sac-and-pragmatic-standard.md).
+>
+> If you came here looking for "what M can a VistA developer
+> actually write", read that doc, not this one.
+
 A **portable subset** of the M (MUMPS) language — the cross-vendor
 surface that runs unmodified on both YottaDB and InterSystems IRIS,
 the two M engines that matter for VistA development today.
@@ -10,12 +27,35 @@ per-concept integrated TSVs/JSONs and the grammar surface. It is
 hand-curated. Re-running the pipeline regenerates this file
 deterministically.
 
-> **TL;DR.** If you're writing VistA code that needs to run on both
-> YottaDB (open-source, OSEHRA's target) and IRIS (commercial, the
-> VA's production engine), restrict yourself to entries with
+> **TL;DR (portability angle only).** If you need code that runs on
+> both YottaDB (open-source, OSEHRA's target) and IRIS (commercial,
+> the VA's production engine), restrict yourself to entries with
 > `pragmatic_tier=core` in [`integrated/pragmatic-m-standard.tsv`](../integrated/pragmatic-m-standard.tsv).
 > That's **81 entries** in v0.2: 29 commands, 26 intrinsic functions,
-> 26 intrinsic special variables.
+> 26 intrinsic special variables. **For VistA, intersect with SAC**
+> — the operational subset is **58 entries**.
+
+## Pragmatic ≠ operational ≠ wise
+
+These three terms are easy to conflate. They are not the same.
+
+| Standard | Question it answers | Optimises for | Output |
+| --- | --- | --- | --- |
+| **Pragmatic** (this doc) | Will this run on both engines? | Portability across YDB and IRIS | `pragmatic-m-standard.tsv` (81 entries) |
+| **VA SAC** (XINDEX-derived) | Should we write this in VistA? | Security, code quality, decades of maintenance | `mappings/va-sac.tsv` + `va-sac-rules.tsv` |
+| **Operational** (intersection) | What can a VistA developer actually use? | Both portability AND policy-compliance | `operational-m-standard.tsv` (58 entries) |
+
+The pragmatic standard is **strictly more permissive than
+operational**: it includes 23 entries (BREAK, HALT, JOB, VIEW,
+ZWRITE, $ZHOROLOG, etc.) that are portable but SAC blocks for
+non-portability reasons. The compliance counts in
+`integrated/va-sac-compliance.json` show this directly:
+zero entries where SAC permits something non-portable, but 23
+where SAC forbids something portable.
+
+If "pragmatic" sounds like "the wise default," that's the wrong
+read. *Pragmatic = portable.* For "wise + portable," see the
+operational standard.
 
 ## Why this exists
 

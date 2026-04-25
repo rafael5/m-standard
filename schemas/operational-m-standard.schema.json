@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://m-standard.local/schemas/operational-m-standard.schema.json",
+  "title": "Operational M standard (pragmatic ∩ SAC-clean)",
+  "description": "The M language surface that VistA developers can actually write: portable across YottaDB and IRIS (pragmatic-core) AND not blocked by VA policy (SAC-clean). Intersection of integrated/pragmatic-m-standard.tsv and integrated/va-sac-compliance.tsv. Auto-derived; nothing hand-curated. See docs/va-sac-and-pragmatic-standard.md for the full rationale and how this differs from the pragmatic standard.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "concept",
+    "counts",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1" },
+    "concept": { "type": "string", "const": "operational-m-standard" },
+    "description": { "type": "string" },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operational",
+        "pragmatic_blocked_by_sac",
+        "pragmatic_core_total"
+      ],
+      "properties": {
+        "operational": {
+          "type": "integer", "minimum": 0,
+          "description": "Entries that are both portable AND SAC-clean. The core operational subset for VistA."
+        },
+        "pragmatic_blocked_by_sac": {
+          "type": "integer", "minimum": 0,
+          "description": "Pragmatic-core entries that SAC forbids/restricts (sac_says_avoid_but_portable). Removed from operational set."
+        },
+        "pragmatic_core_total": {
+          "type": "integer", "minimum": 0,
+          "description": "Total pragmatic-core entries (operational + pragmatic_blocked_by_sac)."
+        }
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["concept", "name", "in_anno", "in_ydb", "in_iris"],
+        "properties": {
+          "concept": {
+            "type": "string",
+            "enum": ["commands", "intrinsic-functions", "intrinsic-special-variables"]
+          },
+          "name": { "type": "string", "minLength": 1 },
+          "in_anno": { "type": "boolean" },
+          "in_ydb": { "type": "boolean" },
+          "in_iris": { "type": "boolean" },
+          "anno_section": { "type": "string" },
+          "ydb_section": { "type": "string" },
+          "iris_section": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -67,6 +67,9 @@ _SCHEMA_BASENAMES: dict[str, str] = {
     # standard — flags language-subset portability concerns for
     # VistA developers.
     "va-sac-compliance": "va-sac-compliance.schema.json",
+    # Operational M standard: pragmatic ∩ SAC-clean. The subset
+    # VistA developers can write that's both portable AND policy-safe.
+    "operational-m-standard": "operational-m-standard.schema.json",
 }
 
 

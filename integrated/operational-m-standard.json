@@ -1,0 +1,592 @@
+{
+  "concept": "operational-m-standard",
+  "counts": {
+    "operational": 58,
+    "pragmatic_blocked_by_sac": 23,
+    "pragmatic_core_total": 81
+  },
+  "description": "M language surface that runs on both YottaDB and IRIS AND passes VA SAC (XINDEX). Intersection of pragmatic standard and SAC-clean entries — the operational subset for VistA.",
+  "entries": [
+    {
+      "anno_section": "pages/a108025.html#8.2.2",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_cclose.html#RCOS_cclose",
+      "name": "CLOSE",
+      "ydb_section": "ProgrammersGuide/commands.rst#Close"
+    },
+    {
+      "anno_section": "pages/a108026.html#8.2.3",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_cdo.html#RCOS_cdo",
+      "name": "DO",
+      "ydb_section": "ProgrammersGuide/commands.rst#Do"
+    },
+    {
+      "anno_section": "pages/a108027.html#8.2.4",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_celse.html#RCOS_celse",
+      "name": "ELSE",
+      "ydb_section": "ProgrammersGuide/commands.rst#Else"
+    },
+    {
+      "anno_section": "pages/a108031.html#8.2.5",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_cfor.html#RCOS_cfor",
+      "name": "FOR",
+      "ydb_section": "ProgrammersGuide/commands.rst#For"
+    },
+    {
+      "anno_section": "pages/a108032.html#8.2.6",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_cgoto.html#RCOS_cgoto",
+      "name": "GOTO",
+      "ydb_section": "ProgrammersGuide/commands.rst#Goto"
+    },
+    {
+      "anno_section": "pages/a108034.html#8.2.8",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_chang.html#RCOS_chang",
+      "name": "HANG",
+      "ydb_section": "ProgrammersGuide/commands.rst#HANG"
+    },
+    {
+      "anno_section": "pages/a108035.html#8.2.9",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_cif.html#RCOS_cif",
+      "name": "IF",
+      "ydb_section": "ProgrammersGuide/commands.rst#If"
+    },
+    {
+      "anno_section": "pages/a108037.html#8.2.11",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_ckill.html#RCOS_ckill",
+      "name": "KILL",
+      "ydb_section": "ProgrammersGuide/commands.rst#Kill"
+    },
+    {
+      "anno_section": "pages/a108040.html#8.2.12",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_clock.html#RCOS_clock",
+      "name": "LOCK",
+      "ydb_section": "ProgrammersGuide/commands.rst#Lock"
+    },
+    {
+      "anno_section": "pages/a108041.html#8.2.13",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_cmerge.html#RCOS_cmerge",
+      "name": "MERGE",
+      "ydb_section": "ProgrammersGuide/commands.rst#Merge"
+    },
+    {
+      "anno_section": "pages/a108042.html#8.2.14",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_cnew.html#RCOS_cnew",
+      "name": "NEW",
+      "ydb_section": "ProgrammersGuide/commands.rst#New"
+    },
+    {
+      "anno_section": "pages/a108043.html#8.2.15",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_copen.html#RCOS_copen",
+      "name": "OPEN",
+      "ydb_section": "ProgrammersGuide/commands.rst#Open"
+    },
+    {
+      "anno_section": "pages/a108044.html#8.2.16",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_cquit.html#RCOS_cquit",
+      "name": "QUIT",
+      "ydb_section": "ProgrammersGuide/commands.rst#Quit"
+    },
+    {
+      "anno_section": "pages/a108045.html#8.2.17",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_cread.html#RCOS_cread",
+      "name": "READ",
+      "ydb_section": "ProgrammersGuide/commands.rst#READ"
+    },
+    {
+      "anno_section": "pages/a108048.html#8.2.18",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_cset.html#RCOS_cset",
+      "name": "SET",
+      "ydb_section": "ProgrammersGuide/commands.rst#Set"
+    },
+    {
+      "anno_section": "pages/a108049.html#8.2.19",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_ctcommit.html#RCOS_ctcommit",
+      "name": "TCOMMIT",
+      "ydb_section": "ProgrammersGuide/commands.rst#TCommit"
+    },
+    {
+      "anno_section": "pages/a108052.html#8.2.21",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_ctrollback.html#RCOS_ctrollback",
+      "name": "TROLLBACK",
+      "ydb_section": "ProgrammersGuide/commands.rst#TROllback"
+    },
+    {
+      "anno_section": "pages/a108053.html#8.2.22",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_ctstart.html#RCOS_ctstart",
+      "name": "TSTART",
+      "ydb_section": "ProgrammersGuide/commands.rst#TStart"
+    },
+    {
+      "anno_section": "pages/a108054.html#8.2.23",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_cuse.html#RCOS_cuse",
+      "name": "USE",
+      "ydb_section": "ProgrammersGuide/commands.rst#Use"
+    },
+    {
+      "anno_section": "pages/a108056.html#8.2.25",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_cwrite.html#RCOS_cwrite",
+      "name": "WRITE",
+      "ydb_section": "ProgrammersGuide/commands.rst#Write"
+    },
+    {
+      "anno_section": "pages/a108057.html#8.2.26",
+      "concept": "commands",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_cxecute.html#RCOS_cxecute",
+      "name": "XECUTE",
+      "ydb_section": "ProgrammersGuide/commands.rst#Xecute"
+    },
+    {
+      "anno_section": "pages/a107084.html#7.1.5.1",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_fascii.html#RCOS_fascii",
+      "name": "$ASCII",
+      "ydb_section": "ProgrammersGuide/functions.rst#$ASCII()"
+    },
+    {
+      "anno_section": "pages/a107085.html#7.1.5.2",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_fchar.html#RCOS_fchar",
+      "name": "$CHAR",
+      "ydb_section": "ProgrammersGuide/functions.rst#$CHAR()"
+    },
+    {
+      "anno_section": "pages/a107086.html#7.1.5.3",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_fdata.html#RCOS_fdata",
+      "name": "$DATA",
+      "ydb_section": "ProgrammersGuide/functions.rst#$DATA()"
+    },
+    {
+      "anno_section": "pages/a107089.html#7.1.5.4",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_fextract.html#RCOS_fextract",
+      "name": "$EXTRACT",
+      "ydb_section": "ProgrammersGuide/functions.rst#$EXTRACT()"
+    },
+    {
+      "anno_section": "pages/a107090.html#7.1.5.5",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_ffind.html#RCOS_ffind",
+      "name": "$FIND",
+      "ydb_section": "ProgrammersGuide/functions.rst#$FIND()"
+    },
+    {
+      "anno_section": "pages/a107091.html#7.1.5.6",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_ffnumber.html#RCOS_ffnumber",
+      "name": "$FNUMBER",
+      "ydb_section": "ProgrammersGuide/functions.rst#$FNUMBER()"
+    },
+    {
+      "anno_section": "pages/a107092.html#7.1.5.7",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_fget.html#RCOS_fget",
+      "name": "$GET",
+      "ydb_section": "ProgrammersGuide/functions.rst#$GET()"
+    },
+    {
+      "anno_section": "",
+      "concept": "intrinsic-functions",
+      "in_anno": false,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_fincrement.html#RCOS_fincrement",
+      "name": "$INCREMENT",
+      "ydb_section": "ProgrammersGuide/functions.rst#$INCREMENT()"
+    },
+    {
+      "anno_section": "pages/a107094.html#7.1.5.8",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_fjustify.html#RCOS_fjustify",
+      "name": "$JUSTIFY",
+      "ydb_section": "ProgrammersGuide/functions.rst#$JUSTIFY()"
+    },
+    {
+      "anno_section": "pages/a107095.html#7.1.5.9",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_flength.html#RCOS_flength",
+      "name": "$LENGTH",
+      "ydb_section": "ProgrammersGuide/functions.rst#$LENGTH()"
+    },
+    {
+      "anno_section": "pages/a107098.html#7.1.5.10",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_fname.html#RCOS_fname",
+      "name": "$NAME",
+      "ydb_section": "ProgrammersGuide/functions.rst#$NAME()"
+    },
+    {
+      "anno_section": "pages/a107100.html#7.1.5.11",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_forder.html#RCOS_forder",
+      "name": "$ORDER",
+      "ydb_section": "ProgrammersGuide/functions.rst#$ORDER()"
+    },
+    {
+      "anno_section": "pages/a107101.html#7.1.5.12",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_fpiece.html#RCOS_fpiece",
+      "name": "$PIECE",
+      "ydb_section": "ProgrammersGuide/functions.rst#$PIECE()"
+    },
+    {
+      "anno_section": "pages/a107102.html#7.1.5.13",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_fqlength.html#RCOS_fqlength",
+      "name": "$QLENGTH",
+      "ydb_section": "ProgrammersGuide/functions.rst#$QLENGTH()"
+    },
+    {
+      "anno_section": "pages/a107103.html#7.1.5.14",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_fqsubscript.html#RCOS_fqsubscript",
+      "name": "$QSUBSCRIPT",
+      "ydb_section": "ProgrammersGuide/functions.rst#$QSUBSCRIPT()"
+    },
+    {
+      "anno_section": "pages/a107104.html#7.1.5.15",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_fquery.html#RCOS_fquery",
+      "name": "$QUERY",
+      "ydb_section": "ProgrammersGuide/functions.rst#$QUERY()"
+    },
+    {
+      "anno_section": "pages/a107105.html#7.1.5.16",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_frandom.html#RCOS_frandom",
+      "name": "$RANDOM",
+      "ydb_section": "ProgrammersGuide/functions.rst#$RANDOM()"
+    },
+    {
+      "anno_section": "pages/a107106.html#7.1.5.17",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_freverse.html#RCOS_freverse",
+      "name": "$REVERSE",
+      "ydb_section": "ProgrammersGuide/functions.rst#$REVERSE()"
+    },
+    {
+      "anno_section": "pages/a107107.html#7.1.5.18",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_fselect.html#RCOS_fselect",
+      "name": "$SELECT",
+      "ydb_section": "ProgrammersGuide/functions.rst#$SELECT()"
+    },
+    {
+      "anno_section": "pages/a107109.html#7.1.5.20",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_ftext.html#RCOS_ftext",
+      "name": "$TEXT",
+      "ydb_section": "ProgrammersGuide/functions.rst#$TEXT()"
+    },
+    {
+      "anno_section": "pages/a107111.html#7.1.5.21",
+      "concept": "intrinsic-functions",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_ftranslate.html#RCOS_ftranslate",
+      "name": "$TRANSLATE",
+      "ydb_section": "ProgrammersGuide/functions.rst#$TRANSLATE()"
+    },
+    {
+      "anno_section": "pages/a107058.html#7.1.4.10",
+      "concept": "intrinsic-special-variables",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vdevice.html#RCOS_vdevice",
+      "name": "$DEVICE",
+      "ydb_section": "ProgrammersGuide/isv.rst#$DEVICE"
+    },
+    {
+      "anno_section": "pages/a107059.html#7.1.4.10",
+      "concept": "intrinsic-special-variables",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vecode.html#RCOS_vecode",
+      "name": "$ECODE",
+      "ydb_section": "ProgrammersGuide/isv.rst#$ECODE"
+    },
+    {
+      "anno_section": "pages/a107060.html#7.1.4.10",
+      "concept": "intrinsic-special-variables",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vestack.html#RCOS_vestack",
+      "name": "$ESTACK",
+      "ydb_section": "ProgrammersGuide/isv.rst#$ESTACK"
+    },
+    {
+      "anno_section": "pages/a107061.html#7.1.4.10",
+      "concept": "intrinsic-special-variables",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vetrap.html#RCOS_vetrap",
+      "name": "$ETRAP",
+      "ydb_section": "ProgrammersGuide/isv.rst#$ETRAP"
+    },
+    {
+      "anno_section": "pages/a107062.html#7.1.4.10",
+      "concept": "intrinsic-special-variables",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vhorolog.html#RCOS_vhorolog",
+      "name": "$HOROLOG",
+      "ydb_section": "ProgrammersGuide/isv.rst#$HOROLOG"
+    },
+    {
+      "anno_section": "pages/a107063.html#7.1.4.10",
+      "concept": "intrinsic-special-variables",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vio.html#RCOS_vio",
+      "name": "$IO",
+      "ydb_section": "ProgrammersGuide/isv.rst#$IO"
+    },
+    {
+      "anno_section": "pages/a107065.html#7.1.4.10",
+      "concept": "intrinsic-special-variables",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vjob.html#RCOS_vjob",
+      "name": "$JOB",
+      "ydb_section": "ProgrammersGuide/isv.rst#$JOB"
+    },
+    {
+      "anno_section": "pages/a107066.html#7.1.4.10",
+      "concept": "intrinsic-special-variables",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vkey.html#RCOS_vkey",
+      "name": "$KEY",
+      "ydb_section": "ProgrammersGuide/isv.rst#$KEY"
+    },
+    {
+      "anno_section": "pages/a107068.html#7.1.4.10",
+      "concept": "intrinsic-special-variables",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vprincipal.html#RCOS_vprincipal",
+      "name": "$PRINCIPAL",
+      "ydb_section": "ProgrammersGuide/isv.rst#$PRINCIPAL"
+    },
+    {
+      "anno_section": "pages/a107069.html#7.1.4.10",
+      "concept": "intrinsic-special-variables",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vquit.html#RCOS_vquit",
+      "name": "$QUIT",
+      "ydb_section": "ProgrammersGuide/isv.rst#$QUIT"
+    },
+    {
+      "anno_section": "pages/a107072.html#7.1.4.10",
+      "concept": "intrinsic-special-variables",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vstorage.html#RCOS_vstorage",
+      "name": "$STORAGE",
+      "ydb_section": "ProgrammersGuide/isv.rst#$STORAGE"
+    },
+    {
+      "anno_section": "pages/a107073.html#7.1.4.10",
+      "concept": "intrinsic-special-variables",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vsystem.html#RCOS_vsystem",
+      "name": "$SYSTEM",
+      "ydb_section": "ProgrammersGuide/isv.rst#$SYSTEM"
+    },
+    {
+      "anno_section": "pages/a107074.html#7.1.4.10",
+      "concept": "intrinsic-special-variables",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vtest.html#RCOS_vtest",
+      "name": "$TEST",
+      "ydb_section": "ProgrammersGuide/isv.rst#$TEST"
+    },
+    {
+      "anno_section": "pages/a107075.html#7.1.4.10",
+      "concept": "intrinsic-special-variables",
+      "in_anno": true,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vtlevel.html#RCOS_vtlevel",
+      "name": "$TLEVEL",
+      "ydb_section": "ProgrammersGuide/isv.rst#$TLEVEL"
+    },
+    {
+      "anno_section": "",
+      "concept": "intrinsic-special-variables",
+      "in_anno": false,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vx.html#RCOS_vx",
+      "name": "$X",
+      "ydb_section": "ProgrammersGuide/isv.rst#$X"
+    },
+    {
+      "anno_section": "",
+      "concept": "intrinsic-special-variables",
+      "in_anno": false,
+      "in_iris": true,
+      "in_ydb": true,
+      "iris_section": "site/RCOS_vy.html#RCOS_vy",
+      "name": "$Y",
+      "ydb_section": "ProgrammersGuide/isv.rst#$Y"
+    }
+  ],
+  "schema_version": "1"
+}
