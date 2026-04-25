@@ -1,0 +1,17 @@
+symbol	operator_class	description	standard_status_hint	source_section
+#	arithmetic	binary operator for modulo, that is, causes M to produce the remainder from integer division of the first argument by the second	ansi	ProgrammersGuide/langfeat.rst#arithmetic-operators
+*	arithmetic	binary operator for multiplication	ansi	ProgrammersGuide/langfeat.rst#arithmetic-operators
+**	arithmetic	binary operator for exponentiation	ansi	ProgrammersGuide/langfeat.rst#arithmetic-operators
++	arithmetic	as a unary operator it simply forces M to evaluate the expression following as numeric; as a binary operator it causes M to perform addition	ansi	ProgrammersGuide/langfeat.rst#arithmetic-operators
+-	arithmetic	as a unary operator it causes M to negate the expression following; as a binary operator it causes M to perform subtraction	ansi	ProgrammersGuide/langfeat.rst#arithmetic-operators
+/	arithmetic	binary operator for fractional division	ansi	ProgrammersGuide/langfeat.rst#arithmetic-operators
+\	arithmetic	binary operator for integer division	ansi	ProgrammersGuide/langfeat.rst#arithmetic-operators
+!	logical	binary OR operator produces a true result if either of the expressions is true	ansi	ProgrammersGuide/langfeat.rst#logical-operators
+&	logical	binary AND operator produces a true result only if both of the expressions are true	ansi	ProgrammersGuide/langfeat.rst#logical-operators
+'	logical	unary NOT operator negates current truth-value; M accepts placement of the NOT operator next to a relational operator, for example, A'=B meaning '(A=B), i.e., NAND and next to logical operators, A'& B meaning '(A & B) i.e. NAND and A'! B meaning '(A ! B) i.e. NOR	ansi	ProgrammersGuide/langfeat.rst#logical-operators
+<	numeric-relational	binary arithmetic less than	ansi	ProgrammersGuide/langfeat.rst#numeric-relational-operators
+>	numeric-relational	binary arithmetic greater than	ansi	ProgrammersGuide/langfeat.rst#numeric-relational-operators
+=	string-relational	binary operator causes M to produce a TRUE if the expressions are equal	ansi	ProgrammersGuide/langfeat.rst#string-relational-operators
+[	string-relational	binary operator causes M to produce a TRUE if the first expression contains the ordered sequence of characters in the second expression	ansi	ProgrammersGuide/langfeat.rst#string-relational-operators
+]	string-relational	binary operator causes M to produce a TRUE if the first expression lexically follows the second expression in the character encoding sequence, which by default is ASCII	ansi	ProgrammersGuide/langfeat.rst#string-relational-operators
+]]	string-relational	binary operator causes M to produce a TRUE if the first expression lexically sorts after the second expression in the subscript collation sequence	ansi	ProgrammersGuide/langfeat.rst#string-relational-operators

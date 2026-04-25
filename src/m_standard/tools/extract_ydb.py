@@ -142,6 +142,267 @@ def write_special_variables_tsv(svns: list[YdbEntry], out: Path) -> None:
     _write_entries_tsv(svns, out)
 
 
+_PATCODE_COLUMNS: tuple[str, ...] = (
+    "code",
+    "description",
+    "standard_status_hint",
+    "source_section",
+)
+_ANSI_PATCODES = frozenset("ACELNPU")
+
+
+@dataclass(frozen=True)
+class YdbPatternCode:
+    code: str
+    description: str
+    standard_status_hint: str
+    source_section: str
+
+
+def extract_pattern_codes(langfeat_rst: Path) -> list[YdbPatternCode]:
+    """Parse the "The pattern codes are:" RST grid table from langfeat.rst.
+
+    Each row is a single-character code + description. The standard ANSI
+    codes are A, C, E, L, N, P, U; anything else is a YDB extension.
+    """
+    text = langfeat_rst.read_text(encoding="utf-8")
+    lines = text.splitlines()
+    rel = _relative_label(langfeat_rst)
+    out: list[YdbPatternCode] = []
+
+    intro_re = re.compile(r"The pattern codes are\s*:\s*$", re.IGNORECASE)
+    intro_idx: int | None = None
+    for i, line in enumerate(lines):
+        if intro_re.search(line):
+            intro_idx = i
+            break
+    if intro_idx is None:
+        return []
+
+    rows = _read_rst_grid_table(lines, intro_idx + 1)
+    for row in rows:
+        if len(row) < 2 or row[0].strip().lower() == "code":
+            continue
+        code = row[0].strip()
+        if not code or len(code) > 2:
+            continue
+        out.append(
+            YdbPatternCode(
+                code=code,
+                description=re.sub(r"\s+", " ", row[1].strip()),
+                standard_status_hint=(
+                    "ansi" if code.upper() in _ANSI_PATCODES else "ydb-extension"
+                ),
+                source_section=f"{rel}#pattern-codes",
+            )
+        )
+    out.sort(key=lambda p: p.code)
+    return out
+
+
+def write_pattern_codes_tsv(codes: list[YdbPatternCode], out: Path) -> None:
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, delimiter="\t", lineterminator="\n")
+        writer.writerow(_PATCODE_COLUMNS)
+        for code in codes:
+            writer.writerow([getattr(code, c) for c in _PATCODE_COLUMNS])
+
+
+_OPERATOR_COLUMNS: tuple[str, ...] = (
+    "symbol",
+    "operator_class",
+    "description",
+    "standard_status_hint",
+    "source_section",
+)
+# Class label ↔ "The X operators are:" intro line in langfeat.rst.
+_OPERATOR_INTROS: tuple[tuple[str, str], ...] = (
+    ("arithmetic", r"The arithmetic operators are\s*:\s*$"),
+    ("logical", r"The logical operators are\s*:\s*$"),
+    ("numeric-relational", r"The numeric relational operators are\s*:\s*$"),
+    ("string-relational", r"The string relational operators are\s*:\s*$"),
+)
+
+
+@dataclass(frozen=True)
+class YdbOperator:
+    symbol: str
+    operator_class: str
+    description: str
+    standard_status_hint: str
+    source_section: str
+
+
+def extract_operators(langfeat_rst: Path) -> list[YdbOperator]:
+    """Parse YDB's four operator grid tables in langfeat.rst.
+
+    Classes captured: arithmetic, logical, numeric-relational,
+    string-relational.
+    """
+    text = langfeat_rst.read_text(encoding="utf-8")
+    lines = text.splitlines()
+    rel = _relative_label(langfeat_rst)
+    out: list[YdbOperator] = []
+
+    for cls, intro_pattern in _OPERATOR_INTROS:
+        intro_re = re.compile(intro_pattern, re.IGNORECASE)
+        intro_idx = next(
+            (i for i, line in enumerate(lines) if intro_re.search(line)), None
+        )
+        if intro_idx is None:
+            log.warning("operator intro %r not found", intro_pattern)
+            continue
+        rows = _read_rst_grid_table(lines, intro_idx + 1)
+        for row in rows:
+            if len(row) < 2 or row[0].strip().lower() == "operator":
+                continue
+            symbol = _strip_rst_escapes(row[0]).strip()
+            if not symbol:
+                continue
+            out.append(
+                YdbOperator(
+                    symbol=symbol,
+                    operator_class=cls,
+                    description=re.sub(r"\s+", " ", row[1].strip()),
+                    standard_status_hint="ansi",
+                    source_section=f"{rel}#{cls}-operators",
+                )
+            )
+    out.sort(key=lambda o: (o.operator_class, o.symbol))
+    return out
+
+
+def write_operators_tsv(ops: list[YdbOperator], out: Path) -> None:
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, delimiter="\t", lineterminator="\n")
+        writer.writerow(_OPERATOR_COLUMNS)
+        for op in ops:
+            writer.writerow([getattr(op, c) for c in _OPERATOR_COLUMNS])
+
+
+_ERROR_COLUMNS: tuple[str, ...] = (
+    "mnemonic",
+    "summary",
+    "kind",
+    "standard_status_hint",
+    "source_section",
+)
+
+
+@dataclass(frozen=True)
+class YdbError:
+    mnemonic: str
+    summary: str
+    kind: str
+    standard_status_hint: str
+    source_section: str
+
+
+def extract_errors(errors_rst: Path) -> list[YdbError]:
+    """Walk MessageRecovery/errors.rst dash-section per-mnemonic entries.
+
+    Each section is headed by an uppercase mnemonic; the first paragraph
+    starts with ``MNEMONIC, summary text``. The next paragraph often
+    classifies the error (Compile Time Error / Run-time Error / Warning).
+    All YDB error mnemonics are recorded as ``ydb-extension`` because
+    YDB does not catalogue the ANSI ``M1``–``M75`` set in this file.
+    """
+    text = errors_rst.read_text(encoding="utf-8")
+    lines = text.splitlines()
+    rel = _relative_label(errors_rst)
+    out: list[YdbError] = []
+
+    for start, end, heading in _iter_dash_sections(lines):
+        if not re.fullmatch(r"[A-Z][A-Z0-9]+", heading):
+            continue
+        body = lines[start + 2 : end]
+        first = _first_paragraph(body)
+        # Strip the leading "MNEMONIC, " prefix to keep the summary clean.
+        summary = re.sub(rf"^{re.escape(heading)}\s*,\s*", "", first)
+        kind = _detect_error_kind(body)
+        out.append(
+            YdbError(
+                mnemonic=heading,
+                summary=summary,
+                kind=kind,
+                standard_status_hint="ydb-extension",
+                source_section=f"{rel}#{heading}",
+            )
+        )
+    out.sort(key=lambda e: e.mnemonic)
+    return out
+
+
+def write_errors_tsv(errors: list[YdbError], out: Path) -> None:
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, delimiter="\t", lineterminator="\n")
+        writer.writerow(_ERROR_COLUMNS)
+        for err in errors:
+            writer.writerow([getattr(err, c) for c in _ERROR_COLUMNS])
+
+
+def _detect_error_kind(body: list[str]) -> str:
+    text = " ".join(body)
+    for marker in ("Compile Time Error", "Run-time Error", "Run Time Error",
+                   "Warning", "Information", "Fatal", "Error"):
+        if marker in text:
+            return marker
+    return ""
+
+
+def _strip_rst_escapes(s: str) -> str:
+    r"""RST escapes like `\+` collapse to `+`; `\\` collapses to `\`.
+
+    Strip *one* backslash from each backslash-escape pair so that the
+    integer-division operator (rendered as ``\\``) is preserved as a
+    single ``\`` rather than disappearing entirely.
+    """
+    return re.sub(r"\\(.)", r"\1", s)
+
+
+def _read_rst_grid_table(lines: list[str], start: int) -> list[list[str]]:
+    """Parse one RST grid table beginning at or after ``start``.
+
+    Skips blank lines, finds the first ``+---`` rule, and reads
+    consecutive content lines (those starting with ``|``) until a rule
+    that's followed by a non-rule line. Returns a list of rows; each
+    row is a list of cell texts (one per pipe-delimited column).
+    """
+    i = start
+    while i < len(lines) and lines[i].strip() == "":
+        i += 1
+    if i >= len(lines) or not lines[i].lstrip().startswith("+"):
+        return []
+
+    rows: list[list[str]] = []
+    current: list[str] | None = None
+    while i < len(lines):
+        line = lines[i]
+        stripped = line.strip()
+        if stripped.startswith("+"):
+            if current is not None:
+                rows.append([c.strip() for c in current])
+                current = None
+            # Continue past rules; bail when we leave the table.
+            if i + 1 >= len(lines) or not lines[i + 1].lstrip().startswith("|"):
+                break
+        elif stripped.startswith("|"):
+            cells = [c for c in stripped.strip("|").split("|")]
+            if current is None:
+                current = list(cells)
+            else:
+                # Multi-line cell continuation: append to existing cells.
+                for j in range(min(len(current), len(cells))):
+                    current[j] = (current[j] + " " + cells[j]).strip()
+        else:
+            break
+        i += 1
+    return rows
+
+
 def write_commands_tsv(commands: list[YdbEntry], out: Path) -> None:
     _write_entries_tsv(commands, out)
 
@@ -344,6 +605,33 @@ def main(argv: list[str] | None = None) -> int:
     else:
         log.error("expected file not found: %s", functions_rst)
         rc = 1
+
+    langfeat_rst = args.repo / "ProgrammersGuide" / "langfeat.rst"
+    if langfeat_rst.exists():
+        codes = extract_pattern_codes(langfeat_rst)
+        write_pattern_codes_tsv(codes, args.out_dir / "pattern-codes.tsv")
+        log.info(
+            "wrote %d pattern codes -> %s/pattern-codes.tsv",
+            len(codes),
+            args.out_dir,
+        )
+        ops = extract_operators(langfeat_rst)
+        write_operators_tsv(ops, args.out_dir / "operators.tsv")
+        log.info(
+            "wrote %d operators -> %s/operators.tsv",
+            len(ops),
+            args.out_dir,
+        )
+
+    errors_rst = args.repo / "MessageRecovery" / "errors.rst"
+    if errors_rst.exists():
+        errors = extract_errors(errors_rst)
+        write_errors_tsv(errors, args.out_dir / "errors.tsv")
+        log.info(
+            "wrote %d errors -> %s/errors.tsv",
+            len(errors),
+            args.out_dir,
+        )
 
     isv_rst = args.repo / "ProgrammersGuide" / "isv.rst"
     if isv_rst.exists():

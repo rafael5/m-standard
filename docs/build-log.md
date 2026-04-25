@@ -182,3 +182,48 @@ standard"; YDB is authoritative for current implementation detail
 including abbreviations. Empty `abbreviation` cells in
 `per-source/anno/commands.tsv` are expected and will be filled by
 joining against `per-source/ydb/commands.tsv` during A2 reconciliation.
+
+---
+
+## BL-008 — Some YDB function/ISV sections skip the format-intro sentence (2026-04-25)
+
+**Phase:** A1 — per-source extraction.
+**Context:** A handful of YDB function pages (`$ZYISSQLNULL`,
+`$ZYSUFFIX`) and ISV pages (`$ZPIN`, `$ZPOUT`, `$ZYRELEASE`,
+`$ZYSQLNULL`) skip the "The format … is:" sentence and jump straight
+into the syntax block. The first-pass extractor missed these.
+
+**Fix:** Added a fallback to `_find_format` — if no format-intro
+sentence is present in the section, take the first ``.. code-block::``
+whose content line looks like a format string (begins with ``$`` or
+with an uppercase letter followed by ``[``). For ISVs specifically,
+the format token is the leading ``$X[YYY]`` of the first description
+paragraph; entries that genuinely don't follow that pattern are logged
+and skipped (4 ISVs as of `25a97c4c`).
+
+---
+
+## BL-009 — A1 concept-family coverage matrix (2026-04-25)
+
+**Phase:** A1 — per-source extraction.
+**Context:** A1's exit criterion in the spec is "all seven concept
+families extracted from both sources where present." Coverage as of
+this commit:
+
+| Concept                  | YDB extractor | YDB rows | AnnoStd extractor | AnnoStd rows | Notes |
+|--------------------------|---------------|----------|--------------------|--------------|-------|
+| Commands                 | ✓             | 50       | ✓                  | 40           | |
+| Intrinsic functions      | ✓             | 60       | ✓                  | 28           | |
+| Intrinsic special vars   | ✓             | 65       | ✓                  | 17           | |
+| Operators                | ✓             | 16       | deferred           | 0            | AnnoStd renders operators as BNF railroad diagrams (chapters 7.2.1, 7.2.2) which need bespoke extraction; YDB has 4 clean RST grid tables. |
+| Pattern codes            | ✓             | 7        | deferred           | 0            | Same — AnnoStd describes patcodes as BNF (`patcode ::= [ ' ] Y patnonY | …`) on a107199 rather than a code-letter table. |
+| Errors                   | ✓             | 1601     | deferred           | 0            | YDB documents vendor mnemonics; ANSI M1–M75 set is in AnnoStd's chapter on conforming implementations and needs a separate extractor (deferred to v0.2). All YDB errors are tagged `ydb-extension`. |
+| Environment              | deferred      | 0        | deferred           | 0            | Heterogeneous; per spec §5.7 the most divergent family. Deferred to v0.2. |
+
+**Decision:** v1.0 ships 6/7 YDB concept families and 3/7 AnnoStd
+concept families. The reconciler in A2 covers the 3 families where
+both sources contribute (commands, functions, ISVs). YDB-only
+families (operators, pattern codes, errors) flow through the
+reconciler as `in_anno=false` rows, which is honest signalling for
+downstream consumers. Environment and the BNF-form AnnoStd extractors
+are tracked for v0.2.

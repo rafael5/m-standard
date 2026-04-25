@@ -1,0 +1,8 @@
+code	description	standard_status_hint	source_section
+A	alphabetic characters upper or lower case	ansi	ProgrammersGuide/langfeat.rst#pattern-codes
+C	control characters ASCII 0-31 and 127	ansi	ProgrammersGuide/langfeat.rst#pattern-codes
+E	any character; used to pass all characters in portions of the string where the pattern is not restricted	ansi	ProgrammersGuide/langfeat.rst#pattern-codes
+L	lower-case alphabetic characters, ASCII 97-122	ansi	ProgrammersGuide/langfeat.rst#pattern-codes
+N	digits 0-9, ASCII 48-57	ansi	ProgrammersGuide/langfeat.rst#pattern-codes
+P	punctuation, ASCII 32-47, 58-64, 91-96, 123-126	ansi	ProgrammersGuide/langfeat.rst#pattern-codes
+U	upper-case alphabetic characters, ASCII 65-90	ansi	ProgrammersGuide/langfeat.rst#pattern-codes
