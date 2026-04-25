@@ -28,3 +28,6 @@ jobs:
 
       - name: Test with coverage
         run: uv run pytest --cov --cov-report=term-missing
+
+      - name: Validate integrated layer (spec §7.4 — 7 gates)
+        run: uv run python -m m_standard.tools.validate --root .
