@@ -1,0 +1,324 @@
+concept	name	pragmatic_tier	standard_status	in_anno	in_ydb	in_iris	anno_section	ydb_section	iris_section
+commands	ABLOCK	ansi-unimplemented	ansi	true	false	false	pages/a108019.html#8.2.1		
+commands	ASSIGN	ansi-unimplemented	ansi	true	false	false	pages/a108020.html#8.2.2		
+commands	ASTART	ansi-unimplemented	ansi	true	false	false	pages/a108021.html#8.2.3		
+commands	ASTOP	ansi-unimplemented	ansi	true	false	false	pages/a108022.html#8.2.4		
+commands	AUNBLOCK	ansi-unimplemented	ansi	true	false	false	pages/a108023.html#8.2.5		
+commands	BREAK	core	ansi	true	true	true	pages/a108024.html#8.2.1	ProgrammersGuide/commands.rst#Break	site/RCOS_cbreak.html#RCOS_cbreak
+commands	CATCH	iris-only	iris-extension	false	false	true			site/RCOS_ccatch.html#RCOS_ccatch
+commands	CLOSE	core	ansi	true	true	true	pages/a108025.html#8.2.2	ProgrammersGuide/commands.rst#Close	site/RCOS_cclose.html#RCOS_cclose
+commands	CONTINUE	iris-only	iris-extension	false	false	true			site/RCOS_ccontinue.html#RCOS_ccontinue
+commands	DO	core	ansi	true	true	true	pages/a108026.html#8.2.3	ProgrammersGuide/commands.rst#Do	site/RCOS_cdo.html#RCOS_cdo
+commands	ELSE	core	ansi	true	true	true	pages/a108027.html#8.2.4	ProgrammersGuide/commands.rst#Else	site/RCOS_celse.html#RCOS_celse
+commands	ELSEIF	iris-only	iris-extension	false	false	true			site/RCOS_celseif.html#RCOS_celseif
+commands	ESTART	ansi-unimplemented	ansi	true	false	false	pages/a108028.html#8.2.10		
+commands	ESTOP	ansi-unimplemented	ansi	true	false	false	pages/a108029.html#8.2.11		
+commands	ETRIGGER	ansi-unimplemented	ansi	true	false	false	pages/a108030.html#8.2.12		
+commands	FOR	core	ansi	true	true	true	pages/a108031.html#8.2.5	ProgrammersGuide/commands.rst#For	site/RCOS_cfor.html#RCOS_cfor
+commands	GOTO	core	ansi	true	true	true	pages/a108032.html#8.2.6	ProgrammersGuide/commands.rst#Goto	site/RCOS_cgoto.html#RCOS_cgoto
+commands	HALT	core	ansi	true	true	true	pages/a108033.html#8.2.7	ProgrammersGuide/commands.rst#HALT	site/RCOS_chalt.html#RCOS_chalt
+commands	HANG	core	ansi	true	true	true	pages/a108034.html#8.2.8	ProgrammersGuide/commands.rst#HANG	site/RCOS_chang.html#RCOS_chang
+commands	IF	core	ansi	true	true	true	pages/a108035.html#8.2.9	ProgrammersGuide/commands.rst#If	site/RCOS_cif.html#RCOS_cif
+commands	JOB	core	ansi	true	true	true	pages/a108036.html#8.2.10	ProgrammersGuide/commands.rst#Job	site/RCOS_cjob.html#RCOS_cjob
+commands	KILL	core	ansi	true	true	true	pages/a108037.html#8.2.11	ProgrammersGuide/commands.rst#Kill	site/RCOS_ckill.html#RCOS_ckill
+commands	KSUBSCRIPTS	ansi-unimplemented	ansi	true	false	false	pages/a108038.html#8.2.20		
+commands	KVALUE	ansi-unimplemented	ansi	true	false	false	pages/a108039.html#8.2.21		
+commands	LOCK	core	ansi	true	true	true	pages/a108040.html#8.2.12	ProgrammersGuide/commands.rst#Lock	site/RCOS_clock.html#RCOS_clock
+commands	MERGE	core	ansi	true	true	true	pages/a108041.html#8.2.13	ProgrammersGuide/commands.rst#Merge	site/RCOS_cmerge.html#RCOS_cmerge
+commands	NEW	core	ansi	true	true	true	pages/a108042.html#8.2.14	ProgrammersGuide/commands.rst#New	site/RCOS_cnew.html#RCOS_cnew
+commands	OPEN	core	ansi	true	true	true	pages/a108043.html#8.2.15	ProgrammersGuide/commands.rst#Open	site/RCOS_copen.html#RCOS_copen
+commands	PRINT	iris-only	iris-extension	false	false	true			site/RCOS_cprint.html#RCOS_cprint
+commands	QUIT	core	ansi	true	true	true	pages/a108044.html#8.2.16	ProgrammersGuide/commands.rst#Quit	site/RCOS_cquit.html#RCOS_cquit
+commands	READ	core	ansi	true	true	true	pages/a108045.html#8.2.17	ProgrammersGuide/commands.rst#READ	site/RCOS_cread.html#RCOS_cread
+commands	RETURN	iris-only	iris-extension	false	false	true			site/RCOS_creturn.html#RCOS_creturn
+commands	RLOAD	ansi-unimplemented	ansi	true	false	false	pages/a108046.html#8.2.28		
+commands	RSAVE	ansi-unimplemented	ansi	true	false	false	pages/a108047.html#8.2.29		
+commands	SET	core	ansi	true	true	true	pages/a108048.html#8.2.18	ProgrammersGuide/commands.rst#Set	site/RCOS_cset.html#RCOS_cset
+commands	TCOMMIT	core	ansi	true	true	true	pages/a108049.html#8.2.19	ProgrammersGuide/commands.rst#TCommit	site/RCOS_ctcommit.html#RCOS_ctcommit
+commands	THEN	ansi-unimplemented	ansi	true	false	false	pages/a108050.html#8.2.32		
+commands	THROW	iris-only	iris-extension	false	false	true			site/RCOS_cthrow.html#RCOS_cthrow
+commands	TRESTART	ydb-only	ansi	true	true	false	pages/a108051.html#8.2.20	ProgrammersGuide/commands.rst#TREstart	
+commands	TROLLBACK	core	ansi	true	true	true	pages/a108052.html#8.2.21	ProgrammersGuide/commands.rst#TROllback	site/RCOS_ctrollback.html#RCOS_ctrollback
+commands	TRY	iris-only	iris-extension	false	false	true			site/RCOS_ctry.html#RCOS_ctry
+commands	TSTART	core	ansi	true	true	true	pages/a108053.html#8.2.22	ProgrammersGuide/commands.rst#TStart	site/RCOS_ctstart.html#RCOS_ctstart
+commands	USE	core	ansi	true	true	true	pages/a108054.html#8.2.23	ProgrammersGuide/commands.rst#Use	site/RCOS_cuse.html#RCOS_cuse
+commands	VIEW	core	ansi	true	true	true	pages/a108055.html#8.2.24	ProgrammersGuide/commands.rst#View	site/RCOS_cview.html#RCOS_cview
+commands	WHILE	iris-only	iris-extension	false	false	true			site/RCOS_cwhile.html#RCOS_cwhile
+commands	WRITE	core	ansi	true	true	true	pages/a108056.html#8.2.25	ProgrammersGuide/commands.rst#Write	site/RCOS_cwrite.html#RCOS_cwrite
+commands	XECUTE	core	ansi	true	true	true	pages/a108057.html#8.2.26	ProgrammersGuide/commands.rst#Xecute	site/RCOS_cxecute.html#RCOS_cxecute
+commands	Z	ansi-unimplemented	ansi	true	false	false	pages/a108058.html#8.2.27		
+commands	ZALLOCATE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZAllocate	
+commands	ZBREAK	core	multi-vendor-ext	false	true	true		ProgrammersGuide/commands.rst#ZBREAK	site/RCOS_czbreak.html#RCOS_czbreak
+commands	ZCOMPILE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZCOMpile	
+commands	ZCONTINUE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZContinue	
+commands	ZDEALLOCATE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZDeallocate	
+commands	ZEDIT	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZEdit	
+commands	ZGOTO	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZGoto	
+commands	ZHALT	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZHALT	
+commands	ZHELP	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZHelp	
+commands	ZINSERT	iris-only	iris-extension	false	false	true			site/RCOS_czinsert.html#RCOS_czinsert
+commands	ZKILL	core	multi-vendor-ext	false	true	true		ProgrammersGuide/commands.rst#ZKill	site/RCOS_czkill.html#RCOS_czkill
+commands	ZLINK	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZLink	
+commands	ZLOAD	iris-only	iris-extension	false	false	true			site/RCOS_czload.html#RCOS_czload
+commands	ZMESSAGE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZMessage	
+commands	ZNSPACE	iris-only	iris-extension	false	false	true			site/RCOS_cznspace.html#RCOS_cznspace
+commands	ZPRINT	core	multi-vendor-ext	false	true	true		ProgrammersGuide/commands.rst#ZPrint	site/RCOS_czprint.html#RCOS_czprint
+commands	ZREMOVE	iris-only	iris-extension	false	false	true			site/RCOS_czremove.html#RCOS_czremove
+commands	ZRUPDATE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZRUPdate	
+commands	ZSAVE	iris-only	iris-extension	false	false	true			site/RCOS_czsave.html#RCOS_czsave
+commands	ZSHOW	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZSHow	
+commands	ZSTEP	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZSTep	
+commands	ZSU	iris-only	iris-extension	false	false	true			site/RCOS_czsu.html#RCOS_czsu
+commands	ZSYSTEM	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZSYstem	
+commands	ZTCOMMIT	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZTCommit	
+commands	ZTRAP	iris-only	iris-extension	false	false	true			site/RCOS_cztrap.html#RCOS_cztrap
+commands	ZTRIGGER	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZTRigger	
+commands	ZTSTART	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZTStart	
+commands	ZWITHDRAW	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZWIthdraw	
+commands	ZWRITE	core	multi-vendor-ext	false	true	true		ProgrammersGuide/commands.rst#ZWRite	site/RCOS_czwrite.html#RCOS_czwrite
+commands	ZYDECODE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZYDECODE	
+commands	ZYENCODE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/commands.rst#ZYENCODE	
+commands	ZZDUMP	iris-only	iris-extension	false	false	true			site/RCOS_czzdump.html#RCOS_czzdump
+commands	ZZPRINT	iris-only	iris-extension	false	false	true			site/RCOS_czzprint.html#RCOS_czzprint
+commands	ZZWRITE	iris-only	iris-extension	false	false	true			site/RCOS_czzwrite.html#RCOS_czzwrite
+intrinsic-functions	$ASCII	core	ansi	true	true	true	pages/a107084.html#7.1.5.1	ProgrammersGuide/functions.rst#$ASCII()	site/RCOS_fascii.html#RCOS_fascii
+intrinsic-functions	$BIT	iris-only	iris-extension	false	false	true			site/RCOS_fbit.html#RCOS_fbit
+intrinsic-functions	$BITCOUNT	iris-only	iris-extension	false	false	true			site/RCOS_fbitcount.html#RCOS_fbitcount
+intrinsic-functions	$BITFIND	iris-only	iris-extension	false	false	true			site/RCOS_fbitfind.html#RCOS_fbitfind
+intrinsic-functions	$BITLOGIC	iris-only	iris-extension	false	false	true			site/RCOS_fbitlogic.html#RCOS_fbitlogic
+intrinsic-functions	$CASE	iris-only	iris-extension	false	false	true			site/RCOS_fcase.html#RCOS_fcase
+intrinsic-functions	$CHANGE	iris-only	iris-extension	false	false	true			site/RCOS_fchange.html#RCOS_fchange
+intrinsic-functions	$CHAR	core	ansi	true	true	true	pages/a107085.html#7.1.5.2	ProgrammersGuide/functions.rst#$CHAR()	site/RCOS_fchar.html#RCOS_fchar
+intrinsic-functions	$CLASSMETHOD	iris-only	iris-extension	false	false	true			site/RCOS_fclassmethod.html#RCOS_fclassmethod
+intrinsic-functions	$CLASSNAME	iris-only	iris-extension	false	false	true			site/RCOS_fclassname.html#RCOS_fclassname
+intrinsic-functions	$COMPILE	iris-only	iris-extension	false	false	true			site/RCOS_fcompile.html#RCOS_fcompile
+intrinsic-functions	$DATA	core	ansi	true	true	true	pages/a107086.html#7.1.5.3	ProgrammersGuide/functions.rst#$DATA()	site/RCOS_fdata.html#RCOS_fdata
+intrinsic-functions	$DECIMAL	iris-only	iris-extension	false	false	true			site/RCOS_fdecimal.html#RCOS_fdecimal
+intrinsic-functions	$DEXTRACT	ansi-unimplemented	ansi	true	false	false	pages/a107087.html#7.1.5.4		
+intrinsic-functions	$DOUBLE	iris-only	iris-extension	false	false	true			site/RCOS_fdouble.html#RCOS_fdouble
+intrinsic-functions	$DPIECE	ansi-unimplemented	ansi	true	false	false	pages/a107088.html#7.1.5.5		
+intrinsic-functions	$EXTRACT	core	ansi	true	true	true	pages/a107089.html#7.1.5.4	ProgrammersGuide/functions.rst#$EXTRACT()	site/RCOS_fextract.html#RCOS_fextract
+intrinsic-functions	$FACTOR	iris-only	iris-extension	false	false	true			site/RCOS_ffactor.html#RCOS_ffactor
+intrinsic-functions	$FIND	core	ansi	true	true	true	pages/a107090.html#7.1.5.5	ProgrammersGuide/functions.rst#$FIND()	site/RCOS_ffind.html#RCOS_ffind
+intrinsic-functions	$FNUMBER	core	ansi	true	true	true	pages/a107091.html#7.1.5.6	ProgrammersGuide/functions.rst#$FNUMBER()	site/RCOS_ffnumber.html#RCOS_ffnumber
+intrinsic-functions	$GET	core	ansi	true	true	true	pages/a107092.html#7.1.5.7	ProgrammersGuide/functions.rst#$GET()	site/RCOS_fget.html#RCOS_fget
+intrinsic-functions	$HOROLOG	ansi-unimplemented	ansi	true	false	false	pages/a107093.html#7.1.5.10		
+intrinsic-functions	$INCREMENT	core	multi-vendor-ext	false	true	true		ProgrammersGuide/functions.rst#$INCREMENT()	site/RCOS_fincrement.html#RCOS_fincrement
+intrinsic-functions	$INUMBER	iris-only	iris-extension	false	false	true			site/RCOS_finumber.html#RCOS_finumber
+intrinsic-functions	$ISOBJECT	iris-only	iris-extension	false	false	true			site/RCOS_fisobject.html#RCOS_fisobject
+intrinsic-functions	$ISVALIDDOUBLE	iris-only	iris-extension	false	false	true			site/RCOS_fisvaliddouble.html#RCOS_fisvaliddouble
+intrinsic-functions	$ISVALIDNUM	iris-only	iris-extension	false	false	true			site/RCOS_fisvalidnum.html#RCOS_fisvalidnum
+intrinsic-functions	$ISVECTOR	iris-only	iris-extension	false	false	true			site/RCOS_fisvector.html#RCOS_fisvector
+intrinsic-functions	$JUSTIFY	core	ansi	true	true	true	pages/a107094.html#7.1.5.8	ProgrammersGuide/functions.rst#$JUSTIFY()	site/RCOS_fjustify.html#RCOS_fjustify
+intrinsic-functions	$LENGTH	core	ansi	true	true	true	pages/a107095.html#7.1.5.9	ProgrammersGuide/functions.rst#$LENGTH()	site/RCOS_flength.html#RCOS_flength
+intrinsic-functions	$LIST	iris-only	iris-extension	false	false	true			site/RCOS_flist.html#RCOS_flist
+intrinsic-functions	$LISTBUILD	iris-only	iris-extension	false	false	true			site/RCOS_flistbuild.html#RCOS_flistbuild
+intrinsic-functions	$LISTDATA	iris-only	iris-extension	false	false	true			site/RCOS_flistdata.html#RCOS_flistdata
+intrinsic-functions	$LISTFIND	iris-only	iris-extension	false	false	true			site/RCOS_flistfind.html#RCOS_flistfind
+intrinsic-functions	$LISTFROMSTRING	iris-only	iris-extension	false	false	true			site/RCOS_flistfromstring.html#RCOS_flistfromstring
+intrinsic-functions	$LISTGET	iris-only	iris-extension	false	false	true			site/RCOS_flistget.html#RCOS_flistget
+intrinsic-functions	$LISTLENGTH	iris-only	iris-extension	false	false	true			site/RCOS_flistlength.html#RCOS_flistlength
+intrinsic-functions	$LISTNEXT	iris-only	iris-extension	false	false	true			site/RCOS_flistnext.html#RCOS_flistnext
+intrinsic-functions	$LISTSAME	iris-only	iris-extension	false	false	true			site/RCOS_flistsame.html#RCOS_flistsame
+intrinsic-functions	$LISTTOSTRING	iris-only	iris-extension	false	false	true			site/RCOS_flisttostring.html#RCOS_flisttostring
+intrinsic-functions	$LISTUPDATE	iris-only	iris-extension	false	false	true			site/RCOS_flistupdate.html#RCOS_flistupdate
+intrinsic-functions	$LISTVALID	iris-only	iris-extension	false	false	true			site/RCOS_flistvalid.html#RCOS_flistvalid
+intrinsic-functions	$LOCATE	iris-only	iris-extension	false	false	true			site/RCOS_flocate.html#RCOS_flocate
+intrinsic-functions	$MATCH	iris-only	iris-extension	false	false	true			site/RCOS_fmatch.html#RCOS_fmatch
+intrinsic-functions	$METHOD	iris-only	iris-extension	false	false	true			site/RCOS_fmethod.html#RCOS_fmethod
+intrinsic-functions	$MUMPS	ansi-unimplemented	ansi	true	false	false	pages/a107097.html#7.1.5.13		
+intrinsic-functions	$NAME	core	ansi	true	true	true	pages/a107098.html#7.1.5.10	ProgrammersGuide/functions.rst#$NAME()	site/RCOS_fname.html#RCOS_fname
+intrinsic-functions	$NCONVERT	iris-only	iris-extension	false	false	true			site/RCOS_fnconvert.html#RCOS_fnconvert
+intrinsic-functions	$NEXT	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$NEXT()	
+intrinsic-functions	$NORMALIZE	iris-only	iris-extension	false	false	true			site/RCOS_fnormalize.html#RCOS_fnormalize
+intrinsic-functions	$NOW	iris-only	iris-extension	false	false	true			site/RCOS_fnow.html#RCOS_fnow
+intrinsic-functions	$NUMBER	iris-only	iris-extension	false	false	true			site/RCOS_fnumber.html#RCOS_fnumber
+intrinsic-functions	$ORDER	core	ansi	true	true	true	pages/a107100.html#7.1.5.11	ProgrammersGuide/functions.rst#$ORDER()	site/RCOS_forder.html#RCOS_forder
+intrinsic-functions	$PARAMETER	iris-only	iris-extension	false	false	true			site/RCOS_fparameter.html#RCOS_fparameter
+intrinsic-functions	$PIECE	core	ansi	true	true	true	pages/a107101.html#7.1.5.12	ProgrammersGuide/functions.rst#$PIECE()	site/RCOS_fpiece.html#RCOS_fpiece
+intrinsic-functions	$PREFETCHOFF	iris-only	iris-extension	false	false	true			site/RCOS_fprefetchoff.html#RCOS_fprefetchoff
+intrinsic-functions	$PREFETCHON	iris-only	iris-extension	false	false	true			site/RCOS_fprefetchon.html#RCOS_fprefetchon
+intrinsic-functions	$PROPERTY	iris-only	iris-extension	false	false	true			site/RCOS_fproperty.html#RCOS_fproperty
+intrinsic-functions	$QLENGTH	core	ansi	true	true	true	pages/a107102.html#7.1.5.13	ProgrammersGuide/functions.rst#$QLENGTH()	site/RCOS_fqlength.html#RCOS_fqlength
+intrinsic-functions	$QSUBSCRIPT	core	ansi	true	true	true	pages/a107103.html#7.1.5.14	ProgrammersGuide/functions.rst#$QSUBSCRIPT()	site/RCOS_fqsubscript.html#RCOS_fqsubscript
+intrinsic-functions	$QUERY	core	ansi	true	true	true	pages/a107104.html#7.1.5.15	ProgrammersGuide/functions.rst#$QUERY()	site/RCOS_fquery.html#RCOS_fquery
+intrinsic-functions	$RANDOM	core	ansi	true	true	true	pages/a107105.html#7.1.5.16	ProgrammersGuide/functions.rst#$RANDOM()	site/RCOS_frandom.html#RCOS_frandom
+intrinsic-functions	$REPLACE	iris-only	iris-extension	false	false	true			site/RCOS_freplace.html#RCOS_freplace
+intrinsic-functions	$REVERSE	core	ansi	true	true	true	pages/a107106.html#7.1.5.17	ProgrammersGuide/functions.rst#$REVERSE()	site/RCOS_freverse.html#RCOS_freverse
+intrinsic-functions	$SCONVERT	iris-only	iris-extension	false	false	true			site/RCOS_fsconvert.html#RCOS_fsconvert
+intrinsic-functions	$SELECT	core	ansi	true	true	true	pages/a107107.html#7.1.5.18	ProgrammersGuide/functions.rst#$SELECT()	site/RCOS_fselect.html#RCOS_fselect
+intrinsic-functions	$SEQUENCE	iris-only	iris-extension	false	false	true			site/RCOS_fsequence.html#RCOS_fsequence
+intrinsic-functions	$SORTBEGIN	iris-only	iris-extension	false	false	true			site/RCOS_fsortbegin.html#RCOS_fsortbegin
+intrinsic-functions	$SORTEND	iris-only	iris-extension	false	false	true			site/RCOS_fsortend.html#RCOS_fsortend
+intrinsic-functions	$STACK	ydb-only	ansi	true	true	false	pages/a107108.html#7.1.5.19	ProgrammersGuide/functions.rst#$STACK()	
+intrinsic-functions	$TEXT	core	ansi	true	true	true	pages/a107109.html#7.1.5.20	ProgrammersGuide/functions.rst#$TEXT()	site/RCOS_ftext.html#RCOS_ftext
+intrinsic-functions	$TRANSLATE	core	ansi	true	true	true	pages/a107111.html#7.1.5.21	ProgrammersGuide/functions.rst#$TRANSLATE()	site/RCOS_ftranslate.html#RCOS_ftranslate
+intrinsic-functions	$TYPE	ansi-unimplemented	ansi	true	false	false	pages/a107110.html#7.1.5.25		
+intrinsic-functions	$VECTOR	iris-only	iris-extension	false	false	true			site/RCOS_fvector.html#RCOS_fvector
+intrinsic-functions	$VECTORDEFINED	iris-only	iris-extension	false	false	true			site/RCOS_fvectordefined.html#RCOS_fvectordefined
+intrinsic-functions	$VECTOROP	iris-only	iris-extension	false	false	true			site/RCOS_fvectorop.html#RCOS_fvectorop
+intrinsic-functions	$VIEW	core	ansi	true	true	true	pages/a107112.html#7.1.5.22	ProgrammersGuide/functions.rst#$VIEW()	site/RCOS_fview.html#RCOS_fview
+intrinsic-functions	$WASCII	iris-only	iris-extension	false	false	true			site/RCOS_fwascii.html#RCOS_fwascii
+intrinsic-functions	$WCHAR	iris-only	iris-extension	false	false	true			site/RCOS_fwchar.html#RCOS_fwchar
+intrinsic-functions	$WEXTRACT	iris-only	iris-extension	false	false	true			site/RCOS_fwextract.html#RCOS_fwextract
+intrinsic-functions	$WFIND	iris-only	iris-extension	false	false	true			site/RCOS_fwfind.html#RCOS_fwfind
+intrinsic-functions	$WISWIDE	iris-only	iris-extension	false	false	true			site/RCOS_fwiswide.html#RCOS_fwiswide
+intrinsic-functions	$WLENGTH	iris-only	iris-extension	false	false	true			site/RCOS_fwlength.html#RCOS_fwlength
+intrinsic-functions	$WREVERSE	iris-only	iris-extension	false	false	true			site/RCOS_fwreverse.html#RCOS_fwreverse
+intrinsic-functions	$XECUTE	iris-only	iris-extension	false	false	true			site/RCOS_fxecute.html#RCOS_fxecute
+intrinsic-functions	$Z	ansi-unimplemented	ansi	true	false	false	pages/a107113.html#7.1.5.23		
+intrinsic-functions	$ZABS	iris-only	iris-extension	false	false	true			site/RCOS_fzabs.html#RCOS_fzabs
+intrinsic-functions	$ZAHANDLE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZAHANDLE()	
+intrinsic-functions	$ZARCCOS	iris-only	iris-extension	false	false	true			site/RCOS_fzarccos.html#RCOS_fzarccos
+intrinsic-functions	$ZARCSIN	iris-only	iris-extension	false	false	true			site/RCOS_fzarcsin.html#RCOS_fzarcsin
+intrinsic-functions	$ZARCTAN	iris-only	iris-extension	false	false	true			site/RCOS_fzarctan.html#RCOS_fzarctan
+intrinsic-functions	$ZASCII	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZASCII()	
+intrinsic-functions	$ZATRANSFORM	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZATRANSFORM()	
+intrinsic-functions	$ZBITAND	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZBIT Functions	
+intrinsic-functions	$ZBOOLEAN	iris-only	iris-extension	false	false	true			site/RCOS_fzboolean.html#RCOS_fzboolean
+intrinsic-functions	$ZCHAR	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZCHAR()	
+intrinsic-functions	$ZCOLLATE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZCOLLATE()	
+intrinsic-functions	$ZCONVERT	core	multi-vendor-ext	false	true	true		ProgrammersGuide/functions.rst#$ZCONVERT()	site/RCOS_fzconvert.html#RCOS_fzconvert
+intrinsic-functions	$ZCOS	iris-only	iris-extension	false	false	true			site/RCOS_fzcos.html#RCOS_fzcos
+intrinsic-functions	$ZCOT	iris-only	iris-extension	false	false	true			site/RCOS_fzcot.html#RCOS_fzcot
+intrinsic-functions	$ZCRC	iris-only	iris-extension	false	false	true			site/RCOS_fzcrc.html#RCOS_fzcrc
+intrinsic-functions	$ZCSC	iris-only	iris-extension	false	false	true			site/RCOS_fzcsc.html#RCOS_fzcsc
+intrinsic-functions	$ZCYC	iris-only	iris-extension	false	false	true			site/RCOS_fzcyc.html#RCOS_fzcyc
+intrinsic-functions	$ZDASCII	iris-only	iris-extension	false	false	true			site/RCOS_fzdascii.html#RCOS_fzdascii
+intrinsic-functions	$ZDATA	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZDATA()	
+intrinsic-functions	$ZDATE	core	multi-vendor-ext	false	true	true		ProgrammersGuide/functions.rst#$ZDATE()	site/RCOS_fzdate.html#RCOS_fzdate
+intrinsic-functions	$ZDATEH	iris-only	iris-extension	false	false	true			site/RCOS_fzdateh.html#RCOS_fzdateh
+intrinsic-functions	$ZDATETIME	iris-only	iris-extension	false	false	true			site/RCOS_fzdatetime.html#RCOS_fzdatetime
+intrinsic-functions	$ZDATETIMEH	iris-only	iris-extension	false	false	true			site/RCOS_fzdatetimeh.html#RCOS_fzdatetimeh
+intrinsic-functions	$ZDCHAR	iris-only	iris-extension	false	false	true			site/RCOS_fzdchar.html#RCOS_fzdchar
+intrinsic-functions	$ZEXP	iris-only	iris-extension	false	false	true			site/RCOS_fzexp.html#RCOS_fzexp
+intrinsic-functions	$ZEXTRACT	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZEXTRACT()	
+intrinsic-functions	$ZF	iris-only	iris-extension	false	false	true			site/RCOS_fzf.html#RCOS_fzf
+intrinsic-functions	$ZFIND	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZFIND()	
+intrinsic-functions	$ZGETJPI	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZGETJPI()	
+intrinsic-functions	$ZHEX	iris-only	iris-extension	false	false	true			site/RCOS_fzhex.html#RCOS_fzhex
+intrinsic-functions	$ZISWIDE	iris-only	iris-extension	false	false	true			site/RCOS_fziswide.html#RCOS_fziswide
+intrinsic-functions	$ZJOBEXAM	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZJOBEXAM()	
+intrinsic-functions	$ZJUSTIFY	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZJUSTIFY()	
+intrinsic-functions	$ZLASCII	iris-only	iris-extension	false	false	true			site/RCOS_fzlascii.html#RCOS_fzlascii
+intrinsic-functions	$ZLCHAR	iris-only	iris-extension	false	false	true			site/RCOS_fzlchar.html#RCOS_fzlchar
+intrinsic-functions	$ZLENGTH	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZLENGTH()	
+intrinsic-functions	$ZLN	iris-only	iris-extension	false	false	true			site/RCOS_fzln.html#RCOS_fzln
+intrinsic-functions	$ZLOG	iris-only	iris-extension	false	false	true			site/RCOS_fzlog.html#RCOS_fzlog
+intrinsic-functions	$ZMESSAGE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZMESSAGE()	
+intrinsic-functions	$ZPARSE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZPARSE()	
+intrinsic-functions	$ZPEEK	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZPEEK()	
+intrinsic-functions	$ZPIECE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZPIECE()	
+intrinsic-functions	$ZPOWER	iris-only	iris-extension	false	false	true			site/RCOS_fzpower.html#RCOS_fzpower
+intrinsic-functions	$ZPREVIOUS	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZPREVIOUS()	
+intrinsic-functions	$ZQASCII	iris-only	iris-extension	false	false	true			site/RCOS_fzqascii.html#RCOS_fzqascii
+intrinsic-functions	$ZQCHAR	iris-only	iris-extension	false	false	true			site/RCOS_fzqchar.html#RCOS_fzqchar
+intrinsic-functions	$ZQGBLMOD	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZQGBLMOD()	
+intrinsic-functions	$ZSEARCH	core	multi-vendor-ext	false	true	true		ProgrammersGuide/functions.rst#$ZSEARCH()	site/RCOS_fzsearch.html#RCOS_fzsearch
+intrinsic-functions	$ZSEC	iris-only	iris-extension	false	false	true			site/RCOS_fzsec.html#RCOS_fzsec
+intrinsic-functions	$ZSEEK	iris-only	iris-extension	false	false	true			site/RCOS_fzseek.html#RCOS_fzseek
+intrinsic-functions	$ZSIGPROC	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZSIGPROC()	
+intrinsic-functions	$ZSIN	iris-only	iris-extension	false	false	true			site/RCOS_fzsin.html#RCOS_fzsin
+intrinsic-functions	$ZSOCKET	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZSOCKET()	
+intrinsic-functions	$ZSQR	iris-only	iris-extension	false	false	true			site/RCOS_fzsqr.html#RCOS_fzsqr
+intrinsic-functions	$ZSTRIP	iris-only	iris-extension	false	false	true			site/RCOS_fzstrip.html#RCOS_fzstrip
+intrinsic-functions	$ZSUBSTR	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZSUBSTR()	
+intrinsic-functions	$ZSYSLOG	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZSYSLOG()	
+intrinsic-functions	$ZTAN	iris-only	iris-extension	false	false	true			site/RCOS_fztan.html#RCOS_fztan
+intrinsic-functions	$ZTIME	iris-only	iris-extension	false	false	true			site/RCOS_fztime.html#RCOS_fztime
+intrinsic-functions	$ZTIMEH	iris-only	iris-extension	false	false	true			site/RCOS_fztimeh.html#RCOS_fztimeh
+intrinsic-functions	$ZTRANSLATE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZTRANSLATE()	
+intrinsic-functions	$ZTRIGGER	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZTRIGGER()	
+intrinsic-functions	$ZTRNLNM	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZTRNLNM()	
+intrinsic-functions	$ZUADITLOG	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZAUditlog()	
+intrinsic-functions	$ZWASCII	iris-only	iris-extension	false	false	true			site/RCOS_fzwascii.html#RCOS_fzwascii
+intrinsic-functions	$ZWCHAR	iris-only	iris-extension	false	false	true			site/RCOS_fzwchar.html#RCOS_fzwchar
+intrinsic-functions	$ZWIDTH	core	multi-vendor-ext	false	true	true		ProgrammersGuide/functions.rst#$ZWIDTH()	site/RCOS_fzwidth.html#RCOS_fzwidth
+intrinsic-functions	$ZWRITE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZWRITE()	
+intrinsic-functions	$ZYCOMPILE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZYCOmpile()	
+intrinsic-functions	$ZYHASH	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZYHASH()	
+intrinsic-functions	$ZYISSQLNULL	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZYISSQLNULL()	
+intrinsic-functions	$ZYSUFFIX	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZYSUFFIX()	
+intrinsic-functions	$ZZENKAKU	iris-only	iris-extension	false	false	true			site/RCOS_fzzenkaku.html#RCOS_fzzenkaku
+intrinsic-special-variables	$DEVICE	core	ansi	true	true	true	pages/a107058.html#7.1.4.10	ProgrammersGuide/isv.rst#$DEVICE	site/RCOS_vdevice.html#RCOS_vdevice
+intrinsic-special-variables	$ECODE	core	ansi	true	true	true	pages/a107059.html#7.1.4.10	ProgrammersGuide/isv.rst#$ECODE	site/RCOS_vecode.html#RCOS_vecode
+intrinsic-special-variables	$ESTACK	core	ansi	true	true	true	pages/a107060.html#7.1.4.10	ProgrammersGuide/isv.rst#$ESTACK	site/RCOS_vestack.html#RCOS_vestack
+intrinsic-special-variables	$ETRAP	core	ansi	true	true	true	pages/a107061.html#7.1.4.10	ProgrammersGuide/isv.rst#$ETRAP	site/RCOS_vetrap.html#RCOS_vetrap
+intrinsic-special-variables	$HALT	iris-only	iris-extension	false	false	true			site/RCOS_vhalt.html#RCOS_vhalt
+intrinsic-special-variables	$HOROLOG	core	ansi	true	true	true	pages/a107062.html#7.1.4.10	ProgrammersGuide/isv.rst#$HOROLOG	site/RCOS_vhorolog.html#RCOS_vhorolog
+intrinsic-special-variables	$IO	core	ansi	true	true	true	pages/a107063.html#7.1.4.10	ProgrammersGuide/isv.rst#$IO	site/RCOS_vio.html#RCOS_vio
+intrinsic-special-variables	$JOB	core	ansi	true	true	true	pages/a107065.html#7.1.4.10	ProgrammersGuide/isv.rst#$JOB	site/RCOS_vjob.html#RCOS_vjob
+intrinsic-special-variables	$KEY	core	ansi	true	true	true	pages/a107066.html#7.1.4.10	ProgrammersGuide/isv.rst#$KEY	site/RCOS_vkey.html#RCOS_vkey
+intrinsic-special-variables	$NAMESPACE	iris-only	iris-extension	false	false	true			site/RCOS_vnamespace.html#RCOS_vnamespace
+intrinsic-special-variables	$PRINCIPAL	core	ansi	true	true	true	pages/a107068.html#7.1.4.10	ProgrammersGuide/isv.rst#$PRINCIPAL	site/RCOS_vprincipal.html#RCOS_vprincipal
+intrinsic-special-variables	$QUIT	core	ansi	true	true	true	pages/a107069.html#7.1.4.10	ProgrammersGuide/isv.rst#$QUIT	site/RCOS_vquit.html#RCOS_vquit
+intrinsic-special-variables	$REFERENCE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$REFERENCE	
+intrinsic-special-variables	$ROLES	iris-only	iris-extension	false	false	true			site/RCOS_vroles.html#RCOS_vroles
+intrinsic-special-variables	$STACK	ydb-only	ansi	true	true	false	pages/a107071.html#7.1.4.10	ProgrammersGuide/isv.rst#$STACK	
+intrinsic-special-variables	$STORAGE	core	ansi	true	true	true	pages/a107072.html#7.1.4.10	ProgrammersGuide/isv.rst#$STORAGE	site/RCOS_vstorage.html#RCOS_vstorage
+intrinsic-special-variables	$SYSTEM	core	ansi	true	true	true	pages/a107073.html#7.1.4.10	ProgrammersGuide/isv.rst#$SYSTEM	site/RCOS_vsystem.html#RCOS_vsystem
+intrinsic-special-variables	$TEST	core	ansi	true	true	true	pages/a107074.html#7.1.4.10	ProgrammersGuide/isv.rst#$TEST	site/RCOS_vtest.html#RCOS_vtest
+intrinsic-special-variables	$THIS	iris-only	iris-extension	false	false	true			site/RCOS_vthis.html#RCOS_vthis
+intrinsic-special-variables	$THROWOBJ	iris-only	iris-extension	false	false	true			site/RCOS_vthrowobj.html#RCOS_vthrowobj
+intrinsic-special-variables	$TLEVEL	core	ansi	true	true	true	pages/a107075.html#7.1.4.10	ProgrammersGuide/isv.rst#$TLEVEL	site/RCOS_vtlevel.html#RCOS_vtlevel
+intrinsic-special-variables	$TRESTART	ydb-only	ansi	true	true	false	pages/a107076.html#7.1.4.10	ProgrammersGuide/isv.rst#$TRESTART	
+intrinsic-special-variables	$USERNAME	iris-only	iris-extension	false	false	true			site/RCOS_vusername.html#RCOS_vusername
+intrinsic-special-variables	$X	core	multi-vendor-ext	false	true	true		ProgrammersGuide/isv.rst#$X	site/RCOS_vx.html#RCOS_vx
+intrinsic-special-variables	$Y	core	multi-vendor-ext	false	true	true		ProgrammersGuide/isv.rst#$Y	site/RCOS_vy.html#RCOS_vy
+intrinsic-special-variables	$ZA	core	multi-vendor-ext	false	true	true		ProgrammersGuide/isv.rst#$ZA	site/RCOS_vza.html#RCOS_vza
+intrinsic-special-variables	$ZALLOCSTOR	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZALLOCSTOR	
+intrinsic-special-variables	$ZAUDIT	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZAUDIT	
+intrinsic-special-variables	$ZB	core	multi-vendor-ext	false	true	true		ProgrammersGuide/isv.rst#$ZB	site/RCOS_vzb.html#RCOS_vzb
+intrinsic-special-variables	$ZCHILD	iris-only	iris-extension	false	false	true			site/RCOS_vzchild.html#RCOS_vzchild
+intrinsic-special-variables	$ZCHSET	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZCHSET	
+intrinsic-special-variables	$ZCMDLINE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZCMDLINE	
+intrinsic-special-variables	$ZCOMPILE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZCOMPILE	
+intrinsic-special-variables	$ZCSTATUS	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZCSTATUS	
+intrinsic-special-variables	$ZDATEFORM	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZDATEFORM	
+intrinsic-special-variables	$ZDIRECTORY	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZDIRECTORY	
+intrinsic-special-variables	$ZEOF	core	multi-vendor-ext	false	true	true		ProgrammersGuide/isv.rst#$ZEOF	site/RCOS_vzeof.html#RCOS_vzeof
+intrinsic-special-variables	$ZEOS	iris-only	iris-extension	false	false	true			site/RCOS_vzeos.html#RCOS_vzeos
+intrinsic-special-variables	$ZERROR	core	multi-vendor-ext	false	true	true		ProgrammersGuide/isv.rst#$ZERROR	site/RCOS_vzerror.html#RCOS_vzerror
+intrinsic-special-variables	$ZGBLDIR	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZGBLDIR	
+intrinsic-special-variables	$ZHOROLOG	core	multi-vendor-ext	false	true	true		ProgrammersGuide/isv.rst#$ZHOROLOG	site/RCOS_vzhorolog.html#RCOS_vzhorolog
+intrinsic-special-variables	$ZICUVER	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZICUVER	
+intrinsic-special-variables	$ZININTERRUPT	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZININTERRUPT	
+intrinsic-special-variables	$ZINTERRUPT	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZINTERRUPT	
+intrinsic-special-variables	$ZIO	core	multi-vendor-ext	false	true	true		ProgrammersGuide/isv.rst#$ZIO	site/RCOS_vzio.html#RCOS_vzio
+intrinsic-special-variables	$ZJOB	core	multi-vendor-ext	false	true	true		ProgrammersGuide/isv.rst#$ZJOB	site/RCOS_vzjob.html#RCOS_vzjob
+intrinsic-special-variables	$ZLEVEL	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZLEVEL	
+intrinsic-special-variables	$ZMALLOCLIM	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZMALLOCLIM	
+intrinsic-special-variables	$ZMAXTPTIME	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZMAXTPTIME	
+intrinsic-special-variables	$ZMLKHASH	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZMLKHASH	
+intrinsic-special-variables	$ZMODE	core	multi-vendor-ext	false	true	true		ProgrammersGuide/isv.rst#$ZMODE	site/RCOS_vzmode.html#RCOS_vzmode
+intrinsic-special-variables	$ZNSPACE	iris-only	iris-extension	false	false	true			site/RCOS_vznspace.html#RCOS_vznspace
+intrinsic-special-variables	$ZONLNRLBK	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZONLNRLBK	
+intrinsic-special-variables	$ZORDER	iris-only	iris-extension	false	false	true			site/RCOS_vzorder.html#RCOS_vzorder
+intrinsic-special-variables	$ZPARENT	iris-only	iris-extension	false	false	true			site/RCOS_vzparent.html#RCOS_vzparent
+intrinsic-special-variables	$ZPATNUMERIC	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZPATNUMERIC	
+intrinsic-special-variables	$ZPI	iris-only	iris-extension	false	false	true			site/RCOS_vzpi.html#RCOS_vzpi
+intrinsic-special-variables	$ZPOSITION	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZPOSITION	
+intrinsic-special-variables	$ZPROMPT	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZPROMPT	
+intrinsic-special-variables	$ZQUIT	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZQUIT	
+intrinsic-special-variables	$ZREALSTOR	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZREALSTOR	
+intrinsic-special-variables	$ZREFERENCE	iris-only	iris-extension	false	false	true			site/RCOS_vzreference.html#RCOS_vzreference
+intrinsic-special-variables	$ZRELDATE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZRELDATE	
+intrinsic-special-variables	$ZROUTINES	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZROUTINES	
+intrinsic-special-variables	$ZSOURCE	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZSOURCE	
+intrinsic-special-variables	$ZSTATUS	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZSTATUS	
+intrinsic-special-variables	$ZSTEP	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZSTEP	
+intrinsic-special-variables	$ZSTORAGE	iris-only	iris-extension	false	false	true			site/RCOS_vzstorage.html#RCOS_vzstorage
+intrinsic-special-variables	$ZSTRPLLIM	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZSTRPLLIM	
+intrinsic-special-variables	$ZSYSTEM	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZSYSTEM	
+intrinsic-special-variables	$ZTEXIT	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZTEXIT	
+intrinsic-special-variables	$ZTIMEOUT	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZTIMEOUT	
+intrinsic-special-variables	$ZTIMESTAMP	iris-only	iris-extension	false	false	true			site/RCOS_vztimestamp.html#RCOS_vztimestamp
+intrinsic-special-variables	$ZTIMEZONE	iris-only	iris-extension	false	false	true			site/RCOS_vztimezone.html#RCOS_vztimezone
+intrinsic-special-variables	$ZTRAP	core	multi-vendor-ext	false	true	true		ProgrammersGuide/isv.rst#$ZTRAP	site/RCOS_vztrap.html#RCOS_vztrap
+intrinsic-special-variables	$ZUNSPECIFIED	ansi-unimplemented	ansi	true	false	false	pages/a107079.html#7.1.4.10		
+intrinsic-special-variables	$ZUSEDSTOR	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZUSEDSTOR	
+intrinsic-special-variables	$ZUT	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZUT	
+intrinsic-special-variables	$ZVERSION	core	multi-vendor-ext	false	true	true		ProgrammersGuide/isv.rst#$ZVERSION	site/RCOS_vzversion.html#RCOS_vzversion
+intrinsic-special-variables	$ZYERROR	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZYERROR	
+intrinsic-special-variables	$ZYINTRSIG	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZYINTRSIG	
+intrinsic-special-variables	$ZYJOBPARENT	ydb-only	ydb-extension	false	true	false		ProgrammersGuide/isv.rst#$ZYJOBPARENT	

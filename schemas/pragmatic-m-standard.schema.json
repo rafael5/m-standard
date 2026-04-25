@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://m-standard.local/schemas/pragmatic-m-standard.schema.json",
+  "title": "Pragmatic M standard",
+  "description": "The cross-vendor M language surface that runs on both YottaDB and InterSystems IRIS. Designed for VistA developers who need to write code that works on either engine without modification. See docs/pragmatic-m-standard.md for the full rationale.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "concept",
+    "counts",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1"
+    },
+    "concept": {
+      "type": "string",
+      "const": "pragmatic-m-standard"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief explanation of the artifact for direct consumers."
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["core", "ydb-only", "iris-only", "ansi-unimplemented"],
+      "properties": {
+        "core": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Entries portable across both YDB and IRIS."
+        },
+        "ydb-only": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Entries available only on YDB."
+        },
+        "iris-only": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Entries available only on IRIS."
+        },
+        "ansi-unimplemented": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Entries documented in AnnoStd but absent from both implementations."
+        }
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["concept", "name", "pragmatic_tier", "standard_status",
+                     "in_anno", "in_ydb", "in_iris"],
+        "properties": {
+          "concept": {
+            "type": "string",
+            "enum": [
+              "commands",
+              "intrinsic-functions",
+              "intrinsic-special-variables"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pragmatic_tier": {
+            "type": "string",
+            "enum": ["core", "ydb-only", "iris-only", "ansi-unimplemented"],
+            "description": "core = portable across YDB and IRIS (the pragmatic standard). ydb-only / iris-only = engine-specific; using these breaks portability. ansi-unimplemented = standard-but-historical, do not use."
+          },
+          "standard_status": {
+            "type": "string",
+            "enum": ["ansi", "ydb-extension", "iris-extension", "multi-vendor-ext"]
+          },
+          "in_anno": { "type": "boolean" },
+          "in_ydb": { "type": "boolean" },
+          "in_iris": { "type": "boolean" },
+          "anno_section": { "type": "string" },
+          "ydb_section": { "type": "string" },
+          "iris_section": { "type": "string" }
+        }
+      }
+    }
+  }
+}

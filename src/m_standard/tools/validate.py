@@ -59,6 +59,10 @@ _SCHEMA_BASENAMES: dict[str, str] = {
     # a per-concept TSV); validated here so its schema_version + shape
     # are gated on every CI run alongside the per-concept JSON files.
     "grammar-surface": "grammar-surface.schema.json",
+    # The pragmatic M standard (YDB ∩ IRIS portable subset).
+    # Auto-derived from the integrated layer; gated for shape on every
+    # CI run.
+    "pragmatic-m-standard": "pragmatic-m-standard.schema.json",
 }
 
 
