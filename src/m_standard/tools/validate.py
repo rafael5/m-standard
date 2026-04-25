@@ -296,6 +296,47 @@ def gate_coverage(project_root: Path) -> None:
 
 # ---------- Orchestrator ----------------------------------------------------
 
+def gate_mapping_integrity(project_root: Path) -> None:
+    """Every entry in mappings/*.tsv refers to identifiers that exist.
+
+    For ``mappings/ydb-ansi-errors.tsv``:
+    - Every ``ydb_mnemonic`` must exist in
+      ``per-source/ydb/errors.tsv``.
+    - Every ``ansi_code`` must exist in
+      ``per-source/anno/errors.tsv``.
+    Catches stale mappings after upstream renames or YDB-version bumps.
+    """
+    failures: list[str] = []
+    mapping_path = project_root / "mappings" / "ydb-ansi-errors.tsv"
+    if not mapping_path.exists():
+        return
+
+    ydb_keys = _per_source_keys(
+        project_root / "per-source" / "ydb" / "errors.tsv", "mnemonic"
+    )
+    anno_keys = _per_source_keys(
+        project_root / "per-source" / "anno" / "errors.tsv", "mnemonic"
+    )
+    for row in _read_tsv(mapping_path):
+        ydb_m = row.get("ydb_mnemonic", "").strip()
+        ansi = row.get("ansi_code", "").strip()
+        if ydb_m and ydb_m not in ydb_keys:
+            failures.append(
+                f"mapping-integrity: ydb-ansi-errors.tsv references "
+                f"YDB mnemonic {ydb_m!r} which does not exist in "
+                f"per-source/ydb/errors.tsv"
+            )
+        if ansi and ansi not in anno_keys:
+            failures.append(
+                f"mapping-integrity: ydb-ansi-errors.tsv references "
+                f"ANSI code {ansi!r} which does not exist in "
+                f"per-source/anno/errors.tsv"
+            )
+
+    if failures:
+        raise ValidationFailure("\n".join(failures))
+
+
 _GATES = (
     ("manifest-integrity", gate_manifest_integrity),
     ("provenance", gate_provenance),
@@ -304,6 +345,7 @@ _GATES = (
     ("tsv-json-consistency", gate_tsv_json_consistency),
     ("round-trip", gate_round_trip),
     ("coverage", gate_coverage),
+    ("mapping-integrity", gate_mapping_integrity),
 )
 
 

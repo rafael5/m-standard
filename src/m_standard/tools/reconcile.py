@@ -229,11 +229,14 @@ _INTEGRATED_ERROR_COLUMNS: tuple[str, ...] = (
     "standard_status",
     "in_anno",
     "in_ydb",
+    "ansi_code",
     "anno_section",
     "ydb_section",
     "conflict_id",
     "notes",
 )
+
+DEFAULT_MAPPINGS_DIR = Path("mappings")
 
 
 def reconcile_operators(
@@ -298,21 +301,28 @@ def reconcile_operators(
 
 
 def reconcile_errors(
-    anno_path: Path, ydb_path: Path
+    anno_path: Path,
+    ydb_path: Path,
+    *,
+    mappings_dir: Path | None = None,
 ) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
-    """Join errors on mnemonic.
+    """Join errors on mnemonic, enriched with the YDB↔ANSI mapping.
 
     AnnoStd's standard codes are ``M1``..``M112`` (Annex B); YDB's
     vendor mnemonics are alphanumeric tokens like ``ABNCOMPTINC``.
     The two namespaces don't overlap by construction, so the integrated
-    layer is essentially the union — but the join framework still
-    works and the in_anno/in_ydb flags carry useful provenance.
+    layer is essentially the union — but ``mappings/ydb-ansi-errors.tsv``
+    threads them together: every YDB row that maps to an ANSI ``Mn``
+    gets ``ansi_code`` populated. Downstream tooling can then translate
+    "what's the portable form of ``DIVZERO``?" → ``M9``.
     """
     anno_rows = _read_tsv(anno_path)
     ydb_rows = _read_tsv(ydb_path)
     anno_by_key = {r["mnemonic"]: r for r in anno_rows}
     ydb_by_key = {r["mnemonic"]: r for r in ydb_rows}
     all_keys = sorted(set(anno_by_key) | set(ydb_by_key))
+
+    ydb_to_ansi = _load_ydb_ansi_mapping(mappings_dir or DEFAULT_MAPPINGS_DIR)
 
     integrated: list[dict[str, str]] = []
     for key in all_keys:
@@ -323,6 +333,10 @@ def reconcile_errors(
         # Prefer YDB summary (more descriptive) when both present.
         summary = (y or a or {}).get("summary", "")  # type: ignore[union-attr]
         kind = (y or a or {}).get("kind", "")  # type: ignore[union-attr]
+        # ansi_code is set on YDB rows that have a mapping. AnnoStd
+        # rows ARE the ANSI code, so leave their ansi_code blank
+        # (the mnemonic column already names them).
+        ansi_code = ydb_to_ansi.get(key, "") if in_ydb and not in_anno else ""
         integrated.append(
             {
                 "mnemonic": key,
@@ -331,6 +345,7 @@ def reconcile_errors(
                 "standard_status": standard_status,
                 "in_anno": "true" if in_anno else "false",
                 "in_ydb": "true" if in_ydb else "false",
+                "ansi_code": ansi_code,
                 "anno_section": a["source_section"] if a else "",
                 "ydb_section": y["source_section"] if y else "",
                 "conflict_id": "",
@@ -338,6 +353,20 @@ def reconcile_errors(
             }
         )
     return integrated, []  # No conflicts: namespaces don't overlap.
+
+
+def _load_ydb_ansi_mapping(mappings_dir: Path) -> dict[str, str]:
+    """Read ``mappings/ydb-ansi-errors.tsv`` into ``{mnemonic: ansi_code}``."""
+    path = mappings_dir / "ydb-ansi-errors.tsv"
+    if not path.exists():
+        return {}
+    out: dict[str, str] = {}
+    for row in _read_tsv(path):
+        mnemonic = row.get("ydb_mnemonic", "").strip()
+        ansi_code = row.get("ansi_code", "").strip()
+        if mnemonic and ansi_code:
+            out[mnemonic] = ansi_code
+    return out
 
 
 def reconcile_all(per_source: Path, out_dir: Path) -> None:
