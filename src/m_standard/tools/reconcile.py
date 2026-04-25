@@ -35,8 +35,10 @@ INTEGRATED_COMMAND_COLUMNS: tuple[str, ...] = (
     "standard_status",
     "in_anno",
     "in_ydb",
+    "in_iris",
     "anno_section",
     "ydb_section",
+    "iris_section",
     "conflict_id",
     "notes",
 )
@@ -54,46 +56,58 @@ CONFLICTS_COLUMNS: tuple[str, ...] = (
 
 
 def reconcile_commands(
-    anno_path: Path, ydb_path: Path
+    anno_path: Path, ydb_path: Path, iris_path: Path | None = None
 ) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
-    return _reconcile_named_concept(anno_path, ydb_path, concept="commands")
+    return _reconcile_named_concept(
+        anno_path, ydb_path, iris_path, concept="commands"
+    )
 
 
 def reconcile_intrinsic_functions(
-    anno_path: Path, ydb_path: Path
+    anno_path: Path, ydb_path: Path, iris_path: Path | None = None
 ) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
     return _reconcile_named_concept(
-        anno_path, ydb_path, concept="intrinsic-functions"
+        anno_path, ydb_path, iris_path, concept="intrinsic-functions"
     )
 
 
 def reconcile_special_variables(
-    anno_path: Path, ydb_path: Path
+    anno_path: Path, ydb_path: Path, iris_path: Path | None = None
 ) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
     return _reconcile_named_concept(
-        anno_path, ydb_path, concept="intrinsic-special-variables"
+        anno_path, ydb_path, iris_path, concept="intrinsic-special-variables"
     )
 
 
 def _reconcile_named_concept(
     anno_path: Path,
     ydb_path: Path,
+    iris_path: Path | None = None,
     *,
     concept: str,
     key_field: str = "canonical_name",
 ) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
-    """Generic reconciliation for concepts keyed by a single field.
+    """Generic 3-way reconciliation for concepts keyed by a single field.
 
     Used for commands, intrinsic functions, intrinsic special variables
-    (key_field=canonical_name), and now also operators (key_field=symbol)
-    and errors (key_field=mnemonic) once both sources contribute rows.
+    (key_field=canonical_name) — all three sources may contribute rows
+    keyed by the same canonical name.
+
+    Standard-status resolution per AD-01 (revised v0.2):
+    - in AnnoStd → ``ansi``
+    - in YDB and IRIS but not AnnoStd → ``multi-vendor-ext``
+      (de facto cross-vendor extension)
+    - in YDB only → ``ydb-extension``
+    - in IRIS only → ``iris-extension``
     """
     anno_rows = _read_tsv(anno_path)
     ydb_rows = _read_tsv(ydb_path)
+    iris_rows = _read_tsv(iris_path) if iris_path and iris_path.exists() else []
 
     anno_by_name = {r[key_field]: r for r in anno_rows}
     ydb_by_name = {r[key_field]: r for r in ydb_rows}
-    all_names = sorted(set(anno_by_name) | set(ydb_by_name))
+    iris_by_name = {r[key_field]: r for r in iris_rows}
+    all_names = sorted(set(anno_by_name) | set(ydb_by_name) | set(iris_by_name))
 
     integrated: list[dict[str, str]] = []
     conflicts: list[dict[str, str]] = []
@@ -102,34 +116,41 @@ def _reconcile_named_concept(
     for name in all_names:
         a = anno_by_name.get(name)
         y = ydb_by_name.get(name)
+        i = iris_by_name.get(name)
         in_anno = a is not None
         in_ydb = y is not None
+        in_iris = i is not None
 
-        # Standard status per AD-01: AnnoStd is normative for ANSI
-        # membership. If AnnoStd has it, it's ``ansi``; if AnnoStd
-        # does NOT have it, it's a YDB extension regardless of what
-        # YDB's per-source ``standard_status_hint`` claims (YDB hints
-        # ANSI for any non-Z name, but post-1995 additions and YDB
-        # non-Z extensions both fall outside AnnoStd's ANSI set).
-        standard_status = "ansi" if in_anno else "ydb-extension"
+        # Standard status per AD-01 (revised v0.2 in ADR-006).
+        if in_anno:
+            standard_status = "ansi"
+        elif in_ydb and in_iris:
+            standard_status = "multi-vendor-ext"
+        elif in_iris:
+            standard_status = "iris-extension"
+        else:
+            standard_status = "ydb-extension"
 
-        # Pick format: prefer YDB's (more complete with postconditional/args)
-        # when both are present and differ; fall back to AnnoStd's.
+        # Pick format: prefer YDB's (most complete with metalanguage),
+        # fall back to IRIS, then AnnoStd.
         anno_format = a["format"] if a else ""
         ydb_format = y["format"] if y else ""
-        chosen_format = ydb_format or anno_format
+        iris_format = i["format"] if i else ""
+        chosen_format = ydb_format or iris_format or anno_format
 
-        # Pick abbreviation similarly: YDB usually has it, AnnoStd often
-        # leaves it blank for BNF-style commands (BL-007).
+        # Pick abbreviation: YDB > AnnoStd > (IRIS rarely has one).
         anno_abbrev = a["abbreviation"] if a else ""
         ydb_abbrev = y["abbreviation"] if y else ""
-        chosen_abbrev = ydb_abbrev or anno_abbrev
+        iris_abbrev = i.get("abbreviation", "") if i else ""
+        chosen_abbrev = ydb_abbrev or anno_abbrev or iris_abbrev
 
         conflict_id = ""
         notes = ""
 
-        if in_anno and not in_ydb:
-            # Standard says it exists; YDB does not implement it.
+        # Existence conflict: AnnoStd says it exists but at least one
+        # implementation source is missing it (the original AD-01
+        # signal: standard-but-unimplemented).
+        if in_anno and not (in_ydb or in_iris):
             conflict_id = f"CONF-{next_conflict_id:03d}"
             next_conflict_id += 1
             conflicts.append(
@@ -146,7 +167,7 @@ def _reconcile_named_concept(
                     "resolution_basis": "AD-01 (AnnoStd normative)",
                 }
             )
-        elif in_anno and in_ydb:
+        elif in_anno and (in_ydb or in_iris):
             # Definition conflict on abbreviation — the only field where
             # the two sources can be compared verbatim. Format strings use
             # different metalanguages (AnnoStd: ``postcond``/``SP``;
@@ -185,8 +206,10 @@ def _reconcile_named_concept(
                 "standard_status": standard_status,
                 "in_anno": "true" if in_anno else "false",
                 "in_ydb": "true" if in_ydb else "false",
+                "in_iris": "true" if in_iris else "false",
                 "anno_section": a["source_section"] if a else "",
                 "ydb_section": y["source_section"] if y else "",
+                "iris_section": i["source_section"] if i else "",
                 "conflict_id": conflict_id,
                 "notes": notes,
             }
@@ -460,13 +483,16 @@ def reconcile_all(per_source: Path, out_dir: Path) -> None:
     all_conflicts: list[dict[str, str]] = []
     next_conflict_id = 1
 
-    # Named concepts (both sources contribute, key=canonical_name).
+    # Named concepts (3-way join on canonical_name).
     for concept in ("commands", "intrinsic-functions", "intrinsic-special-variables"):
         anno = per_source / "anno" / f"{concept}.tsv"
         ydb = per_source / "ydb" / f"{concept}.tsv"
-        if not (anno.exists() or ydb.exists()):
+        iris = per_source / "iris" / f"{concept}.tsv"
+        if not (anno.exists() or ydb.exists() or iris.exists()):
             continue
-        integrated, conflicts = _reconcile_named_concept(anno, ydb, concept=concept)
+        integrated, conflicts = _reconcile_named_concept(
+            anno, ydb, iris if iris.exists() else None, concept=concept
+        )
         renumbered = _renumber_conflicts(conflicts, integrated, next_conflict_id)
         next_conflict_id += len(renumbered)
         _write_tsv(out_dir / f"{concept}.tsv", INTEGRATED_COMMAND_COLUMNS, integrated)

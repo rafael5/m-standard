@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://m-standard.local/schemas/intrinsic-special-variable.schema.json",
   "title": "m-standard intrinsic special variable entry",
-  "description": "One M intrinsic special variable (svn) in the integrated layer (per spec §5.3, §6.3).",
+  "description": "One M intrinsic special variable (svn) in the integrated layer (per spec \u00a75.3, \u00a76.3).",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -45,7 +45,9 @@
             "type": "string",
             "enum": [
               "ansi",
-              "ydb-extension"
+              "ydb-extension",
+              "iris-extension",
+              "multi-vendor-ext"
             ]
           },
           "in_anno": {
@@ -67,6 +69,12 @@
             ]
           },
           "notes": {
+            "type": "string"
+          },
+          "in_iris": {
+            "type": "boolean"
+          },
+          "iris_section": {
             "type": "string"
           }
         }

@@ -69,8 +69,10 @@ def _scaffold_valid_project(tmp_path: Path) -> Path:
     integrated_tsv = proj / "integrated" / "commands.tsv"
     integrated_tsv.write_text(
         "canonical_name\tabbreviation\tformat\tstandard_status\t"
-        "in_anno\tin_ydb\tanno_section\tydb_section\tconflict_id\tnotes\n"
-        "BREAK\tB\tB[REAK][:tvexpr]\tansi\ttrue\ttrue\tanno_ref\tydb_ref\t\t\n"
+        "in_anno\tin_ydb\tin_iris\tanno_section\tydb_section\t"
+        "iris_section\tconflict_id\tnotes\n"
+        "BREAK\tB\tB[REAK][:tvexpr]\tansi\t"
+        "true\ttrue\tfalse\tanno_ref\tydb_ref\t\t\t\n"
     )
     (proj / "integrated" / "commands.json").write_text(
         json.dumps(
@@ -85,8 +87,10 @@ def _scaffold_valid_project(tmp_path: Path) -> Path:
                         "standard_status": "ansi",
                         "in_anno": True,
                         "in_ydb": True,
+                        "in_iris": False,
                         "anno_section": "anno_ref",
                         "ydb_section": "ydb_ref",
+                        "iris_section": "",
                         "conflict_id": None,
                         "notes": "",
                     }

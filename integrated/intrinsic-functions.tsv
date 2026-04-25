@@ -1,67 +1,160 @@
-canonical_name	abbreviation	format	standard_status	in_anno	in_ydb	anno_section	ydb_section	conflict_id	notes
-$ASCII	$A	$A[SCII](expr[,intexpr])	ansi	true	true	pages/a107084.html#7.1.5.1	ProgrammersGuide/functions.rst#$ASCII()		
-$CHAR	$C	$C[HAR](intexpr[,...])	ansi	true	true	pages/a107085.html#7.1.5.2	ProgrammersGuide/functions.rst#$CHAR()		
-$DATA	$D	$D[ATA](glvn)	ansi	true	true	pages/a107086.html#7.1.5.3	ProgrammersGuide/functions.rst#$DATA()		
-$DEXTRACT	$DE	$DE[XTRACT] ( [ initialrecordvalue ] , extracttemplate , L [ recordfieldvalue ] )	ansi	true	false	pages/a107087.html#7.1.5.4		CONF-015	
-$DPIECE	$DP	$DP[IECE] ( [ initialrecordvalue ] , piecedelimiter , L [ recordfieldvalue ] )	ansi	true	false	pages/a107088.html#7.1.5.5		CONF-016	
-$EXTRACT	$E	$E[XTRACT](expr[,intexpr1[,intexpr2]])	ansi	true	true	pages/a107089.html#7.1.5.4	ProgrammersGuide/functions.rst#$EXTRACT()		
-$FIND	$F	$F[IND](expr1,expr2[,intexpr])	ansi	true	true	pages/a107090.html#7.1.5.5	ProgrammersGuide/functions.rst#$FIND()		
-$FNUMBER	$FN	$FN[UMBER](numexpr,expr[,intexpr])	ansi	true	true	pages/a107091.html#7.1.5.6	ProgrammersGuide/functions.rst#$FNUMBER()		
-$GET	$G	$G[ET](glvn[,expr])	ansi	true	true	pages/a107092.html#7.1.5.7	ProgrammersGuide/functions.rst#$GET()		
-$HOROLOG	$H	$H[OROLOG] ( intexpr )	ansi	true	false	pages/a107093.html#7.1.5.10		CONF-017	
-$INCREMENT		$INCREMENT(glvn[,numexpr])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$INCREMENT()		
-$JUSTIFY	$J	$J[USTIFY](expr,intexpr1[,intexpr2])	ansi	true	true	pages/a107094.html#7.1.5.8	ProgrammersGuide/functions.rst#$JUSTIFY()		
-$LENGTH	$L	$L[ENGTH](expr1[,expr2])	ansi	true	true	pages/a107095.html#7.1.5.9	ProgrammersGuide/functions.rst#$LENGTH()		
-$MUMPS	$M	$M[UMPS] ( expr )	ansi	true	false	pages/a107097.html#7.1.5.13		CONF-018	
-$NAME	$NA	$NA[ME](glvn[,intexpr])	ansi	true	true	pages/a107098.html#7.1.5.10	ProgrammersGuide/functions.rst#$NAME()		
-$NEXT	$N	$N[EXT](glvn)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$NEXT()		
-$ORDER	$O	$O[RDER](glvn[,expr])	ansi	true	true	pages/a107100.html#7.1.5.11	ProgrammersGuide/functions.rst#$ORDER()		
-$PIECE	$P	$P[IECE](expr1,expr2[,intexpr1[,intexpr2]])	ansi	true	true	pages/a107101.html#7.1.5.12	ProgrammersGuide/functions.rst#$PIECE()		
-$QLENGTH	$QL	$QL[ENGTH](namevalue)	ansi	true	true	pages/a107102.html#7.1.5.13	ProgrammersGuide/functions.rst#$QLENGTH()		
-$QSUBSCRIPT	$QS	$QS[UBSCRIPT](namevalue, intexpr)	ansi	true	true	pages/a107103.html#7.1.5.14	ProgrammersGuide/functions.rst#$QSUBSCRIPT()		
-$QUERY	$Q	$Q[UERY](glvn[,expr])	ansi	true	true	pages/a107104.html#7.1.5.15	ProgrammersGuide/functions.rst#$QUERY()		
-$RANDOM	$R	$R[ANDOM](intexpr)	ansi	true	true	pages/a107105.html#7.1.5.16	ProgrammersGuide/functions.rst#$RANDOM()		
-$REVERSE	$RE	$RE[VERSE](expr)	ansi	true	true	pages/a107106.html#7.1.5.17	ProgrammersGuide/functions.rst#$REVERSE()		
-$SELECT	$S	$S[ELECT](tvexpr:expr[,...])	ansi	true	true	pages/a107107.html#7.1.5.18	ProgrammersGuide/functions.rst#$SELECT()		
-$STACK	$ST	$ST[ACK](intexpr[,expr])	ansi	true	true	pages/a107108.html#7.1.5.19	ProgrammersGuide/functions.rst#$STACK()		
-$TEXT	$T	$T[EXT](entryref)	ansi	true	true	pages/a107109.html#7.1.5.20	ProgrammersGuide/functions.rst#$TEXT()		
-$TRANSLATE	$TR	$TR[ANSLATE](expr1[,expr2[,expr3]])	ansi	true	true	pages/a107111.html#7.1.5.21	ProgrammersGuide/functions.rst#$TRANSLATE()		
-$TYPE	$TY	$TY[PE] ( expratom )	ansi	true	false	pages/a107110.html#7.1.5.25		CONF-019	
-$VIEW	$V	$V[IEW](expr1[,expr2])	ansi	true	true	pages/a107112.html#7.1.5.22	ProgrammersGuide/functions.rst#$VIEW()		
-$Z	$Z	$Z[unspecified] ( unspecified )	ansi	true	false	pages/a107113.html#7.1.5.23		CONF-020	
-$ZAHANDLE	$ZAHA	$ZAHA[NDLE](lvn)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZAHANDLE()		
-$ZASCII	$ZA	$ZA[SCII](expr[,intexpr])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZASCII()		
-$ZATRANSFORM		$ZATRANSFORM(expr,intexpr[,{0|1|2|-2}][,{0|1}])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZATRANSFORM()		
-$ZBITAND		$ZBITAND(expr1,expr2)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZBIT Functions		
-$ZCHAR	$ZCH	$ZCH[AR](intexpr[,...])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZCHAR()		
-$ZCOLLATE	$ZCO	$ZCO[LLATE](glvn,intexpr[,{0|1}])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZCOLLATE()		
-$ZCONVERT	$ZCO	$ZCO[NVERT](expr1, expr2,[expr3])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZCONVERT()		
-$ZDATA	$ZDAT	$ZDAT[A](glvn)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZDATA()		
-$ZDATE	$ZD	$ZD[ATE](expr1[,expr2[,expr3[,expr4]]]])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZDATE()		
-$ZEXTRACT	$ZE	$ZE[XTRACT](expr[,intexpr1[,intexpr2]])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZEXTRACT()		
-$ZFIND	$ZF	$ZF[IND](expr1,expr2[,intexpr])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZFIND()		
-$ZGETJPI		$ZGETJPI(expr1,expr2)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZGETJPI()		
-$ZJOBEXAM		$ZJOBEXAM([expr1[,expr2]])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZJOBEXAM()		
-$ZJUSTIFY	$ZJ	$ZJ[USTIFY](expr,intexpr1[,intexpr2])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZJUSTIFY()		
-$ZLENGTH	$ZL	$ZL[ENGTH](expr1[,expr2])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZLENGTH()		
-$ZMESSAGE	$ZM	$ZM[ESSAGE](intexpr)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZMESSAGE()		
-$ZPARSE		$ZPARSE(expr1[,expr2[,expr3[,expr4[,expr5]]]])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZPARSE()		
-$ZPEEK		"$ZPEEK(""mnemonic[:argument]"",offset,length[,format])"	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZPEEK()		
-$ZPIECE	$ZPI	$ZPI[ECE](expr1,expr2[,intexpr1[,intexpr2]])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZPIECE()		
-$ZPREVIOUS	$ZP	$ZP[REVIOUS](glvn)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZPREVIOUS()		
-$ZQGBLMOD		$ZQGBLMOD(gvn)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZQGBLMOD()		
-$ZSEARCH		$ZSEARCH(expr[,intexpr])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZSEARCH()		
-$ZSIGPROC		$ZSIGPROC(expr1,expr2)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZSIGPROC()		
-$ZSOCKET		$ZSOCKET(expr1,expr2[,[expr3][,expr4]])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZSOCKET()		
-$ZSUBSTR	$ZSUB	$ZSUB[STR] (expr ,intexpr1 [,intexpr2])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZSUBSTR()		
-$ZSYSLOG		$ZSYSLOG(expr)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZSYSLOG()		
-$ZTRANSLATE	$ZTR	$ZTR[ANSLATE](expr1[,expr2[,expr3]])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZTRANSLATE()		
-$ZTRIGGER		$ZTRIgger(expr1[,expr2])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZTRIGGER()		
-$ZTRNLNM		$ZTRNLNM(expr1[,expr2[,expr3[,expr4[,expr5[,expr6]]]]])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZTRNLNM()		
-$ZUADITLOG		$ZUADITLOG(expr)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZAUditlog()		
-$ZWIDTH	$ZW	$ZW[IDTH] (expr)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZWIDTH()		
-$ZWRITE		$ZWRITE(expr[,intexpr])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZWRITE()		
-$ZYCOMPILE		$ZYCOMPILE(string)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZYCOmpile()		
-$ZYHASH		$ZYHASH(string[,salt])	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZYHASH()		
-$ZYISSQLNULL		$ZYISSQLNULL(expr)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZYISSQLNULL()		
-$ZYSUFFIX	$ZYSU	$ZYSU[FFIX](string)	ydb-extension	false	true		ProgrammersGuide/functions.rst#$ZYSUFFIX()		
+canonical_name	abbreviation	format	standard_status	in_anno	in_ydb	in_iris	anno_section	ydb_section	iris_section	conflict_id	notes
+$ASCII	$A	$A[SCII](expr[,intexpr])	ansi	true	true	true	pages/a107084.html#7.1.5.1	ProgrammersGuide/functions.rst#$ASCII()	site/RCOS_fascii.html#RCOS_fascii		
+$BIT		$BIT( bitstring , position ) SET $BIT( bitstring , position ) = value	iris-extension	false	false	true			site/RCOS_fbit.html#RCOS_fbit		
+$BITCOUNT		$BITCOUNT( bitstring , bitvalue )	iris-extension	false	false	true			site/RCOS_fbitcount.html#RCOS_fbitcount		
+$BITFIND		$BITFIND( bitstring , bitvalue , position , direction )	iris-extension	false	false	true			site/RCOS_fbitfind.html#RCOS_fbitfind		
+$BITLOGIC		$BITLOGIC( bitstring_expression , length )	iris-extension	false	false	true			site/RCOS_fbitlogic.html#RCOS_fbitlogic		
+$CASE		$CASE( target , case : value , case2 : value2 ,...,: default )	iris-extension	false	false	true			site/RCOS_fcase.html#RCOS_fcase		
+$CHANGE		$CHANGE( string , searchstr , replacestr , occurrences , begin )	iris-extension	false	false	true			site/RCOS_fchange.html#RCOS_fchange		
+$CHAR	$C	$C[HAR](intexpr[,...])	ansi	true	true	true	pages/a107085.html#7.1.5.2	ProgrammersGuide/functions.rst#$CHAR()	site/RCOS_fchar.html#RCOS_fchar		
+$CLASSMETHOD		$CLASSMETHOD( classname , methodname , arg1 , arg2 , arg3 , ... )	iris-extension	false	false	true			site/RCOS_fclassmethod.html#RCOS_fclassmethod		
+$CLASSNAME		$CLASSNAME( oref )	iris-extension	false	false	true			site/RCOS_fclassname.html#RCOS_fclassname		
+$COMPILE		$COMPILE( source , language , errors , object ) $COMPILE( source , language , errors , object ,,, rname )	iris-extension	false	false	true			site/RCOS_fcompile.html#RCOS_fcompile		
+$DATA	$D	$D[ATA](glvn)	ansi	true	true	true	pages/a107086.html#7.1.5.3	ProgrammersGuide/functions.rst#$DATA()	site/RCOS_fdata.html#RCOS_fdata		
+$DECIMAL		$DECIMAL( num , n )	iris-extension	false	false	true			site/RCOS_fdecimal.html#RCOS_fdecimal		
+$DEXTRACT	$DE	$DE[XTRACT] ( [ initialrecordvalue ] , extracttemplate , L [ recordfieldvalue ] )	ansi	true	false	false	pages/a107087.html#7.1.5.4			CONF-015	
+$DOUBLE		$DOUBLE( num )	iris-extension	false	false	true			site/RCOS_fdouble.html#RCOS_fdouble		
+$DPIECE	$DP	$DP[IECE] ( [ initialrecordvalue ] , piecedelimiter , L [ recordfieldvalue ] )	ansi	true	false	false	pages/a107088.html#7.1.5.5			CONF-016	
+$EXTRACT	$E	$E[XTRACT](expr[,intexpr1[,intexpr2]])	ansi	true	true	true	pages/a107089.html#7.1.5.4	ProgrammersGuide/functions.rst#$EXTRACT()	site/RCOS_fextract.html#RCOS_fextract		
+$FACTOR		$FACTOR( num , scale )	iris-extension	false	false	true			site/RCOS_ffactor.html#RCOS_ffactor		
+$FIND	$F	$F[IND](expr1,expr2[,intexpr])	ansi	true	true	true	pages/a107090.html#7.1.5.5	ProgrammersGuide/functions.rst#$FIND()	site/RCOS_ffind.html#RCOS_ffind		
+$FNUMBER	$FN	$FN[UMBER](numexpr,expr[,intexpr])	ansi	true	true	true	pages/a107091.html#7.1.5.6	ProgrammersGuide/functions.rst#$FNUMBER()	site/RCOS_ffnumber.html#RCOS_ffnumber		
+$GET	$G	$G[ET](glvn[,expr])	ansi	true	true	true	pages/a107092.html#7.1.5.7	ProgrammersGuide/functions.rst#$GET()	site/RCOS_fget.html#RCOS_fget		
+$HOROLOG	$H	$H[OROLOG] ( intexpr )	ansi	true	false	false	pages/a107093.html#7.1.5.10			CONF-017	
+$INCREMENT		$INCREMENT(glvn[,numexpr])	multi-vendor-ext	false	true	true		ProgrammersGuide/functions.rst#$INCREMENT()	site/RCOS_fincrement.html#RCOS_fincrement		
+$INUMBER		$INUMBER( fnumber , format , erropt ) $IN( fnumber , format , erropt )	iris-extension	false	false	true			site/RCOS_finumber.html#RCOS_finumber		
+$ISOBJECT		$ISOBJECT( expr )	iris-extension	false	false	true			site/RCOS_fisobject.html#RCOS_fisobject		
+$ISVALIDDOUBLE		$ISVALIDDOUBLE( num , scale , min , max )	iris-extension	false	false	true			site/RCOS_fisvaliddouble.html#RCOS_fisvaliddouble		
+$ISVALIDNUM		$ISVALIDNUM( num , scale , min , max )	iris-extension	false	false	true			site/RCOS_fisvalidnum.html#RCOS_fisvalidnum		
+$ISVECTOR		$ISVECTOR( expr )	iris-extension	false	false	true			site/RCOS_fisvector.html#RCOS_fisvector		
+$JUSTIFY	$J	$J[USTIFY](expr,intexpr1[,intexpr2])	ansi	true	true	true	pages/a107094.html#7.1.5.8	ProgrammersGuide/functions.rst#$JUSTIFY()	site/RCOS_fjustify.html#RCOS_fjustify		
+$LENGTH	$L	$L[ENGTH](expr1[,expr2])	ansi	true	true	true	pages/a107095.html#7.1.5.9	ProgrammersGuide/functions.rst#$LENGTH()	site/RCOS_flength.html#RCOS_flength		
+$LIST		$LIST( list , position , end ) $LI( list , position , end ) $LIST( list , start1 : end1 , start2 : end2 ...) $LI( list , start1 : end1 , start2 : end2 ...) SET $LIST( list , position , end )= value SET $LI( list , position , end )= value	iris-extension	false	false	true			site/RCOS_flist.html#RCOS_flist		
+$LISTBUILD		$LISTBUILD( element ,...) $LB( element ,...) SET $LISTBUILD( var1 , var2 ,...)= list SET $LB( var1 , var2 ,...)= list	iris-extension	false	false	true			site/RCOS_flistbuild.html#RCOS_flistbuild		
+$LISTDATA		$LISTDATA( list , position , var ) $LD( list , position , var )	iris-extension	false	false	true			site/RCOS_flistdata.html#RCOS_flistdata		
+$LISTFIND		$LISTFIND( list , value , startafter ) $LF( list , value , startafter )	iris-extension	false	false	true			site/RCOS_flistfind.html#RCOS_flistfind		
+$LISTFROMSTRING		$LISTFROMSTRING( string , delimiter , flag ) $LFS( string , delimiter , flag )	iris-extension	false	false	true			site/RCOS_flistfromstring.html#RCOS_flistfromstring		
+$LISTGET		$LISTGET( list , position , default ) $LG( list , position , default ) SET $LISTGET( var1 , var2 ,...)= list SET $LG( var1 , var2 ,...)= list	iris-extension	false	false	true			site/RCOS_flistget.html#RCOS_flistget		
+$LISTLENGTH		$LISTLENGTH( list ) $LL( list )	iris-extension	false	false	true			site/RCOS_flistlength.html#RCOS_flistlength		
+$LISTNEXT		$LISTNEXT( list , ptr , value )	iris-extension	false	false	true			site/RCOS_flistnext.html#RCOS_flistnext		
+$LISTSAME		$LISTSAME( list1 , list2 ) $LS( list1 , list2 )	iris-extension	false	false	true			site/RCOS_flistsame.html#RCOS_flistsame		
+$LISTTOSTRING		$LISTTOSTRING( list , delimiter , flag ) $LTS( list , delimiter , flag )	iris-extension	false	false	true			site/RCOS_flisttostring.html#RCOS_flisttostring		
+$LISTUPDATE		$LISTUPDATE( list , position , bool : value ...) $LU( list , position , bool : value ...)	iris-extension	false	false	true			site/RCOS_flistupdate.html#RCOS_flistupdate		
+$LISTVALID		$LISTVALID( exp ) $LV( exp )	iris-extension	false	false	true			site/RCOS_flistvalid.html#RCOS_flistvalid		
+$LOCATE		$LOCATE( string , regexp , start , end , val )	iris-extension	false	false	true			site/RCOS_flocate.html#RCOS_flocate		
+$MATCH		$MATCH( string , regexp )	iris-extension	false	false	true			site/RCOS_fmatch.html#RCOS_fmatch		
+$METHOD		$METHOD( instance , methodname , arg1 , arg2 , arg3 , ... )	iris-extension	false	false	true			site/RCOS_fmethod.html#RCOS_fmethod		
+$MUMPS	$M	$M[UMPS] ( expr )	ansi	true	false	false	pages/a107097.html#7.1.5.13			CONF-018	
+$NAME	$NA	$NA[ME](glvn[,intexpr])	ansi	true	true	true	pages/a107098.html#7.1.5.10	ProgrammersGuide/functions.rst#$NAME()	site/RCOS_fname.html#RCOS_fname		
+$NCONVERT		$NCONVERT( n , format , endian ) $NC( n , format , endian )	iris-extension	false	false	true			site/RCOS_fnconvert.html#RCOS_fnconvert		
+$NEXT	$N	$N[EXT](glvn)	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$NEXT()			
+$NORMALIZE		$NORMALIZE( num , scale )	iris-extension	false	false	true			site/RCOS_fnormalize.html#RCOS_fnormalize		
+$NOW		$NOW( tzmins )	iris-extension	false	false	true			site/RCOS_fnow.html#RCOS_fnow		
+$NUMBER		$NUMBER( num , format , min , max ) $NUM( num , format , min , max )	iris-extension	false	false	true			site/RCOS_fnumber.html#RCOS_fnumber		
+$ORDER	$O	$O[RDER](glvn[,expr])	ansi	true	true	true	pages/a107100.html#7.1.5.11	ProgrammersGuide/functions.rst#$ORDER()	site/RCOS_forder.html#RCOS_forder		
+$PARAMETER		$PARAMETER( class , parameter )	iris-extension	false	false	true			site/RCOS_fparameter.html#RCOS_fparameter		
+$PIECE	$P	$P[IECE](expr1,expr2[,intexpr1[,intexpr2]])	ansi	true	true	true	pages/a107101.html#7.1.5.12	ProgrammersGuide/functions.rst#$PIECE()	site/RCOS_fpiece.html#RCOS_fpiece		
+$PREFETCHOFF		$PREFETCHOFF( gref , gref2 )	iris-extension	false	false	true			site/RCOS_fprefetchoff.html#RCOS_fprefetchoff		
+$PREFETCHON		$PREFETCHON( gref , gref2 )	iris-extension	false	false	true			site/RCOS_fprefetchon.html#RCOS_fprefetchon		
+$PROPERTY		$PROPERTY( instance , propertyname , index1 , index2 , index3 ... )	iris-extension	false	false	true			site/RCOS_fproperty.html#RCOS_fproperty		
+$QLENGTH	$QL	$QL[ENGTH](namevalue)	ansi	true	true	true	pages/a107102.html#7.1.5.13	ProgrammersGuide/functions.rst#$QLENGTH()	site/RCOS_fqlength.html#RCOS_fqlength		
+$QSUBSCRIPT	$QS	$QS[UBSCRIPT](namevalue, intexpr)	ansi	true	true	true	pages/a107103.html#7.1.5.14	ProgrammersGuide/functions.rst#$QSUBSCRIPT()	site/RCOS_fqsubscript.html#RCOS_fqsubscript		
+$QUERY	$Q	$Q[UERY](glvn[,expr])	ansi	true	true	true	pages/a107104.html#7.1.5.15	ProgrammersGuide/functions.rst#$QUERY()	site/RCOS_fquery.html#RCOS_fquery		
+$RANDOM	$R	$R[ANDOM](intexpr)	ansi	true	true	true	pages/a107105.html#7.1.5.16	ProgrammersGuide/functions.rst#$RANDOM()	site/RCOS_frandom.html#RCOS_frandom		
+$REPLACE		$REPLACE( string , searchstr , replacestr , start , count , case )	iris-extension	false	false	true			site/RCOS_freplace.html#RCOS_freplace		
+$REVERSE	$RE	$RE[VERSE](expr)	ansi	true	true	true	pages/a107106.html#7.1.5.17	ProgrammersGuide/functions.rst#$REVERSE()	site/RCOS_freverse.html#RCOS_freverse		
+$SCONVERT		$SCONVERT( s , format , endian , position ) $SC( s , format , endian , position )	iris-extension	false	false	true			site/RCOS_fsconvert.html#RCOS_fsconvert		
+$SELECT	$S	$S[ELECT](tvexpr:expr[,...])	ansi	true	true	true	pages/a107107.html#7.1.5.18	ProgrammersGuide/functions.rst#$SELECT()	site/RCOS_fselect.html#RCOS_fselect		
+$SEQUENCE		$SEQUENCE( gvar ) $SEQ( gvar ) SET $SEQUENCE( gvar )= value SET $SEQ( gvar )= value	iris-extension	false	false	true			site/RCOS_fsequence.html#RCOS_fsequence		
+$SORTBEGIN		$SORTBEGIN( set_global )	iris-extension	false	false	true			site/RCOS_fsortbegin.html#RCOS_fsortbegin		
+$SORTEND		$SORTEND( set_global , dosort )	iris-extension	false	false	true			site/RCOS_fsortend.html#RCOS_fsortend		
+$STACK	$ST	$ST[ACK](intexpr[,expr])	ansi	true	true	false	pages/a107108.html#7.1.5.19	ProgrammersGuide/functions.rst#$STACK()			
+$TEXT	$T	$T[EXT](entryref)	ansi	true	true	true	pages/a107109.html#7.1.5.20	ProgrammersGuide/functions.rst#$TEXT()	site/RCOS_ftext.html#RCOS_ftext		
+$TRANSLATE	$TR	$TR[ANSLATE](expr1[,expr2[,expr3]])	ansi	true	true	true	pages/a107111.html#7.1.5.21	ProgrammersGuide/functions.rst#$TRANSLATE()	site/RCOS_ftranslate.html#RCOS_ftranslate		
+$TYPE	$TY	$TY[PE] ( expratom )	ansi	true	false	false	pages/a107110.html#7.1.5.25			CONF-019	
+$VECTOR		set $VECTOR( vector , position , type ) = value	iris-extension	false	false	true			site/RCOS_fvector.html#RCOS_fvector		
+$VECTORDEFINED		$VECTORDEFINED( vector , position ) $VECTORDEFINED( vector , position , value )	iris-extension	false	false	true			site/RCOS_fvectordefined.html#RCOS_fvectordefined		
+$VECTOROP		"$VECTOROP(""count"", vexpr [ , bitexpr ] ) $VECTOROP(""max"", vexpr [ , bitexpr ] ) $VECTOROP(""min"", vexpr [ , bitexpr ] ) $VECTOROP(""sum"", vexpr [ , bitexpr ] )"	iris-extension	false	false	true			site/RCOS_fvectorop.html#RCOS_fvectorop		
+$VIEW	$V	$V[IEW](expr1[,expr2])	ansi	true	true	true	pages/a107112.html#7.1.5.22	ProgrammersGuide/functions.rst#$VIEW()	site/RCOS_fview.html#RCOS_fview		
+$WASCII		$WASCII( expression , position ) $WA( expression , position )	iris-extension	false	false	true			site/RCOS_fwascii.html#RCOS_fwascii		
+$WCHAR		$WCHAR( expression ,...) $WC( expression ,...)	iris-extension	false	false	true			site/RCOS_fwchar.html#RCOS_fwchar		
+$WEXTRACT		$WEXTRACT( string , from , to ) $WE( string , from , to ) SET $WEXTRACT( string , from , to )= value SET $WE( string , from , to )= value	iris-extension	false	false	true			site/RCOS_fwextract.html#RCOS_fwextract		
+$WFIND		$WFIND( string , substring , position ) $WF( string , substring , position )	iris-extension	false	false	true			site/RCOS_fwfind.html#RCOS_fwfind		
+$WISWIDE		$WISWIDE( string )	iris-extension	false	false	true			site/RCOS_fwiswide.html#RCOS_fwiswide		
+$WLENGTH		$WLENGTH( string ) $WL( string )	iris-extension	false	false	true			site/RCOS_fwlength.html#RCOS_fwlength		
+$WREVERSE		$WREVERSE( string ) $WRE( string )	iris-extension	false	false	true			site/RCOS_fwreverse.html#RCOS_fwreverse		
+$XECUTE		$XECUTE( code , paramlist )	iris-extension	false	false	true			site/RCOS_fxecute.html#RCOS_fxecute		
+$Z	$Z	$Z[unspecified] ( unspecified )	ansi	true	false	false	pages/a107113.html#7.1.5.23			CONF-020	
+$ZABS		$ZABS( n )	iris-extension	false	false	true			site/RCOS_fzabs.html#RCOS_fzabs		
+$ZAHANDLE	$ZAHA	$ZAHA[NDLE](lvn)	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZAHANDLE()			
+$ZARCCOS		$ZARCCOS( n )	iris-extension	false	false	true			site/RCOS_fzarccos.html#RCOS_fzarccos		
+$ZARCSIN		$ZARCSIN( n )	iris-extension	false	false	true			site/RCOS_fzarcsin.html#RCOS_fzarcsin		
+$ZARCTAN		$ZARCTAN( n )	iris-extension	false	false	true			site/RCOS_fzarctan.html#RCOS_fzarctan		
+$ZASCII	$ZA	$ZA[SCII](expr[,intexpr])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZASCII()			
+$ZATRANSFORM		$ZATRANSFORM(expr,intexpr[,{0|1|2|-2}][,{0|1}])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZATRANSFORM()			
+$ZBITAND		$ZBITAND(expr1,expr2)	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZBIT Functions			
+$ZBOOLEAN		$ZBOOLEAN( arg1 , arg2 , bit_op ) $ZB( arg1 , arg2 , bit_op )	iris-extension	false	false	true			site/RCOS_fzboolean.html#RCOS_fzboolean		
+$ZCHAR	$ZCH	$ZCH[AR](intexpr[,...])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZCHAR()			
+$ZCOLLATE	$ZCO	$ZCO[LLATE](glvn,intexpr[,{0|1}])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZCOLLATE()			
+$ZCONVERT	$ZCO	$ZCO[NVERT](expr1, expr2,[expr3])	multi-vendor-ext	false	true	true		ProgrammersGuide/functions.rst#$ZCONVERT()	site/RCOS_fzconvert.html#RCOS_fzconvert		
+$ZCOS		$ZCOS( n )	iris-extension	false	false	true			site/RCOS_fzcos.html#RCOS_fzcos		
+$ZCOT		$ZCOT( n )	iris-extension	false	false	true			site/RCOS_fzcot.html#RCOS_fzcot		
+$ZCRC		$ZCRC( string , mode , expression )	iris-extension	false	false	true			site/RCOS_fzcrc.html#RCOS_fzcrc		
+$ZCSC		$ZCSC( n )	iris-extension	false	false	true			site/RCOS_fzcsc.html#RCOS_fzcsc		
+$ZCYC		$ZCYC( string ) $ZC( string )	iris-extension	false	false	true			site/RCOS_fzcyc.html#RCOS_fzcyc		
+$ZDASCII		$ZDASCII( string , position ) $ZDA( string , position )	iris-extension	false	false	true			site/RCOS_fzdascii.html#RCOS_fzdascii		
+$ZDATA	$ZDAT	$ZDAT[A](glvn)	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZDATA()			
+$ZDATE	$ZD	$ZD[ATE](expr1[,expr2[,expr3[,expr4]]]])	multi-vendor-ext	false	true	true		ProgrammersGuide/functions.rst#$ZDATE()	site/RCOS_fzdate.html#RCOS_fzdate		
+$ZDATEH		$ZDATEH( date , dformat , monthlist , yearopt , startwin , endwin , mindate , maxdate , erropt , localeopt ) $ZDH( date , dformat , monthlist , yearopt , startwin , endwin , mindate , maxdate , erropt , localeopt )	iris-extension	false	false	true			site/RCOS_fzdateh.html#RCOS_fzdateh		
+$ZDATETIME		$ZDATETIME( hdatetime , dformat , tformat , precision , monthlist , yearopt , startwin , endwin , mindate , maxdate , erropt , localeopt ) $ZDT( hdatetime , dformat , tformat , precision , monthlist , yearopt , startwin , endwin , mindate , maxdate , erropt , localeopt )	iris-extension	false	false	true			site/RCOS_fzdatetime.html#RCOS_fzdatetime		
+$ZDATETIMEH		$ZDATETIMEH( datetime , dformat , tformat , monthlist , yearopt , startwin , endwin , mindate , maxdate , erropt , localeopt ) $ZDTH( datetime , dformat , tformat , monthlist , yearopt , startwin , endwin , mindate , maxdate , erropt , localeopt )	iris-extension	false	false	true			site/RCOS_fzdatetimeh.html#RCOS_fzdatetimeh		
+$ZDCHAR		$ZDCHAR( n ) $ZDC( n )	iris-extension	false	false	true			site/RCOS_fzdchar.html#RCOS_fzdchar		
+$ZEXP		$ZEXP( n )	iris-extension	false	false	true			site/RCOS_fzexp.html#RCOS_fzexp		
+$ZEXTRACT	$ZE	$ZE[XTRACT](expr[,intexpr1[,intexpr2]])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZEXTRACT()			
+$ZF		"$ZF("" function_name "", args )"	iris-extension	false	false	true			site/RCOS_fzf.html#RCOS_fzf		
+$ZFIND	$ZF	$ZF[IND](expr1,expr2[,intexpr])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZFIND()			
+$ZGETJPI		$ZGETJPI(expr1,expr2)	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZGETJPI()			
+$ZHEX		$ZHEX( num ) $ZH( num )	iris-extension	false	false	true			site/RCOS_fzhex.html#RCOS_fzhex		
+$ZISWIDE		$ZISWIDE( string )	iris-extension	false	false	true			site/RCOS_fziswide.html#RCOS_fziswide		
+$ZJOBEXAM		$ZJOBEXAM([expr1[,expr2]])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZJOBEXAM()			
+$ZJUSTIFY	$ZJ	$ZJ[USTIFY](expr,intexpr1[,intexpr2])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZJUSTIFY()			
+$ZLASCII		$ZLASCII( string , position ) $ZLA( string , position )	iris-extension	false	false	true			site/RCOS_fzlascii.html#RCOS_fzlascii		
+$ZLCHAR		$ZLCHAR( n ) $ZLC( n )	iris-extension	false	false	true			site/RCOS_fzlchar.html#RCOS_fzlchar		
+$ZLENGTH	$ZL	$ZL[ENGTH](expr1[,expr2])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZLENGTH()			
+$ZLN		$ZLN( n )	iris-extension	false	false	true			site/RCOS_fzln.html#RCOS_fzln		
+$ZLOG		$ZLOG( n )	iris-extension	false	false	true			site/RCOS_fzlog.html#RCOS_fzlog		
+$ZMESSAGE	$ZM	$ZM[ESSAGE](intexpr)	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZMESSAGE()			
+$ZPARSE		$ZPARSE(expr1[,expr2[,expr3[,expr4[,expr5]]]])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZPARSE()			
+$ZPEEK		"$ZPEEK(""mnemonic[:argument]"",offset,length[,format])"	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZPEEK()			
+$ZPIECE	$ZPI	$ZPI[ECE](expr1,expr2[,intexpr1[,intexpr2]])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZPIECE()			
+$ZPOWER		$ZPOWER( num , exponent )	iris-extension	false	false	true			site/RCOS_fzpower.html#RCOS_fzpower		
+$ZPREVIOUS	$ZP	$ZP[REVIOUS](glvn)	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZPREVIOUS()			
+$ZQASCII		$ZQASCII( string , position ) $ZQA( string , position )	iris-extension	false	false	true			site/RCOS_fzqascii.html#RCOS_fzqascii		
+$ZQCHAR		$ZQCHAR( n ) $ZQC( n )	iris-extension	false	false	true			site/RCOS_fzqchar.html#RCOS_fzqchar		
+$ZQGBLMOD		$ZQGBLMOD(gvn)	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZQGBLMOD()			
+$ZSEARCH		$ZSEARCH(expr[,intexpr])	multi-vendor-ext	false	true	true		ProgrammersGuide/functions.rst#$ZSEARCH()	site/RCOS_fzsearch.html#RCOS_fzsearch		
+$ZSEC		$ZSEC( n )	iris-extension	false	false	true			site/RCOS_fzsec.html#RCOS_fzsec		
+$ZSEEK		$ZSEEK( offset , mode )	iris-extension	false	false	true			site/RCOS_fzseek.html#RCOS_fzseek		
+$ZSIGPROC		$ZSIGPROC(expr1,expr2)	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZSIGPROC()			
+$ZSIN		$ZSIN( n )	iris-extension	false	false	true			site/RCOS_fzsin.html#RCOS_fzsin		
+$ZSOCKET		$ZSOCKET(expr1,expr2[,[expr3][,expr4]])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZSOCKET()			
+$ZSQR		$ZSQR( n )	iris-extension	false	false	true			site/RCOS_fzsqr.html#RCOS_fzsqr		
+$ZSTRIP		$ZSTRIP( string , action , remchar , keepchar )	iris-extension	false	false	true			site/RCOS_fzstrip.html#RCOS_fzstrip		
+$ZSUBSTR	$ZSUB	$ZSUB[STR] (expr ,intexpr1 [,intexpr2])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZSUBSTR()			
+$ZSYSLOG		$ZSYSLOG(expr)	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZSYSLOG()			
+$ZTAN		$ZTAN( n )	iris-extension	false	false	true			site/RCOS_fztan.html#RCOS_fztan		
+$ZTIME		$ZTIME( htime , tformat , precision , erropt , localeopt ) $ZT( htime , tformat , precision , erropt , localeopt )	iris-extension	false	false	true			site/RCOS_fztime.html#RCOS_fztime		
+$ZTIMEH		$ZTIMEH( time , tformat , erropt , localeopt ) $ZTH( time , tformat , erropt , localeopt )	iris-extension	false	false	true			site/RCOS_fztimeh.html#RCOS_fztimeh		
+$ZTRANSLATE	$ZTR	$ZTR[ANSLATE](expr1[,expr2[,expr3]])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZTRANSLATE()			
+$ZTRIGGER		$ZTRIgger(expr1[,expr2])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZTRIGGER()			
+$ZTRNLNM		$ZTRNLNM(expr1[,expr2[,expr3[,expr4[,expr5[,expr6]]]]])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZTRNLNM()			
+$ZUADITLOG		$ZUADITLOG(expr)	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZAUditlog()			
+$ZWASCII		$ZWASCII( string , position ) $ZWA( string , position )	iris-extension	false	false	true			site/RCOS_fzwascii.html#RCOS_fzwascii		
+$ZWCHAR		$ZWCHAR( n ) $ZWC( n )	iris-extension	false	false	true			site/RCOS_fzwchar.html#RCOS_fzwchar		
+$ZWIDTH	$ZW	$ZW[IDTH] (expr)	multi-vendor-ext	false	true	true		ProgrammersGuide/functions.rst#$ZWIDTH()	site/RCOS_fzwidth.html#RCOS_fzwidth		
+$ZWRITE		$ZWRITE(expr[,intexpr])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZWRITE()			
+$ZYCOMPILE		$ZYCOMPILE(string)	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZYCOmpile()			
+$ZYHASH		$ZYHASH(string[,salt])	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZYHASH()			
+$ZYISSQLNULL		$ZYISSQLNULL(expr)	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZYISSQLNULL()			
+$ZYSUFFIX	$ZYSU	$ZYSU[FFIX](string)	ydb-extension	false	true	false		ProgrammersGuide/functions.rst#$ZYSUFFIX()			
+$ZZENKAKU		$ZZENKAKU( expression , flag1 , flag2 )	iris-extension	false	false	true			site/RCOS_fzzenkaku.html#RCOS_fzzenkaku		

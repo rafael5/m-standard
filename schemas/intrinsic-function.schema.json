@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://m-standard.local/schemas/intrinsic-function.schema.json",
   "title": "m-standard intrinsic function entry",
-  "description": "One M intrinsic function in the integrated layer (per spec §5.2, §6.3).",
+  "description": "One M intrinsic function in the integrated layer (per spec \u00a75.2, \u00a76.3).",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -47,7 +47,9 @@
             "type": "string",
             "enum": [
               "ansi",
-              "ydb-extension"
+              "ydb-extension",
+              "iris-extension",
+              "multi-vendor-ext"
             ]
           },
           "in_anno": {
@@ -69,6 +71,12 @@
             ]
           },
           "notes": {
+            "type": "string"
+          },
+          "in_iris": {
+            "type": "boolean"
+          },
+          "iris_section": {
             "type": "string"
           }
         }

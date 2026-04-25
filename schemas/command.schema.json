@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://m-standard.local/schemas/command.schema.json",
   "title": "m-standard command entry",
-  "description": "One M command in the integrated layer (per spec §5.1, §6.3).",
+  "description": "One M command in the integrated layer (per spec \u00a75.1, \u00a76.3).",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -49,7 +49,9 @@
             "type": "string",
             "enum": [
               "ansi",
-              "ydb-extension"
+              "ydb-extension",
+              "iris-extension",
+              "multi-vendor-ext"
             ]
           },
           "in_anno": {
@@ -72,6 +74,12 @@
             "description": "Foreign key into conflicts.json when reconciliation was non-trivial; null otherwise."
           },
           "notes": {
+            "type": "string"
+          },
+          "in_iris": {
+            "type": "boolean"
+          },
+          "iris_section": {
             "type": "string"
           }
         }
