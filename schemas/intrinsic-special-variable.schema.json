@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://m-standard.local/schemas/intrinsic-special-variable.schema.json",
+  "title": "m-standard intrinsic special variable entry",
+  "description": "One M intrinsic special variable (svn) in the integrated layer (per spec §5.3, §6.3).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "concept",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1"
+    },
+    "concept": {
+      "type": "string",
+      "const": "intrinsic-special-variables"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "canonical_name",
+          "standard_status",
+          "in_anno",
+          "in_ydb"
+        ],
+        "properties": {
+          "canonical_name": {
+            "type": "string",
+            "pattern": "^\\$"
+          },
+          "abbreviation": {
+            "type": "string"
+          },
+          "format": {
+            "type": "string"
+          },
+          "standard_status": {
+            "type": "string",
+            "enum": [
+              "ansi",
+              "ydb-extension"
+            ]
+          },
+          "in_anno": {
+            "type": "boolean"
+          },
+          "in_ydb": {
+            "type": "boolean"
+          },
+          "anno_section": {
+            "type": "string"
+          },
+          "ydb_section": {
+            "type": "string"
+          },
+          "conflict_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

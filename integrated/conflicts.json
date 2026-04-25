@@ -1,0 +1,216 @@
+{
+  "concept": "conflicts",
+  "entries": [
+    {
+      "anno_says": "AB[LOCK] postcond [ SP ] SP ablockargument",
+      "concept": "commands",
+      "conflict_id": "CONF-001",
+      "entry": "ABLOCK",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "assignargument ::= assigndestination = object @ expratom V L assignargument",
+      "concept": "commands",
+      "conflict_id": "CONF-002",
+      "entry": "ASSIGN",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "ASTA[RT] postcond [ SP ] SP ablockargument",
+      "concept": "commands",
+      "conflict_id": "CONF-003",
+      "entry": "ASTART",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "ASTO[P] postcond [ SP ] SP ablockargument",
+      "concept": "commands",
+      "conflict_id": "CONF-004",
+      "entry": "ASTOP",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "AUNB[LOCK] postcond [ SP ] SP ablockargument",
+      "concept": "commands",
+      "conflict_id": "CONF-005",
+      "entry": "AUNBLOCK",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "ESTA[RT] postcond [ SP ] SP estartargument",
+      "concept": "commands",
+      "conflict_id": "CONF-006",
+      "entry": "ESTART",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "Previous MDC examples Next",
+      "concept": "commands",
+      "conflict_id": "CONF-007",
+      "entry": "ESTOP",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "especref ::= expr V ^$W[INDOW] ( expec ) [ : einforef ] expr V ^$J[OB] ( erspec )",
+      "concept": "commands",
+      "conflict_id": "CONF-008",
+      "entry": "ETRIGGER",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "a) glvn : Selective Kill.",
+      "concept": "commands",
+      "conflict_id": "CONF-009",
+      "entry": "KSUBSCRIPTS",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "a) glvn : Selective Kill.",
+      "concept": "commands",
+      "conflict_id": "CONF-010",
+      "entry": "KVALUE",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "routineargument ::= routineref : glvn [ : routineparameters ] @ expratom V L routineargument",
+      "concept": "commands",
+      "conflict_id": "CONF-011",
+      "entry": "RLOAD",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "Previous MDC examples Next",
+      "concept": "commands",
+      "conflict_id": "CONF-012",
+      "entry": "RSAVE",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "Previous MDC examples Next",
+      "concept": "commands",
+      "conflict_id": "CONF-013",
+      "entry": "THEN",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "Previous 1977 1984 1990 1995 MDC Next",
+      "concept": "commands",
+      "conflict_id": "CONF-014",
+      "entry": "Z",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "$DE[XTRACT] ( [ initialrecordvalue ] , extracttemplate , L [ recordfieldvalue ] )",
+      "concept": "intrinsic-functions",
+      "conflict_id": "CONF-015",
+      "entry": "$DEXTRACT",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "$DP[IECE] ( [ initialrecordvalue ] , piecedelimiter , L [ recordfieldvalue ] )",
+      "concept": "intrinsic-functions",
+      "conflict_id": "CONF-016",
+      "entry": "$DPIECE",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "$H[OROLOG] ( intexpr )",
+      "concept": "intrinsic-functions",
+      "conflict_id": "CONF-017",
+      "entry": "$HOROLOG",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "$M[UMPS] ( expr )",
+      "concept": "intrinsic-functions",
+      "conflict_id": "CONF-018",
+      "entry": "$MUMPS",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "$TY[PE] ( expratom )",
+      "concept": "intrinsic-functions",
+      "conflict_id": "CONF-019",
+      "entry": "$TYPE",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "$Z[unspecified] ( unspecified )",
+      "concept": "intrinsic-functions",
+      "conflict_id": "CONF-020",
+      "entry": "$Z",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    },
+    {
+      "anno_says": "$Z[unspecified]",
+      "concept": "intrinsic-special-variables",
+      "conflict_id": "CONF-021",
+      "entry": "$ZUNSPECIFIED",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative for standard membership)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
+    }
+  ],
+  "schema_version": "1"
+}

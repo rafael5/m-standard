@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://m-standard.local/schemas/command.schema.json",
+  "title": "m-standard command entry",
+  "description": "One M command in the integrated layer (per spec §5.1, §6.3).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "concept",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1",
+      "description": "Locked at \"1\" for v1.0; bumped on breaking schema changes (per AD-05)."
+    },
+    "concept": {
+      "type": "string",
+      "const": "commands"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "canonical_name",
+          "standard_status",
+          "in_anno",
+          "in_ydb"
+        ],
+        "properties": {
+          "canonical_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Uppercase canonical command name (e.g. BREAK)."
+          },
+          "abbreviation": {
+            "type": "string",
+            "description": "Standard abbreviation (e.g. B). May be empty when AnnoStd-only entries don't record one."
+          },
+          "format": {
+            "type": "string",
+            "description": "Verbatim format string from the chosen authoritative source. The metalanguage may be either AnnoStd's (postcond, SP) or YDB's ([:tvexpr])."
+          },
+          "standard_status": {
+            "type": "string",
+            "enum": [
+              "ansi",
+              "ydb-extension"
+            ]
+          },
+          "in_anno": {
+            "type": "boolean"
+          },
+          "in_ydb": {
+            "type": "boolean"
+          },
+          "anno_section": {
+            "type": "string"
+          },
+          "ydb_section": {
+            "type": "string"
+          },
+          "conflict_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Foreign key into conflicts.json when reconciliation was non-trivial; null otherwise."
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

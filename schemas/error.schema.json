@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://m-standard.local/schemas/error.schema.json",
+  "title": "m-standard error entry",
+  "description": "One M error condition per spec §5.6, §6.3. v1.0 catalogues YDB's mnemonics; ANSI M1-M75 set is deferred (BL-009).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "concept",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1"
+    },
+    "concept": {
+      "type": "string",
+      "const": "errors"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "mnemonic",
+          "standard_status",
+          "in_anno",
+          "in_ydb"
+        ],
+        "properties": {
+          "mnemonic": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9]+$"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "standard_status": {
+            "type": "string",
+            "enum": [
+              "ansi",
+              "ydb-extension"
+            ]
+          },
+          "in_anno": {
+            "type": "boolean"
+          },
+          "in_ydb": {
+            "type": "boolean"
+          },
+          "ydb_section": {
+            "type": "string"
+          },
+          "anno_section": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

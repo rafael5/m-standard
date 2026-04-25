@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://m-standard.local/schemas/conflicts.schema.json",
+  "title": "m-standard reconciliation conflicts",
+  "description": "All non-trivial reconciliations between AnnoStd and YDB (per spec §6.4).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "concept",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1"
+    },
+    "concept": {
+      "type": "string",
+      "const": "conflicts"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "conflict_id",
+          "concept",
+          "entry",
+          "kind",
+          "resolution",
+          "resolution_basis"
+        ],
+        "properties": {
+          "conflict_id": {
+            "type": "string",
+            "pattern": "^CONF-[0-9]{3,}$"
+          },
+          "concept": {
+            "type": "string",
+            "enum": [
+              "commands",
+              "intrinsic-functions",
+              "intrinsic-special-variables",
+              "operators",
+              "pattern-codes",
+              "errors",
+              "environment"
+            ]
+          },
+          "entry": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "existence",
+              "definition",
+              "extension",
+              "errata",
+              "annotation-only"
+            ]
+          },
+          "anno_says": {
+            "type": "string"
+          },
+          "ydb_says": {
+            "type": "string"
+          },
+          "resolution": {
+            "type": "string",
+            "minLength": 1
+          },
+          "resolution_basis": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

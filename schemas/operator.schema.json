@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://m-standard.local/schemas/operator.schema.json",
+  "title": "m-standard operator entry",
+  "description": "One M operator in the integrated layer (per spec §5.4, §6.3). YDB-only pass-through in v1.0 — see BL-009.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "concept",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1"
+    },
+    "concept": {
+      "type": "string",
+      "const": "operators"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "symbol",
+          "operator_class",
+          "standard_status",
+          "in_anno",
+          "in_ydb"
+        ],
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operator_class": {
+            "type": "string",
+            "enum": [
+              "arithmetic",
+              "logical",
+              "numeric-relational",
+              "string-relational",
+              "pattern"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "standard_status": {
+            "type": "string",
+            "enum": [
+              "ansi",
+              "ydb-extension"
+            ]
+          },
+          "in_anno": {
+            "type": "boolean"
+          },
+          "in_ydb": {
+            "type": "boolean"
+          },
+          "ydb_section": {
+            "type": "string"
+          },
+          "anno_section": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

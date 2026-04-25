@@ -1,0 +1,150 @@
+{
+  "concept": "operators",
+  "entries": [
+    {
+      "description": "binary OR operator produces a true result if either of the expressions is true",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "logical",
+      "standard_status": "ansi",
+      "symbol": "!",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#logical-operators"
+    },
+    {
+      "description": "binary operator for modulo, that is, causes M to produce the remainder from integer division of the first argument by the second",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "arithmetic",
+      "standard_status": "ansi",
+      "symbol": "#",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#arithmetic-operators"
+    },
+    {
+      "description": "binary AND operator produces a true result only if both of the expressions are true",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "logical",
+      "standard_status": "ansi",
+      "symbol": "&",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#logical-operators"
+    },
+    {
+      "description": "unary NOT operator negates current truth-value; M accepts placement of the NOT operator next to a relational operator, for example, A'=B meaning '(A=B), i.e., NAND and next to logical operators, A'& B meaning '(A & B) i.e. NAND and A'! B meaning '(A ! B) i.e. NOR",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "logical",
+      "standard_status": "ansi",
+      "symbol": "'",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#logical-operators"
+    },
+    {
+      "description": "binary operator for multiplication",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "arithmetic",
+      "standard_status": "ansi",
+      "symbol": "*",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#arithmetic-operators"
+    },
+    {
+      "description": "binary operator for exponentiation",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "arithmetic",
+      "standard_status": "ansi",
+      "symbol": "**",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#arithmetic-operators"
+    },
+    {
+      "description": "as a unary operator it simply forces M to evaluate the expression following as numeric; as a binary operator it causes M to perform addition",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "arithmetic",
+      "standard_status": "ansi",
+      "symbol": "+",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#arithmetic-operators"
+    },
+    {
+      "description": "as a unary operator it causes M to negate the expression following; as a binary operator it causes M to perform subtraction",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "arithmetic",
+      "standard_status": "ansi",
+      "symbol": "-",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#arithmetic-operators"
+    },
+    {
+      "description": "binary operator for fractional division",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "arithmetic",
+      "standard_status": "ansi",
+      "symbol": "/",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#arithmetic-operators"
+    },
+    {
+      "description": "binary arithmetic less than",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "numeric-relational",
+      "standard_status": "ansi",
+      "symbol": "<",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#numeric-relational-operators"
+    },
+    {
+      "description": "binary operator causes M to produce a TRUE if the expressions are equal",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "string-relational",
+      "standard_status": "ansi",
+      "symbol": "=",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#string-relational-operators"
+    },
+    {
+      "description": "binary arithmetic greater than",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "numeric-relational",
+      "standard_status": "ansi",
+      "symbol": ">",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#numeric-relational-operators"
+    },
+    {
+      "description": "binary operator causes M to produce a TRUE if the first expression contains the ordered sequence of characters in the second expression",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "string-relational",
+      "standard_status": "ansi",
+      "symbol": "[",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#string-relational-operators"
+    },
+    {
+      "description": "binary operator for integer division",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "arithmetic",
+      "standard_status": "ansi",
+      "symbol": "\\",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#arithmetic-operators"
+    },
+    {
+      "description": "binary operator causes M to produce a TRUE if the first expression lexically follows the second expression in the character encoding sequence, which by default is ASCII",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "string-relational",
+      "standard_status": "ansi",
+      "symbol": "]",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#string-relational-operators"
+    },
+    {
+      "description": "binary operator causes M to produce a TRUE if the first expression lexically sorts after the second expression in the subscript collation sequence",
+      "in_anno": false,
+      "in_ydb": true,
+      "operator_class": "string-relational",
+      "standard_status": "ansi",
+      "symbol": "]]",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#string-relational-operators"
+    }
+  ],
+  "schema_version": "1"
+}

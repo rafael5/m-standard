@@ -1,0 +1,62 @@
+{
+  "concept": "pattern-codes",
+  "entries": [
+    {
+      "code": "A",
+      "description": "alphabetic characters upper or lower case",
+      "in_anno": false,
+      "in_ydb": true,
+      "standard_status": "ansi",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#pattern-codes"
+    },
+    {
+      "code": "C",
+      "description": "control characters ASCII 0-31 and 127",
+      "in_anno": false,
+      "in_ydb": true,
+      "standard_status": "ansi",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#pattern-codes"
+    },
+    {
+      "code": "E",
+      "description": "any character; used to pass all characters in portions of the string where the pattern is not restricted",
+      "in_anno": false,
+      "in_ydb": true,
+      "standard_status": "ansi",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#pattern-codes"
+    },
+    {
+      "code": "L",
+      "description": "lower-case alphabetic characters, ASCII 97-122",
+      "in_anno": false,
+      "in_ydb": true,
+      "standard_status": "ansi",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#pattern-codes"
+    },
+    {
+      "code": "N",
+      "description": "digits 0-9, ASCII 48-57",
+      "in_anno": false,
+      "in_ydb": true,
+      "standard_status": "ansi",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#pattern-codes"
+    },
+    {
+      "code": "P",
+      "description": "punctuation, ASCII 32-47, 58-64, 91-96, 123-126",
+      "in_anno": false,
+      "in_ydb": true,
+      "standard_status": "ansi",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#pattern-codes"
+    },
+    {
+      "code": "U",
+      "description": "upper-case alphabetic characters, ASCII 65-90",
+      "in_anno": false,
+      "in_ydb": true,
+      "standard_status": "ansi",
+      "ydb_section": "ProgrammersGuide/langfeat.rst#pattern-codes"
+    }
+  ],
+  "schema_version": "1"
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://m-standard.local/schemas/pattern-code.schema.json",
+  "title": "m-standard pattern code entry",
+  "description": "One M pattern code (A, C, E, L, N, P, U, plus extensions) per spec §5.5, §6.3.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "concept",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1"
+    },
+    "concept": {
+      "type": "string",
+      "const": "pattern-codes"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "standard_status",
+          "in_anno",
+          "in_ydb"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2
+          },
+          "description": {
+            "type": "string"
+          },
+          "standard_status": {
+            "type": "string",
+            "enum": [
+              "ansi",
+              "ydb-extension"
+            ]
+          },
+          "in_anno": {
+            "type": "boolean"
+          },
+          "in_ydb": {
+            "type": "boolean"
+          },
+          "ydb_section": {
+            "type": "string"
+          },
+          "anno_section": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
