@@ -1,11 +1,11 @@
 {
   "concept": "va-sac-compliance",
   "counts": {
-    "aligned": 5,
-    "sac_says_avoid_but_portable": 7,
+    "aligned": 148,
+    "sac_says_avoid_but_portable": 23,
     "sac_says_use_but_not_portable": 0,
-    "sac_silent_on_portable": 74,
-    "sac_silent_on_unportable": 237
+    "sac_silent_on_portable": 58,
+    "sac_silent_on_unportable": 94
   },
   "description": "Cross-reference between VA Standards and Conventions and the pragmatic M standard. Filter to concern in [sac_says_use_but_not_portable, sac_says_avoid_but_portable] for portability gaps that VistA developers should review.",
   "entries": [
@@ -58,9 +58,9 @@
       "concept": "commands",
       "concern": "sac_says_avoid_but_portable",
       "name": "BREAK",
-      "notes": "SAC forbids BREAK in production code; use ZBREAK during debugging only.",
+      "notes": "Break command used.",
       "pragmatic_tier": "core",
-      "sac_section": "SAC §2.x (debugging)",
+      "sac_section": "XINDEX rule 25 (severity S)",
       "sac_status": "forbidden"
     },
     {
@@ -164,12 +164,12 @@
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "HALT",
-      "notes": "",
+      "notes": "'HALT' command should be invoked through 'G ^XUSCLEAN'.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 32 (severity S)",
+      "sac_status": "restricted"
     },
     {
       "concept": "commands",
@@ -193,9 +193,9 @@
       "concept": "commands",
       "concern": "sac_says_avoid_but_portable",
       "name": "JOB",
-      "notes": "JOB requires explicit IRMS/site approval; not for general use.",
+      "notes": "Should use 'TASKMAN' instead of 'JOB' command.",
       "pragmatic_tier": "core",
-      "sac_section": "SAC §2.x (concurrency)",
+      "sac_section": "XINDEX rule 36 (severity S)",
       "sac_status": "restricted"
     },
     {
@@ -398,12 +398,12 @@
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "VIEW",
-      "notes": "",
+      "notes": "View command used.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 20 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
@@ -425,35 +425,8 @@
     },
     {
       "concept": "commands",
-      "concern": "sac_says_avoid_but_portable",
-      "name": "XECUTE",
-      "notes": "XECUTE on user-supplied input is forbidden; restricted to controlled cases.",
-      "pragmatic_tier": "core",
-      "sac_section": "SAC §2.x (security)",
-      "sac_status": "restricted"
-    },
-    {
-      "concept": "commands",
-      "concern": "sac_silent_on_unportable",
-      "name": "Z",
-      "notes": "",
-      "pragmatic_tier": "ansi-unimplemented",
-      "sac_section": "",
-      "sac_status": ""
-    },
-    {
-      "concept": "commands",
-      "concern": "sac_silent_on_unportable",
-      "name": "ZALLOCATE",
-      "notes": "",
-      "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
-    },
-    {
-      "concept": "commands",
       "concern": "sac_silent_on_portable",
-      "name": "ZBREAK",
+      "name": "XECUTE",
       "notes": "",
       "pragmatic_tier": "core",
       "sac_section": "",
@@ -461,291 +434,318 @@
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
+      "name": "Z",
+      "notes": "Non-standard (Undefined) 'Z' command.",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
+    },
+    {
+      "concept": "commands",
+      "concern": "aligned",
+      "name": "ZALLOCATE",
+      "notes": "Non-standard (Undefined) 'Z' command.",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_says_avoid_but_portable",
+      "name": "ZBREAK",
+      "notes": "Non-standard (Undefined) 'Z' command.",
+      "pragmatic_tier": "core",
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
+    },
+    {
+      "concept": "commands",
+      "concern": "aligned",
       "name": "ZCOMPILE",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZCONTINUE",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZDEALLOCATE",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZEDIT",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZGOTO",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZHALT",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZHELP",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
       "concern": "aligned",
       "name": "ZINSERT",
-      "notes": "Source-modification at runtime forbidden in production.",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "SAC §2.x (debugging)",
+      "sac_section": "XINDEX rule 2 (severity F)",
       "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "ZKILL",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZLINK",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
       "concern": "aligned",
       "name": "ZLOAD",
-      "notes": "Source-modification at runtime forbidden in production.",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "SAC §2.x (debugging)",
+      "sac_section": "XINDEX rule 2 (severity F)",
       "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZMESSAGE",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZNSPACE",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "ZPRINT",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
       "concern": "aligned",
       "name": "ZREMOVE",
-      "notes": "Source-modification at runtime forbidden in production.",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "SAC §2.x (debugging)",
+      "sac_section": "XINDEX rule 2 (severity F)",
       "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZRUPDATE",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
       "concern": "aligned",
       "name": "ZSAVE",
-      "notes": "Source-modification at runtime forbidden in production.",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "SAC §2.x (debugging)",
+      "sac_section": "XINDEX rule 2 (severity F)",
       "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZSHOW",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZSTEP",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZSU",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
       "concern": "aligned",
       "name": "ZSYSTEM",
-      "notes": "Shell escape disallowed in VistA application code.",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "SAC §2.x (shell escape)",
+      "sac_section": "XINDEX rule 2 (severity F)",
       "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZTCOMMIT",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZTRAP",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZTRIGGER",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZTSTART",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZWITHDRAW",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "ZWRITE",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZYDECODE",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZYENCODE",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZZDUMP",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZZPRINT",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "commands",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "ZZWRITE",
-      "notes": "",
+      "notes": "Non-standard (Undefined) 'Z' command.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 2 (severity F)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
@@ -1433,12 +1433,12 @@
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "$VIEW",
-      "notes": "",
+      "notes": "$View function used.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 27 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
@@ -1514,669 +1514,669 @@
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$Z",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ansi-unimplemented",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZABS",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZAHANDLE",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZARCCOS",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZARCSIN",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZARCTAN",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZASCII",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZATRANSFORM",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZBITAND",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZBOOLEAN",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZCHAR",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZCOLLATE",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "$ZCONVERT",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZCOS",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZCOT",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZCRC",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZCSC",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZCYC",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZDASCII",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZDATA",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "$ZDATE",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZDATEH",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZDATETIME",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZDATETIMEH",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZDCHAR",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZEXP",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZEXTRACT",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZF",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZFIND",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZGETJPI",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZHEX",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZISWIDE",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZJOBEXAM",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZJUSTIFY",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZLASCII",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZLCHAR",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZLENGTH",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZLN",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZLOG",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZMESSAGE",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZPARSE",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZPEEK",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZPIECE",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZPOWER",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZPREVIOUS",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZQASCII",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZQCHAR",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZQGBLMOD",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
       "concern": "sac_says_avoid_but_portable",
       "name": "$ZSEARCH",
-      "notes": "Direct filesystem access restricted; use FileMan APIs instead.",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "core",
-      "sac_section": "SAC §3.x (filesystem)",
-      "sac_status": "restricted"
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSEC",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSEEK",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSIGPROC",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSIN",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSOCKET",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSQR",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSTRIP",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSUBSTR",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSYSLOG",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZTAN",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZTIME",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZTIMEH",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZTRANSLATE",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZTRIGGER",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZTRNLNM",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZUADITLOG",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZWASCII",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZWCHAR",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "$ZWIDTH",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZWRITE",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZYCOMPILE",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZYHASH",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZYISSQLNULL",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZYSUFFIX",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-functions",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZZENKAKU",
-      "notes": "",
+      "notes": "Non-standard $Z function used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 31 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
@@ -2407,514 +2407,514 @@
       "concept": "intrinsic-special-variables",
       "concern": "sac_says_avoid_but_portable",
       "name": "$ZA",
-      "notes": "Vendor-specific device status; non-portable; SAC requires use of $DEVICE.",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "core",
-      "sac_section": "SAC §3.x (vendor-specific)",
+      "sac_section": "XINDEX rule 28 (severity S)",
       "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZALLOCSTOR",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZAUDIT",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
       "concern": "sac_says_avoid_but_portable",
       "name": "$ZB",
-      "notes": "Vendor-specific terminator status; non-portable.",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "core",
-      "sac_section": "SAC §3.x (vendor-specific)",
+      "sac_section": "XINDEX rule 28 (severity S)",
       "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZCHILD",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZCHSET",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZCMDLINE",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZCOMPILE",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZCSTATUS",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZDATEFORM",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZDIRECTORY",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "$ZEOF",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZEOS",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "$ZERROR",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZGBLDIR",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "$ZHOROLOG",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZICUVER",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZININTERRUPT",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZINTERRUPT",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
       "concern": "sac_says_avoid_but_portable",
       "name": "$ZIO",
-      "notes": "Vendor-specific I/O state; non-portable.",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "core",
-      "sac_section": "SAC §3.x (vendor-specific)",
+      "sac_section": "XINDEX rule 28 (severity S)",
       "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "$ZJOB",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZLEVEL",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZMALLOCLIM",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZMAXTPTIME",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZMLKHASH",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "$ZMODE",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZNSPACE",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZONLNRLBK",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZORDER",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZPARENT",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZPATNUMERIC",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZPI",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZPOSITION",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZPROMPT",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZQUIT",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZREALSTOR",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZREFERENCE",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZRELDATE",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZROUTINES",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSOURCE",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSTATUS",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSTEP",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSTORAGE",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSTRPLLIM",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZSYSTEM",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZTEXIT",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZTIMEOUT",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZTIMESTAMP",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZTIMEZONE",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "iris-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "$ZTRAP",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZUNSPECIFIED",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ansi-unimplemented",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZUSEDSTOR",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZUT",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_portable",
+      "concern": "sac_says_avoid_but_portable",
       "name": "$ZVERSION",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "core",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZYERROR",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZYINTRSIG",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     },
     {
       "concept": "intrinsic-special-variables",
-      "concern": "sac_silent_on_unportable",
+      "concern": "aligned",
       "name": "$ZYJOBPARENT",
-      "notes": "",
+      "notes": "Non-standard $Z special variable used.",
       "pragmatic_tier": "ydb-only",
-      "sac_section": "",
-      "sac_status": ""
+      "sac_section": "XINDEX rule 28 (severity S)",
+      "sac_status": "forbidden"
     }
   ],
   "schema_version": "1"

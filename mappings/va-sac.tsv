@@ -1,13 +1,172 @@
 concept	name	sac_status	sac_section	notes
-commands	BREAK	forbidden	SAC §2.x (debugging)	SAC forbids BREAK in production code; use ZBREAK during debugging only.
-commands	JOB	restricted	SAC §2.x (concurrency)	JOB requires explicit IRMS/site approval; not for general use.
-commands	XECUTE	restricted	SAC §2.x (security)	XECUTE on user-supplied input is forbidden; restricted to controlled cases.
-commands	ZSYSTEM	forbidden	SAC §2.x (shell escape)	Shell escape disallowed in VistA application code.
-commands	ZINSERT	forbidden	SAC §2.x (debugging)	Source-modification at runtime forbidden in production.
-commands	ZLOAD	forbidden	SAC §2.x (debugging)	Source-modification at runtime forbidden in production.
-commands	ZSAVE	forbidden	SAC §2.x (debugging)	Source-modification at runtime forbidden in production.
-commands	ZREMOVE	forbidden	SAC §2.x (debugging)	Source-modification at runtime forbidden in production.
-intrinsic-special-variables	$ZA	forbidden	SAC §3.x (vendor-specific)	Vendor-specific device status; non-portable; SAC requires use of $DEVICE.
-intrinsic-special-variables	$ZB	forbidden	SAC §3.x (vendor-specific)	Vendor-specific terminator status; non-portable.
-intrinsic-special-variables	$ZIO	forbidden	SAC §3.x (vendor-specific)	Vendor-specific I/O state; non-portable.
-intrinsic-functions	$ZSEARCH	restricted	SAC §3.x (filesystem)	Direct filesystem access restricted; use FileMan APIs instead.
+commands	BREAK	forbidden	XINDEX rule 25 (severity S)	Break command used.
+commands	HALT	restricted	XINDEX rule 32 (severity S)	'HALT' command should be invoked through 'G ^XUSCLEAN'.
+commands	JOB	restricted	XINDEX rule 36 (severity S)	Should use 'TASKMAN' instead of 'JOB' command.
+commands	VIEW	forbidden	XINDEX rule 20 (severity S)	View command used.
+commands	Z	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZALLOCATE	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZBREAK	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZCOMPILE	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZCONTINUE	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZDEALLOCATE	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZEDIT	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZGOTO	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZHALT	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZHELP	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZINSERT	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZKILL	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZLINK	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZLOAD	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZMESSAGE	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZNSPACE	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZPRINT	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZREMOVE	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZRUPDATE	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZSAVE	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZSHOW	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZSTEP	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZSU	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZSYSTEM	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZTCOMMIT	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZTRAP	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZTRIGGER	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZTSTART	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZWITHDRAW	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZWRITE	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZYDECODE	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZYENCODE	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZZDUMP	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZZPRINT	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZZWRITE	forbidden	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+intrinsic-functions	$VIEW	forbidden	XINDEX rule 27 (severity S)	$View function used.
+intrinsic-functions	$Z	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZABS	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZAHANDLE	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZARCCOS	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZARCSIN	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZARCTAN	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZASCII	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZATRANSFORM	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZBITAND	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZBOOLEAN	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCHAR	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCOLLATE	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCONVERT	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCOS	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCOT	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCRC	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCSC	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCYC	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZDASCII	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZDATA	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZDATE	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZDATEH	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZDATETIME	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZDATETIMEH	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZDCHAR	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZEXP	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZEXTRACT	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZF	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZFIND	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZGETJPI	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZHEX	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZISWIDE	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZJOBEXAM	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZJUSTIFY	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZLASCII	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZLCHAR	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZLENGTH	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZLN	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZLOG	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZMESSAGE	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZPARSE	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZPEEK	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZPIECE	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZPOWER	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZPREVIOUS	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZQASCII	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZQCHAR	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZQGBLMOD	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSEARCH	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSEC	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSEEK	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSIGPROC	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSIN	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSOCKET	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSQR	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSTRIP	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSUBSTR	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSYSLOG	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZTAN	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZTIME	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZTIMEH	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZTRANSLATE	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZTRIGGER	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZTRNLNM	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZUADITLOG	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZWASCII	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZWCHAR	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZWIDTH	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZWRITE	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZYCOMPILE	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZYHASH	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZYISSQLNULL	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZYSUFFIX	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZZENKAKU	forbidden	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-special-variables	$ZA	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZALLOCSTOR	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZAUDIT	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZB	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZCHILD	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZCHSET	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZCMDLINE	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZCOMPILE	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZCSTATUS	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZDATEFORM	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZDIRECTORY	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZEOF	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZEOS	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZERROR	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZGBLDIR	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZHOROLOG	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZICUVER	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZININTERRUPT	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZINTERRUPT	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZIO	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZJOB	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZLEVEL	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZMALLOCLIM	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZMAXTPTIME	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZMLKHASH	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZMODE	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZNSPACE	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZONLNRLBK	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZORDER	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZPARENT	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZPATNUMERIC	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZPI	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZPOSITION	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZPROMPT	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZQUIT	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZREALSTOR	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZREFERENCE	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZRELDATE	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZROUTINES	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZSOURCE	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZSTATUS	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZSTEP	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZSTORAGE	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZSTRPLLIM	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZSYSTEM	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZTEXIT	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZTIMEOUT	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZTIMESTAMP	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZTIMEZONE	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZTRAP	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZUNSPECIFIED	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZUSEDSTOR	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZUT	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZVERSION	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZYERROR	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZYINTRSIG	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZYJOBPARENT	forbidden	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.

@@ -1,0 +1,66 @@
+rule_id	severity	exempt_namespaces	description
+1	F		UNDEFINED COMMAND (rest of line not checked).
+2	F	X,Z,DI,DD,KMP	Non-standard (Undefined) 'Z' command.
+3	F	X,Z,DI,DD,KMP	Undefined Function.
+4	F		Undefined Special Variable.
+5	F		Unmatched Parenthesis.
+6	F		Unmatched Quotation Marks.
+7	F		ELSE Command followed by only one space.
+8	F		FOR Command did not contain '='.
+9	I		QUIT Command followed by only one space.
+10	F		Unrecognized argument in SET command.
+11	W		Invalid local variable name.
+12	W		Invalid global variable name.
+13	W		Blank(s) at end of line.
+14	F		Call to missing label '|' in this routine.
+15	W		Duplicate label. (M57)
+16	F		Error in pattern code.
+17	W	Z	First line label NOT routine name.
+18	W		Line contains a CONTROL (non-graphic) character.
+19	S		Line is longer than 245 bytes.
+20	S	X,Z,DI,DD,KMP	View command used.
+21	F		General Syntax Error.
+22	S	X,Z,DI,DD,KMP	Exclusive Kill.
+23	S	X,Z,DI,DD,KMP	Unargumented Kill.
+24	S		Kill of an unsubscripted global.
+25	S		Break command used.
+26	S	X,Z,DI,DD,KMP	Exclusive or Unargumented NEW command.
+27	S	X,Z,DI,DD,KMP	$View function used.
+28	S	X,Z,DI,DD,KMP	Non-standard $Z special variable used.
+29	S	X,Z,DI,DD,KMP	'Close' command should be invoked through 'D ^%ZISC'.
+30	S		LABEL+OFFSET syntax.
+31	S	X,Z,DI,DD,KMP	Non-standard $Z function used.
+32	S	X,Z,DI,DD,KMP	'HALT' command should be invoked through 'G ^XUSCLEAN'.
+33	S	X,Z,DI,DD,KMP	Read command doesn't have a timeout.
+34	S	X,Z,DI,DD,KMP	'OPEN' command should be invoked through ^%ZIS.
+35	S		Routine exceeds SACC maximum size of 20000 (|).
+36	S	X,Z,DI,DD,KMP	Should use 'TASKMAN' instead of 'JOB' command.
+37	F		Label is not valid.
+38	F		Call to this |
+39	S	X,Z,DI	Kill of a protected variable (|).
+40	S		Space where a command should be.
+41	I	X,Z,DI,DD,KMP	Star or pound READ used.
+42	W		Null line (no commands or comment).
+43	F		Invalid or wrong number of arguments to a function.
+44	S		2nd line of routine violates the SAC.
+45	S	X,Z,DI,DD,KMP	Set to a '%' global.
+46	F		Quoted string not followed by a separator.
+47	S		Lowercase command(s) used in line.
+48	F		Missing argument to a command post-conditional.
+49	F		Command missing an argument.
+50	S	Z	Extended reference.
+51	F		Block structure mismatch.
+52	F		Reference to routine '^|'. That isn't in this UCI.
+53	F		Bad Number.
+54	S	X,Z,DI,DD,KMP	Access to SSVN's or $SYSTEM restricted to Kernel.
+55	S		Violates VA programming standards.
+56	S		Patch number '|' missing from second line.
+57	S		Lower/Mixed case Variable name used.
+58	S		Routine code exceeds SACC maximum size of 15000 (|).
+59	F		Bad WRITE syntax.
+60	S	X,Z,DI,DD,KMP	Lock missing Timeout.
+61	S	X,Z,DI,DD,KMP	Non-Incremental Lock.
+62	S		First line of routine violates the SAC.
+63	F		GO or DO mismatch from block structure (M45).
+64	F		Cache Object doesn't exist.
+65	S	X,Z,DI,DD,KMP	Vendor specific code is not allowed (SACC 2.2.8)

@@ -53,45 +53,63 @@ of five concern classifications:
 
 Entries not in the file are treated as `sac_status=""` (silent).
 
-## v0.2 seed contents and provenance
+## Authoritative source: XINDEX
 
-The current `mappings/va-sac.tsv` is a **v0.1 seed**, not the
-authoritative SAC content. It contains a small set of widely-cited
-SAC rules from public knowledge of VistA programming standards:
+The `mappings/va-sac.tsv` overlay is **auto-derived** from XINDEX
+— the operational SAC validator the VA actually runs against
+VistA M routines. XINDEX lives in the **Toolkit** package
+(`Packages/Toolkit/Routines/XINDEX.m` + `XINDX1.m`–`XINDX13.m`)
+and its rule table is the canonical machine-readable definition
+of what SAC enforces. This is more authoritative than any prose
+SAC document because it's what runs against actual code.
 
-- `BREAK`, `ZINSERT`, `ZLOAD`, `ZSAVE`, `ZREMOVE` — debug commands
-  conventionally forbidden in production code.
-- `XECUTE`, `JOB`, `ZSYSTEM` — restricted/forbidden for security
-  and concurrency reasons.
-- `$ZA`, `$ZB`, `$ZIO` — vendor-specific I/O state ISVs that SAC
-  conventionally forbids in favour of `$DEVICE` etc.
-- `$ZSEARCH` — direct filesystem access SAC restricts in favour of
-  FileMan APIs.
+The 18 XINDX routines are mirrored under `sources/sac/routines/`
+from `WorldVistA/VistA-M`. The full 65-rule table is parsed by
+`m_standard.tools.extract_sac` from `XINDX1.m`'s `ERROR` label
+and emitted as:
 
-**These entries should be reviewed against the authoritative
-SAC document.** The `sac_section` column for the seed entries
-points at section ranges (e.g. "SAC §2.x") rather than specific
-section numbers because the precise numbering varies by SAC
-revision.
+- `integrated/va-sac-rules.tsv` — every rule with severity
+  (F/S/W/I), exempt namespaces, and description. Useful for
+  downstream linters that flag pattern-level violations
+  (e.g. rule 33 "READ without timeout" — not a per-name
+  restriction so doesn't appear in the overlay).
+- `mappings/va-sac.tsv` — the per-name overlay for entries the
+  rules target by name (rule 25 "BREAK", rule 2 "any Z*
+  command", rule 28 "any $Z* svn", etc.). Each row's
+  `sac_section` points back at the rule (e.g.
+  `XINDEX rule 25 (severity S)`).
 
-## How to populate from the authoritative SAC
+**Update workflow.** When the VA publishes a new SAC revision,
+WorldVistA/VistA-M's Toolkit package picks up the updated XINDX
+routines. To refresh:
 
-The official SAC document is published by the VA M Programming
-Standards Committee. It's available through OSEHRA / the VA's open
-documentation channels. To populate this overlay:
+```bash
+make sources-sac      # re-fetch XINDX routines
+make extract          # regenerate va-sac.tsv + va-sac-rules.tsv
+make reconcile emit   # propagate through the pipeline
+make validate         # 9 gates including mapping-integrity
+```
 
-1. Open the authoritative SAC PDF/HTML.
-2. Find the "Allowed M Language Subset" section (varies by
-   revision).
-3. For each command/function/ISV mentioned, add a row to
-   `mappings/va-sac.tsv` with the correct `sac_status` and
-   `sac_section` (precise reference).
-4. Run `make emit-sac` and review `integrated/va-sac-compliance.tsv`
-   for portability concerns.
-5. The `mapping-integrity` validation gate will fail if any
-   `name` in the SAC overlay doesn't exist in the corresponding
-   per-source TSV — useful for catching SAC references to
-   commands that vendors removed.
+The `mapping-integrity` gate fails if XINDEX references a name
+that doesn't exist in the integrated TSVs — useful when SAC
+revs reference commands that vendors removed.
+
+## Severity codes
+
+XINDEX classifies violations:
+
+| Code | Meaning |
+| --- | --- |
+| `F` | Fatal — parser / language error (won't compile) |
+| `S` | Standard — SAC violation; fails compliance |
+| `W` | Warning — discouraged but allowed |
+| `I` | Info — stylistic note |
+
+The auto-derived overlay maps:
+- F/S rules with named targets → `sac_status=forbidden`
+- "Use X instead" rules (HALT→XUSCLEAN, JOB→TASKMAN) → `sac_status=restricted`
+- W/I rules → currently not projected to the overlay (they're in
+  `va-sac-rules.tsv` for downstream linter use)
 
 ## Why this lives in m-standard rather than vista-meta
 

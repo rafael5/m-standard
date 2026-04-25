@@ -4,7 +4,7 @@ commands	ASSIGN	ansi-unimplemented		sac_silent_on_unportable
 commands	ASTART	ansi-unimplemented		sac_silent_on_unportable		
 commands	ASTOP	ansi-unimplemented		sac_silent_on_unportable		
 commands	AUNBLOCK	ansi-unimplemented		sac_silent_on_unportable		
-commands	BREAK	core	forbidden	sac_says_avoid_but_portable	SAC §2.x (debugging)	SAC forbids BREAK in production code; use ZBREAK during debugging only.
+commands	BREAK	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 25 (severity S)	Break command used.
 commands	CATCH	iris-only		sac_silent_on_unportable		
 commands	CLOSE	core		sac_silent_on_portable		
 commands	CONTINUE	iris-only		sac_silent_on_unportable		
@@ -16,10 +16,10 @@ commands	ESTOP	ansi-unimplemented		sac_silent_on_unportable
 commands	ETRIGGER	ansi-unimplemented		sac_silent_on_unportable		
 commands	FOR	core		sac_silent_on_portable		
 commands	GOTO	core		sac_silent_on_portable		
-commands	HALT	core		sac_silent_on_portable		
+commands	HALT	core	restricted	sac_says_avoid_but_portable	XINDEX rule 32 (severity S)	'HALT' command should be invoked through 'G ^XUSCLEAN'.
 commands	HANG	core		sac_silent_on_portable		
 commands	IF	core		sac_silent_on_portable		
-commands	JOB	core	restricted	sac_says_avoid_but_portable	SAC §2.x (concurrency)	JOB requires explicit IRMS/site approval; not for general use.
+commands	JOB	core	restricted	sac_says_avoid_but_portable	XINDEX rule 36 (severity S)	Should use 'TASKMAN' instead of 'JOB' command.
 commands	KILL	core		sac_silent_on_portable		
 commands	KSUBSCRIPTS	ansi-unimplemented		sac_silent_on_unportable		
 commands	KVALUE	ansi-unimplemented		sac_silent_on_unportable		
@@ -42,45 +42,45 @@ commands	TROLLBACK	core		sac_silent_on_portable
 commands	TRY	iris-only		sac_silent_on_unportable		
 commands	TSTART	core		sac_silent_on_portable		
 commands	USE	core		sac_silent_on_portable		
-commands	VIEW	core		sac_silent_on_portable		
+commands	VIEW	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 20 (severity S)	View command used.
 commands	WHILE	iris-only		sac_silent_on_unportable		
 commands	WRITE	core		sac_silent_on_portable		
-commands	XECUTE	core	restricted	sac_says_avoid_but_portable	SAC §2.x (security)	XECUTE on user-supplied input is forbidden; restricted to controlled cases.
-commands	Z	ansi-unimplemented		sac_silent_on_unportable		
-commands	ZALLOCATE	ydb-only		sac_silent_on_unportable		
-commands	ZBREAK	core		sac_silent_on_portable		
-commands	ZCOMPILE	ydb-only		sac_silent_on_unportable		
-commands	ZCONTINUE	ydb-only		sac_silent_on_unportable		
-commands	ZDEALLOCATE	ydb-only		sac_silent_on_unportable		
-commands	ZEDIT	ydb-only		sac_silent_on_unportable		
-commands	ZGOTO	ydb-only		sac_silent_on_unportable		
-commands	ZHALT	ydb-only		sac_silent_on_unportable		
-commands	ZHELP	ydb-only		sac_silent_on_unportable		
-commands	ZINSERT	iris-only	forbidden	aligned	SAC §2.x (debugging)	Source-modification at runtime forbidden in production.
-commands	ZKILL	core		sac_silent_on_portable		
-commands	ZLINK	ydb-only		sac_silent_on_unportable		
-commands	ZLOAD	iris-only	forbidden	aligned	SAC §2.x (debugging)	Source-modification at runtime forbidden in production.
-commands	ZMESSAGE	ydb-only		sac_silent_on_unportable		
-commands	ZNSPACE	iris-only		sac_silent_on_unportable		
-commands	ZPRINT	core		sac_silent_on_portable		
-commands	ZREMOVE	iris-only	forbidden	aligned	SAC §2.x (debugging)	Source-modification at runtime forbidden in production.
-commands	ZRUPDATE	ydb-only		sac_silent_on_unportable		
-commands	ZSAVE	iris-only	forbidden	aligned	SAC §2.x (debugging)	Source-modification at runtime forbidden in production.
-commands	ZSHOW	ydb-only		sac_silent_on_unportable		
-commands	ZSTEP	ydb-only		sac_silent_on_unportable		
-commands	ZSU	iris-only		sac_silent_on_unportable		
-commands	ZSYSTEM	ydb-only	forbidden	aligned	SAC §2.x (shell escape)	Shell escape disallowed in VistA application code.
-commands	ZTCOMMIT	ydb-only		sac_silent_on_unportable		
-commands	ZTRAP	iris-only		sac_silent_on_unportable		
-commands	ZTRIGGER	ydb-only		sac_silent_on_unportable		
-commands	ZTSTART	ydb-only		sac_silent_on_unportable		
-commands	ZWITHDRAW	ydb-only		sac_silent_on_unportable		
-commands	ZWRITE	core		sac_silent_on_portable		
-commands	ZYDECODE	ydb-only		sac_silent_on_unportable		
-commands	ZYENCODE	ydb-only		sac_silent_on_unportable		
-commands	ZZDUMP	iris-only		sac_silent_on_unportable		
-commands	ZZPRINT	iris-only		sac_silent_on_unportable		
-commands	ZZWRITE	iris-only		sac_silent_on_unportable		
+commands	XECUTE	core		sac_silent_on_portable		
+commands	Z	ansi-unimplemented	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZALLOCATE	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZBREAK	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZCOMPILE	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZCONTINUE	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZDEALLOCATE	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZEDIT	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZGOTO	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZHALT	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZHELP	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZINSERT	iris-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZKILL	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZLINK	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZLOAD	iris-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZMESSAGE	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZNSPACE	iris-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZPRINT	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZREMOVE	iris-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZRUPDATE	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZSAVE	iris-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZSHOW	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZSTEP	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZSU	iris-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZSYSTEM	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZTCOMMIT	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZTRAP	iris-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZTRIGGER	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZTSTART	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZWITHDRAW	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZWRITE	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZYDECODE	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZYENCODE	ydb-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZZDUMP	iris-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZZPRINT	iris-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
+commands	ZZWRITE	iris-only	forbidden	aligned	XINDEX rule 2 (severity F)	Non-standard (Undefined) 'Z' command.
 intrinsic-functions	$ASCII	core		sac_silent_on_portable		
 intrinsic-functions	$BIT	iris-only		sac_silent_on_unportable		
 intrinsic-functions	$BITCOUNT	iris-only		sac_silent_on_unportable		
@@ -157,7 +157,7 @@ intrinsic-functions	$TYPE	ansi-unimplemented		sac_silent_on_unportable
 intrinsic-functions	$VECTOR	iris-only		sac_silent_on_unportable		
 intrinsic-functions	$VECTORDEFINED	iris-only		sac_silent_on_unportable		
 intrinsic-functions	$VECTOROP	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$VIEW	core		sac_silent_on_portable		
+intrinsic-functions	$VIEW	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 27 (severity S)	$View function used.
 intrinsic-functions	$WASCII	iris-only		sac_silent_on_unportable		
 intrinsic-functions	$WCHAR	iris-only		sac_silent_on_unportable		
 intrinsic-functions	$WEXTRACT	iris-only		sac_silent_on_unportable		
@@ -166,80 +166,80 @@ intrinsic-functions	$WISWIDE	iris-only		sac_silent_on_unportable
 intrinsic-functions	$WLENGTH	iris-only		sac_silent_on_unportable		
 intrinsic-functions	$WREVERSE	iris-only		sac_silent_on_unportable		
 intrinsic-functions	$XECUTE	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$Z	ansi-unimplemented		sac_silent_on_unportable		
-intrinsic-functions	$ZABS	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZAHANDLE	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZARCCOS	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZARCSIN	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZARCTAN	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZASCII	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZATRANSFORM	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZBITAND	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZBOOLEAN	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZCHAR	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZCOLLATE	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZCONVERT	core		sac_silent_on_portable		
-intrinsic-functions	$ZCOS	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZCOT	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZCRC	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZCSC	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZCYC	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZDASCII	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZDATA	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZDATE	core		sac_silent_on_portable		
-intrinsic-functions	$ZDATEH	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZDATETIME	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZDATETIMEH	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZDCHAR	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZEXP	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZEXTRACT	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZF	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZFIND	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZGETJPI	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZHEX	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZISWIDE	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZJOBEXAM	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZJUSTIFY	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZLASCII	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZLCHAR	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZLENGTH	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZLN	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZLOG	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZMESSAGE	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZPARSE	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZPEEK	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZPIECE	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZPOWER	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZPREVIOUS	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZQASCII	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZQCHAR	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZQGBLMOD	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZSEARCH	core	restricted	sac_says_avoid_but_portable	SAC §3.x (filesystem)	Direct filesystem access restricted; use FileMan APIs instead.
-intrinsic-functions	$ZSEC	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZSEEK	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZSIGPROC	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZSIN	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZSOCKET	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZSQR	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZSTRIP	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZSUBSTR	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZSYSLOG	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZTAN	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZTIME	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZTIMEH	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZTRANSLATE	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZTRIGGER	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZTRNLNM	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZUADITLOG	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZWASCII	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZWCHAR	iris-only		sac_silent_on_unportable		
-intrinsic-functions	$ZWIDTH	core		sac_silent_on_portable		
-intrinsic-functions	$ZWRITE	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZYCOMPILE	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZYHASH	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZYISSQLNULL	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZYSUFFIX	ydb-only		sac_silent_on_unportable		
-intrinsic-functions	$ZZENKAKU	iris-only		sac_silent_on_unportable		
+intrinsic-functions	$Z	ansi-unimplemented	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZABS	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZAHANDLE	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZARCCOS	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZARCSIN	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZARCTAN	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZASCII	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZATRANSFORM	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZBITAND	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZBOOLEAN	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCHAR	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCOLLATE	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCONVERT	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCOS	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCOT	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCRC	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCSC	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZCYC	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZDASCII	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZDATA	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZDATE	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZDATEH	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZDATETIME	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZDATETIMEH	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZDCHAR	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZEXP	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZEXTRACT	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZF	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZFIND	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZGETJPI	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZHEX	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZISWIDE	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZJOBEXAM	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZJUSTIFY	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZLASCII	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZLCHAR	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZLENGTH	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZLN	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZLOG	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZMESSAGE	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZPARSE	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZPEEK	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZPIECE	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZPOWER	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZPREVIOUS	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZQASCII	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZQCHAR	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZQGBLMOD	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSEARCH	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSEC	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSEEK	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSIGPROC	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSIN	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSOCKET	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSQR	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSTRIP	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSUBSTR	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZSYSLOG	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZTAN	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZTIME	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZTIMEH	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZTRANSLATE	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZTRIGGER	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZTRNLNM	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZUADITLOG	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZWASCII	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZWCHAR	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZWIDTH	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZWRITE	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZYCOMPILE	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZYHASH	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZYISSQLNULL	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZYSUFFIX	ydb-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
+intrinsic-functions	$ZZENKAKU	iris-only	forbidden	aligned	XINDEX rule 31 (severity S)	Non-standard $Z function used.
 intrinsic-special-variables	$DEVICE	core		sac_silent_on_portable		
 intrinsic-special-variables	$ECODE	core		sac_silent_on_portable		
 intrinsic-special-variables	$ESTACK	core		sac_silent_on_portable		
@@ -265,60 +265,60 @@ intrinsic-special-variables	$TRESTART	ydb-only		sac_silent_on_unportable
 intrinsic-special-variables	$USERNAME	iris-only		sac_silent_on_unportable		
 intrinsic-special-variables	$X	core		sac_silent_on_portable		
 intrinsic-special-variables	$Y	core		sac_silent_on_portable		
-intrinsic-special-variables	$ZA	core	forbidden	sac_says_avoid_but_portable	SAC §3.x (vendor-specific)	Vendor-specific device status; non-portable; SAC requires use of $DEVICE.
-intrinsic-special-variables	$ZALLOCSTOR	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZAUDIT	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZB	core	forbidden	sac_says_avoid_but_portable	SAC §3.x (vendor-specific)	Vendor-specific terminator status; non-portable.
-intrinsic-special-variables	$ZCHILD	iris-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZCHSET	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZCMDLINE	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZCOMPILE	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZCSTATUS	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZDATEFORM	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZDIRECTORY	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZEOF	core		sac_silent_on_portable		
-intrinsic-special-variables	$ZEOS	iris-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZERROR	core		sac_silent_on_portable		
-intrinsic-special-variables	$ZGBLDIR	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZHOROLOG	core		sac_silent_on_portable		
-intrinsic-special-variables	$ZICUVER	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZININTERRUPT	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZINTERRUPT	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZIO	core	forbidden	sac_says_avoid_but_portable	SAC §3.x (vendor-specific)	Vendor-specific I/O state; non-portable.
-intrinsic-special-variables	$ZJOB	core		sac_silent_on_portable		
-intrinsic-special-variables	$ZLEVEL	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZMALLOCLIM	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZMAXTPTIME	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZMLKHASH	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZMODE	core		sac_silent_on_portable		
-intrinsic-special-variables	$ZNSPACE	iris-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZONLNRLBK	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZORDER	iris-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZPARENT	iris-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZPATNUMERIC	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZPI	iris-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZPOSITION	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZPROMPT	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZQUIT	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZREALSTOR	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZREFERENCE	iris-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZRELDATE	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZROUTINES	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZSOURCE	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZSTATUS	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZSTEP	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZSTORAGE	iris-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZSTRPLLIM	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZSYSTEM	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZTEXIT	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZTIMEOUT	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZTIMESTAMP	iris-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZTIMEZONE	iris-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZTRAP	core		sac_silent_on_portable		
-intrinsic-special-variables	$ZUNSPECIFIED	ansi-unimplemented		sac_silent_on_unportable		
-intrinsic-special-variables	$ZUSEDSTOR	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZUT	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZVERSION	core		sac_silent_on_portable		
-intrinsic-special-variables	$ZYERROR	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZYINTRSIG	ydb-only		sac_silent_on_unportable		
-intrinsic-special-variables	$ZYJOBPARENT	ydb-only		sac_silent_on_unportable		
+intrinsic-special-variables	$ZA	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZALLOCSTOR	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZAUDIT	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZB	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZCHILD	iris-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZCHSET	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZCMDLINE	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZCOMPILE	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZCSTATUS	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZDATEFORM	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZDIRECTORY	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZEOF	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZEOS	iris-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZERROR	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZGBLDIR	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZHOROLOG	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZICUVER	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZININTERRUPT	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZINTERRUPT	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZIO	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZJOB	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZLEVEL	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZMALLOCLIM	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZMAXTPTIME	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZMLKHASH	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZMODE	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZNSPACE	iris-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZONLNRLBK	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZORDER	iris-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZPARENT	iris-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZPATNUMERIC	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZPI	iris-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZPOSITION	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZPROMPT	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZQUIT	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZREALSTOR	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZREFERENCE	iris-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZRELDATE	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZROUTINES	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZSOURCE	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZSTATUS	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZSTEP	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZSTORAGE	iris-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZSTRPLLIM	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZSYSTEM	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZTEXIT	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZTIMEOUT	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZTIMESTAMP	iris-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZTIMEZONE	iris-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZTRAP	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZUNSPECIFIED	ansi-unimplemented	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZUSEDSTOR	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZUT	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZVERSION	core	forbidden	sac_says_avoid_but_portable	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZYERROR	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZYINTRSIG	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.
+intrinsic-special-variables	$ZYJOBPARENT	ydb-only	forbidden	aligned	XINDEX rule 28 (severity S)	Non-standard $Z special variable used.

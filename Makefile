@@ -49,7 +49,7 @@ push: check
 # ----- m-standard pipeline (per spec §8) -----
 
 # Acquire / refresh all three offline source replicas.
-sources: sources-anno sources-ydb sources-iris
+sources: sources-anno sources-ydb sources-iris sources-sac
 
 sources-anno:
 	$(PYTHON) -m m_standard.tools.crawl_anno
@@ -60,6 +60,9 @@ sources-ydb:
 sources-iris:
 	$(PYTHON) -m m_standard.tools.crawl_iris
 
+sources-sac:
+	bash tools/clone-sac.sh
+
 # Serve the local AnnoStd mirror over http://localhost:8765
 serve-anno:
 	cd sources/anno/site && $(PYTHON) -m http.server 8765
@@ -68,6 +71,7 @@ extract:
 	$(PYTHON) -m m_standard.tools.extract_anno
 	$(PYTHON) -m m_standard.tools.extract_ydb
 	$(PYTHON) -m m_standard.tools.extract_iris
+	$(PYTHON) -m m_standard.tools.extract_sac
 
 reconcile:
 	$(PYTHON) -m m_standard.tools.reconcile
