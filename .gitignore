@@ -1,0 +1,36 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+!.env.example
+*.log
+dist/
+build/
+*.egg-info/
+src/*.egg-info/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.DS_Store
+*.db
+*.sqlite
+.coverage
+htmlcov/
+
+# --- m-standard sources policy (per spec §4.4) ----------------------------
+# Default-conservative: bulk source content is excluded until Phase A0
+# verifies redistribution rights for each source. Once verified, flip the
+# relevant block: drop the ignore and commit the local replica.
+#
+# What is *always* tracked under sources/:
+#   - manifest.tsv         (URL -> local path -> sha256 -> fetch_at)
+#   - fetch.sh             (recreates the local replica from upstream)
+#   - README.md / NOTICE   (license + acquisition notes)
+
+# AnnoStd: crawled offline mirror
+sources/anno/site/
+
+# YottaDB documentation: full clone of the upstream docs repository
+sources/ydb/repo/
