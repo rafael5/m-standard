@@ -1,0 +1,2921 @@
+{
+  "concept": "va-sac-compliance",
+  "counts": {
+    "aligned": 5,
+    "sac_says_avoid_but_portable": 7,
+    "sac_says_use_but_not_portable": 0,
+    "sac_silent_on_portable": 74,
+    "sac_silent_on_unportable": 237
+  },
+  "description": "Cross-reference between VA Standards and Conventions and the pragmatic M standard. Filter to concern in [sac_says_use_but_not_portable, sac_says_avoid_but_portable] for portability gaps that VistA developers should review.",
+  "entries": [
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ABLOCK",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ASSIGN",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ASTART",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ASTOP",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "AUNBLOCK",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_says_avoid_but_portable",
+      "name": "BREAK",
+      "notes": "SAC forbids BREAK in production code; use ZBREAK during debugging only.",
+      "pragmatic_tier": "core",
+      "sac_section": "SAC §2.x (debugging)",
+      "sac_status": "forbidden"
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "CATCH",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "CLOSE",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "CONTINUE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "DO",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "ELSE",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ELSEIF",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ESTART",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ESTOP",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ETRIGGER",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "FOR",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "GOTO",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "HALT",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "HANG",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "IF",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_says_avoid_but_portable",
+      "name": "JOB",
+      "notes": "JOB requires explicit IRMS/site approval; not for general use.",
+      "pragmatic_tier": "core",
+      "sac_section": "SAC §2.x (concurrency)",
+      "sac_status": "restricted"
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "KILL",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "KSUBSCRIPTS",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "KVALUE",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "LOCK",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "MERGE",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "NEW",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "OPEN",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "PRINT",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "QUIT",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "READ",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "RETURN",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "RLOAD",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "RSAVE",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "SET",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "TCOMMIT",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "THEN",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "THROW",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "TRESTART",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "TROLLBACK",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "TRY",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "TSTART",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "USE",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "VIEW",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "WHILE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "WRITE",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_says_avoid_but_portable",
+      "name": "XECUTE",
+      "notes": "XECUTE on user-supplied input is forbidden; restricted to controlled cases.",
+      "pragmatic_tier": "core",
+      "sac_section": "SAC §2.x (security)",
+      "sac_status": "restricted"
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "Z",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZALLOCATE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "ZBREAK",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZCOMPILE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZCONTINUE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZDEALLOCATE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZEDIT",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZGOTO",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZHALT",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZHELP",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "aligned",
+      "name": "ZINSERT",
+      "notes": "Source-modification at runtime forbidden in production.",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "SAC §2.x (debugging)",
+      "sac_status": "forbidden"
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "ZKILL",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZLINK",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "aligned",
+      "name": "ZLOAD",
+      "notes": "Source-modification at runtime forbidden in production.",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "SAC §2.x (debugging)",
+      "sac_status": "forbidden"
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZMESSAGE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZNSPACE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "ZPRINT",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "aligned",
+      "name": "ZREMOVE",
+      "notes": "Source-modification at runtime forbidden in production.",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "SAC §2.x (debugging)",
+      "sac_status": "forbidden"
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZRUPDATE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "aligned",
+      "name": "ZSAVE",
+      "notes": "Source-modification at runtime forbidden in production.",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "SAC §2.x (debugging)",
+      "sac_status": "forbidden"
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZSHOW",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZSTEP",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZSU",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "aligned",
+      "name": "ZSYSTEM",
+      "notes": "Shell escape disallowed in VistA application code.",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "SAC §2.x (shell escape)",
+      "sac_status": "forbidden"
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZTCOMMIT",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZTRAP",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZTRIGGER",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZTSTART",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZWITHDRAW",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_portable",
+      "name": "ZWRITE",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZYDECODE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZYENCODE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZZDUMP",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZZPRINT",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "commands",
+      "concern": "sac_silent_on_unportable",
+      "name": "ZZWRITE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$ASCII",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$BIT",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$BITCOUNT",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$BITFIND",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$BITLOGIC",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$CASE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$CHANGE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$CHAR",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$CLASSMETHOD",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$CLASSNAME",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$COMPILE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$DATA",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$DECIMAL",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$DEXTRACT",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$DOUBLE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$DPIECE",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$EXTRACT",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$FACTOR",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$FIND",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$FNUMBER",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$GET",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$HOROLOG",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$INCREMENT",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$INUMBER",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ISOBJECT",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ISVALIDDOUBLE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ISVALIDNUM",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ISVECTOR",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$JUSTIFY",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$LENGTH",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$LIST",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$LISTBUILD",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$LISTDATA",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$LISTFIND",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$LISTFROMSTRING",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$LISTGET",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$LISTLENGTH",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$LISTNEXT",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$LISTSAME",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$LISTTOSTRING",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$LISTUPDATE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$LISTVALID",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$LOCATE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$MATCH",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$METHOD",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$MUMPS",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$NAME",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$NCONVERT",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$NEXT",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$NORMALIZE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$NOW",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$NUMBER",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$ORDER",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$PARAMETER",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$PIECE",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$PREFETCHOFF",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$PREFETCHON",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$PROPERTY",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$QLENGTH",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$QSUBSCRIPT",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$QUERY",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$RANDOM",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$REPLACE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$REVERSE",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$SCONVERT",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$SELECT",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$SEQUENCE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$SORTBEGIN",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$SORTEND",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$STACK",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$TEXT",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$TRANSLATE",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$TYPE",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$VECTOR",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$VECTORDEFINED",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$VECTOROP",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$VIEW",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$WASCII",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$WCHAR",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$WEXTRACT",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$WFIND",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$WISWIDE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$WLENGTH",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$WREVERSE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$XECUTE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$Z",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZABS",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZAHANDLE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZARCCOS",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZARCSIN",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZARCTAN",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZASCII",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZATRANSFORM",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZBITAND",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZBOOLEAN",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZCHAR",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZCOLLATE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$ZCONVERT",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZCOS",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZCOT",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZCRC",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZCSC",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZCYC",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZDASCII",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZDATA",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$ZDATE",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZDATEH",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZDATETIME",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZDATETIMEH",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZDCHAR",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZEXP",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZEXTRACT",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZF",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZFIND",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZGETJPI",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZHEX",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZISWIDE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZJOBEXAM",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZJUSTIFY",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZLASCII",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZLCHAR",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZLENGTH",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZLN",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZLOG",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZMESSAGE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZPARSE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZPEEK",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZPIECE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZPOWER",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZPREVIOUS",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZQASCII",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZQCHAR",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZQGBLMOD",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_says_avoid_but_portable",
+      "name": "$ZSEARCH",
+      "notes": "Direct filesystem access restricted; use FileMan APIs instead.",
+      "pragmatic_tier": "core",
+      "sac_section": "SAC §3.x (filesystem)",
+      "sac_status": "restricted"
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSEC",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSEEK",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSIGPROC",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSIN",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSOCKET",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSQR",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSTRIP",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSUBSTR",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSYSLOG",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZTAN",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZTIME",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZTIMEH",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZTRANSLATE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZTRIGGER",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZTRNLNM",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZUADITLOG",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZWASCII",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZWCHAR",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_portable",
+      "name": "$ZWIDTH",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZWRITE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZYCOMPILE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZYHASH",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZYISSQLNULL",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZYSUFFIX",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-functions",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZZENKAKU",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$DEVICE",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$ECODE",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$ESTACK",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$ETRAP",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$HALT",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$HOROLOG",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$IO",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$JOB",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$KEY",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$NAMESPACE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$PRINCIPAL",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$QUIT",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$REFERENCE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ROLES",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$STACK",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$STORAGE",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$SYSTEM",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$TEST",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$THIS",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$THROWOBJ",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$TLEVEL",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$TRESTART",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$USERNAME",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$X",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$Y",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_says_avoid_but_portable",
+      "name": "$ZA",
+      "notes": "Vendor-specific device status; non-portable; SAC requires use of $DEVICE.",
+      "pragmatic_tier": "core",
+      "sac_section": "SAC §3.x (vendor-specific)",
+      "sac_status": "forbidden"
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZALLOCSTOR",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZAUDIT",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_says_avoid_but_portable",
+      "name": "$ZB",
+      "notes": "Vendor-specific terminator status; non-portable.",
+      "pragmatic_tier": "core",
+      "sac_section": "SAC §3.x (vendor-specific)",
+      "sac_status": "forbidden"
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZCHILD",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZCHSET",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZCMDLINE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZCOMPILE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZCSTATUS",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZDATEFORM",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZDIRECTORY",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$ZEOF",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZEOS",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$ZERROR",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZGBLDIR",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$ZHOROLOG",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZICUVER",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZININTERRUPT",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZINTERRUPT",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_says_avoid_but_portable",
+      "name": "$ZIO",
+      "notes": "Vendor-specific I/O state; non-portable.",
+      "pragmatic_tier": "core",
+      "sac_section": "SAC §3.x (vendor-specific)",
+      "sac_status": "forbidden"
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$ZJOB",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZLEVEL",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZMALLOCLIM",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZMAXTPTIME",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZMLKHASH",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$ZMODE",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZNSPACE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZONLNRLBK",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZORDER",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZPARENT",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZPATNUMERIC",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZPI",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZPOSITION",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZPROMPT",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZQUIT",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZREALSTOR",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZREFERENCE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZRELDATE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZROUTINES",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSOURCE",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSTATUS",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSTEP",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSTORAGE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSTRPLLIM",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZSYSTEM",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZTEXIT",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZTIMEOUT",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZTIMESTAMP",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZTIMEZONE",
+      "notes": "",
+      "pragmatic_tier": "iris-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$ZTRAP",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZUNSPECIFIED",
+      "notes": "",
+      "pragmatic_tier": "ansi-unimplemented",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZUSEDSTOR",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZUT",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_portable",
+      "name": "$ZVERSION",
+      "notes": "",
+      "pragmatic_tier": "core",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZYERROR",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZYINTRSIG",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    },
+    {
+      "concept": "intrinsic-special-variables",
+      "concern": "sac_silent_on_unportable",
+      "name": "$ZYJOBPARENT",
+      "notes": "",
+      "pragmatic_tier": "ydb-only",
+      "sac_section": "",
+      "sac_status": ""
+    }
+  ],
+  "schema_version": "1"
+}

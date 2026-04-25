@@ -63,6 +63,10 @@ _SCHEMA_BASENAMES: dict[str, str] = {
     # Auto-derived from the integrated layer; gated for shape on every
     # CI run.
     "pragmatic-m-standard": "pragmatic-m-standard.schema.json",
+    # VA Standards and Conventions (SAC) overlay vs the pragmatic
+    # standard — flags language-subset portability concerns for
+    # VistA developers.
+    "va-sac-compliance": "va-sac-compliance.schema.json",
 }
 
 
@@ -370,6 +374,34 @@ def gate_mapping_integrity(project_root: Path) -> None:
         ("iris_mnemonic", iris_keys, "IRIS mnemonic"),
         ("ydb_mnemonic", ydb_keys, "YDB mnemonic"),
     ))
+
+    # va-sac.tsv has a different shape (concept + name); validate that
+    # every (concept, name) refers to an entry that exists in the
+    # corresponding integrated TSV.
+    sac_path = mappings_dir / "va-sac.tsv"
+    if sac_path.exists():
+        for row in _read_tsv(sac_path):
+            concept = row.get("concept", "").strip()
+            name = row.get("name", "").strip()
+            if not concept or not name:
+                continue
+            integrated_tsv = project_root / "integrated" / f"{concept}.tsv"
+            if not integrated_tsv.exists():
+                failures.append(
+                    f"mapping-integrity: va-sac.tsv references "
+                    f"unknown concept {concept!r}"
+                )
+                continue
+            key_field = _CONCEPT_KEYS.get(concept, "canonical_name")
+            integrated_keys = {
+                r[key_field] for r in _read_tsv(integrated_tsv)
+            }
+            if name not in integrated_keys:
+                failures.append(
+                    f"mapping-integrity: va-sac.tsv references "
+                    f"{concept}/{name} which does not exist in "
+                    f"integrated/{concept}.tsv"
+                )
 
     if failures:
         raise ValidationFailure("\n".join(failures))

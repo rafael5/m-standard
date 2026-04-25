@@ -1,0 +1,13 @@
+concept	name	sac_status	sac_section	notes
+commands	BREAK	forbidden	SAC §2.x (debugging)	SAC forbids BREAK in production code; use ZBREAK during debugging only.
+commands	JOB	restricted	SAC §2.x (concurrency)	JOB requires explicit IRMS/site approval; not for general use.
+commands	XECUTE	restricted	SAC §2.x (security)	XECUTE on user-supplied input is forbidden; restricted to controlled cases.
+commands	ZSYSTEM	forbidden	SAC §2.x (shell escape)	Shell escape disallowed in VistA application code.
+commands	ZINSERT	forbidden	SAC §2.x (debugging)	Source-modification at runtime forbidden in production.
+commands	ZLOAD	forbidden	SAC §2.x (debugging)	Source-modification at runtime forbidden in production.
+commands	ZSAVE	forbidden	SAC §2.x (debugging)	Source-modification at runtime forbidden in production.
+commands	ZREMOVE	forbidden	SAC §2.x (debugging)	Source-modification at runtime forbidden in production.
+intrinsic-special-variables	$ZA	forbidden	SAC §3.x (vendor-specific)	Vendor-specific device status; non-portable; SAC requires use of $DEVICE.
+intrinsic-special-variables	$ZB	forbidden	SAC §3.x (vendor-specific)	Vendor-specific terminator status; non-portable.
+intrinsic-special-variables	$ZIO	forbidden	SAC §3.x (vendor-specific)	Vendor-specific I/O state; non-portable.
+intrinsic-functions	$ZSEARCH	restricted	SAC §3.x (filesystem)	Direct filesystem access restricted; use FileMan APIs instead.

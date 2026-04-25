@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://m-standard.local/schemas/va-sac-compliance.schema.json",
+  "title": "VA SAC vs pragmatic M standard compliance",
+  "description": "Joins the VA Standards and Conventions overlay (mappings/va-sac.tsv) against the pragmatic M standard (integrated/pragmatic-m-standard.tsv) and surfaces portability concerns for VistA developers. See docs/va-sac-and-pragmatic-standard.md for the full rationale.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "concept",
+    "counts",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1"
+    },
+    "concept": {
+      "type": "string",
+      "const": "va-sac-compliance"
+    },
+    "description": {
+      "type": "string"
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "aligned",
+        "sac_says_use_but_not_portable",
+        "sac_says_avoid_but_portable",
+        "sac_silent_on_portable",
+        "sac_silent_on_unportable"
+      ],
+      "properties": {
+        "aligned": {
+          "type": "integer", "minimum": 0,
+          "description": "SAC and pragmatic agree: SAC permits a portable entry OR SAC forbids an unportable entry."
+        },
+        "sac_says_use_but_not_portable": {
+          "type": "integer", "minimum": 0,
+          "description": "SAC permits/recommends an entry that's NOT in pragmatic-core. VistA code following SAC literally would break on the missing engine."
+        },
+        "sac_says_avoid_but_portable": {
+          "type": "integer", "minimum": 0,
+          "description": "SAC forbids/restricts an entry that IS in pragmatic-core. SAC may be overly conservative, or the entry was added to both engines after SAC was written."
+        },
+        "sac_silent_on_portable": {
+          "type": "integer", "minimum": 0,
+          "description": "SAC doesn't mention an entry that's pragmatic-core. Probably safe but unguided."
+        },
+        "sac_silent_on_unportable": {
+          "type": "integer", "minimum": 0,
+          "description": "SAC doesn't mention an entry that's vendor-specific. Likely fine for VistA developers to ignore."
+        }
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["concept", "name", "pragmatic_tier", "sac_status", "concern"],
+        "properties": {
+          "concept": {
+            "type": "string",
+            "enum": ["commands", "intrinsic-functions", "intrinsic-special-variables"]
+          },
+          "name": { "type": "string", "minLength": 1 },
+          "pragmatic_tier": {
+            "type": "string",
+            "enum": ["core", "ydb-only", "iris-only", "ansi-unimplemented"]
+          },
+          "sac_status": {
+            "type": "string",
+            "enum": ["", "permitted", "recommended", "restricted", "forbidden"]
+          },
+          "concern": {
+            "type": "string",
+            "enum": [
+              "aligned",
+              "sac_says_use_but_not_portable",
+              "sac_says_avoid_but_portable",
+              "sac_silent_on_portable",
+              "sac_silent_on_unportable"
+            ]
+          },
+          "sac_section": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

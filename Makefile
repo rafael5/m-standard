@@ -81,7 +81,10 @@ emit-grammar:
 emit-pragmatic:
 	$(PYTHON) -m m_standard.tools.emit_pragmatic_standard
 
-emit: emit-json emit-grammar emit-pragmatic
+emit-sac:
+	$(PYTHON) -m m_standard.tools.emit_sac_compliance
+
+emit: emit-json emit-grammar emit-pragmatic emit-sac
 
 validate:
 	$(PYTHON) -m m_standard.tools.validate
