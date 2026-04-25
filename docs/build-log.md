@@ -122,3 +122,63 @@ longer works, but updates are an explicit `make sources-ydb` run with
 a new `PIN_COMMIT`, which is more deliberate anyway.
 
 **Size:** stripped working tree is 51 MB (vs 96 MB with `.git/`); 267 files.
+
+---
+
+## BL-005 — YDB commands extractor: format-intro string isn't uniform (2026-04-25)
+
+**Phase:** A1 — per-source extraction.
+**Context:** First pass of `extract_ydb.commands` got 44 of 50 command
+sections in `ProgrammersGuide/commands.rst`. The 6 misses came from
+real-world inconsistencies in the upstream prose:
+- `MERGE`, `ZRUPDATE`, `ZYDECODE`, `ZYENCODE`: "The format of X command is:" (missing "the")
+- `TRESTART`: "The format **for** the TRESTART command is:" (uses "for" not "of")
+- `ZRUPDATE`, `ZTRIGGER`: format intro appears mid-paragraph, not at start of line
+
+**Fix:** Loosened `_FORMAT_INTRO` to `r"The format (?:of|for) (?:the )?\S+ command is\s*:"`
+and switched from `re.match` to `re.search`. The pattern is still anchored on
+`command is:` so it can't false-match "the format of a YottaDB name" etc. that
+appears in body prose. After the fix all 50 commands extracted.
+
+---
+
+## BL-006 — AnnoStd: section numbers reset per letter group (2026-04-25)
+
+**Phase:** A1 — per-source extraction.
+**Context:** When extracting AnnoStd commands, the same section number
+(e.g. `8.2.10`) appears for multiple commands — `JOB` is "8.2.10" and
+`ESTART` is also "8.2.10". This is a real organisational quirk of
+AnnoStd, not an extraction bug: the section numbering resets within
+the alphabetical groups of section 8.2 (Async commands `A*` get their
+own 1..5 sequence; Event commands `E*` get 10..12; standard commands
+get their own 1..N).
+
+**Implication:** AnnoStd's section numbers are **not** unique
+identifiers. `source_section` in the per-source TSV combines page ID +
+section (`pages/a108036.html#8.2.10`) so the row key remains
+unambiguous, but downstream consumers must not treat
+`section_number` alone as a primary key for AnnoStd entries.
+
+**Filter applied:** restricted page scan to `a*.html` (the language
+standard pages) and section prefix `8.2.` (per-command definitions,
+skipping 8.1 "general rules"). MWAPI commands from `f*.html` pages are
+out of scope per spec §2 (deferred to v0.2).
+
+---
+
+## BL-007 — AnnoStd command pages: format style varies (BNF vs inline) (2026-04-25)
+
+**Phase:** A1 — per-source extraction.
+**Context:** Simple commands like BREAK render their syntax as an
+inline first-row table cell `B[REAK] postcond …`, from which the
+extractor recovers both the abbreviation (`B`) and the format string.
+Complex commands like CLOSE render the syntax as a multi-table
+railroad diagram in BNF (`closeargument ::= expr [ : deviceparameters ] | …`),
+with no `C[LOSE]` form on the page. This means `abbreviation` is
+empty for BNF-style commands in the AnnoStd per-source TSV.
+
+**Decision:** Per AD-01, AnnoStd is normative for "is X part of the
+standard"; YDB is authoritative for current implementation detail
+including abbreviations. Empty `abbreviation` cells in
+`per-source/anno/commands.tsv` are expected and will be filled by
+joining against `per-source/ydb/commands.tsv` during A2 reconciliation.

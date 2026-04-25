@@ -1,0 +1,41 @@
+canonical_name	abbreviation	section_number	format	standard_status_hint	source_section	description
+ABLOCK	AB	8.2.1	AB[LOCK] postcond [ SP ] SP ablockargument	ansi	pages/a108019.html#8.2.1	Event classes not specified above are reserved for future extensions to the standard.
+ASSIGN		8.2.2	assignargument ::= assigndestination = object @ expratom V L assignargument	ansi	pages/a108020.html#8.2.2	A[SSIGN] postcond SP L assignargument
+ASTART	ASTA	8.2.3	ASTA[RT] postcond [ SP ] SP ablockargument	ansi	pages/a108021.html#8.2.3	ASTArt enables asynchronous event processing for all or selected event classes. The three forms of ASTArt are given the following names:
+ASTOP	ASTO	8.2.4	ASTO[P] postcond [ SP ] SP ablockargument	ansi	pages/a108022.html#8.2.4	ASTOp disables asynchronous event processing for all or selected event classes. The three forms of ASTOp are given the following names:
+AUNBLOCK	AUNB	8.2.5	AUNB[LOCK] postcond [ SP ] SP ablockargument	ansi	pages/a108023.html#8.2.5	AUnblock removes a temporary block on events that was imparted by ABlock . The three forms of AUnblock are given the following names:
+BREAK	B	8.2.1	B[REAK] postcond [ SP ] argument syntax unspecified	ansi	pages/a108024.html#8.2.1	Break provides an access point within the standard for nonstandard programming aids. Break without arguments suspends execution until receipt of a signal, not specified here, from a device.
+CLOSE		8.2.2	closeargument ::= expr [ : deviceparameters ] @ expratom V L closeargument	ansi	pages/a108025.html#8.2.2	C[LOSE] postcond SP L closeargument
+DO	D	8.2.3	D[O] postcond [ SP ] SP L doargument	ansi	pages/a108026.html#8.2.3	An argumentless Do initiates execution of an inner block of line s. If postcond is present and its tvexpr is false, the execution of the command is complete. If postcond is absent, or the postcond is present and its tvexpr is true, the Do places a Do frame containing the current execution location, the current execution level, and the current value of $Test on the PROCESS-STACK, increases the execution level by one, and continues execution at the next line in the routine. (See 6.3 for an explanation of routine execution.) When encountering an implicit or explicit Quit not within the scope of a subsequently executed doargument , argumentless Do , xargument , exfunc , exvar , or For , execution of this block is terminated (see 8.2.16 for a description of the actions of Quit). Execution resumes at the command (if any) following the argumentless Do .
+ELSE		8.2.4	Previous 1977 1984 1990 1995 MDC examples Next	ansi	pages/a108027.html#8.2.4	E[LSE] [ SP ]
+ESTART	ESTA	8.2.10	ESTA[RT] postcond [ SP ] SP estartargument	ansi	pages/a108028.html#8.2.10	"ESTArt enables synchronous event processing for the selected event classes. The additional class ""WAPI"" is provided to enable just the synchronous event processing specified in X11.6, the MWAPI. If any of the event classes being enabled for synchronous event processing is currently enabled for asynchronous event processing, an error occurs with ecode = "" M102 "". It is not an error to enable an event class which is already enabled for synchronous event processing."
+ESTOP		8.2.11	Previous MDC examples Next	ansi	pages/a108029.html#8.2.11	ESTO[P] postcond [ SP ]
+ETRIGGER		8.2.12	especref ::= expr V ^$W[INDOW] ( expec ) [ : einforef ] expr V ^$J[OB] ( erspec )	ansi	pages/a108030.html#8.2.12	ETR[IGGER] postcond SP especref
+FOR		8.2.5	For [ SP ] SP lvn = forparameter	ansi	pages/a108031.html#8.2.5	The scope of the For command begins at the next command following the For on the same line and ends just prior to the eol on this line .
+GOTO		8.2.6	gotoargument ::= entryref postcond @ expratom V L gotoargument	ansi	pages/a108032.html#8.2.6	G[OTO] postcond SP L gotoargument
+HALT		8.2.7	Previous 1977 1984 1990 1995 MDC examples Next	ansi	pages/a108033.html#8.2.7	H[ALT] postcond [ SP ]
+HANG		8.2.8	hangargument ::= numexpr @ expratom V L hangargument	ansi	pages/a108034.html#8.2.8	H[ANG] postcond SP L hangargument
+IF	I	8.2.9	I[F] [ SP ] SP L ifargument	ansi	pages/a108035.html#8.2.9	In its argumentless form, If is the inverse of Else . That is, if the value of $Test is 0, the remainder of the line to the right of the If is not executed. If the value of $Test is 1, execution continues normally at the next command .
+JOB		8.2.10	jobargument ::= entryref [ : jobparameters ] labelref actuallist [ : jobparameters ] @ expratom V L jobargument	ansi	pages/a108036.html#8.2.10	J[OB] postcond SP L jobargument
+KILL	K	8.2.11	K[ILL] postcond [ SP ] SP L killargument	ansi	pages/a108037.html#8.2.11	The three argument forms of Kill are given the following names.
+KSUBSCRIPTS		8.2.20	a) glvn : Selective Kill.	ansi	pages/a108038.html#8.2.20	KS[UBSCRIPTS] postcond killarglist
+KVALUE		8.2.21	a) glvn : Selective Kill.	ansi	pages/a108039.html#8.2.21	KV[ALUE] postcond killarglist
+LOCK	L	8.2.12	L[OCK] postcond [ SP ] SP L lockargument	ansi	pages/a108040.html#8.2.12	Lock provides a generalized interlock facility available to concurrently executing M processes to be used as appropriate to the applications being programmed. Execution of Lock is not affected by, nor does it directly affect, the state or value of any global or local variable, or the value of the naked indicator . Its use is not required to access globals, nor does its use inhibit other processes from accessing globals. It is an interlocking mechanism whose use depends on programmers establishing and following conventions.
+MERGE		8.2.13	mergeargument ::= glvn 1 = glvn 2 @ expratom V L mergeargument	ansi	pages/a108041.html#8.2.13	M[ERGE] postcond SP L mergeargument
+NEW	N	8.2.14	N[EW] postcond [ SP ] SP L newargument	ansi	pages/a108042.html#8.2.14	New provides a means of performing variable scoping.
+OPEN		8.2.15	openargument ::= expr [ : openparameters ] @ expratom V L openargument	ansi	pages/a108043.html#8.2.15	O[PEN] postcond SP L openargument
+QUIT	Q	8.2.16	Q[UIT] postcond [ SP ] SP expr SP @ expratom V expr	ansi	pages/a108044.html#8.2.16	Quit terminates execution of an argumentless Do command, doargument , xargument , exfunc , exvar , or For command.
+READ		8.2.17	readargument ::= strlit format glvn [ readcount ] [ timeout ] * glvn [ timeout ] @ expratom V L readargument	ansi	pages/a108045.html#8.2.17	R[EAD] postcond SP L readargument
+RLOAD		8.2.28	routineargument ::= routineref : glvn [ : routineparameters ] @ expratom V L routineargument	ansi	pages/a108046.html#8.2.28	RL[OAD] postcond SP L routineargument
+RSAVE		8.2.29	Previous MDC examples Next	ansi	pages/a108047.html#8.2.29	RS[AVE] postcond SP L routineargument
+SET		8.2.18	setargument ::= setdestination = expr @ expratom V L setargument	ansi	pages/a108048.html#8.2.18	S[ET] postcond SP L setargument
+TCOMMIT		8.2.19	Previous 1995 MDC examples Next	ansi	pages/a108049.html#8.2.19	TC[OMMIT] postcond [ SP ]
+THEN		8.2.32	Previous MDC examples Next	ansi	pages/a108050.html#8.2.32	TH[EN] [ SP ]
+TRESTART		8.2.20	Previous 1995 MDC examples Next	ansi	pages/a108051.html#8.2.20	TRE[START] postcond [ SP ]
+TROLLBACK		8.2.21	Previous 1995 MDC examples Next	ansi	pages/a108052.html#8.2.21	TRO[LLBACK] postcond [ SP ]
+TSTART	TS	8.2.22	TS[TART] postcond [ SP ] SP tstartargument SP @ expratom V L tstartargument	ansi	pages/a108053.html#8.2.22	tstartkeyword s that differ only in the use of corresponding upper and lower-case letters are equivalent. The standard defines the following keywords: S[ERIAL] T[RANSACTIONID] = expr Z[unspecified] [ = expr ]
+USE		8.2.23	useargument ::= expr ┌ │ └ : deviceparameters : [ deviceparameters ] : mnemonicspace ┐ │ ┘ @ expratom V L useargument expr ┌ │ └ : deviceparameters : [ deviceparameters ] : mnemonicspace ┐ │ ┘	ansi	pages/a108054.html#8.2.23	U[SE] postcond SP L useargument
+VIEW		8.2.24	Previous 1977 1984 1990 1995 MDC examples Next	ansi	pages/a108055.html#8.2.24	V[IEW] postcond arguments unspecified
+WRITE		8.2.25	writeargument ::= format expr * intexpr @ expratom V L writeargument	ansi	pages/a108056.html#8.2.25	W[RITE] postcond SP L writeargument
+XECUTE		8.2.26	xargument ::= expr postcond @ expratom V L xargument	ansi	pages/a108057.html#8.2.26	X[ECUTE] postcond SP L xargument
+Z		8.2.27	Previous 1977 1984 1990 1995 MDC Next	ansi	pages/a108058.html#8.2.27	Z[unspecified] arguments unspecified
