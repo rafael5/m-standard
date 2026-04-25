@@ -55,6 +55,10 @@ _SCHEMA_BASENAMES: dict[str, str] = {
     "errors": "error.schema.json",
     "environment": "environment-entry.schema.json",
     "conflicts": "conflicts.schema.json",
+    # The grammar-surface bundle is an extra integrated artifact (not
+    # a per-concept TSV); validated here so its schema_version + shape
+    # are gated on every CI run alongside the per-concept JSON files.
+    "grammar-surface": "grammar-surface.schema.json",
 }
 
 

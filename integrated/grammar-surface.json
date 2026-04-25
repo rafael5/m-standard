@@ -1,0 +1,3327 @@
+{
+  "commands": [
+    {
+      "abbreviation": "AB",
+      "all_forms": [
+        "AB",
+        "ABL",
+        "ABLO",
+        "ABLOC",
+        "ABLOCK"
+      ],
+      "canonical": "ABLOCK",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "ASSIGN"
+      ],
+      "canonical": "ASSIGN",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "ASTA",
+      "all_forms": [
+        "ASTA",
+        "ASTAR",
+        "ASTART"
+      ],
+      "canonical": "ASTART",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "ASTO",
+      "all_forms": [
+        "ASTO",
+        "ASTOP"
+      ],
+      "canonical": "ASTOP",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "AUNB",
+      "all_forms": [
+        "AUNB",
+        "AUNBL",
+        "AUNBLO",
+        "AUNBLOC",
+        "AUNBLOCK"
+      ],
+      "canonical": "AUNBLOCK",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "B",
+      "all_forms": [
+        "B",
+        "BR",
+        "BRE",
+        "BREA",
+        "BREAK"
+      ],
+      "canonical": "BREAK",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "CATCH"
+      ],
+      "canonical": "CATCH",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "C",
+      "all_forms": [
+        "C",
+        "CL",
+        "CLO",
+        "CLOS",
+        "CLOSE"
+      ],
+      "canonical": "CLOSE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "CONTINUE"
+      ],
+      "canonical": "CONTINUE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "D",
+      "all_forms": [
+        "D",
+        "DO"
+      ],
+      "canonical": "DO",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "E",
+      "all_forms": [
+        "E",
+        "EL",
+        "ELS",
+        "ELSE"
+      ],
+      "canonical": "ELSE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "ELSEIF"
+      ],
+      "canonical": "ELSEIF",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "ESTA",
+      "all_forms": [
+        "ESTA",
+        "ESTAR",
+        "ESTART"
+      ],
+      "canonical": "ESTART",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "ESTOP"
+      ],
+      "canonical": "ESTOP",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "ETRIGGER"
+      ],
+      "canonical": "ETRIGGER",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "F",
+      "all_forms": [
+        "F",
+        "FO",
+        "FOR"
+      ],
+      "canonical": "FOR",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "G",
+      "all_forms": [
+        "G",
+        "GO",
+        "GOT",
+        "GOTO"
+      ],
+      "canonical": "GOTO",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "H",
+      "all_forms": [
+        "H",
+        "HA",
+        "HAL",
+        "HALT"
+      ],
+      "canonical": "HALT",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "H",
+      "all_forms": [
+        "H",
+        "HA",
+        "HAN",
+        "HANG"
+      ],
+      "canonical": "HANG",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "I",
+      "all_forms": [
+        "I",
+        "IF"
+      ],
+      "canonical": "IF",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "J",
+      "all_forms": [
+        "J",
+        "JO",
+        "JOB"
+      ],
+      "canonical": "JOB",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "K",
+      "all_forms": [
+        "K",
+        "KI",
+        "KIL",
+        "KILL"
+      ],
+      "canonical": "KILL",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "KSUBSCRIPTS"
+      ],
+      "canonical": "KSUBSCRIPTS",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "KVALUE"
+      ],
+      "canonical": "KVALUE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "L",
+      "all_forms": [
+        "L",
+        "LO",
+        "LOC",
+        "LOCK"
+      ],
+      "canonical": "LOCK",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "M",
+      "all_forms": [
+        "M",
+        "ME",
+        "MER",
+        "MERG",
+        "MERGE"
+      ],
+      "canonical": "MERGE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "N",
+      "all_forms": [
+        "N",
+        "NE",
+        "NEW"
+      ],
+      "canonical": "NEW",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "O",
+      "all_forms": [
+        "O",
+        "OP",
+        "OPE",
+        "OPEN"
+      ],
+      "canonical": "OPEN",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "PRINT"
+      ],
+      "canonical": "PRINT",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "Q",
+      "all_forms": [
+        "Q",
+        "QU",
+        "QUI",
+        "QUIT"
+      ],
+      "canonical": "QUIT",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "R",
+      "all_forms": [
+        "R",
+        "RE",
+        "REA",
+        "READ"
+      ],
+      "canonical": "READ",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "RETURN"
+      ],
+      "canonical": "RETURN",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "RLOAD"
+      ],
+      "canonical": "RLOAD",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "RSAVE"
+      ],
+      "canonical": "RSAVE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "S",
+      "all_forms": [
+        "S",
+        "SE",
+        "SET"
+      ],
+      "canonical": "SET",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "TC",
+      "all_forms": [
+        "TC",
+        "TCO",
+        "TCOM",
+        "TCOMM",
+        "TCOMMI",
+        "TCOMMIT"
+      ],
+      "canonical": "TCOMMIT",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "THEN"
+      ],
+      "canonical": "THEN",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "THROW"
+      ],
+      "canonical": "THROW",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "TRE",
+      "all_forms": [
+        "TRE",
+        "TRES",
+        "TREST",
+        "TRESTA",
+        "TRESTAR",
+        "TRESTART"
+      ],
+      "canonical": "TRESTART",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "TRO",
+      "all_forms": [
+        "TRO",
+        "TROL",
+        "TROLL",
+        "TROLLB",
+        "TROLLBA",
+        "TROLLBAC",
+        "TROLLBACK"
+      ],
+      "canonical": "TROLLBACK",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "TRY"
+      ],
+      "canonical": "TRY",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "TS",
+      "all_forms": [
+        "TS",
+        "TST",
+        "TSTA",
+        "TSTAR",
+        "TSTART"
+      ],
+      "canonical": "TSTART",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "U",
+      "all_forms": [
+        "U",
+        "US",
+        "USE"
+      ],
+      "canonical": "USE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "V",
+      "all_forms": [
+        "V",
+        "VI",
+        "VIE",
+        "VIEW"
+      ],
+      "canonical": "VIEW",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "WHILE"
+      ],
+      "canonical": "WHILE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "W",
+      "all_forms": [
+        "W",
+        "WR",
+        "WRI",
+        "WRIT",
+        "WRITE"
+      ],
+      "canonical": "WRITE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "X",
+      "all_forms": [
+        "X",
+        "XE",
+        "XEC",
+        "XECU",
+        "XECUT",
+        "XECUTE"
+      ],
+      "canonical": "XECUTE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "Z"
+      ],
+      "canonical": "Z",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "ZA",
+      "all_forms": [
+        "ZA",
+        "ZAL",
+        "ZALL",
+        "ZALLO",
+        "ZALLOC",
+        "ZALLOCA",
+        "ZALLOCAT",
+        "ZALLOCATE"
+      ],
+      "canonical": "ZALLOCATE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "ZB",
+      "all_forms": [
+        "ZB",
+        "ZBR",
+        "ZBRE",
+        "ZBREA",
+        "ZBREAK"
+      ],
+      "canonical": "ZBREAK",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "ZCOM",
+      "all_forms": [
+        "ZCOM",
+        "ZCOMP",
+        "ZCOMPI",
+        "ZCOMPIL",
+        "ZCOMPILE"
+      ],
+      "canonical": "ZCOMPILE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "ZC",
+      "all_forms": [
+        "ZC",
+        "ZCO",
+        "ZCON",
+        "ZCONT",
+        "ZCONTI",
+        "ZCONTIN",
+        "ZCONTINU",
+        "ZCONTINUE"
+      ],
+      "canonical": "ZCONTINUE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "ZD",
+      "all_forms": [
+        "ZD",
+        "ZDE",
+        "ZDEA",
+        "ZDEAL",
+        "ZDEALL",
+        "ZDEALLO",
+        "ZDEALLOC",
+        "ZDEALLOCA",
+        "ZDEALLOCAT",
+        "ZDEALLOCATE"
+      ],
+      "canonical": "ZDEALLOCATE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "ZED",
+      "all_forms": [
+        "ZED",
+        "ZEDI",
+        "ZEDIT"
+      ],
+      "canonical": "ZEDIT",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "ZG",
+      "all_forms": [
+        "ZG",
+        "ZGO",
+        "ZGOT",
+        "ZGOTO"
+      ],
+      "canonical": "ZGOTO",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "ZHALT",
+      "all_forms": [
+        "ZHALT"
+      ],
+      "canonical": "ZHALT",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "ZH",
+      "all_forms": [
+        "ZH",
+        "ZHE",
+        "ZHEL",
+        "ZHELP"
+      ],
+      "canonical": "ZHELP",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "ZINSERT"
+      ],
+      "canonical": "ZINSERT",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "ZK",
+      "all_forms": [
+        "ZK",
+        "ZKI",
+        "ZKIL",
+        "ZKILL"
+      ],
+      "canonical": "ZKILL",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "ZL",
+      "all_forms": [
+        "ZL",
+        "ZLI",
+        "ZLIN",
+        "ZLINK"
+      ],
+      "canonical": "ZLINK",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "ZLOAD"
+      ],
+      "canonical": "ZLOAD",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "ZM",
+      "all_forms": [
+        "ZM",
+        "ZME",
+        "ZMES",
+        "ZMESS",
+        "ZMESSA",
+        "ZMESSAG",
+        "ZMESSAGE"
+      ],
+      "canonical": "ZMESSAGE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "ZNSPACE"
+      ],
+      "canonical": "ZNSPACE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "ZP",
+      "all_forms": [
+        "ZP",
+        "ZPR",
+        "ZPRI",
+        "ZPRIN",
+        "ZPRINT"
+      ],
+      "canonical": "ZPRINT",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "ZREMOVE"
+      ],
+      "canonical": "ZREMOVE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "ZRUP",
+      "all_forms": [
+        "ZRUP",
+        "ZRUPD",
+        "ZRUPDA",
+        "ZRUPDAT",
+        "ZRUPDATE"
+      ],
+      "canonical": "ZRUPDATE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "ZSAVE"
+      ],
+      "canonical": "ZSAVE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "ZSH",
+      "all_forms": [
+        "ZSH",
+        "ZSHO",
+        "ZSHOW"
+      ],
+      "canonical": "ZSHOW",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "ZST",
+      "all_forms": [
+        "ZST",
+        "ZSTE",
+        "ZSTEP"
+      ],
+      "canonical": "ZSTEP",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "ZSU"
+      ],
+      "canonical": "ZSU",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "ZSY",
+      "all_forms": [
+        "ZSY",
+        "ZSYS",
+        "ZSYST",
+        "ZSYSTE",
+        "ZSYSTEM"
+      ],
+      "canonical": "ZSYSTEM",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "ZTC",
+      "all_forms": [
+        "ZTC",
+        "ZTCO",
+        "ZTCOM",
+        "ZTCOMM",
+        "ZTCOMMI",
+        "ZTCOMMIT"
+      ],
+      "canonical": "ZTCOMMIT",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "ZTRAP"
+      ],
+      "canonical": "ZTRAP",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "ZTR",
+      "all_forms": [
+        "ZTR",
+        "ZTRI",
+        "ZTRIG",
+        "ZTRIGG",
+        "ZTRIGGE",
+        "ZTRIGGER"
+      ],
+      "canonical": "ZTRIGGER",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "ZTS",
+      "all_forms": [
+        "ZTS",
+        "ZTST",
+        "ZTSTA",
+        "ZTSTAR",
+        "ZTSTART"
+      ],
+      "canonical": "ZTSTART",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "ZWI",
+      "all_forms": [
+        "ZWI",
+        "ZWIT",
+        "ZWITH",
+        "ZWITHD",
+        "ZWITHDR",
+        "ZWITHDRA",
+        "ZWITHDRAW"
+      ],
+      "canonical": "ZWITHDRAW",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "ZWR",
+      "all_forms": [
+        "ZWR",
+        "ZWRI",
+        "ZWRIT",
+        "ZWRITE"
+      ],
+      "canonical": "ZWRITE",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "ZYDE",
+      "all_forms": [
+        "ZYDE",
+        "ZYDEC",
+        "ZYDECO",
+        "ZYDECOD",
+        "ZYDECODE"
+      ],
+      "canonical": "ZYDECODE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "ZYEN",
+      "all_forms": [
+        "ZYEN",
+        "ZYENC",
+        "ZYENCO",
+        "ZYENCOD",
+        "ZYENCODE"
+      ],
+      "canonical": "ZYENCODE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "ZZDUMP"
+      ],
+      "canonical": "ZZDUMP",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "ZZPRINT"
+      ],
+      "canonical": "ZZPRINT",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "ZZWRITE"
+      ],
+      "canonical": "ZZWRITE",
+      "standard_status": "iris-extension"
+    }
+  ],
+  "concept": "grammar-surface",
+  "intrinsic_functions": [
+    {
+      "abbreviation": "$A",
+      "all_forms": [
+        "$A",
+        "$AS",
+        "$ASC",
+        "$ASCI",
+        "$ASCII"
+      ],
+      "canonical": "$ASCII",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$BIT"
+      ],
+      "canonical": "$BIT",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$BITCOUNT"
+      ],
+      "canonical": "$BITCOUNT",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$BITFIND"
+      ],
+      "canonical": "$BITFIND",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$BITLOGIC"
+      ],
+      "canonical": "$BITLOGIC",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$CASE"
+      ],
+      "canonical": "$CASE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$CHANGE"
+      ],
+      "canonical": "$CHANGE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$C",
+      "all_forms": [
+        "$C",
+        "$CH",
+        "$CHA",
+        "$CHAR"
+      ],
+      "canonical": "$CHAR",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$CLASSMETHOD"
+      ],
+      "canonical": "$CLASSMETHOD",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$CLASSNAME"
+      ],
+      "canonical": "$CLASSNAME",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$COMPILE"
+      ],
+      "canonical": "$COMPILE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$D",
+      "all_forms": [
+        "$D",
+        "$DA",
+        "$DAT",
+        "$DATA"
+      ],
+      "canonical": "$DATA",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$DECIMAL"
+      ],
+      "canonical": "$DECIMAL",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$DE",
+      "all_forms": [
+        "$DE",
+        "$DEX",
+        "$DEXT",
+        "$DEXTR",
+        "$DEXTRA",
+        "$DEXTRAC",
+        "$DEXTRACT"
+      ],
+      "canonical": "$DEXTRACT",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$DOUBLE"
+      ],
+      "canonical": "$DOUBLE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$DP",
+      "all_forms": [
+        "$DP",
+        "$DPI",
+        "$DPIE",
+        "$DPIEC",
+        "$DPIECE"
+      ],
+      "canonical": "$DPIECE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$E",
+      "all_forms": [
+        "$E",
+        "$EX",
+        "$EXT",
+        "$EXTR",
+        "$EXTRA",
+        "$EXTRAC",
+        "$EXTRACT"
+      ],
+      "canonical": "$EXTRACT",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$FACTOR"
+      ],
+      "canonical": "$FACTOR",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$F",
+      "all_forms": [
+        "$F",
+        "$FI",
+        "$FIN",
+        "$FIND"
+      ],
+      "canonical": "$FIND",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$FN",
+      "all_forms": [
+        "$FN",
+        "$FNU",
+        "$FNUM",
+        "$FNUMB",
+        "$FNUMBE",
+        "$FNUMBER"
+      ],
+      "canonical": "$FNUMBER",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$G",
+      "all_forms": [
+        "$G",
+        "$GE",
+        "$GET"
+      ],
+      "canonical": "$GET",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$H",
+      "all_forms": [
+        "$H",
+        "$HO",
+        "$HOR",
+        "$HORO",
+        "$HOROL",
+        "$HOROLO",
+        "$HOROLOG"
+      ],
+      "canonical": "$HOROLOG",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$INCREMENT"
+      ],
+      "canonical": "$INCREMENT",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$INUMBER"
+      ],
+      "canonical": "$INUMBER",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ISOBJECT"
+      ],
+      "canonical": "$ISOBJECT",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ISVALIDDOUBLE"
+      ],
+      "canonical": "$ISVALIDDOUBLE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ISVALIDNUM"
+      ],
+      "canonical": "$ISVALIDNUM",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ISVECTOR"
+      ],
+      "canonical": "$ISVECTOR",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$J",
+      "all_forms": [
+        "$J",
+        "$JU",
+        "$JUS",
+        "$JUST",
+        "$JUSTI",
+        "$JUSTIF",
+        "$JUSTIFY"
+      ],
+      "canonical": "$JUSTIFY",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$L",
+      "all_forms": [
+        "$L",
+        "$LE",
+        "$LEN",
+        "$LENG",
+        "$LENGT",
+        "$LENGTH"
+      ],
+      "canonical": "$LENGTH",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$LIST"
+      ],
+      "canonical": "$LIST",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$LISTBUILD"
+      ],
+      "canonical": "$LISTBUILD",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$LISTDATA"
+      ],
+      "canonical": "$LISTDATA",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$LISTFIND"
+      ],
+      "canonical": "$LISTFIND",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$LISTFROMSTRING"
+      ],
+      "canonical": "$LISTFROMSTRING",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$LISTGET"
+      ],
+      "canonical": "$LISTGET",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$LISTLENGTH"
+      ],
+      "canonical": "$LISTLENGTH",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$LISTNEXT"
+      ],
+      "canonical": "$LISTNEXT",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$LISTSAME"
+      ],
+      "canonical": "$LISTSAME",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$LISTTOSTRING"
+      ],
+      "canonical": "$LISTTOSTRING",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$LISTUPDATE"
+      ],
+      "canonical": "$LISTUPDATE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$LISTVALID"
+      ],
+      "canonical": "$LISTVALID",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$LOCATE"
+      ],
+      "canonical": "$LOCATE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$MATCH"
+      ],
+      "canonical": "$MATCH",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$METHOD"
+      ],
+      "canonical": "$METHOD",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$M",
+      "all_forms": [
+        "$M",
+        "$MU",
+        "$MUM",
+        "$MUMP",
+        "$MUMPS"
+      ],
+      "canonical": "$MUMPS",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$NA",
+      "all_forms": [
+        "$NA",
+        "$NAM",
+        "$NAME"
+      ],
+      "canonical": "$NAME",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$NCONVERT"
+      ],
+      "canonical": "$NCONVERT",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$N",
+      "all_forms": [
+        "$N",
+        "$NE",
+        "$NEX",
+        "$NEXT"
+      ],
+      "canonical": "$NEXT",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$NORMALIZE"
+      ],
+      "canonical": "$NORMALIZE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$NOW"
+      ],
+      "canonical": "$NOW",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$NUMBER"
+      ],
+      "canonical": "$NUMBER",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$O",
+      "all_forms": [
+        "$O",
+        "$OR",
+        "$ORD",
+        "$ORDE",
+        "$ORDER"
+      ],
+      "canonical": "$ORDER",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$PARAMETER"
+      ],
+      "canonical": "$PARAMETER",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$P",
+      "all_forms": [
+        "$P",
+        "$PI",
+        "$PIE",
+        "$PIEC",
+        "$PIECE"
+      ],
+      "canonical": "$PIECE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$PREFETCHOFF"
+      ],
+      "canonical": "$PREFETCHOFF",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$PREFETCHON"
+      ],
+      "canonical": "$PREFETCHON",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$PROPERTY"
+      ],
+      "canonical": "$PROPERTY",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$QL",
+      "all_forms": [
+        "$QL",
+        "$QLE",
+        "$QLEN",
+        "$QLENG",
+        "$QLENGT",
+        "$QLENGTH"
+      ],
+      "canonical": "$QLENGTH",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$QS",
+      "all_forms": [
+        "$QS",
+        "$QSU",
+        "$QSUB",
+        "$QSUBS",
+        "$QSUBSC",
+        "$QSUBSCR",
+        "$QSUBSCRI",
+        "$QSUBSCRIP",
+        "$QSUBSCRIPT"
+      ],
+      "canonical": "$QSUBSCRIPT",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$Q",
+      "all_forms": [
+        "$Q",
+        "$QU",
+        "$QUE",
+        "$QUER",
+        "$QUERY"
+      ],
+      "canonical": "$QUERY",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$R",
+      "all_forms": [
+        "$R",
+        "$RA",
+        "$RAN",
+        "$RAND",
+        "$RANDO",
+        "$RANDOM"
+      ],
+      "canonical": "$RANDOM",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$REPLACE"
+      ],
+      "canonical": "$REPLACE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$RE",
+      "all_forms": [
+        "$RE",
+        "$REV",
+        "$REVE",
+        "$REVER",
+        "$REVERS",
+        "$REVERSE"
+      ],
+      "canonical": "$REVERSE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$SCONVERT"
+      ],
+      "canonical": "$SCONVERT",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$S",
+      "all_forms": [
+        "$S",
+        "$SE",
+        "$SEL",
+        "$SELE",
+        "$SELEC",
+        "$SELECT"
+      ],
+      "canonical": "$SELECT",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$SEQUENCE"
+      ],
+      "canonical": "$SEQUENCE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$SORTBEGIN"
+      ],
+      "canonical": "$SORTBEGIN",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$SORTEND"
+      ],
+      "canonical": "$SORTEND",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ST",
+      "all_forms": [
+        "$ST",
+        "$STA",
+        "$STAC",
+        "$STACK"
+      ],
+      "canonical": "$STACK",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$T",
+      "all_forms": [
+        "$T",
+        "$TE",
+        "$TEX",
+        "$TEXT"
+      ],
+      "canonical": "$TEXT",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$TR",
+      "all_forms": [
+        "$TR",
+        "$TRA",
+        "$TRAN",
+        "$TRANS",
+        "$TRANSL",
+        "$TRANSLA",
+        "$TRANSLAT",
+        "$TRANSLATE"
+      ],
+      "canonical": "$TRANSLATE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$TY",
+      "all_forms": [
+        "$TY",
+        "$TYP",
+        "$TYPE"
+      ],
+      "canonical": "$TYPE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$VECTOR"
+      ],
+      "canonical": "$VECTOR",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$VECTORDEFINED"
+      ],
+      "canonical": "$VECTORDEFINED",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$VECTOROP"
+      ],
+      "canonical": "$VECTOROP",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$V",
+      "all_forms": [
+        "$V",
+        "$VI",
+        "$VIE",
+        "$VIEW"
+      ],
+      "canonical": "$VIEW",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$WASCII"
+      ],
+      "canonical": "$WASCII",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$WCHAR"
+      ],
+      "canonical": "$WCHAR",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$WEXTRACT"
+      ],
+      "canonical": "$WEXTRACT",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$WFIND"
+      ],
+      "canonical": "$WFIND",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$WISWIDE"
+      ],
+      "canonical": "$WISWIDE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$WLENGTH"
+      ],
+      "canonical": "$WLENGTH",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$WREVERSE"
+      ],
+      "canonical": "$WREVERSE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$XECUTE"
+      ],
+      "canonical": "$XECUTE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$Z",
+      "all_forms": [
+        "$Z"
+      ],
+      "canonical": "$Z",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZABS"
+      ],
+      "canonical": "$ZABS",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZAHA",
+      "all_forms": [
+        "$ZAHA",
+        "$ZAHAN",
+        "$ZAHAND",
+        "$ZAHANDL",
+        "$ZAHANDLE"
+      ],
+      "canonical": "$ZAHANDLE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZARCCOS"
+      ],
+      "canonical": "$ZARCCOS",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZARCSIN"
+      ],
+      "canonical": "$ZARCSIN",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZARCTAN"
+      ],
+      "canonical": "$ZARCTAN",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZA",
+      "all_forms": [
+        "$ZA",
+        "$ZAS",
+        "$ZASC",
+        "$ZASCI",
+        "$ZASCII"
+      ],
+      "canonical": "$ZASCII",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZATRANSFORM"
+      ],
+      "canonical": "$ZATRANSFORM",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZBITAND"
+      ],
+      "canonical": "$ZBITAND",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZBOOLEAN"
+      ],
+      "canonical": "$ZBOOLEAN",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZCH",
+      "all_forms": [
+        "$ZCH",
+        "$ZCHA",
+        "$ZCHAR"
+      ],
+      "canonical": "$ZCHAR",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZCO",
+      "all_forms": [
+        "$ZCO",
+        "$ZCOL",
+        "$ZCOLL",
+        "$ZCOLLA",
+        "$ZCOLLAT",
+        "$ZCOLLATE"
+      ],
+      "canonical": "$ZCOLLATE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZCO",
+      "all_forms": [
+        "$ZCO",
+        "$ZCON",
+        "$ZCONV",
+        "$ZCONVE",
+        "$ZCONVER",
+        "$ZCONVERT"
+      ],
+      "canonical": "$ZCONVERT",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZCOS"
+      ],
+      "canonical": "$ZCOS",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZCOT"
+      ],
+      "canonical": "$ZCOT",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZCRC"
+      ],
+      "canonical": "$ZCRC",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZCSC"
+      ],
+      "canonical": "$ZCSC",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZCYC"
+      ],
+      "canonical": "$ZCYC",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZDASCII"
+      ],
+      "canonical": "$ZDASCII",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZDAT",
+      "all_forms": [
+        "$ZDAT",
+        "$ZDATA"
+      ],
+      "canonical": "$ZDATA",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZD",
+      "all_forms": [
+        "$ZD",
+        "$ZDA",
+        "$ZDAT",
+        "$ZDATE"
+      ],
+      "canonical": "$ZDATE",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZDATEH"
+      ],
+      "canonical": "$ZDATEH",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZDATETIME"
+      ],
+      "canonical": "$ZDATETIME",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZDATETIMEH"
+      ],
+      "canonical": "$ZDATETIMEH",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZDCHAR"
+      ],
+      "canonical": "$ZDCHAR",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZEXP"
+      ],
+      "canonical": "$ZEXP",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZE",
+      "all_forms": [
+        "$ZE",
+        "$ZEX",
+        "$ZEXT",
+        "$ZEXTR",
+        "$ZEXTRA",
+        "$ZEXTRAC",
+        "$ZEXTRACT"
+      ],
+      "canonical": "$ZEXTRACT",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZF"
+      ],
+      "canonical": "$ZF",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZF",
+      "all_forms": [
+        "$ZF",
+        "$ZFI",
+        "$ZFIN",
+        "$ZFIND"
+      ],
+      "canonical": "$ZFIND",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZGETJPI"
+      ],
+      "canonical": "$ZGETJPI",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZHEX"
+      ],
+      "canonical": "$ZHEX",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZISWIDE"
+      ],
+      "canonical": "$ZISWIDE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZJOBEXAM"
+      ],
+      "canonical": "$ZJOBEXAM",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZJ",
+      "all_forms": [
+        "$ZJ",
+        "$ZJU",
+        "$ZJUS",
+        "$ZJUST",
+        "$ZJUSTI",
+        "$ZJUSTIF",
+        "$ZJUSTIFY"
+      ],
+      "canonical": "$ZJUSTIFY",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZLASCII"
+      ],
+      "canonical": "$ZLASCII",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZLCHAR"
+      ],
+      "canonical": "$ZLCHAR",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZL",
+      "all_forms": [
+        "$ZL",
+        "$ZLE",
+        "$ZLEN",
+        "$ZLENG",
+        "$ZLENGT",
+        "$ZLENGTH"
+      ],
+      "canonical": "$ZLENGTH",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZLN"
+      ],
+      "canonical": "$ZLN",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZLOG"
+      ],
+      "canonical": "$ZLOG",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZM",
+      "all_forms": [
+        "$ZM",
+        "$ZME",
+        "$ZMES",
+        "$ZMESS",
+        "$ZMESSA",
+        "$ZMESSAG",
+        "$ZMESSAGE"
+      ],
+      "canonical": "$ZMESSAGE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZPARSE"
+      ],
+      "canonical": "$ZPARSE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZPEEK"
+      ],
+      "canonical": "$ZPEEK",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZPI",
+      "all_forms": [
+        "$ZPI",
+        "$ZPIE",
+        "$ZPIEC",
+        "$ZPIECE"
+      ],
+      "canonical": "$ZPIECE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZPOWER"
+      ],
+      "canonical": "$ZPOWER",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZP",
+      "all_forms": [
+        "$ZP",
+        "$ZPR",
+        "$ZPRE",
+        "$ZPREV",
+        "$ZPREVI",
+        "$ZPREVIO",
+        "$ZPREVIOU",
+        "$ZPREVIOUS"
+      ],
+      "canonical": "$ZPREVIOUS",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZQASCII"
+      ],
+      "canonical": "$ZQASCII",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZQCHAR"
+      ],
+      "canonical": "$ZQCHAR",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZQGBLMOD"
+      ],
+      "canonical": "$ZQGBLMOD",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZSEARCH"
+      ],
+      "canonical": "$ZSEARCH",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZSEC"
+      ],
+      "canonical": "$ZSEC",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZSEEK"
+      ],
+      "canonical": "$ZSEEK",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZSIGPROC"
+      ],
+      "canonical": "$ZSIGPROC",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZSIN"
+      ],
+      "canonical": "$ZSIN",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZSOCKET"
+      ],
+      "canonical": "$ZSOCKET",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZSQR"
+      ],
+      "canonical": "$ZSQR",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZSTRIP"
+      ],
+      "canonical": "$ZSTRIP",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZSUB",
+      "all_forms": [
+        "$ZSUB",
+        "$ZSUBS",
+        "$ZSUBST",
+        "$ZSUBSTR"
+      ],
+      "canonical": "$ZSUBSTR",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZSYSLOG"
+      ],
+      "canonical": "$ZSYSLOG",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZTAN"
+      ],
+      "canonical": "$ZTAN",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZTIME"
+      ],
+      "canonical": "$ZTIME",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZTIMEH"
+      ],
+      "canonical": "$ZTIMEH",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZTR",
+      "all_forms": [
+        "$ZTR",
+        "$ZTRA",
+        "$ZTRAN",
+        "$ZTRANS",
+        "$ZTRANSL",
+        "$ZTRANSLA",
+        "$ZTRANSLAT",
+        "$ZTRANSLATE"
+      ],
+      "canonical": "$ZTRANSLATE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZTRIGGER"
+      ],
+      "canonical": "$ZTRIGGER",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZTRNLNM"
+      ],
+      "canonical": "$ZTRNLNM",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZUADITLOG"
+      ],
+      "canonical": "$ZUADITLOG",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZWASCII"
+      ],
+      "canonical": "$ZWASCII",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZWCHAR"
+      ],
+      "canonical": "$ZWCHAR",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZW",
+      "all_forms": [
+        "$ZW",
+        "$ZWI",
+        "$ZWID",
+        "$ZWIDT",
+        "$ZWIDTH"
+      ],
+      "canonical": "$ZWIDTH",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZWRITE"
+      ],
+      "canonical": "$ZWRITE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZYCOMPILE"
+      ],
+      "canonical": "$ZYCOMPILE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZYHASH"
+      ],
+      "canonical": "$ZYHASH",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZYISSQLNULL"
+      ],
+      "canonical": "$ZYISSQLNULL",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZYSU",
+      "all_forms": [
+        "$ZYSU",
+        "$ZYSUF",
+        "$ZYSUFF",
+        "$ZYSUFFI",
+        "$ZYSUFFIX"
+      ],
+      "canonical": "$ZYSUFFIX",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZZENKAKU"
+      ],
+      "canonical": "$ZZENKAKU",
+      "standard_status": "iris-extension"
+    }
+  ],
+  "intrinsic_special_variables": [
+    {
+      "abbreviation": "$D",
+      "all_forms": [
+        "$D",
+        "$DE",
+        "$DEV",
+        "$DEVI",
+        "$DEVIC",
+        "$DEVICE"
+      ],
+      "canonical": "$DEVICE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$EC",
+      "all_forms": [
+        "$EC",
+        "$ECO",
+        "$ECOD",
+        "$ECODE"
+      ],
+      "canonical": "$ECODE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$ES",
+      "all_forms": [
+        "$ES",
+        "$EST",
+        "$ESTA",
+        "$ESTAC",
+        "$ESTACK"
+      ],
+      "canonical": "$ESTACK",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$ET",
+      "all_forms": [
+        "$ET",
+        "$ETR",
+        "$ETRA",
+        "$ETRAP"
+      ],
+      "canonical": "$ETRAP",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$HALT"
+      ],
+      "canonical": "$HALT",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$H",
+      "all_forms": [
+        "$H",
+        "$HO",
+        "$HOR",
+        "$HORO",
+        "$HOROL",
+        "$HOROLO",
+        "$HOROLOG"
+      ],
+      "canonical": "$HOROLOG",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$I",
+      "all_forms": [
+        "$I",
+        "$IO"
+      ],
+      "canonical": "$IO",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$J",
+      "all_forms": [
+        "$J",
+        "$JO",
+        "$JOB"
+      ],
+      "canonical": "$JOB",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$K",
+      "all_forms": [
+        "$K",
+        "$KE",
+        "$KEY"
+      ],
+      "canonical": "$KEY",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$NAMESPACE"
+      ],
+      "canonical": "$NAMESPACE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$P",
+      "all_forms": [
+        "$P",
+        "$PR",
+        "$PRI",
+        "$PRIN",
+        "$PRINC",
+        "$PRINCI",
+        "$PRINCIP",
+        "$PRINCIPA",
+        "$PRINCIPAL"
+      ],
+      "canonical": "$PRINCIPAL",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$Q",
+      "all_forms": [
+        "$Q",
+        "$QU",
+        "$QUI",
+        "$QUIT"
+      ],
+      "canonical": "$QUIT",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$R",
+      "all_forms": [
+        "$R",
+        "$RE",
+        "$REF",
+        "$REFE",
+        "$REFER",
+        "$REFERE",
+        "$REFEREN",
+        "$REFERENC",
+        "$REFERENCE"
+      ],
+      "canonical": "$REFERENCE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ROLES"
+      ],
+      "canonical": "$ROLES",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ST",
+      "all_forms": [
+        "$ST",
+        "$STA",
+        "$STAC",
+        "$STACK"
+      ],
+      "canonical": "$STACK",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$S",
+      "all_forms": [
+        "$S",
+        "$ST",
+        "$STO",
+        "$STOR",
+        "$STORA",
+        "$STORAG",
+        "$STORAGE"
+      ],
+      "canonical": "$STORAGE",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$SY",
+      "all_forms": [
+        "$SY",
+        "$SYS",
+        "$SYST",
+        "$SYSTE",
+        "$SYSTEM"
+      ],
+      "canonical": "$SYSTEM",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$T",
+      "all_forms": [
+        "$T",
+        "$TE",
+        "$TES",
+        "$TEST"
+      ],
+      "canonical": "$TEST",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$THIS"
+      ],
+      "canonical": "$THIS",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$THROWOBJ"
+      ],
+      "canonical": "$THROWOBJ",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$TL",
+      "all_forms": [
+        "$TL",
+        "$TLE",
+        "$TLEV",
+        "$TLEVE",
+        "$TLEVEL"
+      ],
+      "canonical": "$TLEVEL",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$TR",
+      "all_forms": [
+        "$TR",
+        "$TRE",
+        "$TRES",
+        "$TREST",
+        "$TRESTA",
+        "$TRESTAR",
+        "$TRESTART"
+      ],
+      "canonical": "$TRESTART",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$USERNAME"
+      ],
+      "canonical": "$USERNAME",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$X",
+      "all_forms": [
+        "$X"
+      ],
+      "canonical": "$X",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "$Y",
+      "all_forms": [
+        "$Y"
+      ],
+      "canonical": "$Y",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "$ZA",
+      "all_forms": [
+        "$ZA"
+      ],
+      "canonical": "$ZA",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "$ZALLOCSTOR",
+      "all_forms": [
+        "$ZALLOCSTOR"
+      ],
+      "canonical": "$ZALLOCSTOR",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZAUDIT",
+      "all_forms": [
+        "$ZAUDIT"
+      ],
+      "canonical": "$ZAUDIT",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZB",
+      "all_forms": [
+        "$ZB"
+      ],
+      "canonical": "$ZB",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZCHILD"
+      ],
+      "canonical": "$ZCHILD",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZCHSET",
+      "all_forms": [
+        "$ZCHSET"
+      ],
+      "canonical": "$ZCHSET",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZCM",
+      "all_forms": [
+        "$ZCM",
+        "$ZCMD",
+        "$ZCMDL",
+        "$ZCMDLI",
+        "$ZCMDLIN",
+        "$ZCMDLINE"
+      ],
+      "canonical": "$ZCMDLINE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZCO",
+      "all_forms": [
+        "$ZCO",
+        "$ZCOM",
+        "$ZCOMP",
+        "$ZCOMPI",
+        "$ZCOMPIL",
+        "$ZCOMPILE"
+      ],
+      "canonical": "$ZCOMPILE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZC",
+      "all_forms": [
+        "$ZC",
+        "$ZCS",
+        "$ZCST",
+        "$ZCSTA",
+        "$ZCSTAT",
+        "$ZCSTATU",
+        "$ZCSTATUS"
+      ],
+      "canonical": "$ZCSTATUS",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZDA",
+      "all_forms": [
+        "$ZDA",
+        "$ZDAT",
+        "$ZDATE",
+        "$ZDATEF",
+        "$ZDATEFO",
+        "$ZDATEFOR",
+        "$ZDATEFORM"
+      ],
+      "canonical": "$ZDATEFORM",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZD",
+      "all_forms": [
+        "$ZD",
+        "$ZDI",
+        "$ZDIR",
+        "$ZDIRE",
+        "$ZDIREC",
+        "$ZDIRECT",
+        "$ZDIRECTO",
+        "$ZDIRECTOR",
+        "$ZDIRECTORY"
+      ],
+      "canonical": "$ZDIRECTORY",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZEO",
+      "all_forms": [
+        "$ZEO",
+        "$ZEOF"
+      ],
+      "canonical": "$ZEOF",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZEOS"
+      ],
+      "canonical": "$ZEOS",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZE",
+      "all_forms": [
+        "$ZE",
+        "$ZER",
+        "$ZERR",
+        "$ZERRO",
+        "$ZERROR"
+      ],
+      "canonical": "$ZERROR",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "$ZG",
+      "all_forms": [
+        "$ZG",
+        "$ZGB",
+        "$ZGBL",
+        "$ZGBLD",
+        "$ZGBLDI",
+        "$ZGBLDIR"
+      ],
+      "canonical": "$ZGBLDIR",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZH",
+      "all_forms": [
+        "$ZH",
+        "$ZHO",
+        "$ZHOR",
+        "$ZHORO",
+        "$ZHOROL",
+        "$ZHOROLO",
+        "$ZHOROLOG"
+      ],
+      "canonical": "$ZHOROLOG",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "$ZICUVER",
+      "all_forms": [
+        "$ZICUVER"
+      ],
+      "canonical": "$ZICUVER",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZINI",
+      "all_forms": [
+        "$ZINI",
+        "$ZININ",
+        "$ZININT",
+        "$ZININTE",
+        "$ZININTER",
+        "$ZININTERR",
+        "$ZININTERRU",
+        "$ZININTERRUP",
+        "$ZININTERRUPT"
+      ],
+      "canonical": "$ZININTERRUPT",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZINT",
+      "all_forms": [
+        "$ZINT",
+        "$ZINTE",
+        "$ZINTER",
+        "$ZINTERR",
+        "$ZINTERRU",
+        "$ZINTERRUP",
+        "$ZINTERRUPT"
+      ],
+      "canonical": "$ZINTERRUPT",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZIO",
+      "all_forms": [
+        "$ZIO"
+      ],
+      "canonical": "$ZIO",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "$ZJ",
+      "all_forms": [
+        "$ZJ",
+        "$ZJO",
+        "$ZJOB"
+      ],
+      "canonical": "$ZJOB",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "$ZL",
+      "all_forms": [
+        "$ZL",
+        "$ZLE",
+        "$ZLEV",
+        "$ZLEVE",
+        "$ZLEVEL"
+      ],
+      "canonical": "$ZLEVEL",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZMALL",
+      "all_forms": [
+        "$ZMALL",
+        "$ZMALLO",
+        "$ZMALLOC",
+        "$ZMALLOCL",
+        "$ZMALLOCLI",
+        "$ZMALLOCLIM"
+      ],
+      "canonical": "$ZMALLOCLIM",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZMAXTPTI",
+      "all_forms": [
+        "$ZMAXTPTI",
+        "$ZMAXTPTIM",
+        "$ZMAXTPTIME"
+      ],
+      "canonical": "$ZMAXTPTIME",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZMLKHASH",
+      "all_forms": [
+        "$ZMLKHASH"
+      ],
+      "canonical": "$ZMLKHASH",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZMO",
+      "all_forms": [
+        "$ZMO",
+        "$ZMOD",
+        "$ZMODE"
+      ],
+      "canonical": "$ZMODE",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZNSPACE"
+      ],
+      "canonical": "$ZNSPACE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZONLNRLBK",
+      "all_forms": [
+        "$ZONLNRLBK"
+      ],
+      "canonical": "$ZONLNRLBK",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZORDER"
+      ],
+      "canonical": "$ZORDER",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZPARENT"
+      ],
+      "canonical": "$ZPARENT",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZPATN",
+      "all_forms": [
+        "$ZPATN",
+        "$ZPATNU",
+        "$ZPATNUM",
+        "$ZPATNUME",
+        "$ZPATNUMER",
+        "$ZPATNUMERI",
+        "$ZPATNUMERIC"
+      ],
+      "canonical": "$ZPATNUMERIC",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZPI"
+      ],
+      "canonical": "$ZPI",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZPOS",
+      "all_forms": [
+        "$ZPOS",
+        "$ZPOSI",
+        "$ZPOSIT",
+        "$ZPOSITI",
+        "$ZPOSITIO",
+        "$ZPOSITION"
+      ],
+      "canonical": "$ZPOSITION",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZPROM",
+      "all_forms": [
+        "$ZPROM",
+        "$ZPROMP",
+        "$ZPROMPT"
+      ],
+      "canonical": "$ZPROMPT",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZQUIT",
+      "all_forms": [
+        "$ZQUIT"
+      ],
+      "canonical": "$ZQUIT",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZREALSTOR",
+      "all_forms": [
+        "$ZREALSTOR"
+      ],
+      "canonical": "$ZREALSTOR",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZREFERENCE"
+      ],
+      "canonical": "$ZREFERENCE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZRELDATE",
+      "all_forms": [
+        "$ZRELDATE"
+      ],
+      "canonical": "$ZRELDATE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZRO",
+      "all_forms": [
+        "$ZRO",
+        "$ZROU",
+        "$ZROUT",
+        "$ZROUTI",
+        "$ZROUTIN",
+        "$ZROUTINE",
+        "$ZROUTINES"
+      ],
+      "canonical": "$ZROUTINES",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZSO",
+      "all_forms": [
+        "$ZSO",
+        "$ZSOU",
+        "$ZSOUR",
+        "$ZSOURC",
+        "$ZSOURCE"
+      ],
+      "canonical": "$ZSOURCE",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZS",
+      "all_forms": [
+        "$ZS",
+        "$ZST",
+        "$ZSTA",
+        "$ZSTAT",
+        "$ZSTATU",
+        "$ZSTATUS"
+      ],
+      "canonical": "$ZSTATUS",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZST",
+      "all_forms": [
+        "$ZST",
+        "$ZSTE",
+        "$ZSTEP"
+      ],
+      "canonical": "$ZSTEP",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZSTORAGE"
+      ],
+      "canonical": "$ZSTORAGE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZSTRP",
+      "all_forms": [
+        "$ZSTRP",
+        "$ZSTRPL",
+        "$ZSTRPLL",
+        "$ZSTRPLLI",
+        "$ZSTRPLLIM"
+      ],
+      "canonical": "$ZSTRPLLIM",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZSY",
+      "all_forms": [
+        "$ZSY",
+        "$ZSYS",
+        "$ZSYST",
+        "$ZSYSTE",
+        "$ZSYSTEM"
+      ],
+      "canonical": "$ZSYSTEM",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZTE",
+      "all_forms": [
+        "$ZTE",
+        "$ZTEX",
+        "$ZTEXI",
+        "$ZTEXIT"
+      ],
+      "canonical": "$ZTEXIT",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZTIMEOUT",
+      "all_forms": [
+        "$ZTIMEOUT"
+      ],
+      "canonical": "$ZTIMEOUT",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZTIMESTAMP"
+      ],
+      "canonical": "$ZTIMESTAMP",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "",
+      "all_forms": [
+        "$ZTIMEZONE"
+      ],
+      "canonical": "$ZTIMEZONE",
+      "standard_status": "iris-extension"
+    },
+    {
+      "abbreviation": "$ZT",
+      "all_forms": [
+        "$ZT",
+        "$ZTR",
+        "$ZTRA",
+        "$ZTRAP"
+      ],
+      "canonical": "$ZTRAP",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "$Z",
+      "all_forms": [
+        "$Z",
+        "$ZU",
+        "$ZUN",
+        "$ZUNS",
+        "$ZUNSP",
+        "$ZUNSPE",
+        "$ZUNSPEC",
+        "$ZUNSPECI",
+        "$ZUNSPECIF",
+        "$ZUNSPECIFI",
+        "$ZUNSPECIFIE",
+        "$ZUNSPECIFIED"
+      ],
+      "canonical": "$ZUNSPECIFIED",
+      "standard_status": "ansi"
+    },
+    {
+      "abbreviation": "$ZUSEDSTOR",
+      "all_forms": [
+        "$ZUSEDSTOR"
+      ],
+      "canonical": "$ZUSEDSTOR",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZUT",
+      "all_forms": [
+        "$ZUT"
+      ],
+      "canonical": "$ZUT",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZV",
+      "all_forms": [
+        "$ZV",
+        "$ZVE",
+        "$ZVER",
+        "$ZVERS",
+        "$ZVERSI",
+        "$ZVERSIO",
+        "$ZVERSION"
+      ],
+      "canonical": "$ZVERSION",
+      "standard_status": "multi-vendor-ext"
+    },
+    {
+      "abbreviation": "$ZYER",
+      "all_forms": [
+        "$ZYER",
+        "$ZYERR",
+        "$ZYERRO",
+        "$ZYERROR"
+      ],
+      "canonical": "$ZYERROR",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZYINTRSIG",
+      "all_forms": [
+        "$ZYINTRSIG"
+      ],
+      "canonical": "$ZYINTRSIG",
+      "standard_status": "ydb-extension"
+    },
+    {
+      "abbreviation": "$ZYJO",
+      "all_forms": [
+        "$ZYJO",
+        "$ZYJOB",
+        "$ZYJOBP",
+        "$ZYJOBPA",
+        "$ZYJOBPAR",
+        "$ZYJOBPARE",
+        "$ZYJOBPAREN",
+        "$ZYJOBPARENT"
+      ],
+      "canonical": "$ZYJOBPARENT",
+      "standard_status": "ydb-extension"
+    }
+  ],
+  "operators": [
+    {
+      "operator_class": "arithmetic",
+      "standard_status": "ansi",
+      "symbol": "#"
+    },
+    {
+      "operator_class": "arithmetic",
+      "standard_status": "ansi",
+      "symbol": "*"
+    },
+    {
+      "operator_class": "arithmetic",
+      "standard_status": "ansi",
+      "symbol": "**"
+    },
+    {
+      "operator_class": "arithmetic",
+      "standard_status": "ansi",
+      "symbol": "+"
+    },
+    {
+      "operator_class": "arithmetic",
+      "standard_status": "ansi",
+      "symbol": "-"
+    },
+    {
+      "operator_class": "arithmetic",
+      "standard_status": "ansi",
+      "symbol": "/"
+    },
+    {
+      "operator_class": "arithmetic",
+      "standard_status": "ansi",
+      "symbol": "\\"
+    },
+    {
+      "operator_class": "logical",
+      "standard_status": "ansi",
+      "symbol": "!"
+    },
+    {
+      "operator_class": "logical",
+      "standard_status": "ansi",
+      "symbol": "&"
+    },
+    {
+      "operator_class": "logical",
+      "standard_status": "ydb-extension",
+      "symbol": "'"
+    },
+    {
+      "operator_class": "numeric-relational",
+      "standard_status": "ansi",
+      "symbol": "<"
+    },
+    {
+      "operator_class": "numeric-relational",
+      "standard_status": "ansi",
+      "symbol": ">"
+    },
+    {
+      "operator_class": "string",
+      "standard_status": "ansi",
+      "symbol": "_"
+    },
+    {
+      "operator_class": "string-relational",
+      "standard_status": "ansi",
+      "symbol": "="
+    },
+    {
+      "operator_class": "string-relational",
+      "standard_status": "ansi",
+      "symbol": "["
+    },
+    {
+      "operator_class": "string-relational",
+      "standard_status": "ansi",
+      "symbol": "]"
+    },
+    {
+      "operator_class": "string-relational",
+      "standard_status": "ansi",
+      "symbol": "]]"
+    }
+  ],
+  "pattern_codes": [
+    {
+      "code": "A",
+      "description": "alphabetic characters upper or lower case",
+      "standard_status": "ansi"
+    },
+    {
+      "code": "C",
+      "description": "control characters ASCII 0-31 and 127",
+      "standard_status": "ansi"
+    },
+    {
+      "code": "E",
+      "description": "any character; used to pass all characters in portions of the string where the pattern is not restricted",
+      "standard_status": "ansi"
+    },
+    {
+      "code": "L",
+      "description": "lower-case alphabetic characters, ASCII 97-122",
+      "standard_status": "ansi"
+    },
+    {
+      "code": "N",
+      "description": "digits 0-9, ASCII 48-57",
+      "standard_status": "ansi"
+    },
+    {
+      "code": "P",
+      "description": "punctuation, ASCII 32-47, 58-64, 91-96, 123-126",
+      "standard_status": "ansi"
+    },
+    {
+      "code": "U",
+      "description": "upper-case alphabetic characters, ASCII 65-90",
+      "standard_status": "ansi"
+    }
+  ],
+  "schema_version": "1"
+}

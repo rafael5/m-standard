@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://m-standard.local/schemas/grammar-surface.schema.json",
+  "title": "m-standard grammar surface",
+  "description": "Single-file bundle of M lexical/syntactic enumerations, derived from the integrated layer for direct consumption by grammar generators (tree-sitter-m, etc.). Per spec §10.1, this is the surface tree-sitter-m's tools/build-grammar.js reads at grammar-generate time.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "concept",
+    "commands",
+    "intrinsic_functions",
+    "intrinsic_special_variables",
+    "operators",
+    "pattern_codes"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1"
+    },
+    "concept": {
+      "type": "string",
+      "const": "grammar-surface"
+    },
+    "commands": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/named_token" }
+    },
+    "intrinsic_functions": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/named_token" }
+    },
+    "intrinsic_special_variables": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/named_token" }
+    },
+    "operators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["symbol", "operator_class", "standard_status"],
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operator_class": {
+            "type": "string",
+            "enum": [
+              "arithmetic",
+              "logical",
+              "numeric-relational",
+              "string-relational",
+              "string",
+              "pattern"
+            ]
+          },
+          "standard_status": {
+            "type": "string",
+            "enum": ["ansi", "ydb-extension", "iris-extension", "multi-vendor-ext"]
+          }
+        }
+      }
+    },
+    "pattern_codes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "standard_status"],
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2
+          },
+          "description": {
+            "type": "string"
+          },
+          "standard_status": {
+            "type": "string",
+            "enum": ["ansi", "ydb-extension", "iris-extension", "multi-vendor-ext"]
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "named_token": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonical", "all_forms", "standard_status"],
+      "properties": {
+        "canonical": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The full canonical name (e.g. BREAK, $ASCII, $DEVICE)."
+        },
+        "abbreviation": {
+          "type": "string",
+          "description": "Shortest valid abbreviation (e.g. B for BREAK, $A for $ASCII). Empty when no abbreviation is recorded."
+        },
+        "all_forms": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Every prefix-truncation form a parser must accept (e.g. [B, BR, BRE, BREA, BREAK] for BREAK with abbreviation B). When abbreviation is empty, just [canonical]. Tree-sitter and other parsers consume this directly to build their token-recognition rules."
+        },
+        "standard_status": {
+          "type": "string",
+          "enum": ["ansi", "ydb-extension", "iris-extension", "multi-vendor-ext"]
+        }
+      }
+    }
+  }
+}

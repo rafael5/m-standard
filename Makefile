@@ -67,14 +67,23 @@ serve-anno:
 extract:
 	$(PYTHON) -m m_standard.tools.extract_anno
 	$(PYTHON) -m m_standard.tools.extract_ydb
+	$(PYTHON) -m m_standard.tools.extract_iris
 
 reconcile:
 	$(PYTHON) -m m_standard.tools.reconcile
 
+emit-json:
+	$(PYTHON) -m m_standard.tools.emit_json
+
+emit-grammar:
+	$(PYTHON) -m m_standard.tools.emit_grammar
+
+emit: emit-json emit-grammar
+
 validate:
 	$(PYTHON) -m m_standard.tools.validate
 
-all: sources extract reconcile validate
+all: sources extract reconcile emit validate
 
 clean:
 	rm -rf .pytest_cache .mypy_cache .ruff_cache htmlcov .coverage
