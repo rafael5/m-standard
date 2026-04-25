@@ -1,0 +1,13 @@
+iris_mnemonic	ydb_mnemonic	confidence	basis
+COMMAND	INVCMD	high	IRIS "command used improperly" ↔ YDB "Invalid command keyword encountered"
+DIVIDE	DIVZERO	high	IRIS "Divide by zero attempted" ↔ YDB "Attempt to divide by zero"
+LABELREDEF	MULTLAB	high	IRIS "label redefined" ↔ YDB "This label has been previously defined"
+MAXARRAY	MAXARGCNT	medium	IRIS "MAXARRAY" subscript depth ↔ YDB "Maximum number of arguments exceeded" (related capacity errors)
+MAXNUMBER	NEGFRACPWR	low	IRIS arithmetic overflow ↔ YDB fractional power; both are math-domain errors but cover different cases
+MAXSTRING	MAXSTRLEN	high	IRIS "MAXSTRING" ↔ YDB "Maximum string length exceeded"
+NAKED	GVNAKED	high	IRIS "NAKED indicator undefined" ↔ YDB "Illegal naked global reference"
+NOROUTINE	LABELMISSING	medium	IRIS "Routine not found" ↔ YDB "Label referenced but not defined" (related routine-resolution failures)
+SELECT	SELECTFALSE	high	IRIS "$Select error: no condition true" ↔ YDB "No argument to $SELECT was true"
+STACK	STACKOFLOW	high	IRIS "STACK" (argument stack out of room) ↔ YDB "Stack overflow"
+SUBSCRIPT	GVSUBOFLOW	medium	IRIS "SUBSCRIPT" ↔ YDB subscript-related errors; multiple candidates
+UNDEFINED	LVUNDEF	high	IRIS "UNDEFINED" reference to undefined local/global ↔ YDB "Undefined local variable" (also maps to GVUNDEF for globals; v0.2 picks LVUNDEF as primary)

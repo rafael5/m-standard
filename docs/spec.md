@@ -1,13 +1,26 @@
-# m-standard — Specification v0.1
+# m-standard — Specification v0.2
 
 **Status:** draft for review
 **License of this document:** AGPL-3.0 (matches the artifact it specifies)
-**Sources reconciled:** Annotated M Standard (X11.1-1995, hosted at
-71.174.62.16/Demo/AnnoStd — crawled and mirrored locally for offline
-browsing) and the YottaDB documentation corpus (cloned in full from
-its GitLab source repository). Both sources are held as offline local
-replicas, and those replicas — not the live upstream — are the
-foundation for all extraction and analysis.
+**Sources reconciled:** three primary sources, all held as offline
+local replicas under `sources/`:
+
+1. **Annotated M Standard** (X11.1-1995, hosted at
+   `71.174.62.16/Demo/AnnoStd`) — crawled and mirrored locally for
+   offline browsing. Normative for "is X part of the ANSI standard."
+2. **YottaDB documentation corpus** — cloned in full from its GitLab
+   source repository. Authoritative for current YottaDB engine
+   behaviour and YDB-specific extensions.
+3. **InterSystems IRIS documentation** (added v0.2; rationale in
+   ADR-006) — crawled subset of `docs.intersystems.com/irislatest`.
+   Authoritative for current IRIS engine behaviour and IRIS-specific
+   extensions. **IRIS is the operational engine that runs VistA in
+   production at the VA**, which is why it's a primary source rather
+   than a possible future addition.
+
+The replicas — not the live upstream — are the foundation for all
+extraction and analysis.
+
 **Primary downstream consumer:** `tree-sitter-m` grammar; secondary
 consumers include `vista-meta`, AI agents, and any other M tooling
 project that benefits from a citable, machine-readable standard.
@@ -127,23 +140,38 @@ without inheriting any project-specific assumptions.
 Five decisions drive the rest of the spec. Listed once here so
 downstream sections can reference them by number.
 
-### AD-01: Two-source hierarchy with explicit precedence
+### AD-01: Three-source hierarchy with explicit precedence
 
-When the two sources disagree, the resolution follows a fixed
+When the three sources disagree, the resolution follows a fixed
 hierarchy:
 
 * **AnnoStd** is normative for what counts as standard ANSI M. If
   AnnoStd does not describe a behavior, that behavior is not part
-  of the standard, regardless of what the YottaDB documentation
+  of the standard, regardless of what either implementation source
   says.
 * **YottaDB documentation corpus** is authoritative for current
   real-world implementation behavior of the leading open-source
   M engine, and is the source of truth for YottaDB-specific
-  extensions.
+  extensions (`standard_status=ydb-extension`).
+* **InterSystems IRIS documentation** is authoritative for current
+  IRIS engine behavior and IRIS-specific extensions
+  (`standard_status=iris-extension`). IRIS and YottaDB are *peers*
+  in this hierarchy — neither outranks the other for implementation
+  detail. Where the two implementations describe the same ANSI
+  behaviour differently, that's a real cross-vendor divergence
+  worth surfacing as a conflict.
 
 Disagreements are not silently resolved — every conflict is
 recorded in `conflicts.tsv` with the resolution and a reference
 to this AD.
+
+**Note on standard_status values.** v0.2 introduces a fifth value
+`multi-vendor-ext` for entries present in *both* implementation
+sources but not in AnnoStd — i.e. de facto extensions that the M
+community has converged on without formal standardisation. The
+full enum is now: `ansi`, `ydb-extension`, `iris-extension`,
+`multi-vendor-ext`, plus the legacy `ydb-extension`-only label
+retained for v1.0 compatibility.
 
 ### AD-02: Separate normative text from annotations
 
@@ -266,7 +294,48 @@ appended without a version bump.
   implementation and for YDB-specific extensions. YDB extensions
   are flagged `extension_of=ydb` in the integrated layer.
 
-### 4.3 Redistribution and snapshot policy
+### 4.3 InterSystems IRIS documentation
+
+* **What it is.** The official documentation for InterSystems IRIS
+  Data Platform, the current commercial M engine maintained by
+  InterSystems Corporation. IRIS descends from Caché, which in turn
+  evolved from the original ISM/MSM/M[5] family. Comprehensive,
+  current, and (critically for the VA's VistA install base) the
+  engine that VistA runs on in production.
+* **Where it lives upstream.** The rendered docs live at
+  `https://docs.intersystems.com/irislatest/csp/docbook/Doc.View.cls`
+  with content addressed by a `KEY` query parameter
+  (e.g. `KEY=RERR_system` for the M-language system error reference,
+  `KEY=RCOS` for the ObjectScript Reference). InterSystems publishes
+  this docs site freely to read; there is no public source
+  repository (unlike YottaDB's `YDBDoc` repo on GitLab), so the only
+  acquisition path is to crawl the rendered HTML.
+* **How it is captured.** A bounded crawl from a configurable seed
+  set of `KEY`s (default: the M-language relevant subset — error
+  references, ObjectScript reference, Class Reference). Pages are
+  saved under `sources/iris/site/<KEY>.html` with the page body
+  preserved byte-for-byte. The crawl is *seed-bounded* rather than
+  link-following because the IRIS docs are vast (thousands of
+  pages, including SQL, %CSP, productions, deployment, etc.) and
+  most of it is out of scope for an M-language standard.
+* **Version pinned.** v0.2 pins to the `irislatest` redirect
+  resolved at project start (recorded in `sources/iris/manifest.tsv`
+  by URL, fetch date, and sha256). The `irislatest` URL itself
+  redirects to the most recent release (e.g. 2026.1); the manifest
+  records which release was actually fetched for reproducibility.
+* **Treatment.** Per AD-01, IRIS is authoritative for current IRIS
+  engine behaviour. IRIS-specific extensions are flagged
+  `standard_status=iris-extension`. Where IRIS and YottaDB describe
+  the same construct under different names (`<DIVIDE>` vs
+  `DIVZERO`), the integrated layer joins them via cross-vendor
+  mappings under `mappings/` (see ADR-006 + spec §5.6).
+* **Redistribution.** InterSystems publishes the docs free to read
+  but with copyright reserved; v0.2 treats the bulk crawl like
+  AnnoStd's mirror — gitignored pending explicit redistribution
+  permission, with manifest + fetch.sh tracked so the local replica
+  is reproducible.
+
+### 4.4 Redistribution and snapshot policy
 
 Each source has its own license; the offline-replica strategy is
 applied within those constraints.

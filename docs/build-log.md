@@ -322,3 +322,75 @@ The integrated layer joins these into 6 reconciled families
 (commands, functions, ISVs, operators, errors, environment) plus 1
 YDB-only family (pattern-codes). 22 conflicts total, 21 of kind
 `existence` plus the operator class divergence on `_` (CONF-022).
+
+---
+
+## BL-013 — InterSystems IRIS becomes a third primary source (2026-04-25)
+
+**Phase:** v0.2 — post-v1.0 architectural shift.
+**Context:** Rafael directed (after the v1.0 tag) that InterSystems
+IRIS be added as a primary source alongside AnnoStd and YottaDB,
+because IRIS is the M engine that actually runs VistA in production
+at the VA — making it the dominant real-world M codebase target.
+A reference standard with no IRIS coverage is incomplete from the
+perspective of every downstream tool that reasons about VistA.
+
+**ADR-006** captures the full rationale and the architectural shape
+of the change. Key mechanical updates:
+
+1. **Spec → v0.2**, AD-01 revised to a three-source hierarchy
+   (AnnoStd normative; YottaDB and IRIS peers for implementation).
+2. **`sources/iris/`** scaffolded: manifest.tsv, fetch.sh,
+   gitignored `site/` (bulk content not committed pending licence
+   verification — InterSystems publishes docs free to read but no
+   explicit redistribution permission).
+3. **`m_standard.tools.crawl_iris`** is *seed-bounded* rather than
+   link-following, because IRIS docs are vast and most of the
+   content (SQL, productions, %CSP, deployment) is out of scope for
+   an M-language standard. Default seeds cover the M-language
+   relevant subset: `RERR_system`, `RERR_gen`, `RCOS`,
+   `GCOS_trycatch`. Initial crawl: 4 pages, 1.7 MB.
+4. **`m_standard.tools.extract_iris.extract_errors`** parses the
+   `RERR_system` page's two-cell `[<NAME>, description]` table rows.
+   83 IRIS system errors extracted. Mnemonics starting with `Z`
+   tagged `iris-extension`.
+5. **`reconcile_errors` upgraded to 3-source.** The three mnemonic
+   namespaces (M-codes, YDB, IRIS) are disjoint by construction, so
+   the integrated table is the union — plus cross-vendor pointers
+   threaded through:
+   - `mappings/iris-ansi-errors.tsv` — IRIS ↔ ANSI Mn
+   - `mappings/iris-ydb-errors.tsv` — IRIS ↔ YDB cross-vendor
+   - `mappings/ydb-ansi-errors.tsv` — existing YDB ↔ ANSI Mn
+   The integrated row for DIVZERO now carries `ansi_code=M9` AND
+   `iris_mnemonic=DIVIDE`. Same for ~40 other paired entries.
+6. **Schema additive changes (no version bump per ADR-005):**
+   `standard_status` enum gains `iris-extension` and
+   `multi-vendor-ext`. `errors` schema gains `source`, `in_iris`,
+   `iris_section`, `ydb_mnemonic`, `iris_mnemonic` properties.
+7. **Validation gates extended:** `provenance` and `coverage` now
+   include IRIS as a third per-source contributor;
+   `mapping-integrity` gate extended to check all three mapping
+   files and catch stale references.
+
+**Catches during initial mapping curation:**
+- 2 speculative IRIS mappings flagged by the integrity gate
+  (`<QUIT>` and `<STACKOVERFLOW>` — real names are `<UNUSED>` and
+  `<STACK>`). Pruned/corrected.
+- 1 mapping with description-text-only confidence (`<MAXNUMBER>` ↔
+  `NEGFRACPWR`) marked `low` confidence pending review against IRIS
+  source code.
+
+**Coverage as of v0.2:**
+
+| Concept | YDB | AnnoStd | IRIS | Notes |
+|---|---|---|---|---|
+| commands | 50 | 40 | — | IRIS RCOS extractor pending |
+| intrinsic-functions | 60 | 28 | — | IRIS RCOS extractor pending |
+| intrinsic-special-variables | 65 | 17 | — | IRIS RCOS extractor pending |
+| operators | 16 | 16 | — | IRIS not extracted yet |
+| pattern-codes | 7 | 0 | — | YDB-only as before |
+| errors | 1601 | 112 | 83 | **All three sources contribute (BL-013)** |
+| environment | 74 | 0 | — | YDB-only as before |
+
+The IRIS extractors for commands/functions/ISVs are the natural
+v0.2.x follow-up; the architectural plumbing is in place.

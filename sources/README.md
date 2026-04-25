@@ -15,11 +15,15 @@ sources/
 ├── anno/
 │   ├── manifest.tsv           # URL -> local path -> sha256 -> fetched_at
 │   ├── fetch.sh               # re-crawls the AnnoStd mirror from upstream
-│   └── site/                  # crawled offline mirror of AnnoStd (gitignored until A0 license check)
-└── ydb/
-    ├── manifest.tsv           # includes upstream remote URL + pinned commit SHA
-    ├── fetch.sh               # `git clone --depth=1` at the pinned commit
-    └── repo/                  # full clone of the YottaDB documentation repository (gitignored until A0 license check)
+│   └── site/                  # crawled offline mirror of AnnoStd (gitignored)
+├── ydb/
+│   ├── manifest.tsv           # includes upstream remote URL + pinned commit SHA
+│   ├── fetch.sh               # `git clone --depth=1` at the pinned commit
+│   └── repo/                  # vendored YottaDB documentation working tree (committed; GFDL-1.3)
+└── iris/
+    ├── manifest.tsv           # crawled IRIS pages with sha256s
+    ├── fetch.sh               # re-runs the bounded IRIS crawler
+    └── site/                  # crawled subset of docs.intersystems.com (gitignored pending licence verification)
 ```
 
 ## Acquisition
@@ -58,6 +62,7 @@ the replica via `make sources`.
 |---------|---------------------------------------------------|-----------------------------------------------|------------------|-----------------|
 | AnnoStd | http://71.174.62.16/Demo/AnnoStd                  | © MUMPS Development Committee (standard text), © Jacquard Systems Research / Ed de Moel (annotations); no explicit redistribution licence stated on the site | **No** — assume not | No (gitignored; rebuild via `bash sources/anno/fetch.sh`) |
 | YottaDB | https://gitlab.com/YottaDB/DB/YDBDoc.git          | GNU Free Documentation License v1.3 (per `repo/COPYING` + `repo/LICENSE.rst`) | **Yes** — GFDL §2 explicitly permits "copy and distribute"; no Invariant Sections, no Cover Texts | Yes (the cloned tree is committed) |
+| IRIS    | https://docs.intersystems.com/irislatest/csp/docbook/ | © InterSystems Corporation; free to read on docs.intersystems.com but no explicit public redistribution licence | **No** — assume not | No (gitignored; rebuild via `bash sources/iris/fetch.sh`) |
 
 When the AnnoStd licence question is resolved (e.g. by direct
 permission from the copyright holders), the gitignore entry for

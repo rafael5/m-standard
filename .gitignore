@@ -43,3 +43,9 @@ sources/anno/site/
 # needed. The pinned commit SHA is preserved per-row in
 # sources/ydb/manifest.tsv so reproducibility is unaffected.
 sources/ydb/repo/.git/
+
+# InterSystems IRIS documentation: bounded crawl of
+# docs.intersystems.com/irislatest. InterSystems publishes the docs
+# free to read but no explicit public redistribution licence;
+# repopulate locally with `bash sources/iris/fetch.sh`.
+sources/iris/site/

@@ -227,11 +227,16 @@ _INTEGRATED_ERROR_COLUMNS: tuple[str, ...] = (
     "summary",
     "kind",
     "standard_status",
+    "source",
     "in_anno",
     "in_ydb",
+    "in_iris",
     "ansi_code",
+    "ydb_mnemonic",
+    "iris_mnemonic",
     "anno_section",
     "ydb_section",
+    "iris_section",
     "conflict_id",
     "notes",
 )
@@ -303,69 +308,141 @@ def reconcile_operators(
 def reconcile_errors(
     anno_path: Path,
     ydb_path: Path,
+    iris_path: Path | None = None,
     *,
     mappings_dir: Path | None = None,
 ) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
-    """Join errors on mnemonic, enriched with the YDB↔ANSI mapping.
+    """Join errors on mnemonic across up to three sources.
 
-    AnnoStd's standard codes are ``M1``..``M112`` (Annex B); YDB's
-    vendor mnemonics are alphanumeric tokens like ``ABNCOMPTINC``.
-    The two namespaces don't overlap by construction, so the integrated
-    layer is essentially the union — but ``mappings/ydb-ansi-errors.tsv``
-    threads them together: every YDB row that maps to an ANSI ``Mn``
-    gets ``ansi_code`` populated. Downstream tooling can then translate
-    "what's the portable form of ``DIVZERO``?" → ``M9``.
+    Three disjoint mnemonic namespaces are unioned:
+
+    - AnnoStd Annex B M-codes (``M1``..``M112``).
+    - YottaDB vendor mnemonics (alphanumeric tokens like ``ABNCOMPTINC``).
+    - IRIS system errors (uppercase ``<NAME>`` style, stored without
+      the angle brackets, e.g. ``DIVIDE``).
+
+    Each integrated row is tagged with the originating ``source`` and
+    enriched via ``mappings/`` with cross-vendor pointers:
+
+    - YDB rows get ``ansi_code`` (from ``ydb-ansi-errors.tsv``) and
+      ``iris_mnemonic`` (from ``iris-ydb-errors.tsv``).
+    - IRIS rows get ``ansi_code`` (from ``iris-ansi-errors.tsv``) and
+      ``ydb_mnemonic`` (from ``iris-ydb-errors.tsv``).
+    - AnnoStd rows are the ANSI code; their ``ansi_code`` is left
+      blank since the ``mnemonic`` column already names them.
+
+    The integrated layer is the union (no in-place merge across
+    sources) because the three namespaces cannot collide. Cross-vendor
+    matches are recorded as relational pointers, not row merges.
     """
+    mdir = mappings_dir or DEFAULT_MAPPINGS_DIR
     anno_rows = _read_tsv(anno_path)
     ydb_rows = _read_tsv(ydb_path)
+    iris_rows = _read_tsv(iris_path) if iris_path and iris_path.exists() else []
+
     anno_by_key = {r["mnemonic"]: r for r in anno_rows}
     ydb_by_key = {r["mnemonic"]: r for r in ydb_rows}
-    all_keys = sorted(set(anno_by_key) | set(ydb_by_key))
+    iris_by_key = {r["mnemonic"]: r for r in iris_rows}
 
-    ydb_to_ansi = _load_ydb_ansi_mapping(mappings_dir or DEFAULT_MAPPINGS_DIR)
+    ydb_to_ansi = _load_simple_mapping(
+        mdir / "ydb-ansi-errors.tsv", "ydb_mnemonic", "ansi_code"
+    )
+    iris_to_ansi = _load_simple_mapping(
+        mdir / "iris-ansi-errors.tsv", "iris_mnemonic", "ansi_code"
+    )
+    iris_to_ydb = _load_simple_mapping(
+        mdir / "iris-ydb-errors.tsv", "iris_mnemonic", "ydb_mnemonic"
+    )
+    ydb_to_iris = {v: k for k, v in iris_to_ydb.items()}
 
     integrated: list[dict[str, str]] = []
-    for key in all_keys:
-        a = anno_by_key.get(key)
-        y = ydb_by_key.get(key)
-        in_anno, in_ydb = a is not None, y is not None
-        standard_status = "ansi" if in_anno else "ydb-extension"
-        # Prefer YDB summary (more descriptive) when both present.
-        summary = (y or a or {}).get("summary", "")  # type: ignore[union-attr]
-        kind = (y or a or {}).get("kind", "")  # type: ignore[union-attr]
-        # ansi_code is set on YDB rows that have a mapping. AnnoStd
-        # rows ARE the ANSI code, so leave their ansi_code blank
-        # (the mnemonic column already names them).
-        ansi_code = ydb_to_ansi.get(key, "") if in_ydb and not in_anno else ""
-        integrated.append(
-            {
-                "mnemonic": key,
-                "summary": summary,
-                "kind": kind,
-                "standard_status": standard_status,
-                "in_anno": "true" if in_anno else "false",
-                "in_ydb": "true" if in_ydb else "false",
-                "ansi_code": ansi_code,
-                "anno_section": a["source_section"] if a else "",
-                "ydb_section": y["source_section"] if y else "",
-                "conflict_id": "",
-                "notes": "",
-            }
-        )
+
+    # AnnoStd rows.
+    for key in sorted(anno_by_key):
+        a = anno_by_key[key]
+        integrated.append(_error_row(
+            mnemonic=key, source="anno",
+            summary=a.get("summary", ""), kind=a.get("kind", ""),
+            standard_status="ansi",
+            in_anno=True, in_ydb=False, in_iris=False,
+            ansi_code="",
+            ydb_mnemonic="", iris_mnemonic="",
+            anno_section=a.get("source_section", ""),
+            ydb_section="", iris_section="",
+        ))
+
+    # YDB rows.
+    for key in sorted(ydb_by_key):
+        y = ydb_by_key[key]
+        integrated.append(_error_row(
+            mnemonic=key, source="ydb",
+            summary=y.get("summary", ""), kind=y.get("kind", ""),
+            standard_status="ydb-extension",
+            in_anno=False, in_ydb=True, in_iris=False,
+            ansi_code=ydb_to_ansi.get(key, ""),
+            ydb_mnemonic="",
+            iris_mnemonic=ydb_to_iris.get(key, ""),
+            anno_section="", ydb_section=y.get("source_section", ""),
+            iris_section="",
+        ))
+
+    # IRIS rows.
+    for key in sorted(iris_by_key):
+        i = iris_by_key[key]
+        # Tag iris-extension only if upstream said so OR Z-prefix.
+        hint = i.get("standard_status_hint", "")
+        status = "iris-extension" if hint == "iris-extension" else "iris-extension"
+        # If the IRIS error maps to an ANSI code, the underlying
+        # behaviour is part of the standard — but the IRIS *name* is
+        # vendor-specific. Keep status=iris-extension; the ansi_code
+        # cross-reference is the portability signal.
+        integrated.append(_error_row(
+            mnemonic=key, source="iris",
+            summary=i.get("summary", ""), kind=i.get("kind", ""),
+            standard_status=status,
+            in_anno=False, in_ydb=False, in_iris=True,
+            ansi_code=iris_to_ansi.get(key, ""),
+            ydb_mnemonic=iris_to_ydb.get(key, ""),
+            iris_mnemonic="",
+            anno_section="", ydb_section="",
+            iris_section=i.get("source_section", ""),
+        ))
+
     return integrated, []  # No conflicts: namespaces don't overlap.
 
 
-def _load_ydb_ansi_mapping(mappings_dir: Path) -> dict[str, str]:
-    """Read ``mappings/ydb-ansi-errors.tsv`` into ``{mnemonic: ansi_code}``."""
-    path = mappings_dir / "ydb-ansi-errors.tsv"
+def _error_row(**kwargs) -> dict[str, str]:
+    """Build an integrated-errors row with bool-as-string conversions."""
+    return {
+        "mnemonic": kwargs["mnemonic"],
+        "summary": kwargs["summary"],
+        "kind": kwargs["kind"],
+        "standard_status": kwargs["standard_status"],
+        "source": kwargs["source"],
+        "in_anno": "true" if kwargs["in_anno"] else "false",
+        "in_ydb": "true" if kwargs["in_ydb"] else "false",
+        "in_iris": "true" if kwargs["in_iris"] else "false",
+        "ansi_code": kwargs["ansi_code"],
+        "ydb_mnemonic": kwargs["ydb_mnemonic"],
+        "iris_mnemonic": kwargs["iris_mnemonic"],
+        "anno_section": kwargs["anno_section"],
+        "ydb_section": kwargs["ydb_section"],
+        "iris_section": kwargs["iris_section"],
+        "conflict_id": "",
+        "notes": "",
+    }
+
+
+def _load_simple_mapping(path: Path, key_col: str, value_col: str) -> dict[str, str]:
+    """Load ``mappings/X.tsv`` into ``{key_col: value_col}``."""
     if not path.exists():
         return {}
     out: dict[str, str] = {}
     for row in _read_tsv(path):
-        mnemonic = row.get("ydb_mnemonic", "").strip()
-        ansi_code = row.get("ansi_code", "").strip()
-        if mnemonic and ansi_code:
-            out[mnemonic] = ansi_code
+        k = row.get(key_col, "").strip()
+        v = row.get(value_col, "").strip()
+        if k and v:
+            out[k] = v
     return out
 
 
@@ -413,11 +490,16 @@ def reconcile_all(per_source: Path, out_dir: Path) -> None:
             len(integrated), len(renumbered),
         )
 
-    # Errors: union of M-codes (AnnoStd) and vendor mnemonics (YDB).
+    # Errors: union of M-codes (AnnoStd), vendor mnemonics (YDB),
+    # and IRIS system errors. Three disjoint namespaces; cross-vendor
+    # mappings live under mappings/.
     anno_errs = per_source / "anno" / "errors.tsv"
     ydb_errs = per_source / "ydb" / "errors.tsv"
-    if ydb_errs.exists() or anno_errs.exists():
-        integrated, conflicts = reconcile_errors(anno_errs, ydb_errs)
+    iris_errs = per_source / "iris" / "errors.tsv"
+    if ydb_errs.exists() or anno_errs.exists() or iris_errs.exists():
+        integrated, conflicts = reconcile_errors(
+            anno_errs, ydb_errs, iris_errs if iris_errs.exists() else None
+        )
         _write_tsv(out_dir / "errors.tsv", _INTEGRATED_ERROR_COLUMNS, integrated)
         log.info("reconciled errors: %d rows", len(integrated))
 

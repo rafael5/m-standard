@@ -1,0 +1,15 @@
+iris_mnemonic	ansi_code	confidence	basis
+COMMAND	M45	high	IRIS "A command has been used improperly in this context, such as an argumentless GoTo in a routine" matches AnnoStd M45 "invalid Goto reference"
+DIVIDE	M9	high	IRIS "Divide by zero attempted" matches AnnoStd M9 "divide by zero"
+FUNCTION	M11	medium	IRIS error for "an unknown intrinsic function or special variable" — partial match to ANSI parameter-related codes
+LIST	M19	low	IRIS list-operation error; loose match to AnnoStd M19 "cannot copy a tree or subtree into itself"
+MAXNUMBER	M28	high	IRIS "MAXNUMBER" arithmetic overflow matches AnnoStd M28 "mathematical function, parameter out of range"
+MAXSTRING	M75	medium	IRIS "MAXSTRING" string-too-long error; loose match to ANSI string-length codes
+NAKED	M1	high	IRIS "NAKED indicator undefined" matches AnnoStd M1 "naked indicator undefined"
+NOLINE	M13	high	IRIS "Line not found" matches AnnoStd M13 "invalid lineref (line not found)"
+NOROUTINE	M14	medium	IRIS "Routine not found" relates to AnnoStd M14 "line level not 1"
+SELECT	M4	high	IRIS "$Select error: no condition true" matches AnnoStd M4 "no true condition in $Select"
+STORE	M75	low	IRIS "STORE failure"; loose match to capacity errors
+SUBSCRIPT	M38	high	IRIS "SUBSCRIPT" invalid subscript matches AnnoStd M38 "invalid ssvn subscript"
+SYNTAX	M45	medium	IRIS "Syntax error" relates to AnnoStd M45 "invalid Goto reference" (broader)
+UNDEFINED	M6	high	IRIS "UNDEFINED" reference to undefined local/global; matches AnnoStd M6 "undefined lvn" (and M7 for globals; v0.2 picks M6 as primary)

@@ -1,0 +1,5 @@
+source_url	local_path	sha256	fetched_at	format	commit_sha	extraction_target
+https://docs.intersystems.com/irislatest/csp/docbook/Doc.View.cls?KEY=GCOS_trycatch	site/GCOS_trycatch.html	0457a377554eada879fb3fae39e45084a32d68220d1d062db7c4ecb5fcc1576e	2026-04-25T18:12:26.650344+00:00	html		
+https://docs.intersystems.com/irislatest/csp/docbook/Doc.View.cls?KEY=RCOS	site/RCOS.html	cd56c19a2a9c441e2468e9d67036b91441339c72bf20ea64fbfdc499e0f4d806	2026-04-25T18:12:25.755720+00:00	html		
+https://docs.intersystems.com/irislatest/csp/docbook/Doc.View.cls?KEY=RERR_gen	site/RERR_gen.html	a70c3608aa0e245e8af7e681d800bac818ba25b5e7032e2265cc4028feed0717	2026-04-25T18:12:24.808354+00:00	html		
+https://docs.intersystems.com/irislatest/csp/docbook/Doc.View.cls?KEY=RERR_system	site/RERR_system.html	5a2b2b69389cc8e6e49a1341a9e133c283d6650b70b043d0878d910a30b1270a	2026-04-25T18:12:23.546378+00:00	html		

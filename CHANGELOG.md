@@ -12,6 +12,65 @@ The project follows two parallel version axes (per ADR-005):
 
 Breaking schema changes are flagged with **[breaking]** in entries.
 
+## [Unreleased] — v0.2 architectural shift: IRIS becomes a third source
+
+This is the biggest scope change since v1.0. Per ADR-006, InterSystems
+IRIS is added as a third primary source alongside AnnoStd and YottaDB.
+Rationale: **IRIS is the operational engine that runs VistA in
+production at the VA**, which makes it the dominant real-world M
+codebase target — a reference standard that doesn't catalogue IRIS is
+incomplete from the perspective of any tool that reasons about VistA.
+
+### Schema [breaking via additive enum extension]
+
+- `standard_status` enum extended with `iris-extension` and
+  `multi-vendor-ext`. Per ADR-005 this is non-breaking (additive
+  enum values), so `schema_version` stays at "1".
+- `integrated/errors.tsv` and `errors.json` gain new columns/properties:
+  `source`, `in_iris`, `iris_section`, `ydb_mnemonic`, `iris_mnemonic`.
+  Existing columns unchanged.
+
+### Sources
+
+- New: `sources/iris/` — bounded crawl of
+  `docs.intersystems.com/irislatest/csp/docbook/` from a configurable
+  seed list of `KEY` parameters. Default seeds cover the M-language
+  relevant subset (RERR_system, RERR_gen, RCOS, GCOS_trycatch).
+  Bulk gitignored pending licence verification.
+
+### Coverage delta vs v1.0
+
+| Concept | v1.0 | v0.2 | Notes |
+| --- | --- | --- | --- |
+| errors  | 1713 (anno+ydb) | 1796 (anno+ydb+iris) | +83 IRIS system errors |
+
+### Cross-vendor mappings
+
+- `mappings/ydb-ansi-errors.tsv` (existing): 18 high/medium-confidence
+  YDB ↔ ANSI Mn pairs.
+- `mappings/iris-ansi-errors.tsv` (new): 14 IRIS ↔ ANSI Mn pairs.
+- `mappings/iris-ydb-errors.tsv` (new): 12 IRIS ↔ YDB cross-vendor pairs.
+
+40 of the 1796 integrated error rows now carry at least one
+cross-vendor pointer. The bulk of YDB and IRIS mnemonics are vendor
+extensions with no analogue in the other source — correctly recorded
+as such.
+
+### Validation
+
+- `mapping-integrity` gate extended to check all three mapping files.
+  Catches stale mappings after upstream renames.
+- `provenance` and `coverage` gates extended to include IRIS as a
+  third per-source contributor.
+- All 9 gates green end-to-end. Round-trip determinism preserved.
+
+### Permanently out of scope
+
+- GT.M remains permanently out of scope (per ADR-001 and Rafael's
+  2026-04-25 directive). Adding IRIS does not reopen GT.M.
+
+---
+
 ## [1.0.0] — 2026-04-25
 
 First tagged release. Pipeline runs end-to-end (`make all`):

@@ -48,14 +48,17 @@ push: check
 
 # ----- m-standard pipeline (per spec §8) -----
 
-# Acquire / refresh both offline source replicas.
-sources: sources-anno sources-ydb
+# Acquire / refresh all three offline source replicas.
+sources: sources-anno sources-ydb sources-iris
 
 sources-anno:
 	$(PYTHON) -m m_standard.tools.crawl_anno
 
 sources-ydb:
 	bash tools/clone-ydb.sh
+
+sources-iris:
+	$(PYTHON) -m m_standard.tools.crawl_iris
 
 # Serve the local AnnoStd mirror over http://localhost:8765
 serve-anno:

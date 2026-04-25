@@ -125,15 +125,23 @@ def gate_provenance(project_root: Path) -> None:
             continue
         anno_keys = _per_source_keys(per_source / "anno" / f"{concept}.tsv", key_field)
         ydb_keys = _per_source_keys(per_source / "ydb" / f"{concept}.tsv", key_field)
+        iris_keys = _per_source_keys(per_source / "iris" / f"{concept}.tsv", key_field)
         for row in _read_tsv(tsv):
             entry = row[key_field]
-            if entry not in anno_keys and entry not in ydb_keys:
+            in_iris_keys = entry in iris_keys
+            if (
+                entry not in anno_keys
+                and entry not in ydb_keys
+                and not in_iris_keys
+            ):
                 failures.append(
                     f"provenance: {concept}/{entry} appears in integrated/ "
-                    f"but in neither per-source/anno nor per-source/ydb"
+                    f"but in none of per-source/anno, per-source/ydb, "
+                    f"per-source/iris"
                 )
             in_anno = row.get("in_anno", "false").lower() == "true"
             in_ydb = row.get("in_ydb", "false").lower() == "true"
+            in_iris = row.get("in_iris", "false").lower() == "true"
             if in_anno != (entry in anno_keys):
                 failures.append(
                     f"provenance: {concept}/{entry} in_anno={in_anno} but "
@@ -143,6 +151,13 @@ def gate_provenance(project_root: Path) -> None:
                 failures.append(
                     f"provenance: {concept}/{entry} in_ydb={in_ydb} but "
                     f"per-source presence is {entry in ydb_keys}"
+                )
+            # in_iris column is optional (only present on errors in v0.2);
+            # only check the consistency when the column is in the row.
+            if "in_iris" in row and in_iris != in_iris_keys:
+                failures.append(
+                    f"provenance: {concept}/{entry} in_iris={in_iris} but "
+                    f"per-source presence is {in_iris_keys}"
                 )
 
     if failures:
@@ -277,7 +292,7 @@ def gate_coverage(project_root: Path) -> None:
         if not tsv_path.exists():
             continue
         integrated_keys = {row[key_field] for row in _read_tsv(tsv_path)}
-        for src in ("anno", "ydb"):
+        for src in ("anno", "ydb", "iris"):
             ps_path = per_source / src / f"{concept}.tsv"
             if not ps_path.exists():
                 continue
@@ -299,39 +314,54 @@ def gate_coverage(project_root: Path) -> None:
 def gate_mapping_integrity(project_root: Path) -> None:
     """Every entry in mappings/*.tsv refers to identifiers that exist.
 
-    For ``mappings/ydb-ansi-errors.tsv``:
-    - Every ``ydb_mnemonic`` must exist in
-      ``per-source/ydb/errors.tsv``.
-    - Every ``ansi_code`` must exist in
-      ``per-source/anno/errors.tsv``.
-    Catches stale mappings after upstream renames or YDB-version bumps.
+    Three mapping files are checked in v0.2:
+    - ``ydb-ansi-errors.tsv``: ydb_mnemonic ↔ ansi_code
+    - ``iris-ansi-errors.tsv``: iris_mnemonic ↔ ansi_code
+    - ``iris-ydb-errors.tsv``: iris_mnemonic ↔ ydb_mnemonic
+
+    Catches stale mappings after upstream renames or vendor-version bumps.
     """
     failures: list[str] = []
-    mapping_path = project_root / "mappings" / "ydb-ansi-errors.tsv"
-    if not mapping_path.exists():
+    mappings_dir = project_root / "mappings"
+    if not mappings_dir.is_dir():
         return
 
-    ydb_keys = _per_source_keys(
-        project_root / "per-source" / "ydb" / "errors.tsv", "mnemonic"
-    )
     anno_keys = _per_source_keys(
         project_root / "per-source" / "anno" / "errors.tsv", "mnemonic"
     )
-    for row in _read_tsv(mapping_path):
-        ydb_m = row.get("ydb_mnemonic", "").strip()
-        ansi = row.get("ansi_code", "").strip()
-        if ydb_m and ydb_m not in ydb_keys:
-            failures.append(
-                f"mapping-integrity: ydb-ansi-errors.tsv references "
-                f"YDB mnemonic {ydb_m!r} which does not exist in "
-                f"per-source/ydb/errors.tsv"
-            )
-        if ansi and ansi not in anno_keys:
-            failures.append(
-                f"mapping-integrity: ydb-ansi-errors.tsv references "
-                f"ANSI code {ansi!r} which does not exist in "
-                f"per-source/anno/errors.tsv"
-            )
+    ydb_keys = _per_source_keys(
+        project_root / "per-source" / "ydb" / "errors.tsv", "mnemonic"
+    )
+    iris_keys = _per_source_keys(
+        project_root / "per-source" / "iris" / "errors.tsv", "mnemonic"
+    )
+
+    def _check(filename: str, checks: tuple[tuple[str, set[str], str], ...]) -> None:
+        path = mappings_dir / filename
+        if not path.exists():
+            return
+        for row in _read_tsv(path):
+            for col, valid_set, label in checks:
+                value = row.get(col, "").strip()
+                if value and value not in valid_set:
+                    failures.append(
+                        f"mapping-integrity: {filename} references "
+                        f"{label} {value!r} which does not exist in "
+                        f"the corresponding per-source TSV"
+                    )
+
+    _check("ydb-ansi-errors.tsv", (
+        ("ydb_mnemonic", ydb_keys, "YDB mnemonic"),
+        ("ansi_code", anno_keys, "ANSI code"),
+    ))
+    _check("iris-ansi-errors.tsv", (
+        ("iris_mnemonic", iris_keys, "IRIS mnemonic"),
+        ("ansi_code", anno_keys, "ANSI code"),
+    ))
+    _check("iris-ydb-errors.tsv", (
+        ("iris_mnemonic", iris_keys, "IRIS mnemonic"),
+        ("ydb_mnemonic", ydb_keys, "YDB mnemonic"),
+    ))
 
     if failures:
         raise ValidationFailure("\n".join(failures))

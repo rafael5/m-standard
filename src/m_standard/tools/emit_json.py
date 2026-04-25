@@ -47,7 +47,7 @@ DEFAULT_INTEGRATED_DIR = Path("integrated")
 DEFAULT_SCHEMA_DIR = Path("schemas")
 SCHEMA_VERSION = "1"
 
-_BOOL_FIELDS = ("in_anno", "in_ydb")
+_BOOL_FIELDS = ("in_anno", "in_ydb", "in_iris")
 _NULLABLE_FIELDS = ("conflict_id",)
 
 

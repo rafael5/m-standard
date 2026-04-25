@@ -45,7 +45,17 @@
             "type": "string",
             "enum": [
               "ansi",
-              "ydb-extension"
+              "ydb-extension",
+              "iris-extension",
+              "multi-vendor-ext"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "anno",
+              "ydb",
+              "iris"
             ]
           },
           "in_anno": {
@@ -54,14 +64,28 @@
           "in_ydb": {
             "type": "boolean"
           },
+          "in_iris": {
+            "type": "boolean"
+          },
           "ansi_code": {
             "type": "string",
-            "description": "When the row is a YDB mnemonic and a YDB↔ANSI mapping exists, the equivalent ANSI Mn code (e.g. \"M9\" for DIVZERO). Empty when no mapping is known. AnnoStd Mn rows leave this empty since the mnemonic itself is the ANSI code."
+            "description": "Equivalent ANSI Mn code (e.g. M9 for DIVZERO or <DIVIDE>) per the cross-vendor mapping. Empty when no mapping is known or when the row IS the AnnoStd Mn entry."
+          },
+          "ydb_mnemonic": {
+            "type": "string",
+            "description": "On IRIS rows, the equivalent YDB mnemonic per iris-ydb-errors.tsv mapping. Empty otherwise."
+          },
+          "iris_mnemonic": {
+            "type": "string",
+            "description": "On YDB rows, the equivalent IRIS mnemonic (without angle brackets) per iris-ydb-errors.tsv mapping. Empty otherwise."
           },
           "ydb_section": {
             "type": "string"
           },
           "anno_section": {
+            "type": "string"
+          },
+          "iris_section": {
             "type": "string"
           },
           "conflict_id": {
