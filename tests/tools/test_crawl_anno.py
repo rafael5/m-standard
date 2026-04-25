@@ -111,6 +111,84 @@ def test_crawl_preserves_page_bytes(tmp_path: Path) -> None:
     assert (out / "sub" / "ch02.html").read_bytes() == CH02_HTML
 
 
+ANNO_BASE = "http://anno.example/Demo/AnnoStd"
+ANNO_INDEX = b"""<!doctype html>
+<html><body>
+<span onclick="GetText('ShowPage', 'a100001', '', '');">Annotations</span>
+<span onclick="GetText('ShowPage', 'a100002', '', '');">Title Page</span>
+<span onclick="GetText('ShowLiterature', '', '', '');">Literature</span>
+</body></html>
+"""
+
+ANNO_PAGE_001 = b"""<table><tr><td>
+<span onclick="GetText('ShowPage', 'a100002', '', '');">Next</span>
+</td></tr></table>
+<h1>Annotations</h1>
+"""
+
+ANNO_PAGE_002 = b"""<table><tr><td>
+<span onclick="GetText('ShowPage', 'a100001', '', '');">Prev</span>
+</td></tr></table>
+<h1>Title Page</h1>
+"""
+
+ANNO_LITERATURE = b"<h1>Literature</h1>"
+
+
+@dataclass
+class AnnoFetcher(Fetcher):
+    log: list[str]
+
+    def get(self, url: str) -> Fetched:
+        self.log.append(url)
+        if url in (f"{ANNO_BASE}/", f"{ANNO_BASE}/index.html"):
+            return Fetched(
+                url=f"{ANNO_BASE}/index.html",
+                content=ANNO_INDEX,
+                content_type="text/html",
+            )
+        if url.startswith(f"{ANNO_BASE}/?"):
+            if "Page=a100001" in url:
+                return Fetched(url=url, content=ANNO_PAGE_001, content_type="text/html")
+            if "Page=a100002" in url:
+                return Fetched(url=url, content=ANNO_PAGE_002, content_type="text/html")
+            if "Action=ShowLiterature" in url:
+                return Fetched(
+                    url=url, content=ANNO_LITERATURE, content_type="text/html"
+                )
+        raise AssertionError(f"AnnoFetcher reached unexpected URL: {url}")
+
+
+def test_crawl_follows_gettext_page_calls(tmp_path: Path) -> None:
+    out = tmp_path / "site"
+    fetcher = AnnoFetcher(log=[])
+    crawl(
+        base_url=ANNO_BASE,
+        output_dir=out,
+        manifest_path=tmp_path / "manifest.tsv",
+        fetcher=fetcher,
+    )
+    # Each ShowPage page lands as pages/<id>.html
+    assert (out / "pages" / "a100001.html").read_bytes() == ANNO_PAGE_001
+    assert (out / "pages" / "a100002.html").read_bytes() == ANNO_PAGE_002
+    # ShowLiterature lands as a separate path so it doesn't collide with pages/
+    assert (out / "literature.html").read_bytes() == ANNO_LITERATURE
+
+
+def test_crawl_dedupes_dynamic_pages_across_back_references(tmp_path: Path) -> None:
+    out = tmp_path / "site"
+    fetcher = AnnoFetcher(log=[])
+    crawl(
+        base_url=ANNO_BASE,
+        output_dir=out,
+        manifest_path=tmp_path / "manifest.tsv",
+        fetcher=fetcher,
+    )
+    # Page 002 links back to page 001; we must fetch each page exactly once.
+    fetched_pages = [u for u in fetcher.log if "Page=a100001" in u]
+    assert len(fetched_pages) == 1
+
+
 def test_crawl_is_idempotent(tmp_path: Path) -> None:
     """Re-running over an existing mirror does not refetch unchanged files."""
     fetcher, _ = _crawl(tmp_path)

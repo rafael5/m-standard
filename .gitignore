@@ -18,19 +18,28 @@ src/*.egg-info/
 *.sqlite
 .coverage
 htmlcov/
+.claude/
 
-# --- m-standard sources policy (per spec §4.4) ----------------------------
-# Default-conservative: bulk source content is excluded until Phase A0
-# verifies redistribution rights for each source. Once verified, flip the
-# relevant block: drop the ignore and commit the local replica.
-#
-# What is *always* tracked under sources/:
+# --- m-standard sources policy (per spec §4.4 + sources/README.md) --------
+# Always tracked under sources/:
 #   - manifest.tsv         (URL -> local path -> sha256 -> fetch_at)
 #   - fetch.sh             (recreates the local replica from upstream)
 #   - README.md / NOTICE   (license + acquisition notes)
+#
+# Bulk content is tracked or ignored per the source's redistribution status.
 
-# AnnoStd: crawled offline mirror
+# AnnoStd: crawled offline mirror.
+# Redistribution status: NOT verified — content is © MUMPS Development
+# Committee + Ed de Moel, with no explicit redistribution licence on the
+# site. Repopulate locally with `bash sources/anno/fetch.sh`.
 sources/anno/site/
 
-# YottaDB documentation: full clone of the upstream docs repository
-sources/ydb/repo/
+# YottaDB documentation: full clone at the pinned commit. The repo is
+# GFDL-1.3, redistribution is permitted, so the working tree is committed
+# directly. The inner .git/ is stripped before commit (see clone-ydb.sh)
+# rather than tracked: vendoring the bulk content as plain files makes
+# the outer repo a self-contained "offline replica" — a fresh clone of
+# m-standard already has every YDB doc file on disk, no submodule fetch
+# needed. The pinned commit SHA is preserved per-row in
+# sources/ydb/manifest.tsv so reproducibility is unaffected.
+sources/ydb/repo/.git/

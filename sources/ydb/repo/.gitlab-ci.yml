@@ -1,0 +1,40 @@
+#################################################################
+#                                                               #
+# Copyright (c) 2020-2025 YottaDB LLC and/or its subsidiaries.  #
+# All rights reserved.                                          #
+#                                                               #
+#       This source code contains the intellectual property     #
+#       of its copyright holder(s), and is made available       #
+#       under a license.  If you do not know the terms of       #
+#       the license, please stop and do not read further.       #
+#                                                               #
+#################################################################
+
+stages:
+  - build
+
+commit-verify:
+  stage: build
+  image: ubuntu:22.04
+  interruptible: true
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq git wget gnupg
+  script:
+    # Copy commit gpg key verify script to build directory and execute
+    - wget https://gitlab.com/YottaDB/DB/YDB/-/raw/master/ci/commit_verify.sh
+    - chmod +x commit_verify.sh
+    - ./commit_verify.sh ./ci/needs_copyright.sh https://gitlab.com/YottaDB/DB/YDBDoc.git $(ci/target-branch.sh ydbdoc)
+
+pages:
+  stage: build
+  image: bitnami/minideb
+  interruptible: true
+  script:
+    - apt-get update
+    - apt-get install -y --no-install-recommends git make jq python3-sphinx-rtd-theme python3-sphinx-copybutton rsync sphinx-common tcsh wget pkg-config graphviz curl
+    - make test
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 month
+    when: always

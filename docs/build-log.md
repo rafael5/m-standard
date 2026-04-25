@@ -28,3 +28,97 @@ locally on bootstrap.
 **Outcome:** `make install` and `make test` run against this
 project's `.venv/` as intended. No further action required for this
 project; upstream template fix is tracked separately.
+
+---
+
+## BL-002 — AnnoStd is a JS app, not a static HTML tree (2026-04-25)
+
+**Phase:** A0 — source acquisition.
+**Context:** First run of `m_standard.tools.crawl_anno` against
+`http://71.174.62.16/Demo/AnnoStd` returned a single file (the index)
+and zero followed links. The spec described AnnoStd as "a static HTML
+tree" — that turned out to be wrong.
+
+**What it actually is:** A JavaScript single-page app. The index page
+embeds a menu of ~452 page IDs, each surfaced as
+`onclick="GetText('ShowPage', '<id>', '', '');"`. The JS function
+`GetText()` issues `GET <base>/?Action=ShowPage&Edition=<edition>&Page=<id>`
+and replaces the page body with the response. There are no per-page
+HTML files to follow via plain `href`s.
+
+**Fix:** Extended the crawler's link extractor to also parse
+`onclick="GetText(...)"` calls and synthesise the equivalent dynamic
+URL. Added URL canonicalisation so the seen-set correctly dedupes
+query-string variants, and a path mapping that lands dynamic responses
+under deterministic local names:
+- `?Action=ShowPage&Page=a100001` → `pages/a100001.html`
+- `?Action=ShowLiterature` → `literature.html`
+- `?Action=ShowImplementation` → `implementation.html`
+- `?Action=ShowQuickJump` → `quickjump.html`
+
+Edition is configurable via `--edition` (default `1995`, the ANSI
+X11.1-1995 standard pinned by the spec). The site also supports 1977,
+1984, 1990, MDC, and `notes` editions; `notes` mode would be the source
+to grow into for AD-02 (normative-vs-annotation separation), but is out
+of scope for v1.0.
+
+**License observation:** The standard text is © MUMPS Development
+Committee, the annotations © Jacquard Systems Research / Ed de Moel.
+The site states no explicit redistribution licence. The crawled mirror
+is therefore *not* committed (kept gitignored; rebuild via
+`bash sources/anno/fetch.sh`); only the manifest is tracked. The
+analysis pipeline reads the local mirror regardless.
+
+---
+
+## BL-003 — Wrong YottaDB docs repo path in clone-ydb.sh (2026-04-25)
+
+**Phase:** A0 — source acquisition.
+**Context:** Initial `clone-ydb.sh` defaulted to
+`https://gitlab.com/YottaDB/DOC/YDBDoc.git`, which doesn't exist —
+GitLab returns a redirect-to-login that `git clone` reads as an auth
+prompt. The repo is actually under the `YottaDB/DB/` subgroup
+(alongside `YDB`, the database itself).
+
+**Fix:** Updated default `UPSTREAM` in `tools/clone-ydb.sh` to
+`https://gitlab.com/YottaDB/DB/YDBDoc.git`. Verified via the GitLab
+public API (`/api/v4/groups/YottaDB%2FDB/projects`). HEAD at
+`25a97c4c8405bcccc85e7a4eadc4f91bd07b6de9` (2026-04-21) is the pinned
+commit for v1.0; `sources/ydb/manifest.tsv` records the SHA per row.
+
+**License:** GNU Free Documentation License v1.3, no Invariant Sections,
+no Cover Texts. Redistribution is permitted, so the cloned working tree
+is committed under `sources/ydb/repo/`; only the embedded `.git/` is
+gitignored (so the outer git repo is not confused by a nested git tree).
+
+---
+
+## BL-004 — Vendoring decision: strip inner .git/ before commit (2026-04-25)
+
+**Phase:** A0 — source acquisition.
+**Context:** When `git add sources/ydb/repo/` was run with the inner
+`.git/` directory present, git treated the path as a gitlink (embedded
+git repo) and would have stored only a pointer rather than the actual
+files — losing the "self-contained offline replica" property the user
+called out as the analysis foundation.
+
+**Options considered:**
+1. *Submodule* — spec-aligned ("`.git/` retained"), but requires
+   `git submodule update --init` after every fresh clone of m-standard
+   and still needs gitlab.com to be reachable then. Defeats the
+   self-contained replica goal.
+2. *Subtree* — vendors the bulk into m-standard's history, but adds
+   tooling complexity for a hobbyist project.
+3. *Strip `.git/` and commit working tree as plain files* — bulk lives
+   in m-standard's history; pinned commit SHA is preserved per-row in
+   `sources/ydb/manifest.tsv` so reproducibility is unchanged.
+
+**Decision:** option 3. `tools/clone-ydb.sh` was updated to detect the
+post-vendor state (no `.git/` in `repo/`) and, on update, clone fresh
+into a temp directory at the new pin and `rsync --delete --exclude=.git`
+the result onto `sources/ydb/repo/`. Spec §4.2 and AD-03 narrative were
+updated to match. Trade-off accepted: `git pull` inside `repo/` no
+longer works, but updates are an explicit `make sources-ydb` run with
+a new `PIN_COMMIT`, which is more deliberate anyway.
+
+**Size:** stripped working tree is 51 MB (vs 96 MB with `.git/`); 267 files.

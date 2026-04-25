@@ -25,13 +25,14 @@ from __future__ import annotations
 
 import argparse
 import logging
+import re
 import time
 from collections import deque
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Protocol
-from urllib.parse import urldefrag, urljoin, urlparse
+from urllib.parse import parse_qs, urldefrag, urljoin, urlparse
 
 from bs4 import BeautifulSoup
 
@@ -42,8 +43,17 @@ log = logging.getLogger(__name__)
 DEFAULT_BASE_URL = "http://71.174.62.16/Demo/AnnoStd"
 DEFAULT_OUTPUT_DIR = Path("sources/anno/site")
 DEFAULT_MANIFEST_PATH = Path("sources/anno/manifest.tsv")
+DEFAULT_EDITION = "1995"
 
 _HTML_TYPES = ("text/html", "application/xhtml+xml")
+
+# AnnoStd is a JS single-page app. The menu (and most pages) reach content
+# via onclick="GetText('<Action>', '<page>', ...)". We synthesise a real
+# URL for each call and treat the result as a normal queueable link.
+_GETTEXT_RE = re.compile(
+    r"""GetText\(\s*['"](?P<action>[A-Za-z]+)['"]\s*,\s*['"](?P<page>[^'"]*)['"]"""
+)
+_DYNAMIC_ACTIONS = ("ShowPage", "ShowLiterature", "ShowImplementation", "ShowQuickJump")
 
 
 @dataclass(frozen=True)
@@ -83,6 +93,7 @@ def crawl(
     output_dir: Path,
     manifest_path: Path,
     fetcher: Fetcher,
+    edition: str = DEFAULT_EDITION,
 ) -> Manifest:
     """Mirror the site rooted at ``base_url`` under ``output_dir``."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -139,8 +150,8 @@ def crawl(
         )
 
         if fmt == "html":
-            for link in _extract_links(content, url):
-                if link not in seen and _in_scope(link, base_parsed):
+            for link in _extract_links(content, url, base, edition):
+                if _in_scope(link, base_parsed):
                     queue.append(link)
 
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
@@ -150,13 +161,29 @@ def crawl(
 
 
 def _canonicalize(url: str, base_parsed) -> str:
-    """Map directory URLs to their ``index.html`` so seen-set dedupes."""
+    """Normalise URLs so the seen-set dedupes equivalent variants.
+
+    - Trailing-``/`` and bare-base directory URLs collapse to ``index.html``.
+    - Dynamic AnnoStd-app URLs (``?Action=ShowPage&Edition=X&Page=Y``) are
+      reduced to a stable canonical query string regardless of param order
+      or extra fields.
+    """
     p = urlparse(url)
-    if p.path.endswith("/"):
-        return url + "index.html"
     base_dir = base_parsed.path if base_parsed.path.endswith("/") else (
         base_parsed.path + "/"
     )
+    if p.query:
+        qs = parse_qs(p.query)
+        action = qs.get("Action", [""])[0]
+        if action in _DYNAMIC_ACTIONS:
+            page = qs.get("Page", [""])[0]
+            edition = qs.get("Edition", [""])[0]
+            return (
+                f"{p.scheme}://{p.netloc}{p.path}?Action={action}"
+                f"&Edition={edition}&Page={page}"
+            )
+    if p.path.endswith("/"):
+        return url + "index.html"
     if p.path + "/" == base_dir:
         return url + "/index.html"
     return url
@@ -180,11 +207,26 @@ def _site_rel_for(url: str, base_parsed) -> Path:
     The full on-disk path is ``output_dir / rel``. The manifest records
     each file's location relative to the manifest's parent, which is
     typically one level above the mirror root.
+
+    Dynamic AnnoStd-app URLs are mapped to deterministic file names:
+        ?Action=ShowPage&Page=a100001  -> pages/a100001.html
+        ?Action=ShowLiterature         -> literature.html
+        ?Action=ShowImplementation     -> implementation.html
+        ?Action=ShowQuickJump          -> quickjump.html
     """
+    p = urlparse(url)
+    if p.query:
+        qs = parse_qs(p.query)
+        action = qs.get("Action", [""])[0]
+        if action == "ShowPage":
+            page = qs.get("Page", ["index"])[0]
+            return Path("pages") / f"{page}.html"
+        if action in _DYNAMIC_ACTIONS:
+            return Path(action.removeprefix("Show").lower() + ".html")
     base_dir = base_parsed.path if base_parsed.path.endswith("/") else (
         base_parsed.path + "/"
     )
-    rel = urlparse(url).path[len(base_dir):]
+    rel = p.path[len(base_dir):]
     if rel == "" or rel.endswith("/"):
         rel = rel + "index.html"
     return Path(rel)
@@ -208,9 +250,20 @@ def _guess_content_type(local_rel: Path) -> str:
     return "application/octet-stream"
 
 
-def _extract_links(content: bytes, page_url: str) -> list[str]:
+def _extract_links(
+    content: bytes, page_url: str, base_url: str, edition: str
+) -> list[str]:
+    """Pull every navigable link out of an HTML page.
+
+    Two link sources:
+    - Plain href/src/link/script attributes (for assets and any static links).
+    - ``onclick="GetText('Action', 'page', ...)"`` calls in the AnnoStd JS
+      app, synthesised into the equivalent ``?Action=...&Edition=...&Page=...``
+      URL relative to ``base_url``.
+    """
     soup = BeautifulSoup(content, "lxml")
     out: list[str] = []
+
     selectors = (
         ("a", "href"),
         ("link", "href"),
@@ -225,6 +278,20 @@ def _extract_links(content: bytes, page_url: str) -> list[str]:
             absolute = urljoin(page_url, str(raw))
             absolute, _ = urldefrag(absolute)
             out.append(absolute)
+
+    base_dir = base_url if base_url.endswith("/") else base_url + "/"
+    for el in soup.find_all(attrs={"onclick": True}):
+        for match in _GETTEXT_RE.finditer(str(el.get("onclick"))):
+            action = match.group("action")
+            page = match.group("page")
+            if action not in _DYNAMIC_ACTIONS:
+                continue
+            url = (
+                f"{base_dir}?Action={action}"
+                f"&Edition={edition}&Page={page}"
+            )
+            out.append(url)
+
     return out
 
 
@@ -243,6 +310,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--manifest", type=Path, default=DEFAULT_MANIFEST_PATH,
     )
+    parser.add_argument(
+        "--edition", default=DEFAULT_EDITION,
+        help="AnnoStd edition to crawl (default: 1995, the ANSI X11.1-1995 standard).",
+    )
     args = parser.parse_args(argv)
 
     crawl(
@@ -250,6 +321,7 @@ def main(argv: list[str] | None = None) -> int:
         output_dir=args.out,
         manifest_path=args.manifest,
         fetcher=RequestsFetcher(),
+        edition=args.edition,
     )
     return 0
 

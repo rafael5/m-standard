@@ -241,15 +241,23 @@ appended without a version bump.
   `https://docs.yottadb.com/` is generated from a documentation
   source repository hosted on YottaDB's GitLab.
 * **How it is captured.** The entire documentation source
-  repository is `git clone`d into `sources/ydb/repo/` as a
-  full working tree (with `.git/` retained, so the exact commit
-  is reproducible and updates are a `git pull`). Working from
-  the source repository — rather than crawling the rendered HTML
-  — gives stable, versioned, well-structured input (RST/Markdown
+  repository is `git clone`d into `sources/ydb/repo/` as a full
+  working tree, then the inner `.git/` is stripped before commit
+  so the bulk content can be vendored in `m-standard`'s own repo
+  as plain files. (Submodules were considered and rejected — they
+  would require a separate network fetch on every fresh clone of
+  `m-standard`, defeating the "self-contained offline replica"
+  goal.) The pinned commit SHA is preserved per-row in
+  `sources/ydb/manifest.tsv` so reproducibility holds without the
+  embedded `.git/`. Updates re-run `tools/clone-ydb.sh`, which
+  clones fresh into a temp directory at the new pin and mirrors
+  the working tree onto `sources/ydb/repo/`. Working from the
+  source repository — rather than crawling the rendered HTML —
+  gives stable, versioned, well-structured input (RST/Markdown
   with predictable headings, anchors, and cross-references) that
   is far more amenable to extraction than scraped HTML. The
-  cloned repository is the analysis foundation; the rendered
-  site is referenced only for human verification.
+  vendored tree is the analysis foundation; the rendered site is
+  referenced only for human verification.
 * **Version pinned.** v1.0 pins to the commit SHA of the docs
   repository at project start (recorded in
   `sources/ydb/manifest.tsv` alongside the upstream remote URL).
@@ -518,9 +526,10 @@ determinism.
 ### 7.6 Source updates
 
 When a pinned source version is updated, the workflow is:
-refresh the local replica (re-crawl AnnoStd, or `git pull` the
-YottaDB docs clone to a new commit), bump the manifest with the
-new sha256s and (for YDB) the new commit SHA, re-run extraction,
+refresh the local replica (re-crawl AnnoStd, or re-run
+`tools/clone-ydb.sh` with `PIN_COMMIT=<new_sha>` to mirror a
+new commit of the YottaDB docs), bump the manifest with the new
+sha256s and (for YDB) the new commit SHA, re-run extraction,
 re-run reconcile, review the diff in the integrated layer, edit
 `conflicts.tsv` if new conflicts surfaced, commit. Source
 updates are deliberate, traceable, and version-bumped.
@@ -539,8 +548,8 @@ m-standard/
 │   │   └── fetch.sh               # Re-crawls the mirror from the upstream host
 │   └── ydb/
 │       ├── manifest.tsv           # Includes upstream remote URL + pinned commit SHA
-│       ├── repo/                  # `git clone` of the YottaDB documentation repository
-│       └── fetch.sh               # `git clone --depth=1` at the pinned commit (used when repo/ is not vendored)
+│       ├── repo/                  # Vendored working tree from the YottaDB documentation repository (inner .git/ stripped)
+│       └── fetch.sh               # Re-runs the clone+strip mirror at the pinned commit
 ├── per-source/
 │   ├── anno/
 │   │   ├── commands.tsv

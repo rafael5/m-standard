@@ -39,24 +39,27 @@ preserved byte-for-byte for extraction purposes.
 
 `make sources-ydb` runs `tools/clone-ydb.sh`, which performs a `git
 clone` of the YottaDB documentation source repository at the commit SHA
-recorded in `sources/ydb/manifest.tsv`. The cloned tree retains its
-`.git/` so the exact commit is reproducible and updates are a `git
-pull`.
+recorded in `sources/ydb/manifest.tsv` and then strips the inner `.git/`
+so the working tree can be vendored as plain files. The pinned SHA is
+preserved per-row in the manifest, so reproducibility holds without the
+embedded git directory. Re-running the script with a new pin re-clones
+into a temp directory and mirrors the result onto `sources/ydb/repo/`.
 
 ## Redistribution status (verified at Phase A0)
 
-Each source has its own license. Until Phase A0 of the project explicitly
-verifies redistribution rights, the bulk content of both replicas is
-gitignored (see `.gitignore`) and only the `manifest.tsv` + `fetch.sh`
-pair is tracked. Local users still get a fully reproducible build via
-`make sources`.
+Each source has its own license. Where the licence permits redistribution,
+the bulk content of the replica is committed directly so a fresh clone
+is browseable / walkable offline with no network round-trip. Where the
+licence does not (or where permission is unclear), only the
+`manifest.tsv` + `fetch.sh` pair is tracked, and local users repopulate
+the replica via `make sources`.
 
-When A0 confirms redistribution is permitted for a source, the relevant
-ignore block in `.gitignore` is dropped and the local replica is
-committed directly so a fresh clone is browseable / walkable offline
-with no network round-trip.
+| Source  | Upstream                                          | Licence                                       | Redistributable? | Bulk committed? |
+|---------|---------------------------------------------------|-----------------------------------------------|------------------|-----------------|
+| AnnoStd | http://71.174.62.16/Demo/AnnoStd                  | © MUMPS Development Committee (standard text), © Jacquard Systems Research / Ed de Moel (annotations); no explicit redistribution licence stated on the site | **No** — assume not | No (gitignored; rebuild via `bash sources/anno/fetch.sh`) |
+| YottaDB | https://gitlab.com/YottaDB/DB/YDBDoc.git          | GNU Free Documentation License v1.3 (per `repo/COPYING` + `repo/LICENSE.rst`) | **Yes** — GFDL §2 explicitly permits "copy and distribute"; no Invariant Sections, no Cover Texts | Yes (the cloned tree is committed) |
 
-| Source  | Upstream                            | Default policy assumption       | A0 verified? |
-|---------|-------------------------------------|---------------------------------|--------------|
-| AnnoStd | http://71.174.62.16/Demo/AnnoStd    | Mirroring historically encouraged | not yet |
-| YottaDB | YottaDB documentation repo (GitLab) | Open-source, freely cloneable   | not yet |
+When the AnnoStd licence question is resolved (e.g. by direct
+permission from the copyright holders), the gitignore entry for
+`sources/anno/site/` can be dropped and the mirror committed alongside
+the manifest in a follow-up.
