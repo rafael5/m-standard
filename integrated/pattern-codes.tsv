@@ -1,0 +1,8 @@
+in_anno	in_ydb	ydb_section	standard_status	code	description
+false	true	ProgrammersGuide/langfeat.rst#pattern-codes	ansi	A	alphabetic characters upper or lower case
+false	true	ProgrammersGuide/langfeat.rst#pattern-codes	ansi	C	control characters ASCII 0-31 and 127
+false	true	ProgrammersGuide/langfeat.rst#pattern-codes	ansi	E	any character; used to pass all characters in portions of the string where the pattern is not restricted
+false	true	ProgrammersGuide/langfeat.rst#pattern-codes	ansi	L	lower-case alphabetic characters, ASCII 97-122
+false	true	ProgrammersGuide/langfeat.rst#pattern-codes	ansi	N	digits 0-9, ASCII 48-57
+false	true	ProgrammersGuide/langfeat.rst#pattern-codes	ansi	P	punctuation, ASCII 32-47, 58-64, 91-96, 123-126
+false	true	ProgrammersGuide/langfeat.rst#pattern-codes	ansi	U	upper-case alphabetic characters, ASCII 65-90

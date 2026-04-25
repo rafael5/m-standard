@@ -1,0 +1,65 @@
+canonical_name	abbreviation	format	standard_status	in_anno	in_ydb	anno_section	ydb_section	conflict_id	notes
+ABLOCK	AB	AB[LOCK] postcond [ SP ] SP ablockargument	ansi	true	false	pages/a108019.html#8.2.1		CONF-001	
+ASSIGN		assignargument ::= assigndestination = object @ expratom V L assignargument	ansi	true	false	pages/a108020.html#8.2.2		CONF-002	
+ASTART	ASTA	ASTA[RT] postcond [ SP ] SP ablockargument	ansi	true	false	pages/a108021.html#8.2.3		CONF-003	
+ASTOP	ASTO	ASTO[P] postcond [ SP ] SP ablockargument	ansi	true	false	pages/a108022.html#8.2.4		CONF-004	
+AUNBLOCK	AUNB	AUNB[LOCK] postcond [ SP ] SP ablockargument	ansi	true	false	pages/a108023.html#8.2.5		CONF-005	
+BREAK	B	B[REAK][:tvexpr] [expr[:tvexpr][,...]]	ansi	true	true	pages/a108024.html#8.2.1	ProgrammersGuide/commands.rst#Break		
+CLOSE	C	C[LOSE][:tvexpr] expr[:(keyword[=expr][:...])][,...]	ansi	true	true	pages/a108025.html#8.2.2	ProgrammersGuide/commands.rst#Close		
+DO	D	D[O][:tvexpr] [entryref[(expr|.lvn[,...])][:tvexpr][,...]]	ansi	true	true	pages/a108026.html#8.2.3	ProgrammersGuide/commands.rst#Do		
+ELSE	E	E[LSE]	ansi	true	true	pages/a108027.html#8.2.4	ProgrammersGuide/commands.rst#Else		
+ESTART	ESTA	ESTA[RT] postcond [ SP ] SP estartargument	ansi	true	false	pages/a108028.html#8.2.10		CONF-006	
+ESTOP		Previous MDC examples Next	ansi	true	false	pages/a108029.html#8.2.11		CONF-007	
+ETRIGGER		especref ::= expr V ^$W[INDOW] ( expec ) [ : einforef ] expr V ^$J[OB] ( erspec )	ansi	true	false	pages/a108030.html#8.2.12		CONF-008	
+FOR	F	F[OR][lvn=expr[:numexpr1[:numexpr2]][,...]]]	ansi	true	true	pages/a108031.html#8.2.5	ProgrammersGuide/commands.rst#For		
+GOTO	G	G[OTO][:tvexpr] entryref[:tvexpr][,...]	ansi	true	true	pages/a108032.html#8.2.6	ProgrammersGuide/commands.rst#Goto		
+HALT	H	H[ALT][:tvexpr]	ansi	true	true	pages/a108033.html#8.2.7	ProgrammersGuide/commands.rst#HALT		
+HANG	H	H[ANG][:tvexpr] numexpr[,...]	ansi	true	true	pages/a108034.html#8.2.8	ProgrammersGuide/commands.rst#HANG		
+IF	I	I[F] [tvexpr[,...]]	ansi	true	true	pages/a108035.html#8.2.9	ProgrammersGuide/commands.rst#If		
+JOB	J	J[OB][:tvexpr] entryref[(expr[,...])]	ansi	true	true	pages/a108036.html#8.2.10	ProgrammersGuide/commands.rst#Job		
+KILL	K	K[ILL][:tvexpr] [glvn | (lvn[,...]) | *lname | *lvn ]	ansi	true	true	pages/a108037.html#8.2.11	ProgrammersGuide/commands.rst#Kill		
+KSUBSCRIPTS		a) glvn : Selective Kill.	ansi	true	false	pages/a108038.html#8.2.20		CONF-009	
+KVALUE		a) glvn : Selective Kill.	ansi	true	false	pages/a108039.html#8.2.21		CONF-010	
+LOCK	L	L[OCK][:tvexpr] [[-|+]nref|(nref[,...])[:numexpr] [,...]]	ansi	true	true	pages/a108040.html#8.2.12	ProgrammersGuide/commands.rst#Lock		
+MERGE	M	M[ERGE][:tvexpr] glvn1=glvn2[,...]	ansi	true	true	pages/a108041.html#8.2.13	ProgrammersGuide/commands.rst#Merge		
+NEW	N	N[EW][:tvexpr] [[(]lvn[,...][)][,...]]	ansi	true	true	pages/a108042.html#8.2.14	ProgrammersGuide/commands.rst#New		
+OPEN	O	O[PEN][:tvexpr] expr[:[(keyword[=expr][:...])] [:numexpr]][,...]	ansi	true	true	pages/a108043.html#8.2.15	ProgrammersGuide/commands.rst#Open		
+QUIT	Q	Q[UIT][:tvexpr] [expr | *lname | *lvn]	ansi	true	true	pages/a108044.html#8.2.16	ProgrammersGuide/commands.rst#Quit		
+READ	R	R[EAD][:tvexpr] (glvn|*glvn|glvn#intexpr)[:numexpr]|strlit|fcc[,...]	ansi	true	true	pages/a108045.html#8.2.17	ProgrammersGuide/commands.rst#READ		
+RLOAD		routineargument ::= routineref : glvn [ : routineparameters ] @ expratom V L routineargument	ansi	true	false	pages/a108046.html#8.2.28		CONF-011	
+RSAVE		Previous MDC examples Next	ansi	true	false	pages/a108047.html#8.2.29		CONF-012	
+SET	S	S[ET][:tvexpr] setleft=expr | (setleft[,...])=expr | *lvn=lname | aliascontainer[,...]	ansi	true	true	pages/a108048.html#8.2.18	ProgrammersGuide/commands.rst#Set		
+TCOMMIT	TC	TC[OMMIT][:tvexpr]	ansi	true	true	pages/a108049.html#8.2.19	ProgrammersGuide/commands.rst#TCommit		
+THEN		Previous MDC examples Next	ansi	true	false	pages/a108050.html#8.2.32		CONF-013	
+TRESTART	TRE	TRE[START][:tvexpr]	ansi	true	true	pages/a108051.html#8.2.20	ProgrammersGuide/commands.rst#TREstart		
+TROLLBACK	TRO	TRO[LLBACK][:tvexpr] [intexpr]	ansi	true	true	pages/a108052.html#8.2.21	ProgrammersGuide/commands.rst#TROllback		
+TSTART	TS	TS[TART][:tvexpr] [([lvn...])|lvn|*|][:keyword|(keyword...)]	ansi	true	true	pages/a108053.html#8.2.22	ProgrammersGuide/commands.rst#TStart		
+USE	U	U[SE][:tvexpr] expr[:(keyword[=expr][:...])][,...]	ansi	true	true	pages/a108054.html#8.2.23	ProgrammersGuide/commands.rst#Use		
+VIEW	V	V[IEW][:tvexpr] keyword[:expr2[:...]][,...]	ansi	true	true	pages/a108055.html#8.2.24	ProgrammersGuide/commands.rst#View		
+WRITE	W	W[RITE][:tvexpr] expr|*intexpr|fcc[,...]	ansi	true	true	pages/a108056.html#8.2.25	ProgrammersGuide/commands.rst#Write		
+XECUTE	X	X[ECUTE]:tvexpr expr[:tvexpr][,...]	ansi	true	true	pages/a108057.html#8.2.26	ProgrammersGuide/commands.rst#Xecute		
+Z		Previous 1977 1984 1990 1995 MDC Next	ansi	true	false	pages/a108058.html#8.2.27		CONF-014	
+ZALLOCATE	ZA	ZA[LLOCATE][:tvexpr] [(]nref[,...][)][:intexpr][,...]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZAllocate		
+ZBREAK	ZB	ZB[REAK][:tvexpr] [-]entryref[:[expr][:intexpr]][,...]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZBREAK		
+ZCOMPILE	ZCOM	ZCOM[PILE][:tvexpr] expr[,...]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZCOMpile		
+ZCONTINUE	ZC	ZC[ONTINUE][:tvexpr]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZContinue		
+ZDEALLOCATE	ZD	ZD[EALLOCATE][:tvexpr] [nref[,...]]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZDeallocate		
+ZEDIT	ZED	ZED[IT][:tvexpr] [expr[,...]]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZEdit		
+ZGOTO	ZG	ZG[OTO][:tvexpr] [[intexpr][:entryref[:tvexpr]],...]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZGoto		
+ZHALT	ZHALT	ZHALT[:tvexpr] [intexpr]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZHALT		
+ZHELP	ZH	ZH[ELP][:tvexpr] [expr1[:expr2],...]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZHelp		
+ZKILL	ZK	ZK[ILL][:tvexpr] glvn	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZKill		
+ZLINK	ZL	ZL[INK][:tvexpr] [expr1[:expr2][,...]]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZLink		
+ZMESSAGE	ZM	ZM[ESSAGE][:tvexpr] intexpr[:expr2][:...]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZMessage		
+ZPRINT	ZP	ZP[RINT][:tvexpr] [entryref[:label[+intexpr]][,...]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZPrint		
+ZRUPDATE	ZRUP	ZRUP[DATE][:tvexpr] expr [,...]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZRUPdate		
+ZSHOW	ZSH	ZSH[OW][:tvexpr] [expr[:glvn[:level]][,...]]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZSHow		
+ZSTEP	ZST	ZST[EP][:tvexpr] [keyword[:expr]][,...]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZSTep		
+ZSYSTEM	ZSY	ZSY[STEM][:tvexpr] [expr][,...]]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZSYstem		
+ZTCOMMIT	ZTC	ZTC[OMMIT][:tvexpr] [intexpr]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZTCommit		
+ZTRIGGER	ZTR	ZTR[IGGER] gvn	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZTRigger		
+ZTSTART	ZTS	ZTS[TART][:tvexpr]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZTStart		
+ZWITHDRAW	ZWI	ZWI[THDRAW][:tvexpr] glvn	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZWIthdraw		
+ZWRITE	ZWR	ZWR[ITE][:tvexpr] [zwrglvn[,...]]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZWRite		
+ZYDECODE	ZYDE	ZYDE[CODE][:tvexpr] glvn1=glvn2[,...]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZYDECODE		
+ZYENCODE	ZYEN	ZYEN[CODE][:tvexpr] glvn1=glvn2[,...]	ydb-extension	false	true		ProgrammersGuide/commands.rst#ZYENCODE		

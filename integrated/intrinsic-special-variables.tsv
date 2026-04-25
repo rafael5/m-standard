@@ -1,0 +1,67 @@
+canonical_name	abbreviation	format	standard_status	in_anno	in_ydb	anno_section	ydb_section	conflict_id	notes
+$DEVICE	$D	$D[EVICE]	ansi	true	true	pages/a107058.html#7.1.4.10	ProgrammersGuide/isv.rst#$DEVICE		
+$ECODE	$EC	$EC[ODE]	ansi	true	true	pages/a107059.html#7.1.4.10	ProgrammersGuide/isv.rst#$ECODE		
+$ESTACK	$ES	$ES[TACK]	ansi	true	true	pages/a107060.html#7.1.4.10	ProgrammersGuide/isv.rst#$ESTACK		
+$ETRAP	$ET	$ET[RAP]	ansi	true	true	pages/a107061.html#7.1.4.10	ProgrammersGuide/isv.rst#$ETRAP		
+$HOROLOG	$H	$H[OROLOG]	ansi	true	true	pages/a107062.html#7.1.4.10	ProgrammersGuide/isv.rst#$HOROLOG		
+$IO	$I	$I[O]	ansi	true	true	pages/a107063.html#7.1.4.10	ProgrammersGuide/isv.rst#$IO		
+$JOB	$J	$J[OB]	ansi	true	true	pages/a107065.html#7.1.4.10	ProgrammersGuide/isv.rst#$JOB		
+$KEY	$K	$K[EY]	ansi	true	true	pages/a107066.html#7.1.4.10	ProgrammersGuide/isv.rst#$KEY		
+$PRINCIPAL	$P	$P[RINCIPAL]	ansi	true	true	pages/a107068.html#7.1.4.10	ProgrammersGuide/isv.rst#$PRINCIPAL		
+$QUIT	$Q	$Q[UIT]	ansi	true	true	pages/a107069.html#7.1.4.10	ProgrammersGuide/isv.rst#$QUIT		
+$REFERENCE	$R	$R[EFERENCE]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$REFERENCE		
+$STACK	$ST	$ST[ACK]	ansi	true	true	pages/a107071.html#7.1.4.10	ProgrammersGuide/isv.rst#$STACK		
+$STORAGE	$S	$S[TORAGE]	ansi	true	true	pages/a107072.html#7.1.4.10	ProgrammersGuide/isv.rst#$STORAGE		
+$SYSTEM	$SY	$SY[STEM]	ansi	true	true	pages/a107073.html#7.1.4.10	ProgrammersGuide/isv.rst#$SYSTEM		
+$TEST	$T	$T[EST]	ansi	true	true	pages/a107074.html#7.1.4.10	ProgrammersGuide/isv.rst#$TEST		
+$TLEVEL	$TL	$TL[EVEL]	ansi	true	true	pages/a107075.html#7.1.4.10	ProgrammersGuide/isv.rst#$TLEVEL		
+$TRESTART	$TR	$TR[ESTART]	ansi	true	true	pages/a107076.html#7.1.4.10	ProgrammersGuide/isv.rst#$TRESTART		
+$X	$X	$X	ydb-extension	false	true		ProgrammersGuide/isv.rst#$X		
+$Y	$Y	$Y	ydb-extension	false	true		ProgrammersGuide/isv.rst#$Y		
+$ZA	$ZA	$ZA	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZA		
+$ZALLOCSTOR	$ZALLOCSTOR	$ZALLOCSTOR	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZALLOCSTOR		
+$ZAUDIT	$ZAUDIT	$ZAUDIT	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZAUDIT		
+$ZB	$ZB	$ZB	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZB		
+$ZCHSET	$ZCHSET	$ZCHSET	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZCHSET		
+$ZCMDLINE	$ZCM	$ZCM[DLINE]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZCMDLINE		
+$ZCOMPILE	$ZCO	$ZCO[MPILE]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZCOMPILE		
+$ZCSTATUS	$ZC	$ZC[STATUS]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZCSTATUS		
+$ZDATEFORM	$ZDA	$ZDA[TEFORM]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZDATEFORM		
+$ZDIRECTORY	$ZD	$ZD[IRECTORY]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZDIRECTORY		
+$ZEOF	$ZEO	$ZEO[F]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZEOF		
+$ZERROR	$ZE	$ZE[RROR]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZERROR		
+$ZGBLDIR	$ZG	$ZG[BLDIR]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZGBLDIR		
+$ZHOROLOG	$ZH	$ZH[OROLOG]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZHOROLOG		
+$ZICUVER	$ZICUVER	$ZICUVER	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZICUVER		
+$ZININTERRUPT	$ZINI	$ZINI[NTERRUPT]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZININTERRUPT		
+$ZINTERRUPT	$ZINT	$ZINT[ERRUPT]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZINTERRUPT		
+$ZIO	$ZIO	$ZIO	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZIO		
+$ZJOB	$ZJ	$ZJ[OB]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZJOB		
+$ZLEVEL	$ZL	$ZL[EVEL]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZLEVEL		
+$ZMALLOCLIM	$ZMALL	$ZMALL[OCLIM]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZMALLOCLIM		
+$ZMAXTPTIME	$ZMAXTPTI	$ZMAXTPTI[ME]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZMAXTPTIME		
+$ZMLKHASH	$ZMLKHASH	$ZMLKHASH	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZMLKHASH		
+$ZMODE	$ZMO	$ZMO[DE]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZMODE		
+$ZONLNRLBK	$ZONLNRLBK	$ZONLNRLBK	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZONLNRLBK		
+$ZPATNUMERIC	$ZPATN	$ZPATN[UMERIC]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZPATNUMERIC		
+$ZPOSITION	$ZPOS	$ZPOS[ITION]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZPOSITION		
+$ZPROMPT	$ZPROM	$ZPROM[PT]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZPROMPT		
+$ZQUIT	$ZQUIT	$ZQUIT	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZQUIT		
+$ZREALSTOR	$ZREALSTOR	$ZREALSTOR	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZREALSTOR		
+$ZRELDATE	$ZRELDATE	$ZRELDATE	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZRELDATE		
+$ZROUTINES	$ZRO	$ZRO[UTINES]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZROUTINES		
+$ZSOURCE	$ZSO	$ZSO[URCE]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZSOURCE		
+$ZSTATUS	$ZS	$ZS[TATUS]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZSTATUS		
+$ZSTEP	$ZST	$ZST[EP]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZSTEP		
+$ZSTRPLLIM	$ZSTRP	$ZSTRP[LLIM]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZSTRPLLIM		
+$ZSYSTEM	$ZSY	$ZSY[STEM]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZSYSTEM		
+$ZTEXIT	$ZTE	$ZTE[XIT]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZTEXIT		
+$ZTIMEOUT	$ZTIMEOUT	$ZTIMEOUT	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZTIMEOUT		
+$ZTRAP	$ZT	$ZT[RAP]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZTRAP		
+$ZUNSPECIFIED	$Z	$Z[unspecified]	ansi	true	false	pages/a107079.html#7.1.4.10		CONF-021	
+$ZUSEDSTOR	$ZUSEDSTOR	$ZUSEDSTOR	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZUSEDSTOR		
+$ZUT	$ZUT	$ZUT	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZUT		
+$ZVERSION	$ZV	$ZV[ERSION]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZVERSION		
+$ZYERROR	$ZYER	$ZYER[ROR]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZYERROR		
+$ZYINTRSIG	$ZYINTRSIG	$ZYINTRSIG	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZYINTRSIG		
+$ZYJOBPARENT	$ZYJO	$ZYJO[BPARENT]	ydb-extension	false	true		ProgrammersGuide/isv.rst#$ZYJOBPARENT		
