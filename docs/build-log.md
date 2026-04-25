@@ -227,3 +227,98 @@ families (operators, pattern codes, errors) flow through the
 reconciler as `in_anno=false` rows, which is honest signalling for
 downstream consumers. Environment and the BNF-form AnnoStd extractors
 are tracked for v0.2.
+
+**Update (2026-04-25, post-A6):** the BL-009 deferral was partially
+closed in BL-010. AnnoStd operators and Annex B errors are now
+extracted; pattern codes remain deferred (only in `Edition=examples`),
+and the environment family is added in YDB-only mode in BL-011.
+
+---
+
+## BL-010 — AnnoStd operators (chapter 7.2.1, 7.2.2) + Annex B errors (2026-04-25)
+
+**Phase:** post-A6 close-out toward v1.0.
+**Context:** BL-009 deferred AnnoStd operator and error extraction
+because the formats looked unfriendly to extraction. A second pass
+showed both are tractable.
+
+**Operators (7.2.1.x, 7.2.2.x):** Two patterns:
+- Per-operator table (chapter 7.2.1.2 arithmetic): clean
+  `[symbol, description]` rows. Pulled directly.
+- Prose listing (concatenation 7.2.1.1, numeric 7.2.2.2, string
+  7.2.2.3, logical 7.2.2.4): the first paragraph after the heading
+  lists the operators inline, e.g. "The relations = ] [ and ]] do
+  not imply...". Tokenised by matching runs of operator-character
+  classes surrounded by whitespace or sentence punctuation.
+- Result: 16 operators extracted from AnnoStd, perfectly aligned
+  with YDB's 16. The reconciler's specialised `reconcile_operators`
+  now joins on (operator_class, symbol). One real conflict surfaces:
+  the underscore `_` (concatenation) is in AnnoStd's
+  `string` class; YDB has no `string` class (concatenation isn't
+  catalogued separately in YDB's class taxonomy). Recorded as
+  `existence` conflict CONF-022 — a genuine taxonomic divergence
+  worth surfacing rather than papering over.
+
+**Errors (Annex B, pages `ab*.html`):** Each per-error page is a
+single-row table with `[M<n>, summary]`. Walking 112 such pages
+yields the full M-code list (M1–M112; AnnoStd's annex documents
+draft post-1995 codes alongside the 1995 codes M1–M75). The
+reconciler's specialised `reconcile_errors` joins on `mnemonic` —
+AnnoStd's M-codes and YDB's vendor mnemonics use disjoint
+namespaces by construction, so the integrated table is the union
+(1601 + 112 = 1713 rows) with no overlap.
+
+**Pattern codes are still deferred.** AnnoStd lists the patcode
+letters (A, C, E, L, N, P, U) only in `Edition=examples`
+(page `a901017`), not in the 1995-edition main grammar. Extracting
+them would require a parallel `Edition=examples` crawl.
+
+---
+
+## BL-011 — Environment family (device I/O parameters) (2026-04-25)
+
+**Phase:** post-A6 close-out toward v1.0.
+**Context:** Spec §5.7 calls environment "the most heterogeneous
+concept family" — process model, lock semantics, transaction
+semantics, device I/O parameters, namespace and routine resolution.
+Most of those slots are *already* populated by entries in other
+concept families (LOCK in commands; TSTART/TCOMMIT/TROLLBACK/TRESTART
+in commands; `$ETRAP`/`$ECODE`/`$ESTACK`/`$STACK` in ISVs).
+
+**What v1.0 adds:** A dedicated environment.tsv populated with the
+**device I/O parameters** from YDB `ProgrammersGuide/ioproc.rst` —
+the keyword arguments to OPEN/USE/CLOSE. These are
+`~`-underlined sub-headings under their command sections in
+ioproc.rst; filtering to single-token uppercase identifiers (length
+2–15) drops ISVs (`$IO`, `$X`, `$Y`) and utility headings
+("Direct Mode Editing", "USE Device Parameters"). 74 device
+parameters extracted (e.g. APPEND, ATTACH, CANONICAL, CHSET,
+TYPEAHEAD, WIDTH, WRAP, ZBFSIZE, ZDELAY, ZFF).
+
+**AnnoStd contribution:** none in v1.0. AnnoStd's device-parameter
+chapters are in BNF-railroad form. Environment is wired through the
+reconciler as YDB-only pass-through (`in_anno=false`).
+
+**Validation gate updates:** `_CONCEPT_KEYS["environment"] = "name"`
+in validate.py; `environment-entry.schema.json` added; emit_json's
+CONCEPTS list extended. All seven validation gates remain green
+end-to-end.
+
+---
+
+## BL-012 — A1 coverage matrix (final, v1.0) (2026-04-25)
+
+| Concept | YDB | AnnoStd | Notes |
+|---|---|---|---|
+| commands | 50 | 40 | Both sources contribute. |
+| intrinsic-functions | 60 | 28 | Both sources contribute. |
+| intrinsic-special-variables | 65 | 17 | Both sources contribute. |
+| operators | 16 | 16 | Both sources contribute (BL-010). |
+| pattern-codes | 7 | 0 | AnnoStd's letters in `Edition=examples` only — deferred. |
+| errors | 1601 | 112 | AnnoStd Annex B M-codes (BL-010). Disjoint namespaces. |
+| environment | 74 | 0 | YDB device I/O parameters (BL-011). |
+
+The integrated layer joins these into 6 reconciled families
+(commands, functions, ISVs, operators, errors, environment) plus 1
+YDB-only family (pattern-codes). 22 conflicts total, 21 of kind
+`existence` plus the operator class divergence on `_` (CONF-022).

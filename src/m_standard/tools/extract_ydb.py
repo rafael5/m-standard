@@ -282,6 +282,95 @@ def write_operators_tsv(ops: list[YdbOperator], out: Path) -> None:
             writer.writerow([getattr(op, c) for c in _OPERATOR_COLUMNS])
 
 
+_ENVIRONMENT_COLUMNS: tuple[str, ...] = (
+    "name",
+    "kind",
+    "summary",
+    "standard_status_hint",
+    "source_section",
+)
+
+
+@dataclass(frozen=True)
+class YdbEnvironmentEntry:
+    name: str
+    kind: str
+    summary: str
+    standard_status_hint: str
+    source_section: str
+
+
+def extract_environment(ioproc_rst: Path) -> list[YdbEnvironmentEntry]:
+    """Extract device I/O parameter entries from ProgrammersGuide/ioproc.rst.
+
+    Per spec §5.7, the environment family is the most heterogeneous —
+    process model, lock semantics, transaction semantics, device I/O
+    parameters, namespace and routine resolution. v1.0 captures the
+    most well-bounded subset: device I/O parameters (the keyword
+    arguments to OPEN / USE / CLOSE), which appear in ioproc.rst as
+    ``~``-underlined sub-headings under their command sections.
+
+    Per spec §5.7 + BL-009, the rest of the environment family
+    (lock/transaction/error-handling semantics) is covered by entries
+    already in commands.tsv (LOCK, TSTART, TCOMMIT, TROLLBACK,
+    TRESTART) and intrinsic-special-variables.tsv ($ETRAP, $ECODE,
+    $ESTACK, $STACK).
+    """
+    text = ioproc_rst.read_text(encoding="utf-8")
+    lines = text.splitlines()
+    rel = _relative_label(ioproc_rst)
+    out: list[YdbEnvironmentEntry] = []
+
+    seen: set[str] = set()
+    for i in range(1, len(lines)):
+        if not re.fullmatch(r"~{3,}", lines[i]):
+            continue
+        heading = lines[i - 1].strip()
+        if not heading or not _looks_like_device_parameter(heading):
+            continue
+        if heading in seen:
+            continue
+        seen.add(heading)
+        body = lines[i + 1 : i + 50]  # Description usually within 50 lines.
+        summary = _first_paragraph(body)
+        out.append(
+            YdbEnvironmentEntry(
+                name=heading,
+                kind="device-parameter",
+                summary=summary,
+                standard_status_hint=_standard_status(heading, "Z"),
+                source_section=f"{rel}#{heading}",
+            )
+        )
+    out.sort(key=lambda e: e.name)
+    return out
+
+
+def _looks_like_device_parameter(heading: str) -> bool:
+    """Filter rule: uppercase ASCII-only single token, length 2-15.
+
+    This excludes utility sub-headings ("USE Device Parameters",
+    "Direct Mode Editing", "User Interface") and ISVs ($DEVICE, $IO,
+    $X, etc.) which already appear in intrinsic-special-variables.tsv.
+    """
+    if not (2 <= len(heading) <= 15):
+        return False
+    if " " in heading:
+        return False
+    if heading.startswith("$"):
+        return False
+    return all(ch.isupper() or ch.isdigit() or ch == "_" for ch in heading)
+
+
+def write_environment_tsv(entries: list[YdbEnvironmentEntry], out: Path) -> None:
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, delimiter="\t", lineterminator="\n")
+        writer.writerow(_ENVIRONMENT_COLUMNS)
+        for entry in entries:
+            writer.writerow([getattr(entry, c) for c in _ENVIRONMENT_COLUMNS])
+
+
 _ERROR_COLUMNS: tuple[str, ...] = (
     "mnemonic",
     "summary",
@@ -630,6 +719,16 @@ def main(argv: list[str] | None = None) -> int:
         log.info(
             "wrote %d errors -> %s/errors.tsv",
             len(errors),
+            args.out_dir,
+        )
+
+    ioproc_rst = args.repo / "ProgrammersGuide" / "ioproc.rst"
+    if ioproc_rst.exists():
+        env = extract_environment(ioproc_rst)
+        write_environment_tsv(env, args.out_dir / "environment.tsv")
+        log.info(
+            "wrote %d environment entries -> %s/environment.tsv",
+            len(env),
             args.out_dir,
         )
 

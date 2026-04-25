@@ -71,6 +71,7 @@ CONCEPTS: tuple[ConceptSpec, ...] = (
     ConceptSpec("operators", "symbol", "operator.schema.json"),
     ConceptSpec("pattern-codes", "code", "pattern-code.schema.json"),
     ConceptSpec("errors", "mnemonic", "error.schema.json"),
+    ConceptSpec("environment", "name", "environment-entry.schema.json"),
 )
 
 

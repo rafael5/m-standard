@@ -210,6 +210,16 @@
       "resolution": "kept (AnnoStd is normative for standard membership)",
       "resolution_basis": "AD-01 (AnnoStd normative)",
       "ydb_says": "absent"
+    },
+    {
+      "anno_says": "(present)",
+      "concept": "operators",
+      "conflict_id": "CONF-022",
+      "entry": "string/_",
+      "kind": "existence",
+      "resolution": "kept (AnnoStd is normative)",
+      "resolution_basis": "AD-01 (AnnoStd normative)",
+      "ydb_says": "absent"
     }
   ],
   "schema_version": "1"

@@ -1,0 +1,17 @@
+symbol	operator_class	description	standard_status_hint	source_section
+#	arithmetic	produces the value of the left operand modulo the right argument. It is defined only for nonzero values of its right operand, as follows. A # B = A ( B * floor( A / B )) where floor ( x ) = the largest integer '> x .	ansi	pages/a107193.html#7.2.1.2
+*	arithmetic	produces the algebraic product.	ansi	pages/a107193.html#7.2.1.2
+**	arithmetic	produces the exponentiated value of the left operand, raised to the power of the right operand. Results producing complex numbers (eg, even numbered roots of negative numbers) are not defined.	ansi	pages/a107193.html#7.2.1.2
++	arithmetic	produces the algebraic sum.	ansi	pages/a107193.html#7.2.1.2
+-	arithmetic	produces the algebraic difference.	ansi	pages/a107193.html#7.2.1.2
+/	arithmetic	"produces the algebraic quotient. Note that the sign of the quotient is negative if and only if one operand is positive and one operand is negative. Division by zero causes an error condition with ecode ="" M9 ""."	ansi	pages/a107193.html#7.2.1.2
+\	arithmetic	produces the integer interpretation of the result of the algebraic quotient.	ansi	pages/a107193.html#7.2.1.2
+!	logical	The operators ! and & are called logical operators. (They are given the names or and and , respectively.) They operate on the truth-value interpretations of their arguments, and they produce truth-value results.	ansi	pages/a107198.html#7.2.2.4
+&	logical	The operators ! and & are called logical operators. (They are given the names or and and , respectively.) They operate on the truth-value interpretations of their arguments, and they produce truth-value results.	ansi	pages/a107198.html#7.2.2.4
+<	numeric-relational	The inequalities > and < operate on the numeric interpretations of their operands; they denote the conventional algebraic greater than and less than .	ansi	pages/a107196.html#7.2.2.2
+>	numeric-relational	The inequalities > and < operate on the numeric interpretations of their operands; they denote the conventional algebraic greater than and less than .	ansi	pages/a107196.html#7.2.2.2
+_	string	The underscore symbol _ is the concatenation operator. It does not imply any numeric interpretation. The value of A _ B is the string obtained by concatenating the values of A and B , with A on the left.	ansi	pages/a107192.html#7.2.1.1
+=	string-relational	The relations = ] [ and ]] do not imply any numeric interpretation of either of their operands.	ansi	pages/a107197.html#7.2.2.3
+[	string-relational	The relations = ] [ and ]] do not imply any numeric interpretation of either of their operands.	ansi	pages/a107197.html#7.2.2.3
+]	string-relational	The relations = ] [ and ]] do not imply any numeric interpretation of either of their operands.	ansi	pages/a107197.html#7.2.2.3
+]]	string-relational	The relations = ] [ and ]] do not imply any numeric interpretation of either of their operands.	ansi	pages/a107197.html#7.2.2.3

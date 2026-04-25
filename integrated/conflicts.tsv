@@ -20,3 +20,4 @@ CONF-018	intrinsic-functions	$MUMPS	existence	$M[UMPS] ( expr )	absent	kept (Ann
 CONF-019	intrinsic-functions	$TYPE	existence	$TY[PE] ( expratom )	absent	kept (AnnoStd is normative for standard membership)	AD-01 (AnnoStd normative)
 CONF-020	intrinsic-functions	$Z	existence	$Z[unspecified] ( unspecified )	absent	kept (AnnoStd is normative for standard membership)	AD-01 (AnnoStd normative)
 CONF-021	intrinsic-special-variables	$ZUNSPECIFIED	existence	$Z[unspecified]	absent	kept (AnnoStd is normative for standard membership)	AD-01 (AnnoStd normative)
+CONF-022	operators	string/_	existence	(present)	absent	kept (AnnoStd is normative)	AD-01 (AnnoStd normative)

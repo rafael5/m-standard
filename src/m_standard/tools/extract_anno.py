@@ -52,6 +52,11 @@ _FUNCTION_SECTION_PREFIX = "7.1.5."
 # carries one svn in a Syntax/Definition table; the page ID is the unique
 # key (see BL-006-style organisation).
 _SVN_SECTION_PREFIX = "7.1.4."
+# Operator pages live under sections 7.2.1.x (binary operators) and
+# 7.2.2.x (truth/relation/logical operators) of ANSI X11.1-1995.
+_OPERATOR_SECTION_PREFIXES = ("7.2.1.", "7.2.2.")
+# Standard-mandated error codes live under Annex B (pages ``ab*.html``).
+_ERROR_PAGE_PREFIX = "ab"
 _LANGUAGE_PAGE_PREFIX = "a"
 
 _SECTION_HEADING = re.compile(
@@ -177,6 +182,246 @@ def _canonical_from_svn_format(fmt: str) -> str:
     if not match:
         return fmt
     return (match.group(1) + (match.group(2) or "")).upper()
+
+
+# ---------- Errors (Annex B, pages ab*.html) -------------------------------
+
+_ERROR_COLUMNS: tuple[str, ...] = (
+    "mnemonic",
+    "summary",
+    "kind",
+    "standard_status_hint",
+    "source_section",
+)
+
+
+@dataclass(frozen=True)
+class AnnoError:
+    mnemonic: str
+    summary: str
+    kind: str
+    standard_status_hint: str
+    source_section: str
+
+
+def extract_errors(site_dir: Path) -> list[AnnoError]:
+    """Walk ab*.html appendix-B pages and pull each Mnnnn definition.
+
+    Each per-error page (ab00001..ab00075-ish) contains a single
+    ``<table><tr><td>M<n></td><td>summary</td></tr></table>``. The
+    Annex-B index page (ab00000) lists all codes in prose only and is
+    skipped here. All entries are tagged ``ansi`` because Annex B is
+    part of the 1995 standard.
+    """
+    pages_dir = site_dir / "pages"
+    if not pages_dir.is_dir():
+        return []
+    out: list[AnnoError] = []
+    for page in sorted(pages_dir.glob(f"{_ERROR_PAGE_PREFIX}*.html")):
+        entry = _extract_error_page(page)
+        if entry is not None:
+            out.append(entry)
+    out.sort(key=lambda e: (len(e.mnemonic), e.mnemonic))  # M1, M2, ..., M75
+    return out
+
+
+def write_errors_tsv(errors: list[AnnoError], out: Path) -> None:
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, delimiter="\t", lineterminator="\n")
+        writer.writerow(_ERROR_COLUMNS)
+        for err in errors:
+            writer.writerow([getattr(err, c) for c in _ERROR_COLUMNS])
+
+
+_OPERATOR_COLUMNS: tuple[str, ...] = (
+    "symbol",
+    "operator_class",
+    "description",
+    "standard_status_hint",
+    "source_section",
+)
+
+# Map AnnoStd section prefixes to the operator class they document.
+_OPERATOR_CLASS_BY_SECTION: tuple[tuple[str, str, str], ...] = (
+    ("7.2.1.1", "string", "concatenation"),
+    ("7.2.1.2", "arithmetic", "arithmetic-binary"),
+    ("7.2.2.2", "numeric-relational", "numeric"),
+    ("7.2.2.3", "string-relational", "string"),
+    ("7.2.2.4", "logical", "logical"),
+)
+# Symbols permitted in M operators. Multi-character operators (``]]`` and
+# ``**``) are matched first by trying the longest forms before single
+# chars; runs of these chars in source-text constitute candidate symbols.
+_OPERATOR_SYMBOL_CHARS = "+-*/\\#=<>'!&[]_"
+
+
+@dataclass(frozen=True)
+class AnnoOperator:
+    symbol: str
+    operator_class: str
+    description: str
+    standard_status_hint: str
+    source_section: str
+
+
+def extract_operators(site_dir: Path) -> list[AnnoOperator]:
+    """Walk the chapter-7.2.x operator pages and recover symbol lists.
+
+    Two patterns are handled:
+    - **Per-operator table** (chapter 7.2.1.2 arithmetic): one
+      ``[symbol, description]`` row per operator. Pulled directly.
+    - **Prose listing** (concatenation, numeric, string, logical):
+      the first paragraph after the heading lists the operators
+      inline, e.g. ``"The relations = ] [ and ]] do not imply..."``.
+      Extracted by tokenising on operator-character runs.
+    """
+    pages_dir = site_dir / "pages"
+    if not pages_dir.is_dir():
+        return []
+    out: list[AnnoOperator] = []
+    for page in sorted(pages_dir.glob(f"{_LANGUAGE_PAGE_PREFIX}*.html")):
+        out.extend(_extract_operators_page(page))
+    out.sort(key=lambda o: (o.operator_class, o.symbol))
+    return out
+
+
+def write_operators_tsv(ops: list[AnnoOperator], out: Path) -> None:
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, delimiter="\t", lineterminator="\n")
+        writer.writerow(_OPERATOR_COLUMNS)
+        for op in ops:
+            writer.writerow([getattr(op, c) for c in _OPERATOR_COLUMNS])
+
+
+def _extract_operators_page(page: Path) -> list[AnnoOperator]:
+    soup = BeautifulSoup(page.read_bytes(), "lxml")
+    h3 = soup.find("h3")
+    if h3 is None:
+        return []
+    heading = _normspace(h3.get_text(separator=" "))
+    section_match = _SECTION_HEADING.match(heading)
+    if section_match:
+        section = section_match.group("sec")
+    else:
+        # Some operator pages have multi-word names that don't fit the
+        # SECTION_HEADING regex (e.g. "7.2.2.4 Logical operator logicalop").
+        # Pull the section number off the front directly.
+        section = heading.split(" ", 1)[0]
+
+    klass = _operator_class_for(section)
+    if klass is None:
+        return []
+
+    rel = page.relative_to(page.parent.parent).as_posix()
+    src = f"{rel}#{section}"
+    out: list[AnnoOperator] = []
+    seen: set[str] = set()
+
+    # Path 1: per-operator table.
+    for table in h3.find_all_next("table"):
+        rows = table.find_all("tr")
+        for row in rows:
+            cells = row.find_all("td")
+            if len(cells) < 2:
+                continue
+            sym = _normspace(cells[0].get_text(separator=" "))
+            if sym and _looks_like_operator(sym) and sym not in seen:
+                out.append(
+                    AnnoOperator(
+                        symbol=sym,
+                        operator_class=klass,
+                        description=_normspace(
+                            cells[1].get_text(separator=" ")
+                        ),
+                        standard_status_hint="ansi",
+                        source_section=src,
+                    )
+                )
+                seen.add(sym)
+        if out:
+            break  # Stop after the first table that yielded operators.
+
+    # Path 2: prose extraction from the first descriptive paragraph.
+    if not out:
+        first_p = h3.find_next("p")
+        if first_p is not None:
+            prose = _normspace(first_p.get_text(separator=" "))
+            for sym in _operator_symbols_in_prose(prose):
+                if sym not in seen:
+                    out.append(
+                        AnnoOperator(
+                            symbol=sym,
+                            operator_class=klass,
+                            description=prose,
+                            standard_status_hint="ansi",
+                            source_section=src,
+                        )
+                    )
+                    seen.add(sym)
+
+    return out
+
+
+def _operator_class_for(section: str) -> str | None:
+    for prefix, klass, _label in _OPERATOR_CLASS_BY_SECTION:
+        if section == prefix or section.startswith(prefix + "."):
+            return klass
+    return None
+
+
+def _looks_like_operator(s: str) -> bool:
+    if not s:
+        return False
+    return all(ch in _OPERATOR_SYMBOL_CHARS for ch in s) and len(s) <= 3
+
+
+def _operator_symbols_in_prose(prose: str) -> list[str]:
+    """Pull standalone operator-character runs out of a sentence.
+
+    Matches runs of characters from ``_OPERATOR_SYMBOL_CHARS`` that are
+    surrounded by whitespace or sentence punctuation, so unrelated uses
+    of these characters inside identifiers don't trigger false matches.
+    """
+    pattern = re.compile(
+        rf"(?:^|[\s,;()])([{re.escape(_OPERATOR_SYMBOL_CHARS)}]{{1,3}})"
+        rf"(?=[\s,;.()]|$)"
+    )
+    out: list[str] = []
+    seen: set[str] = set()
+    for match in pattern.finditer(prose):
+        sym = match.group(1)
+        # Skip pure-punctuation matches that aren't real operators
+        # (e.g. lone ``,`` or ``;``).
+        if sym in seen or sym in (".", ","):
+            continue
+        if not _looks_like_operator(sym):
+            continue
+        out.append(sym)
+        seen.add(sym)
+    return out
+
+
+def _extract_error_page(page: Path) -> AnnoError | None:
+    soup = BeautifulSoup(page.read_bytes(), "lxml")
+    for table in soup.find_all("table"):
+        rows = table.find_all("tr")
+        for row in rows:
+            cells = row.find_all("td")
+            if len(cells) < 2:
+                continue
+            first = _normspace(cells[0].get_text(separator=" "))
+            if re.fullmatch(r"M\d{1,3}", first):
+                rel = page.relative_to(page.parent.parent).as_posix()
+                return AnnoError(
+                    mnemonic=first,
+                    summary=_normspace(cells[1].get_text(separator=" ")),
+                    kind="",
+                    standard_status_hint="ansi",
+                    source_section=f"{rel}#{first}",
+                )
+    return None
 
 
 def _walk_pages(
@@ -326,10 +571,19 @@ def main(argv: list[str] | None = None) -> int:
         svns, args.out_dir / "intrinsic-special-variables.tsv"
     )
     log.info(
-        "wrote %d intrinsic special variables -> %s/intrinsic-special-variables.tsv",
+        "wrote %d ISVs -> %s/intrinsic-special-variables.tsv",
         len(svns),
         args.out_dir,
     )
+
+    operators = extract_operators(args.site)
+    write_operators_tsv(operators, args.out_dir / "operators.tsv")
+    log.info("wrote %d operators -> %s/operators.tsv", len(operators), args.out_dir)
+
+    errors = extract_errors(args.site)
+    write_errors_tsv(errors, args.out_dir / "errors.tsv")
+    log.info("wrote %d errors -> %s/errors.tsv", len(errors), args.out_dir)
+
     return 0
 
 

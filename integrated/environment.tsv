@@ -1,0 +1,75 @@
+in_anno	in_ydb	ydb_section	standard_status	name	kind	summary
+false	true	ProgrammersGuide/ioproc.rst#APPEND	ansi	APPEND	device-parameter	APPEND Applies to: SD
+false	true	ProgrammersGuide/ioproc.rst#ATTACH	ansi	ATTACH	device-parameter	ATTACH=expr Applies to: SOC
+false	true	ProgrammersGuide/ioproc.rst#CANONICAL	ansi	CANONICAL	device-parameter	[NO]CANONICAL Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#CENABLE	ansi	CENABLE	device-parameter	[NO]CENABLE Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#CHSET	ansi	CHSET	device-parameter	CHSET=expr Applies to: All devices
+false	true	ProgrammersGuide/ioproc.rst#CLEARSCREEN	ansi	CLEARSCREEN	device-parameter	CLEARSCREEN Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#COMMAND	ansi	COMMAND	device-parameter	COMMAND=expr Applies to: PIPE
+false	true	ProgrammersGuide/ioproc.rst#CONNECT	ansi	CONNECT	device-parameter	CONNECT=expr Applies to: SOC
+false	true	ProgrammersGuide/ioproc.rst#CONVERT	ansi	CONVERT	device-parameter	[NO]CONVERT Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#CTRAP	ansi	CTRAP	device-parameter	CTRAP=$[Z]CHAR(intexpr[,...]) Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#DELETE	ansi	DELETE	device-parameter	DELETE Applies to: SD FIFO SOC(LOCAL)
+false	true	ProgrammersGuide/ioproc.rst#DELIMITER	ansi	DELIMITER	device-parameter	[NO]DELIMITER=expr Applies to: SOC
+false	true	ProgrammersGuide/ioproc.rst#DESTROY	ansi	DESTROY	device-parameter	[NO]DESTROY Applies to: SD, FIFO, SOC
+false	true	ProgrammersGuide/ioproc.rst#DETACH	ansi	DETACH	device-parameter	DETACH=expr Applies to: SOC
+false	true	ProgrammersGuide/ioproc.rst#DOWNSCROLL	ansi	DOWNSCROLL	device-parameter	DOWNSCROLL Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#ECHO	ansi	ECHO	device-parameter	[NO]ECHO Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#EDITING	ansi	EDITING	device-parameter	[NO]EDITING Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#EMPTERM	ansi	EMPTERM	device-parameter	[NO]EMPT[ERM] Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#ERASELINE	ansi	ERASELINE	device-parameter	ERASELINE Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#ESCAPE	ansi	ESCAPE	device-parameter	[NO]ESCAPE Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#EXCEPTION	ansi	EXCEPTION	device-parameter	EXCEPTION=expr Applies to: All devices
+false	true	ProgrammersGuide/ioproc.rst#FFLF	ansi	FFLF	device-parameter	[NO]FFLF Applies to: SD
+false	true	ProgrammersGuide/ioproc.rst#FIFO	ansi	FIFO	device-parameter	FIFO Applies to: FIFO
+false	true	ProgrammersGuide/ioproc.rst#FILTER	ansi	FILTER	device-parameter	[NO]FILTER[=expr] Applies to: TRM SOC NULL
+false	true	ProgrammersGuide/ioproc.rst#FIXED	ansi	FIXED	device-parameter	[NO]FIXED Applies to: SD FIFO PIPE
+false	true	ProgrammersGuide/ioproc.rst#FOLLOW	ansi	FOLLOW	device-parameter	[NO]FOLLOW Applies to: SD
+false	true	ProgrammersGuide/ioproc.rst#GROUP	ansi	GROUP	device-parameter	GROUP=expr Applies to: SOC(LOCAL) SD FIFO
+false	true	ProgrammersGuide/ioproc.rst#HOSTSYNC	ansi	HOSTSYNC	device-parameter	[NO]HOSTSYNC Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#HUPENABLE	ansi	HUPENABLE	device-parameter	[NO]HUPENABLE Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#ICHSET	ansi	ICHSET	device-parameter	ICHSET=expr
+false	true	ProgrammersGuide/ioproc.rst#IKEY	ansi	IKEY	device-parameter	Applies to: SD, PIPE, and FIFO
+false	true	ProgrammersGuide/ioproc.rst#INDEPENDENT	ansi	INDEPENDENT	device-parameter	INDEPENDENT Applies to: PIPE
+false	true	ProgrammersGuide/ioproc.rst#INREWIND	ansi	INREWIND	device-parameter	Applies to: SD
+false	true	ProgrammersGuide/ioproc.rst#INSERT	ansi	INSERT	device-parameter	[NO]INSERT Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#IOERROR	ansi	IOERROR	device-parameter	IOERROR=expr Applies to: SOC
+false	true	ProgrammersGuide/ioproc.rst#KEY	ansi	KEY	device-parameter	Applies to: SD, PIPE, and FIFO
+false	true	ProgrammersGuide/ioproc.rst#LENGTH	ansi	LENGTH	device-parameter	[Z]LENGTH=intexpr Applies to: TRM SOC SD FIFO PIPE NULL
+false	true	ProgrammersGuide/ioproc.rst#LISTEN	ansi	LISTEN	device-parameter	LISTEN=expr Applies to: SOC
+false	true	ProgrammersGuide/ioproc.rst#MOREREADTIME	ansi	MOREREADTIME	device-parameter	MOREREADTIME=intexpr Applies to: SOC
+false	true	ProgrammersGuide/ioproc.rst#NEWVERSION	ansi	NEWVERSION	device-parameter	NEWVERSION Applies to: SD FIFO SOC(LOCAL)
+false	true	ProgrammersGuide/ioproc.rst#OCHSET	ansi	OCHSET	device-parameter	OCHSET=expr Applies to: All devices
+false	true	ProgrammersGuide/ioproc.rst#OKEY	ansi	OKEY	device-parameter	Applies to: SD, PIPE, and FIFO
+false	true	ProgrammersGuide/ioproc.rst#OPTIONS	ansi	OPTIONS	device-parameter	See :ref:`Socket Deviceparameter Options <socket-deviceparameter-options>` for details.
+false	true	ProgrammersGuide/ioproc.rst#OUTREWIND	ansi	OUTREWIND	device-parameter	Applies to: SD
+false	true	ProgrammersGuide/ioproc.rst#OWNER	ansi	OWNER	device-parameter	OWNER=expr Applies to: SOC(LOCAL) SD FIFO
+false	true	ProgrammersGuide/ioproc.rst#PAD	ansi	PAD	device-parameter	PAD=expr Applies to: SD FIFO PIPE
+false	true	ProgrammersGuide/ioproc.rst#PARSE	ansi	PARSE	device-parameter	PARSE Applies to: PIPE
+false	true	ProgrammersGuide/ioproc.rst#PASTHRU	ansi	PASTHRU	device-parameter	[NO]PASTHRU Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#READONLY	ansi	READONLY	device-parameter	[NO]READONLY Applies to: SD FIFO PIPE
+false	true	ProgrammersGuide/ioproc.rst#READSYNC	ansi	READSYNC	device-parameter	[NO]READSYNC Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#RECORDSIZE	ansi	RECORDSIZE	device-parameter	RECORDSIZE=intexpr Applies to: SD FIFO PIPE
+false	true	ProgrammersGuide/ioproc.rst#RENAME	ansi	RENAME	device-parameter	RENAME=expr Applies to: SD
+false	true	ProgrammersGuide/ioproc.rst#REPLACE	ansi	REPLACE	device-parameter	REPLACE=expr Applies to SD
+false	true	ProgrammersGuide/ioproc.rst#REWIND	ansi	REWIND	device-parameter	REWIND Applies to: SD
+false	true	ProgrammersGuide/ioproc.rst#SHELL	ansi	SHELL	device-parameter	SHELL Applies to: PIPE
+false	true	ProgrammersGuide/ioproc.rst#SOCKET	ansi	SOCKET	device-parameter	SOCKET=expr Applies to: SOC
+false	true	ProgrammersGuide/ioproc.rst#STDERR	ansi	STDERR	device-parameter	STDERR Applies to: PIPE
+false	true	ProgrammersGuide/ioproc.rst#STREAM	ansi	STREAM	device-parameter	[NO]STREAM Applies to: SD FIFO PIPE
+false	true	ProgrammersGuide/ioproc.rst#TERMINATOR	ansi	TERMINATOR	device-parameter	[NO]TERMINATOR[=expr] Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#TIMEOUT	ansi	TIMEOUT	device-parameter	TIMEOUT=expr Applies to: PIPE
+false	true	ProgrammersGuide/ioproc.rst#TRUNCATE	ansi	TRUNCATE	device-parameter	[NO]TRUNCATE Applies to: SD
+false	true	ProgrammersGuide/ioproc.rst#TTSYNC	ansi	TTSYNC	device-parameter	[NO]TTSYNC Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#TYPEAHEAD	ansi	TYPEAHEAD	device-parameter	[NO]TYPEAHEAD Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#UIC	ansi	UIC	device-parameter	UIC=expr Applies to: SOC(LOCAL) SD FIFO
+false	true	ProgrammersGuide/ioproc.rst#UPSCROLL	ansi	UPSCROLL	device-parameter	UPSCROLL Applies to: TRM
+false	true	ProgrammersGuide/ioproc.rst#VARIABLE	ansi	VARIABLE	device-parameter	VARIABLE Applies to: SD FIFO PIPE
+false	true	ProgrammersGuide/ioproc.rst#WIDTH	ansi	WIDTH	device-parameter	[Z]WIDTH=intexpr Applies to: TRM SOC NULL SD FIFO PIPE
+false	true	ProgrammersGuide/ioproc.rst#WORLD	ansi	WORLD	device-parameter	WORLD=expr Applies to: SOC(LOCAL) SD FIFO
+false	true	ProgrammersGuide/ioproc.rst#WRAP	ansi	WRAP	device-parameter	[NO]WRAP Applies to: TRM SD NULL FIFO PIPE SOC
+false	true	ProgrammersGuide/ioproc.rst#WRITEONLY	ansi	WRITEONLY	device-parameter	[NO]WRITEONLY Applies to: PIPE
+false	true	ProgrammersGuide/ioproc.rst#ZBFSIZE	ydb-extension	ZBFSIZE	device-parameter	ZBFSIZE Applies to: SOC
+false	true	ProgrammersGuide/ioproc.rst#ZDELAY	ydb-extension	ZDELAY	device-parameter	Z[NO]DELAY Applies to: SOC(TCP)
+false	true	ProgrammersGuide/ioproc.rst#ZFF	ydb-extension	ZFF	device-parameter	Z[NO]FF=expr Applied to: SOC
+false	true	ProgrammersGuide/ioproc.rst#ZIBFSIZE	ydb-extension	ZIBFSIZE	device-parameter	ZIBFSIZE Applies to: SOC

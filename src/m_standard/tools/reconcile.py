@@ -76,20 +76,23 @@ def reconcile_special_variables(
 
 
 def _reconcile_named_concept(
-    anno_path: Path, ydb_path: Path, *, concept: str
+    anno_path: Path,
+    ydb_path: Path,
+    *,
+    concept: str,
+    key_field: str = "canonical_name",
 ) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
-    """Generic reconciliation for concepts keyed by ``canonical_name``.
+    """Generic reconciliation for concepts keyed by a single field.
 
-    Used for commands, intrinsic functions, and intrinsic special
-    variables — all of which share the same per-source schema (name,
-    abbreviation, format, standard_status_hint, source_section,
-    description) and the same matching rule (join on canonical_name).
+    Used for commands, intrinsic functions, intrinsic special variables
+    (key_field=canonical_name), and now also operators (key_field=symbol)
+    and errors (key_field=mnemonic) once both sources contribute rows.
     """
     anno_rows = _read_tsv(anno_path)
     ydb_rows = _read_tsv(ydb_path)
 
-    anno_by_name = {r["canonical_name"]: r for r in anno_rows}
-    ydb_by_name = {r["canonical_name"]: r for r in ydb_rows}
+    anno_by_name = {r[key_field]: r for r in anno_rows}
+    ydb_by_name = {r[key_field]: r for r in ydb_rows}
     all_names = sorted(set(anno_by_name) | set(ydb_by_name))
 
     integrated: list[dict[str, str]] = []
@@ -206,43 +209,160 @@ def reconcile_commands_to_tsv(
     _write_tsv(cpath, CONFLICTS_COLUMNS, conflicts)
 
 
+_INTEGRATED_OPERATOR_COLUMNS: tuple[str, ...] = (
+    "symbol",
+    "operator_class",
+    "description",
+    "standard_status",
+    "in_anno",
+    "in_ydb",
+    "anno_section",
+    "ydb_section",
+    "conflict_id",
+    "notes",
+)
+
+_INTEGRATED_ERROR_COLUMNS: tuple[str, ...] = (
+    "mnemonic",
+    "summary",
+    "kind",
+    "standard_status",
+    "in_anno",
+    "in_ydb",
+    "anno_section",
+    "ydb_section",
+    "conflict_id",
+    "notes",
+)
+
+
+def reconcile_operators(
+    anno_path: Path, ydb_path: Path
+) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+    """Join operators on (operator_class, symbol).
+
+    Both sources catalogue the M operator set. The symbol alone isn't
+    enough — though for v1.0 AnnoStd and YDB happen to use the same
+    operator_class labels for every shared operator. Class is included
+    in the key for forward compatibility.
+    """
+    anno_rows = _read_tsv(anno_path)
+    ydb_rows = _read_tsv(ydb_path)
+    anno_by_key = {(r["operator_class"], r["symbol"]): r for r in anno_rows}
+    ydb_by_key = {(r["operator_class"], r["symbol"]): r for r in ydb_rows}
+    all_keys = sorted(set(anno_by_key) | set(ydb_by_key))
+
+    integrated: list[dict[str, str]] = []
+    conflicts: list[dict[str, str]] = []
+    next_conflict_id = 1
+    for key in all_keys:
+        a = anno_by_key.get(key)
+        y = ydb_by_key.get(key)
+        in_anno, in_ydb = a is not None, y is not None
+        klass, symbol = key
+        standard_status = "ansi" if in_anno else "ydb-extension"
+        description = (
+            (y or a or {}).get("description", "")  # type: ignore[union-attr]
+        )
+        conflict_id = ""
+        if in_anno and not in_ydb:
+            conflict_id = f"CONF-{next_conflict_id:03d}"
+            next_conflict_id += 1
+            conflicts.append(
+                {
+                    "conflict_id": conflict_id,
+                    "concept": "operators",
+                    "entry": f"{klass}/{symbol}",
+                    "kind": "existence",
+                    "anno_says": "(present)",
+                    "ydb_says": "absent",
+                    "resolution": "kept (AnnoStd is normative)",
+                    "resolution_basis": "AD-01 (AnnoStd normative)",
+                }
+            )
+        integrated.append(
+            {
+                "symbol": symbol,
+                "operator_class": klass,
+                "description": description,
+                "standard_status": standard_status,
+                "in_anno": "true" if in_anno else "false",
+                "in_ydb": "true" if in_ydb else "false",
+                "anno_section": a["source_section"] if a else "",
+                "ydb_section": y["source_section"] if y else "",
+                "conflict_id": conflict_id,
+                "notes": "",
+            }
+        )
+    return integrated, conflicts
+
+
+def reconcile_errors(
+    anno_path: Path, ydb_path: Path
+) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+    """Join errors on mnemonic.
+
+    AnnoStd's standard codes are ``M1``..``M112`` (Annex B); YDB's
+    vendor mnemonics are alphanumeric tokens like ``ABNCOMPTINC``.
+    The two namespaces don't overlap by construction, so the integrated
+    layer is essentially the union — but the join framework still
+    works and the in_anno/in_ydb flags carry useful provenance.
+    """
+    anno_rows = _read_tsv(anno_path)
+    ydb_rows = _read_tsv(ydb_path)
+    anno_by_key = {r["mnemonic"]: r for r in anno_rows}
+    ydb_by_key = {r["mnemonic"]: r for r in ydb_rows}
+    all_keys = sorted(set(anno_by_key) | set(ydb_by_key))
+
+    integrated: list[dict[str, str]] = []
+    for key in all_keys:
+        a = anno_by_key.get(key)
+        y = ydb_by_key.get(key)
+        in_anno, in_ydb = a is not None, y is not None
+        standard_status = "ansi" if in_anno else "ydb-extension"
+        # Prefer YDB summary (more descriptive) when both present.
+        summary = (y or a or {}).get("summary", "")  # type: ignore[union-attr]
+        kind = (y or a or {}).get("kind", "")  # type: ignore[union-attr]
+        integrated.append(
+            {
+                "mnemonic": key,
+                "summary": summary,
+                "kind": kind,
+                "standard_status": standard_status,
+                "in_anno": "true" if in_anno else "false",
+                "in_ydb": "true" if in_ydb else "false",
+                "anno_section": a["source_section"] if a else "",
+                "ydb_section": y["source_section"] if y else "",
+                "conflict_id": "",
+                "notes": "",
+            }
+        )
+    return integrated, []  # No conflicts: namespaces don't overlap.
+
+
 def reconcile_all(per_source: Path, out_dir: Path) -> None:
     """Reconcile every concept family present in ``per_source/``.
 
-    Three modes per concept:
-    1. Both sources present (commands, intrinsic-functions,
+    Modes:
+    1. Both-source named concepts (commands, intrinsic-functions,
        intrinsic-special-variables): join on canonical_name.
-    2. YDB-only (operators, pattern-codes, errors): pass through with
-       in_anno=false on every row. Per BL-009 these families are
-       deferred from AnnoStd extraction in v1.0.
-    3. Missing from both: skipped.
-
-    All conflict rows from all named-concept reconciliations are
-    accumulated into a single ``conflicts.tsv``.
+    2. Both-source typed concepts (operators, errors): use specialised
+       reconcilers (operators on (class, symbol); errors on mnemonic).
+    3. YDB-only (pattern-codes): pass through with in_anno=false.
     """
     out_dir.mkdir(parents=True, exist_ok=True)
     all_conflicts: list[dict[str, str]] = []
     next_conflict_id = 1
 
-    # Named concepts (both sources contribute).
+    # Named concepts (both sources contribute, key=canonical_name).
     for concept in ("commands", "intrinsic-functions", "intrinsic-special-variables"):
         anno = per_source / "anno" / f"{concept}.tsv"
         ydb = per_source / "ydb" / f"{concept}.tsv"
         if not (anno.exists() or ydb.exists()):
             continue
         integrated, conflicts = _reconcile_named_concept(anno, ydb, concept=concept)
-        # Renumber conflict IDs into the global sequence.
-        renumbered: list[dict[str, str]] = []
-        for c in conflicts:
-            new_id = f"CONF-{next_conflict_id:03d}"
-            next_conflict_id += 1
-            old_id = c["conflict_id"]
-            for row in integrated:
-                if row.get("conflict_id") == old_id:
-                    row["conflict_id"] = new_id
-            new_c = dict(c)
-            new_c["conflict_id"] = new_id
-            renumbered.append(new_c)
+        renumbered = _renumber_conflicts(conflicts, integrated, next_conflict_id)
+        next_conflict_id += len(renumbered)
         _write_tsv(out_dir / f"{concept}.tsv", INTEGRATED_COMMAND_COLUMNS, integrated)
         all_conflicts.extend(renumbered)
         log.info(
@@ -250,14 +370,42 @@ def reconcile_all(per_source: Path, out_dir: Path) -> None:
             concept, len(integrated), len(renumbered),
         )
 
-    # YDB-only concepts (pass-through with in_anno=false markers).
+    # Operators: both sources contribute, specialised join on (class, symbol).
+    anno_ops = per_source / "anno" / "operators.tsv"
+    ydb_ops = per_source / "ydb" / "operators.tsv"
+    if ydb_ops.exists():
+        integrated, conflicts = reconcile_operators(anno_ops, ydb_ops)
+        renumbered = _renumber_conflicts(conflicts, integrated, next_conflict_id)
+        next_conflict_id += len(renumbered)
+        _write_tsv(out_dir / "operators.tsv", _INTEGRATED_OPERATOR_COLUMNS, integrated)
+        all_conflicts.extend(renumbered)
+        log.info(
+            "reconciled operators: %d rows, %d conflicts",
+            len(integrated), len(renumbered),
+        )
+
+    # Errors: union of M-codes (AnnoStd) and vendor mnemonics (YDB).
+    anno_errs = per_source / "anno" / "errors.tsv"
+    ydb_errs = per_source / "ydb" / "errors.tsv"
+    if ydb_errs.exists() or anno_errs.exists():
+        integrated, conflicts = reconcile_errors(anno_errs, ydb_errs)
+        _write_tsv(out_dir / "errors.tsv", _INTEGRATED_ERROR_COLUMNS, integrated)
+        log.info("reconciled errors: %d rows", len(integrated))
+
+    # YDB-only pass-through families:
+    # - pattern-codes: AnnoStd renders these only in Edition=examples
+    #   (page a901017), not in Edition=1995's main grammar.
+    # - environment: device I/O parameters from YDB ioproc.rst; the
+    #   AnnoStd device-parameter chapters are in BNF form. Lock /
+    #   transaction / error-handling semantics for the environment
+    #   family are covered by entries already in commands.tsv (LOCK,
+    #   TSTART, TCOMMIT, TROLLBACK, TRESTART) and ISVs ($ETRAP,
+    #   $ECODE, $ESTACK, $STACK).
     for concept, columns_in_ydb in (
         ("pattern-codes", ("code", "description", "standard_status_hint",
                            "source_section")),
-        ("operators", ("symbol", "operator_class", "description",
-                       "standard_status_hint", "source_section")),
-        ("errors", ("mnemonic", "summary", "kind", "standard_status_hint",
-                    "source_section")),
+        ("environment", ("name", "kind", "summary",
+                         "standard_status_hint", "source_section")),
     ):
         ydb = per_source / "ydb" / f"{concept}.tsv"
         if not ydb.exists():
@@ -278,6 +426,32 @@ def reconcile_all(per_source: Path, out_dir: Path) -> None:
         "wrote %d total conflicts -> %s/conflicts.tsv",
         len(all_conflicts), out_dir,
     )
+
+
+def _renumber_conflicts(
+    conflicts: list[dict[str, str]],
+    integrated_rows: list[dict[str, str]],
+    start_id: int,
+) -> list[dict[str, str]]:
+    """Re-stamp conflict IDs into the global sequence.
+
+    Per-concept reconcilers count conflicts from ``CONF-001``; the
+    orchestrator gives each one a unique global ID and propagates the
+    new ID into any integrated row that references it.
+    """
+    renumbered: list[dict[str, str]] = []
+    next_id = start_id
+    for c in conflicts:
+        new_id = f"CONF-{next_id:03d}"
+        next_id += 1
+        old_id = c["conflict_id"]
+        for row in integrated_rows:
+            if row.get("conflict_id") == old_id:
+                row["conflict_id"] = new_id
+        new_c = dict(c)
+        new_c["conflict_id"] = new_id
+        renumbered.append(new_c)
+    return renumbered
 
 
 def _passthrough_ydb_only(

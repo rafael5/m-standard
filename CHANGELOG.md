@@ -12,10 +12,11 @@ The project follows two parallel version axes (per ADR-005):
 
 Breaking schema changes are flagged with **[breaking]** in entries.
 
-## [Unreleased]
+## [1.0.0] — 2026-04-25
 
-Initial public draft. Pipeline runs end-to-end (`make all`):
+First tagged release. Pipeline runs end-to-end (`make all`):
 `sources/` → `per-source/` → `integrated/` (TSV + JSON) → CI validation.
+All seven concept families from spec §5 produce an integrated table.
 
 ### Schema
 
@@ -28,15 +29,20 @@ Initial public draft. Pipeline runs end-to-end (`make all`):
 | commands | 50 | 40 | 26 | |
 | intrinsic-functions | 60 | 28 | 22 | |
 | intrinsic-special-variables | 65 | 17 | 16 | |
-| operators | 16 | — | — | AnnoStd BNF deferred (BL-009) |
-| pattern-codes | 7 | — | — | AnnoStd BNF deferred (BL-009) |
-| errors | 1601 | — | — | ANSI M1–M75 in AnnoStd deferred (BL-009) |
-| environment | — | — | — | Not extracted in v1.0 (BL-009) |
+| operators | 16 | 16 | 15 | Underscore (concatenation) is in AnnoStd's `string` class but YDB has no string class — recorded as conflict CONF-022. |
+| pattern-codes | 7 | 0 | — | AnnoStd's patcode letters are in `Edition=examples` only, not 1995 main grammar (BL-010). |
+| errors | 1601 | 112 | 0 | AnnoStd Annex B (M1–M112) and YDB vendor mnemonics use disjoint namespaces; integrated table is the union. |
+| environment | 74 | 0 | — | Device I/O parameters from YDB ioproc.rst (BL-011). AnnoStd's BNF-form device chapters deferred. |
 
 ### Conflicts
 
-21 reconciliation conflicts, all `kind=existence` (entries in AnnoStd's
-1995 standard but not implemented by YottaDB). 0 `definition` conflicts.
+22 reconciliation conflicts:
+- 21 `kind=existence` (entries in AnnoStd's 1995 standard but not
+  implemented by YottaDB — async I/O, events, RLOAD/RSAVE, etc.).
+- 1 `kind=existence` for the underscore operator's class divergence
+  between AnnoStd and YDB (CONF-022).
+
+0 `kind=definition` conflicts.
 
 ### Source pins
 

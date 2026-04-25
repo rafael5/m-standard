@@ -135,16 +135,17 @@ parameters to record.
 
 ## 4. Operators
 
-M operators fall into four classes. For v1.0, the integrated
-operators table is sourced from YottaDB only — AnnoStd renders
-operators as BNF railroad diagrams (chapters 7.2.1, 7.2.2) which
-need bespoke extraction work deferred to v0.2 (see
-[`docs/build-log.md`](build-log.md) BL-009). The 16 operators
-captured are all standard ANSI operators; YottaDB does not add any
-operator-class extensions.
+M operators fall into four classes (five if you count AnnoStd's
+separate `string` class for concatenation). v1.0 reconciles 17
+operator entries across both sources; 15 are present in both, 1 is
+YDB-only (the unary NOT `'`, which AnnoStd happens to document under
+`!` and `&` rather than as a standalone operator), and 1 is
+AnnoStd-only (the underscore `_` concatenation operator, which YDB
+catalogues under string-relational rather than as its own class —
+recorded as conflict CONF-022).
 
 **Coverage:** [`integrated/operators.tsv`](../integrated/operators.tsv)
-holds 16 operators.
+holds 17 operator entries.
 
 | Class | Operators | Notes |
 | --- | --- | --- |
@@ -189,44 +190,56 @@ deferred to v0.2.
 
 ## 6. Errors
 
-`integrated/errors.tsv` holds 1601 error mnemonics — every error
-YottaDB documents in `MessageRecovery/errors.rst`. All entries are
-flagged `ydb-extension` because the 1995 ANSI standard's `M1`–`M75`
-error condition codes are not catalogued by YottaDB in this file;
-they live in AnnoStd's "Conforming Implementations" chapter and need
-a separate extractor pass (deferred to v0.2 — see BL-009).
+`integrated/errors.tsv` holds 1713 error entries from two disjoint
+namespaces:
 
-YottaDB error mnemonics are uppercase alphanumeric tokens grouped
-loosely by subsystem. The first row gives the gist:
+- **AnnoStd Annex B M-codes** (112 entries, `M1`–`M112`).
+  `standard_status=ansi`, sourced from `pages/ab*.html`. The 1995
+  ANSI standard catalogues codes M1–M75; codes above that are
+  post-1995 MDC drafts that AnnoStd preserves.
+- **YottaDB vendor mnemonics** (1601 entries). Uppercase
+  alphanumeric tokens grouped loosely by subsystem
+  (`ABNCOMPTINC`, `ZPRINTECVIO`, etc.), all flagged
+  `ydb-extension`.
 
-```
-mnemonic     ABNCOMPTINC
-summary      Deviceparameter xxxx and deviceparameter yyyy are not
-             compatible in the zzzz command
-kind         Compile Time Error
-```
+The two namespaces don't overlap — there's no mapping between
+"M9 divide by zero" and YDB's `DIVZERO` (the symbolic name).
+The integrated table records both verbatim so downstream tools can
+choose which they care about.
 
 The integrated table is most useful as an enumeration source for
 linters and tooling that needs to recognise error names; the actual
 human-readable explanation lives in the source file linked from
-`ydb_section`.
+`anno_section` (for M-codes) or `ydb_section` (for vendor mnemonics).
 
 ---
 
 ## 7. Environment
 
-This concept family is **not extracted in v1.0**.
-
 Per spec §5.7, environment is the most heterogeneous concept family
 — process model, lock semantics, transaction semantics, device I/O
-parameters, namespace and routine resolution — and where vendors
-diverge most. Per AD-03 the per-source preservation matters most
-here, and getting it right needs more than a regex-and-table
-extractor.
+parameters, namespace and routine resolution. Most of those slots
+are populated by entries already catalogued elsewhere:
 
-[`integrated/environment.tsv`](../integrated/) does not exist in
-v1.0. A future release will add it in stages, starting with lock and
-transaction semantics where the per-source agreement is highest.
+| Aspect | Where it lives |
+| --- | --- |
+| Lock semantics | LOCK in `commands.tsv` |
+| Transaction semantics | TSTART, TCOMMIT, TROLLBACK, TRESTART in `commands.tsv` |
+| Error handling | `$ETRAP`, `$ECODE`, `$ESTACK`, `$STACK` in `intrinsic-special-variables.tsv` |
+| Device I/O parameters | `environment.tsv` (this section) |
+
+**`integrated/environment.tsv` holds 74 device I/O parameters** —
+the keyword arguments to OPEN/USE/CLOSE that control device state.
+All sourced from YottaDB's `ProgrammersGuide/ioproc.rst`; AnnoStd's
+device-parameter chapters are in BNF-railroad form and not
+extracted in v1.0.
+
+Examples: `APPEND`, `ATTACH`, `CANONICAL`, `CHSET`, `CONNECT`,
+`CTRAP`, `DELIMITER`, `ECHO`, `EDITING`, `FIXED`, `RECORDSIZE`,
+`STREAM`, `TYPEAHEAD`, `WIDTH`, `WRAP`, plus YottaDB-specific
+`ZBFSIZE`, `ZDELAY`, `ZFF`, `ZIBFSIZE` (`Z*` prefix marked
+`ydb-extension`). The full list lives in
+[`integrated/environment.tsv`](../integrated/environment.tsv).
 
 ---
 

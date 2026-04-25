@@ -42,6 +42,7 @@ _CONCEPT_KEYS: dict[str, str] = {
     "operators": "symbol",
     "pattern-codes": "code",
     "errors": "mnemonic",
+    "environment": "name",
 }
 
 # JSON Schema basenames per concept (must match emit_json.CONCEPTS).
@@ -52,6 +53,7 @@ _SCHEMA_BASENAMES: dict[str, str] = {
     "operators": "operator.schema.json",
     "pattern-codes": "pattern-code.schema.json",
     "errors": "error.schema.json",
+    "environment": "environment-entry.schema.json",
     "conflicts": "conflicts.schema.json",
 }
 

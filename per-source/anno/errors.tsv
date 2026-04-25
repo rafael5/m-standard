@@ -1,0 +1,113 @@
+mnemonic	summary	kind	standard_status_hint	source_section
+M1	naked indicator undefined		ansi	pages/ab00001.html#M1
+M2	invalid combination with P fncodatom		ansi	pages/ab00002.html#M2
+M3	$Random seed less than 1		ansi	pages/ab00003.html#M3
+M4	no true condition in $Select		ansi	pages/ab00004.html#M4
+M5	lineref less than zero		ansi	pages/ab00005.html#M5
+M6	undefined lvn		ansi	pages/ab00006.html#M6
+M7	undefined gvn		ansi	pages/ab00007.html#M7
+M8	undefined svn		ansi	pages/ab00008.html#M8
+M9	divide by zero		ansi	pages/ab00009.html#M9
+M10	invalid pattern match range		ansi	pages/ab00010.html#M10
+M11	no parameters passed		ansi	pages/ab00011.html#M11
+M12	invalid lineref (negative offset)		ansi	pages/ab00012.html#M12
+M13	invalid lineref (line not found)		ansi	pages/ab00013.html#M13
+M14	line level not 1		ansi	pages/ab00014.html#M14
+M15	undefined index variable		ansi	pages/ab00015.html#M15
+M16	argumented Quit not allowed		ansi	pages/ab00016.html#M16
+M17	argumented Quit required		ansi	pages/ab00017.html#M17
+M18	fixed length Read not greater than zero		ansi	pages/ab00018.html#M18
+M19	cannot copy a tree or subtree into itself		ansi	pages/ab00019.html#M19
+M20	line must have formallist		ansi	pages/ab00020.html#M20
+M21	algorithm specification invalid		ansi	pages/ab00021.html#M21
+M22	Set or Kill to ^$Global when data in global		ansi	pages/ab00022.html#M22
+M23	Set or Kill to ^$Job for non-existent job number		ansi	pages/ab00023.html#M23
+M24	change to collation algorithm while subscripted local variables defined		ansi	pages/ab00024.html#M24
+M25	RSave to currently executing routine		ansi	pages/ab00025.html#M25
+M26	non-existent environment		ansi	pages/ab00026.html#M26
+M27	attempt to rollback a transaction that is not restartable		ansi	pages/ab00027.html#M27
+M28	mathematical function, parameter out of range		ansi	pages/ab00028.html#M28
+M29	Set or Kill on ssvn not allowed by implementation		ansi	pages/ab00029.html#M29
+M30	reference to glvn with different collating sequence within a collating algorithm		ansi	pages/ab00030.html#M30
+M31	controlmnemonic used for device without a mnemonicspace selected		ansi	pages/ab00031.html#M31
+M32	controlmnemonic used in user-defined mnemonicspace which as no associated line		ansi	pages/ab00032.html#M32
+M33	Set or Kill to ^$Routine when routine exists		ansi	pages/ab00033.html#M33
+M34	This error code is not currently assigned		ansi	pages/ab00034.html#M34
+M35	device does not support mnemonicspace		ansi	pages/ab00035.html#M35
+M36	incompatible mnemonicspace s		ansi	pages/ab00036.html#M36
+M37	Read from device identified by the empty string		ansi	pages/ab00037.html#M37
+M38	invalid ssvn subscript		ansi	pages/ab00038.html#M38
+M39	invalid $NAme argument		ansi	pages/ab00039.html#M39
+M40	call-by-reference in Job actual		ansi	pages/ab00040.html#M40
+M41	invalid Lock argument within a TRANSACTION		ansi	pages/ab00041.html#M41
+M42	invalid Quit within a TRANSACTION		ansi	pages/ab00042.html#M42
+M43	invalid range value ( $X , $Y )		ansi	pages/ab00043.html#M43
+M44	invalid command outside of a TRANSACTION		ansi	pages/ab00044.html#M44
+M45	invalid Goto reference		ansi	pages/ab00045.html#M45
+M46	This error code is assigned to X11.6, MWAPI		ansi	pages/ab00046.html#M46
+M47	Invalid attribute value		ansi	pages/ab00047.html#M47
+M48	This error code is assigned to X11.6, MWAPI		ansi	pages/ab00048.html#M48
+M49	This error code is assigned to X11.6, MWAPI		ansi	pages/ab00049.html#M49
+M50	This error code is assigned to X11.6, MWAPI		ansi	pages/ab00050.html#M50
+M51	This error code is assigned to X11.6, MWAPI		ansi	pages/ab00051.html#M51
+M52	This error code is assigned to X11.6, MWAPI		ansi	pages/ab00052.html#M52
+M53	This error code is assigned to X11.6, MWAPI		ansi	pages/ab00053.html#M53
+M54	This error code is assigned to X11.6, MWAPI		ansi	pages/ab00054.html#M54
+M55	This error code is assigned to X11.6, MWAPI		ansi	pages/ab00055.html#M55
+M56	name length limit exceeded		ansi	pages/ab00056.html#M56
+M57	more than one defining occurrence of label in routine		ansi	pages/ab00057.html#M57
+M58	too few formal parameters		ansi	pages/ab00058.html#M58
+M59	Environment references not permitted for this ssvn		ansi	pages/ab00059.html#M59
+M60	Reference to undefined ssvn with unspecified semantics		ansi	pages/ab00060.html#M60
+M61	This error code is not currently assigned		ansi	pages/ab00061.html#M61
+M62	This error code is not currently assigned		ansi	pages/ab00062.html#M62
+M63	This error code is not currently assigned		ansi	pages/ab00063.html#M63
+M64	This error code is not currently assigned		ansi	pages/ab00064.html#M64
+M65	This error code is not currently assigned		ansi	pages/ab00065.html#M65
+M66	This error code is not currently assigned		ansi	pages/ab00066.html#M66
+M67	This error code is not currently assigned		ansi	pages/ab00067.html#M67
+M68	This error code is not currently assigned		ansi	pages/ab00068.html#M68
+M69	This error code is not currently assigned		ansi	pages/ab00069.html#M69
+M70	This error code is not currently assigned		ansi	pages/ab00070.html#M70
+M71	This error code is not currently assigned		ansi	pages/ab00071.html#M71
+M72	This error code is not currently assigned		ansi	pages/ab00072.html#M72
+M73	This error code is not currently assigned		ansi	pages/ab00073.html#M73
+M74	This error code is not currently assigned		ansi	pages/ab00074.html#M74
+M75	String length limit exceeded		ansi	pages/ab00075.html#M75
+M76	This error code is not currently assigned		ansi	pages/ab00076.html#M76
+M77	This error code is not currently assigned		ansi	pages/ab00077.html#M77
+M78	This error code is not currently assigned		ansi	pages/ab00078.html#M78
+M79	This error code is not currently assigned		ansi	pages/ab00079.html#M79
+M80	This error code is not currently assigned		ansi	pages/ab00080.html#M80
+M81	This error code is not currently assigned		ansi	pages/ab00081.html#M81
+M82	This error code is not currently assigned		ansi	pages/ab00082.html#M82
+M83	This error code is not currently assigned		ansi	pages/ab00083.html#M83
+M84	This error code is not currently assigned		ansi	pages/ab00084.html#M84
+M85	This error code is not currently assigned		ansi	pages/ab00085.html#M85
+M86	This error code is not currently assigned		ansi	pages/ab00086.html#M86
+M87	This error code is not currently assigned		ansi	pages/ab00087.html#M87
+M88	RLoad from a non-existent routine		ansi	pages/ab00088.html#M88
+M89	This error code is not currently assigned		ansi	pages/ab00089.html#M89
+M90	Invalid namevalue		ansi	pages/ab00090.html#M90
+M91	This error code is not currently assigned		ansi	pages/ab00091.html#M91
+M92	Arithmetic overflow		ansi	pages/ab00092.html#M92
+M93	This error code is not currently assigned		ansi	pages/ab00093.html#M93
+M94	Attempt to raise 0 to the power of 0		ansi	pages/ab00094.html#M94
+M95	Result-value has non-zero imaginary part		ansi	pages/ab00095.html#M95
+M96	Set or Kill to write-once ssvn node when $Data equals 1 or 11		ansi	pages/ab00096.html#M96
+M97	Routine for user-defined ssvn not found		ansi	pages/ab00097.html#M97
+M98	Resource unavailable		ansi	pages/ab00098.html#M98
+M99	Invalid operation for socket context		ansi	pages/ab00099.html#M99
+M100	Output timeout expired		ansi	pages/ab00100.html#M100
+M101	Attempt to assign incorrect value to $ECode		ansi	pages/ab00101.html#M101
+M102	Events cannot be both synchronous and asynchronous		ansi	pages/ab00102.html#M102
+M103	Invalid event identifier		ansi	pages/ab00103.html#M103
+M104	IPC event identifier is not a valid job-number		ansi	pages/ab00104.html#M104
+M105	Object not currently accessible		ansi	pages/ab00105.html#M105
+M106	Object does not support requested method or property		ansi	pages/ab00106.html#M106
+M107	Object has no default value		ansi	pages/ab00107.html#M107
+M108	Value is not of data type OREF		ansi	pages/ab00108.html#M108
+M109	Undefined devicekeyword		ansi	pages/ab00109.html#M109
+M110	Event identifier not available		ansi	pages/ab00110.html#M110
+M111	Invalid number of days for date		ansi	pages/ab00111.html#M111
+M112	Invalid number of seconds for time		ansi	pages/ab00112.html#M112

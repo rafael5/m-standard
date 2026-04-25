@@ -1,0 +1,672 @@
+{
+  "concept": "environment",
+  "entries": [
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "APPEND",
+      "standard_status": "ansi",
+      "summary": "APPEND Applies to: SD",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#APPEND"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "ATTACH",
+      "standard_status": "ansi",
+      "summary": "ATTACH=expr Applies to: SOC",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#ATTACH"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "CANONICAL",
+      "standard_status": "ansi",
+      "summary": "[NO]CANONICAL Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#CANONICAL"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "CENABLE",
+      "standard_status": "ansi",
+      "summary": "[NO]CENABLE Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#CENABLE"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "CHSET",
+      "standard_status": "ansi",
+      "summary": "CHSET=expr Applies to: All devices",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#CHSET"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "CLEARSCREEN",
+      "standard_status": "ansi",
+      "summary": "CLEARSCREEN Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#CLEARSCREEN"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "COMMAND",
+      "standard_status": "ansi",
+      "summary": "COMMAND=expr Applies to: PIPE",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#COMMAND"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "CONNECT",
+      "standard_status": "ansi",
+      "summary": "CONNECT=expr Applies to: SOC",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#CONNECT"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "CONVERT",
+      "standard_status": "ansi",
+      "summary": "[NO]CONVERT Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#CONVERT"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "CTRAP",
+      "standard_status": "ansi",
+      "summary": "CTRAP=$[Z]CHAR(intexpr[,...]) Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#CTRAP"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "DELETE",
+      "standard_status": "ansi",
+      "summary": "DELETE Applies to: SD FIFO SOC(LOCAL)",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#DELETE"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "DELIMITER",
+      "standard_status": "ansi",
+      "summary": "[NO]DELIMITER=expr Applies to: SOC",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#DELIMITER"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "DESTROY",
+      "standard_status": "ansi",
+      "summary": "[NO]DESTROY Applies to: SD, FIFO, SOC",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#DESTROY"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "DETACH",
+      "standard_status": "ansi",
+      "summary": "DETACH=expr Applies to: SOC",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#DETACH"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "DOWNSCROLL",
+      "standard_status": "ansi",
+      "summary": "DOWNSCROLL Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#DOWNSCROLL"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "ECHO",
+      "standard_status": "ansi",
+      "summary": "[NO]ECHO Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#ECHO"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "EDITING",
+      "standard_status": "ansi",
+      "summary": "[NO]EDITING Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#EDITING"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "EMPTERM",
+      "standard_status": "ansi",
+      "summary": "[NO]EMPT[ERM] Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#EMPTERM"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "ERASELINE",
+      "standard_status": "ansi",
+      "summary": "ERASELINE Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#ERASELINE"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "ESCAPE",
+      "standard_status": "ansi",
+      "summary": "[NO]ESCAPE Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#ESCAPE"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "EXCEPTION",
+      "standard_status": "ansi",
+      "summary": "EXCEPTION=expr Applies to: All devices",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#EXCEPTION"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "FFLF",
+      "standard_status": "ansi",
+      "summary": "[NO]FFLF Applies to: SD",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#FFLF"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "FIFO",
+      "standard_status": "ansi",
+      "summary": "FIFO Applies to: FIFO",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#FIFO"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "FILTER",
+      "standard_status": "ansi",
+      "summary": "[NO]FILTER[=expr] Applies to: TRM SOC NULL",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#FILTER"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "FIXED",
+      "standard_status": "ansi",
+      "summary": "[NO]FIXED Applies to: SD FIFO PIPE",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#FIXED"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "FOLLOW",
+      "standard_status": "ansi",
+      "summary": "[NO]FOLLOW Applies to: SD",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#FOLLOW"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "GROUP",
+      "standard_status": "ansi",
+      "summary": "GROUP=expr Applies to: SOC(LOCAL) SD FIFO",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#GROUP"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "HOSTSYNC",
+      "standard_status": "ansi",
+      "summary": "[NO]HOSTSYNC Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#HOSTSYNC"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "HUPENABLE",
+      "standard_status": "ansi",
+      "summary": "[NO]HUPENABLE Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#HUPENABLE"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "ICHSET",
+      "standard_status": "ansi",
+      "summary": "ICHSET=expr",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#ICHSET"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "IKEY",
+      "standard_status": "ansi",
+      "summary": "Applies to: SD, PIPE, and FIFO",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#IKEY"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "INDEPENDENT",
+      "standard_status": "ansi",
+      "summary": "INDEPENDENT Applies to: PIPE",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#INDEPENDENT"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "INREWIND",
+      "standard_status": "ansi",
+      "summary": "Applies to: SD",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#INREWIND"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "INSERT",
+      "standard_status": "ansi",
+      "summary": "[NO]INSERT Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#INSERT"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "IOERROR",
+      "standard_status": "ansi",
+      "summary": "IOERROR=expr Applies to: SOC",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#IOERROR"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "KEY",
+      "standard_status": "ansi",
+      "summary": "Applies to: SD, PIPE, and FIFO",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#KEY"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "LENGTH",
+      "standard_status": "ansi",
+      "summary": "[Z]LENGTH=intexpr Applies to: TRM SOC SD FIFO PIPE NULL",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#LENGTH"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "LISTEN",
+      "standard_status": "ansi",
+      "summary": "LISTEN=expr Applies to: SOC",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#LISTEN"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "MOREREADTIME",
+      "standard_status": "ansi",
+      "summary": "MOREREADTIME=intexpr Applies to: SOC",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#MOREREADTIME"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "NEWVERSION",
+      "standard_status": "ansi",
+      "summary": "NEWVERSION Applies to: SD FIFO SOC(LOCAL)",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#NEWVERSION"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "OCHSET",
+      "standard_status": "ansi",
+      "summary": "OCHSET=expr Applies to: All devices",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#OCHSET"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "OKEY",
+      "standard_status": "ansi",
+      "summary": "Applies to: SD, PIPE, and FIFO",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#OKEY"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "OPTIONS",
+      "standard_status": "ansi",
+      "summary": "See :ref:`Socket Deviceparameter Options <socket-deviceparameter-options>` for details.",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#OPTIONS"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "OUTREWIND",
+      "standard_status": "ansi",
+      "summary": "Applies to: SD",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#OUTREWIND"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "OWNER",
+      "standard_status": "ansi",
+      "summary": "OWNER=expr Applies to: SOC(LOCAL) SD FIFO",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#OWNER"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "PAD",
+      "standard_status": "ansi",
+      "summary": "PAD=expr Applies to: SD FIFO PIPE",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#PAD"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "PARSE",
+      "standard_status": "ansi",
+      "summary": "PARSE Applies to: PIPE",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#PARSE"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "PASTHRU",
+      "standard_status": "ansi",
+      "summary": "[NO]PASTHRU Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#PASTHRU"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "READONLY",
+      "standard_status": "ansi",
+      "summary": "[NO]READONLY Applies to: SD FIFO PIPE",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#READONLY"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "READSYNC",
+      "standard_status": "ansi",
+      "summary": "[NO]READSYNC Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#READSYNC"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "RECORDSIZE",
+      "standard_status": "ansi",
+      "summary": "RECORDSIZE=intexpr Applies to: SD FIFO PIPE",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#RECORDSIZE"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "RENAME",
+      "standard_status": "ansi",
+      "summary": "RENAME=expr Applies to: SD",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#RENAME"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "REPLACE",
+      "standard_status": "ansi",
+      "summary": "REPLACE=expr Applies to SD",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#REPLACE"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "REWIND",
+      "standard_status": "ansi",
+      "summary": "REWIND Applies to: SD",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#REWIND"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "SHELL",
+      "standard_status": "ansi",
+      "summary": "SHELL Applies to: PIPE",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#SHELL"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "SOCKET",
+      "standard_status": "ansi",
+      "summary": "SOCKET=expr Applies to: SOC",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#SOCKET"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "STDERR",
+      "standard_status": "ansi",
+      "summary": "STDERR Applies to: PIPE",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#STDERR"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "STREAM",
+      "standard_status": "ansi",
+      "summary": "[NO]STREAM Applies to: SD FIFO PIPE",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#STREAM"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "TERMINATOR",
+      "standard_status": "ansi",
+      "summary": "[NO]TERMINATOR[=expr] Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#TERMINATOR"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "TIMEOUT",
+      "standard_status": "ansi",
+      "summary": "TIMEOUT=expr Applies to: PIPE",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#TIMEOUT"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "TRUNCATE",
+      "standard_status": "ansi",
+      "summary": "[NO]TRUNCATE Applies to: SD",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#TRUNCATE"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "TTSYNC",
+      "standard_status": "ansi",
+      "summary": "[NO]TTSYNC Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#TTSYNC"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "TYPEAHEAD",
+      "standard_status": "ansi",
+      "summary": "[NO]TYPEAHEAD Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#TYPEAHEAD"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "UIC",
+      "standard_status": "ansi",
+      "summary": "UIC=expr Applies to: SOC(LOCAL) SD FIFO",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#UIC"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "UPSCROLL",
+      "standard_status": "ansi",
+      "summary": "UPSCROLL Applies to: TRM",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#UPSCROLL"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "VARIABLE",
+      "standard_status": "ansi",
+      "summary": "VARIABLE Applies to: SD FIFO PIPE",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#VARIABLE"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "WIDTH",
+      "standard_status": "ansi",
+      "summary": "[Z]WIDTH=intexpr Applies to: TRM SOC NULL SD FIFO PIPE",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#WIDTH"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "WORLD",
+      "standard_status": "ansi",
+      "summary": "WORLD=expr Applies to: SOC(LOCAL) SD FIFO",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#WORLD"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "WRAP",
+      "standard_status": "ansi",
+      "summary": "[NO]WRAP Applies to: TRM SD NULL FIFO PIPE SOC",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#WRAP"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "WRITEONLY",
+      "standard_status": "ansi",
+      "summary": "[NO]WRITEONLY Applies to: PIPE",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#WRITEONLY"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "ZBFSIZE",
+      "standard_status": "ydb-extension",
+      "summary": "ZBFSIZE Applies to: SOC",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#ZBFSIZE"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "ZDELAY",
+      "standard_status": "ydb-extension",
+      "summary": "Z[NO]DELAY Applies to: SOC(TCP)",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#ZDELAY"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "ZFF",
+      "standard_status": "ydb-extension",
+      "summary": "Z[NO]FF=expr Applied to: SOC",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#ZFF"
+    },
+    {
+      "in_anno": false,
+      "in_ydb": true,
+      "kind": "device-parameter",
+      "name": "ZIBFSIZE",
+      "standard_status": "ydb-extension",
+      "summary": "ZIBFSIZE Applies to: SOC",
+      "ydb_section": "ProgrammersGuide/ioproc.rst#ZIBFSIZE"
+    }
+  ],
+  "schema_version": "1"
+}

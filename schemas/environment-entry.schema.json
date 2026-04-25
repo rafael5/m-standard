@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://m-standard.local/schemas/error.schema.json",
-  "title": "m-standard error entry",
-  "description": "One M error condition per spec §5.6, §6.3. v1.0 catalogues YDB's mnemonics; ANSI M1-M75 set is deferred (BL-009).",
+  "$id": "https://m-standard.local/schemas/environment-entry.schema.json",
+  "title": "m-standard environment entry",
+  "description": "One environment entry (per spec §5.7, §6.3). v1.0 captures device I/O parameters from YDB; lock/transaction/error-handling semantics are covered by entries in commands.tsv and intrinsic-special-variables.tsv. AnnoStd does not contribute (BL-009).",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -17,7 +17,7 @@
     },
     "concept": {
       "type": "string",
-      "const": "errors"
+      "const": "environment"
     },
     "entries": {
       "type": "array",
@@ -25,20 +25,22 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "mnemonic",
+          "name",
+          "kind",
           "standard_status",
           "in_anno",
           "in_ydb"
         ],
         "properties": {
-          "mnemonic": {
+          "name": {
             "type": "string",
-            "pattern": "^[A-Z][A-Z0-9]+$"
-          },
-          "summary": {
-            "type": "string"
+            "minLength": 1
           },
           "kind": {
+            "type": "string",
+            "description": "Subkind within the environment family — e.g. device-parameter."
+          },
+          "summary": {
             "type": "string"
           },
           "standard_status": {
@@ -58,15 +60,6 @@
             "type": "string"
           },
           "anno_section": {
-            "type": "string"
-          },
-          "conflict_id": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "notes": {
             "type": "string"
           }
         }

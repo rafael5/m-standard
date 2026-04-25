@@ -43,6 +43,7 @@
               "logical",
               "numeric-relational",
               "string-relational",
+              "string",
               "pattern"
             ]
           },
@@ -66,6 +67,15 @@
             "type": "string"
           },
           "anno_section": {
+            "type": "string"
+          },
+          "conflict_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "notes": {
             "type": "string"
           }
         }

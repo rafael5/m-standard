@@ -1,17 +1,18 @@
-in_anno	in_ydb	ydb_section	standard_status	symbol	operator_class	description
-false	true	ProgrammersGuide/langfeat.rst#arithmetic-operators	ansi	#	arithmetic	binary operator for modulo, that is, causes M to produce the remainder from integer division of the first argument by the second
-false	true	ProgrammersGuide/langfeat.rst#arithmetic-operators	ansi	*	arithmetic	binary operator for multiplication
-false	true	ProgrammersGuide/langfeat.rst#arithmetic-operators	ansi	**	arithmetic	binary operator for exponentiation
-false	true	ProgrammersGuide/langfeat.rst#arithmetic-operators	ansi	+	arithmetic	as a unary operator it simply forces M to evaluate the expression following as numeric; as a binary operator it causes M to perform addition
-false	true	ProgrammersGuide/langfeat.rst#arithmetic-operators	ansi	-	arithmetic	as a unary operator it causes M to negate the expression following; as a binary operator it causes M to perform subtraction
-false	true	ProgrammersGuide/langfeat.rst#arithmetic-operators	ansi	/	arithmetic	binary operator for fractional division
-false	true	ProgrammersGuide/langfeat.rst#arithmetic-operators	ansi	\	arithmetic	binary operator for integer division
-false	true	ProgrammersGuide/langfeat.rst#logical-operators	ansi	!	logical	binary OR operator produces a true result if either of the expressions is true
-false	true	ProgrammersGuide/langfeat.rst#logical-operators	ansi	&	logical	binary AND operator produces a true result only if both of the expressions are true
-false	true	ProgrammersGuide/langfeat.rst#logical-operators	ansi	'	logical	unary NOT operator negates current truth-value; M accepts placement of the NOT operator next to a relational operator, for example, A'=B meaning '(A=B), i.e., NAND and next to logical operators, A'& B meaning '(A & B) i.e. NAND and A'! B meaning '(A ! B) i.e. NOR
-false	true	ProgrammersGuide/langfeat.rst#numeric-relational-operators	ansi	<	numeric-relational	binary arithmetic less than
-false	true	ProgrammersGuide/langfeat.rst#numeric-relational-operators	ansi	>	numeric-relational	binary arithmetic greater than
-false	true	ProgrammersGuide/langfeat.rst#string-relational-operators	ansi	=	string-relational	binary operator causes M to produce a TRUE if the expressions are equal
-false	true	ProgrammersGuide/langfeat.rst#string-relational-operators	ansi	[	string-relational	binary operator causes M to produce a TRUE if the first expression contains the ordered sequence of characters in the second expression
-false	true	ProgrammersGuide/langfeat.rst#string-relational-operators	ansi	]	string-relational	binary operator causes M to produce a TRUE if the first expression lexically follows the second expression in the character encoding sequence, which by default is ASCII
-false	true	ProgrammersGuide/langfeat.rst#string-relational-operators	ansi	]]	string-relational	binary operator causes M to produce a TRUE if the first expression lexically sorts after the second expression in the subscript collation sequence
+symbol	operator_class	description	standard_status	in_anno	in_ydb	anno_section	ydb_section	conflict_id	notes
+#	arithmetic	binary operator for modulo, that is, causes M to produce the remainder from integer division of the first argument by the second	ansi	true	true	pages/a107193.html#7.2.1.2	ProgrammersGuide/langfeat.rst#arithmetic-operators		
+*	arithmetic	binary operator for multiplication	ansi	true	true	pages/a107193.html#7.2.1.2	ProgrammersGuide/langfeat.rst#arithmetic-operators		
+**	arithmetic	binary operator for exponentiation	ansi	true	true	pages/a107193.html#7.2.1.2	ProgrammersGuide/langfeat.rst#arithmetic-operators		
++	arithmetic	as a unary operator it simply forces M to evaluate the expression following as numeric; as a binary operator it causes M to perform addition	ansi	true	true	pages/a107193.html#7.2.1.2	ProgrammersGuide/langfeat.rst#arithmetic-operators		
+-	arithmetic	as a unary operator it causes M to negate the expression following; as a binary operator it causes M to perform subtraction	ansi	true	true	pages/a107193.html#7.2.1.2	ProgrammersGuide/langfeat.rst#arithmetic-operators		
+/	arithmetic	binary operator for fractional division	ansi	true	true	pages/a107193.html#7.2.1.2	ProgrammersGuide/langfeat.rst#arithmetic-operators		
+\	arithmetic	binary operator for integer division	ansi	true	true	pages/a107193.html#7.2.1.2	ProgrammersGuide/langfeat.rst#arithmetic-operators		
+!	logical	binary OR operator produces a true result if either of the expressions is true	ansi	true	true	pages/a107198.html#7.2.2.4	ProgrammersGuide/langfeat.rst#logical-operators		
+&	logical	binary AND operator produces a true result only if both of the expressions are true	ansi	true	true	pages/a107198.html#7.2.2.4	ProgrammersGuide/langfeat.rst#logical-operators		
+'	logical	unary NOT operator negates current truth-value; M accepts placement of the NOT operator next to a relational operator, for example, A'=B meaning '(A=B), i.e., NAND and next to logical operators, A'& B meaning '(A & B) i.e. NAND and A'! B meaning '(A ! B) i.e. NOR	ydb-extension	false	true		ProgrammersGuide/langfeat.rst#logical-operators		
+<	numeric-relational	binary arithmetic less than	ansi	true	true	pages/a107196.html#7.2.2.2	ProgrammersGuide/langfeat.rst#numeric-relational-operators		
+>	numeric-relational	binary arithmetic greater than	ansi	true	true	pages/a107196.html#7.2.2.2	ProgrammersGuide/langfeat.rst#numeric-relational-operators		
+_	string	The underscore symbol _ is the concatenation operator. It does not imply any numeric interpretation. The value of A _ B is the string obtained by concatenating the values of A and B , with A on the left.	ansi	true	false	pages/a107192.html#7.2.1.1		CONF-022	
+=	string-relational	binary operator causes M to produce a TRUE if the expressions are equal	ansi	true	true	pages/a107197.html#7.2.2.3	ProgrammersGuide/langfeat.rst#string-relational-operators		
+[	string-relational	binary operator causes M to produce a TRUE if the first expression contains the ordered sequence of characters in the second expression	ansi	true	true	pages/a107197.html#7.2.2.3	ProgrammersGuide/langfeat.rst#string-relational-operators		
+]	string-relational	binary operator causes M to produce a TRUE if the first expression lexically follows the second expression in the character encoding sequence, which by default is ASCII	ansi	true	true	pages/a107197.html#7.2.2.3	ProgrammersGuide/langfeat.rst#string-relational-operators		
+]]	string-relational	binary operator causes M to produce a TRUE if the first expression lexically sorts after the second expression in the subscript collation sequence	ansi	true	true	pages/a107197.html#7.2.2.3	ProgrammersGuide/langfeat.rst#string-relational-operators		

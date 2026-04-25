@@ -1,0 +1,75 @@
+name	kind	summary	standard_status_hint	source_section
+APPEND	device-parameter	APPEND Applies to: SD	ansi	ProgrammersGuide/ioproc.rst#APPEND
+ATTACH	device-parameter	ATTACH=expr Applies to: SOC	ansi	ProgrammersGuide/ioproc.rst#ATTACH
+CANONICAL	device-parameter	[NO]CANONICAL Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#CANONICAL
+CENABLE	device-parameter	[NO]CENABLE Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#CENABLE
+CHSET	device-parameter	CHSET=expr Applies to: All devices	ansi	ProgrammersGuide/ioproc.rst#CHSET
+CLEARSCREEN	device-parameter	CLEARSCREEN Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#CLEARSCREEN
+COMMAND	device-parameter	COMMAND=expr Applies to: PIPE	ansi	ProgrammersGuide/ioproc.rst#COMMAND
+CONNECT	device-parameter	CONNECT=expr Applies to: SOC	ansi	ProgrammersGuide/ioproc.rst#CONNECT
+CONVERT	device-parameter	[NO]CONVERT Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#CONVERT
+CTRAP	device-parameter	CTRAP=$[Z]CHAR(intexpr[,...]) Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#CTRAP
+DELETE	device-parameter	DELETE Applies to: SD FIFO SOC(LOCAL)	ansi	ProgrammersGuide/ioproc.rst#DELETE
+DELIMITER	device-parameter	[NO]DELIMITER=expr Applies to: SOC	ansi	ProgrammersGuide/ioproc.rst#DELIMITER
+DESTROY	device-parameter	[NO]DESTROY Applies to: SD, FIFO, SOC	ansi	ProgrammersGuide/ioproc.rst#DESTROY
+DETACH	device-parameter	DETACH=expr Applies to: SOC	ansi	ProgrammersGuide/ioproc.rst#DETACH
+DOWNSCROLL	device-parameter	DOWNSCROLL Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#DOWNSCROLL
+ECHO	device-parameter	[NO]ECHO Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#ECHO
+EDITING	device-parameter	[NO]EDITING Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#EDITING
+EMPTERM	device-parameter	[NO]EMPT[ERM] Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#EMPTERM
+ERASELINE	device-parameter	ERASELINE Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#ERASELINE
+ESCAPE	device-parameter	[NO]ESCAPE Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#ESCAPE
+EXCEPTION	device-parameter	EXCEPTION=expr Applies to: All devices	ansi	ProgrammersGuide/ioproc.rst#EXCEPTION
+FFLF	device-parameter	[NO]FFLF Applies to: SD	ansi	ProgrammersGuide/ioproc.rst#FFLF
+FIFO	device-parameter	FIFO Applies to: FIFO	ansi	ProgrammersGuide/ioproc.rst#FIFO
+FILTER	device-parameter	[NO]FILTER[=expr] Applies to: TRM SOC NULL	ansi	ProgrammersGuide/ioproc.rst#FILTER
+FIXED	device-parameter	[NO]FIXED Applies to: SD FIFO PIPE	ansi	ProgrammersGuide/ioproc.rst#FIXED
+FOLLOW	device-parameter	[NO]FOLLOW Applies to: SD	ansi	ProgrammersGuide/ioproc.rst#FOLLOW
+GROUP	device-parameter	GROUP=expr Applies to: SOC(LOCAL) SD FIFO	ansi	ProgrammersGuide/ioproc.rst#GROUP
+HOSTSYNC	device-parameter	[NO]HOSTSYNC Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#HOSTSYNC
+HUPENABLE	device-parameter	[NO]HUPENABLE Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#HUPENABLE
+ICHSET	device-parameter	ICHSET=expr	ansi	ProgrammersGuide/ioproc.rst#ICHSET
+IKEY	device-parameter	Applies to: SD, PIPE, and FIFO	ansi	ProgrammersGuide/ioproc.rst#IKEY
+INDEPENDENT	device-parameter	INDEPENDENT Applies to: PIPE	ansi	ProgrammersGuide/ioproc.rst#INDEPENDENT
+INREWIND	device-parameter	Applies to: SD	ansi	ProgrammersGuide/ioproc.rst#INREWIND
+INSERT	device-parameter	[NO]INSERT Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#INSERT
+IOERROR	device-parameter	IOERROR=expr Applies to: SOC	ansi	ProgrammersGuide/ioproc.rst#IOERROR
+KEY	device-parameter	Applies to: SD, PIPE, and FIFO	ansi	ProgrammersGuide/ioproc.rst#KEY
+LENGTH	device-parameter	[Z]LENGTH=intexpr Applies to: TRM SOC SD FIFO PIPE NULL	ansi	ProgrammersGuide/ioproc.rst#LENGTH
+LISTEN	device-parameter	LISTEN=expr Applies to: SOC	ansi	ProgrammersGuide/ioproc.rst#LISTEN
+MOREREADTIME	device-parameter	MOREREADTIME=intexpr Applies to: SOC	ansi	ProgrammersGuide/ioproc.rst#MOREREADTIME
+NEWVERSION	device-parameter	NEWVERSION Applies to: SD FIFO SOC(LOCAL)	ansi	ProgrammersGuide/ioproc.rst#NEWVERSION
+OCHSET	device-parameter	OCHSET=expr Applies to: All devices	ansi	ProgrammersGuide/ioproc.rst#OCHSET
+OKEY	device-parameter	Applies to: SD, PIPE, and FIFO	ansi	ProgrammersGuide/ioproc.rst#OKEY
+OPTIONS	device-parameter	See :ref:`Socket Deviceparameter Options <socket-deviceparameter-options>` for details.	ansi	ProgrammersGuide/ioproc.rst#OPTIONS
+OUTREWIND	device-parameter	Applies to: SD	ansi	ProgrammersGuide/ioproc.rst#OUTREWIND
+OWNER	device-parameter	OWNER=expr Applies to: SOC(LOCAL) SD FIFO	ansi	ProgrammersGuide/ioproc.rst#OWNER
+PAD	device-parameter	PAD=expr Applies to: SD FIFO PIPE	ansi	ProgrammersGuide/ioproc.rst#PAD
+PARSE	device-parameter	PARSE Applies to: PIPE	ansi	ProgrammersGuide/ioproc.rst#PARSE
+PASTHRU	device-parameter	[NO]PASTHRU Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#PASTHRU
+READONLY	device-parameter	[NO]READONLY Applies to: SD FIFO PIPE	ansi	ProgrammersGuide/ioproc.rst#READONLY
+READSYNC	device-parameter	[NO]READSYNC Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#READSYNC
+RECORDSIZE	device-parameter	RECORDSIZE=intexpr Applies to: SD FIFO PIPE	ansi	ProgrammersGuide/ioproc.rst#RECORDSIZE
+RENAME	device-parameter	RENAME=expr Applies to: SD	ansi	ProgrammersGuide/ioproc.rst#RENAME
+REPLACE	device-parameter	REPLACE=expr Applies to SD	ansi	ProgrammersGuide/ioproc.rst#REPLACE
+REWIND	device-parameter	REWIND Applies to: SD	ansi	ProgrammersGuide/ioproc.rst#REWIND
+SHELL	device-parameter	SHELL Applies to: PIPE	ansi	ProgrammersGuide/ioproc.rst#SHELL
+SOCKET	device-parameter	SOCKET=expr Applies to: SOC	ansi	ProgrammersGuide/ioproc.rst#SOCKET
+STDERR	device-parameter	STDERR Applies to: PIPE	ansi	ProgrammersGuide/ioproc.rst#STDERR
+STREAM	device-parameter	[NO]STREAM Applies to: SD FIFO PIPE	ansi	ProgrammersGuide/ioproc.rst#STREAM
+TERMINATOR	device-parameter	[NO]TERMINATOR[=expr] Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#TERMINATOR
+TIMEOUT	device-parameter	TIMEOUT=expr Applies to: PIPE	ansi	ProgrammersGuide/ioproc.rst#TIMEOUT
+TRUNCATE	device-parameter	[NO]TRUNCATE Applies to: SD	ansi	ProgrammersGuide/ioproc.rst#TRUNCATE
+TTSYNC	device-parameter	[NO]TTSYNC Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#TTSYNC
+TYPEAHEAD	device-parameter	[NO]TYPEAHEAD Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#TYPEAHEAD
+UIC	device-parameter	UIC=expr Applies to: SOC(LOCAL) SD FIFO	ansi	ProgrammersGuide/ioproc.rst#UIC
+UPSCROLL	device-parameter	UPSCROLL Applies to: TRM	ansi	ProgrammersGuide/ioproc.rst#UPSCROLL
+VARIABLE	device-parameter	VARIABLE Applies to: SD FIFO PIPE	ansi	ProgrammersGuide/ioproc.rst#VARIABLE
+WIDTH	device-parameter	[Z]WIDTH=intexpr Applies to: TRM SOC NULL SD FIFO PIPE	ansi	ProgrammersGuide/ioproc.rst#WIDTH
+WORLD	device-parameter	WORLD=expr Applies to: SOC(LOCAL) SD FIFO	ansi	ProgrammersGuide/ioproc.rst#WORLD
+WRAP	device-parameter	[NO]WRAP Applies to: TRM SD NULL FIFO PIPE SOC	ansi	ProgrammersGuide/ioproc.rst#WRAP
+WRITEONLY	device-parameter	[NO]WRITEONLY Applies to: PIPE	ansi	ProgrammersGuide/ioproc.rst#WRITEONLY
+ZBFSIZE	device-parameter	ZBFSIZE Applies to: SOC	ydb-extension	ProgrammersGuide/ioproc.rst#ZBFSIZE
+ZDELAY	device-parameter	Z[NO]DELAY Applies to: SOC(TCP)	ydb-extension	ProgrammersGuide/ioproc.rst#ZDELAY
+ZFF	device-parameter	Z[NO]FF=expr Applied to: SOC	ydb-extension	ProgrammersGuide/ioproc.rst#ZFF
+ZIBFSIZE	device-parameter	ZIBFSIZE Applies to: SOC	ydb-extension	ProgrammersGuide/ioproc.rst#ZIBFSIZE
