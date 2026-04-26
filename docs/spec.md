@@ -21,9 +21,12 @@ local replicas under `sources/`:
 The replicas — not the live upstream — are the foundation for all
 extraction and analysis.
 
-**Primary downstream consumer:** `tree-sitter-m` grammar; secondary
-consumers include `vista-meta`, AI agents, and any other M tooling
-project that benefits from a citable, machine-readable standard.
+**Primary downstream consumer:** [`m-parser`](../../m-parser/) (the
+tree-sitter-m grammar project, sibling repo) — see §10.1 for the
+contract. Secondary consumers include the planned
+`tree-sitter-m-lint`, `vista-meta`, AI agents, and any other M
+tooling project that benefits from a citable, machine-readable
+standard.
 
 ---
 
@@ -80,12 +83,16 @@ built against both, with disagreements explicitly reconciled, is
 defensible.
 
 **Relationship to the project family.** `m-standard` is an
-upstream component. `tree-sitter-m` consumes its machine-readable
-outputs at build time to generate enumeration grammar fragments
-(commands and abbreviations, intrinsic functions, operators,
-pattern codes). `vista-meta` consumes its outputs for analyzer
-metadata. Other M tooling projects can consume or cite it
-without inheriting any project-specific assumptions.
+upstream component. [`m-parser`](../../m-parser/) (the
+tree-sitter-m grammar project) consumes
+`integrated/grammar-surface.json` at build time to generate
+enumeration grammar fragments (commands and abbreviations,
+intrinsic functions, operators, pattern codes). `vista-meta`
+consumes per-concept TSVs for analyzer metadata. The planned
+`tree-sitter-m-lint` will consume both m-parser's AST and
+m-standard's tier classifications (operational / pragmatic / SAC).
+Other M tooling projects can consume or cite m-standard without
+inheriting any project-specific assumptions.
 
 ---
 
@@ -702,28 +709,65 @@ zero-dependency to consume.
 
 ## 10. Downstream consumption
 
-### 10.1 tree-sitter-m
+### 10.1 m-parser (tree-sitter-m)
 
-`tree-sitter-m`'s `tools/build-grammar.js` reads
-`integrated/commands.json`, `integrated/intrinsic-functions.json`,
-`integrated/intrinsic-special-variables.json`,
-`integrated/operators.json`, and `integrated/pattern-codes.json`
-at grammar-generate time. From these, it generates the
-enumeration fragments of `grammar.js`: the command-keyword
-table, the abbreviation map, the intrinsic name lists, the
-operator precedence tables. The hand-written parts of the
-grammar (line structure, dot blocks, indirection) remain
-hand-written. When `m-standard` releases an update,
-`tree-sitter-m` regenerates these enumerations with one command.
+[`m-parser`](../../m-parser) is the tree-sitter grammar project
+for M (separate repo at `~/projects/m-parser/`, sibling to
+`m-standard`). Its full design is in
+[`m-parser/docs/spec.md`](../../m-parser/docs/spec.md). The
+relationship is one-way and minimally coupled: m-parser is a
+**strict downstream consumer** that reads exactly one file from
+m-standard at build time — `integrated/grammar-surface.json` —
+and ships pre-generated artifacts so its own consumers (npm /
+crates.io / PyPI / Go) need neither m-standard nor
+tree-sitter-cli to install.
 
-### 10.2 vista-meta
+`m-parser`'s `tools/build-grammar.js` reads
+`grammar-surface.json` and emits the data-driven half of
+`grammar.js`: every command / function / ISV / operator / pattern
+code from the union of all sources, with abbreviation prefix-form
+expansion already done. The hand-written parts of the grammar
+(line structure, postconditionals, dot blocks, indirection,
+strings, numbers) remain hand-written because they're invariant
+across sources.
+
+Per `m-parser`'s AD-01, the parser implements the **union** of
+all sources, NOT the pragmatic / SAC / operational subsets.
+Subsetting belongs in the linter layer one level up (see
+§10.3 below). Per AD-03, every recognised keyword node carries
+its `standard_status` as an AST attribute so downstream tools
+can classify portability tier without re-parsing.
+
+Per `m-parser`'s AD-04, m-parser pins to a specific
+`schema_version`. m-standard's additive schema changes (new
+tokens, new optional fields) flow through automatically;
+breaking changes (per ADR-005 here) require deliberate adoption
+in m-parser and bump m-parser's major version.
+
+### 10.2 tree-sitter-m-lint (planned)
+
+The planned sibling of `m-parser`. Consumes both m-parser's AST
+and m-standard's tier classifications:
+
+- `integrated/operational-m-standard.json` — the strictest
+  default profile (portable + SAC-clean)
+- `integrated/pragmatic-m-standard.tsv` + `va-sac-compliance.tsv`
+  — looser profiles (`--profile=pragmatic`, `--profile=portable-vendor`)
+- `integrated/va-sac-rules.tsv` — pattern-rule definitions
+  consumed alongside `m_standard.tools.lint_m`'s detector logic
+
+This is where the actual standards-enforcement happens for
+downstream code. The parser stays neutral; the linter takes
+sides per the developer's chosen profile.
+
+### 10.3 vista-meta
 
 vista-meta's analyzers gain a new metadata source: the
 integrated TSVs are joinable to existing 19 code-model TSVs.
 Example: a "commands actually used in VistA vs commands in the
 standard" coverage report is a single join.
 
-### 10.3 AI agents and other tooling
+### 10.4 AI agents and other tooling
 
 The integrated TSV+JSON pair is the prompt-pack target. Any
 agent reasoning about M code can be loaded with these as
