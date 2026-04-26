@@ -402,6 +402,7 @@ v0.2.x follow-up; the architectural plumbing is in place.
 **Phase:** v0.2.x — downstream feedback from `tree-sitter-m`.
 **Surfaced by:** [tree-sitter-m DISC-001](https://github.com/rafael5/tree-sitter-m/blob/main/docs/discoveries.md#disc-001)
 during VS Code extension test-routine authoring.
+**Tracker:** [m-standard#3](https://github.com/rafael5/m-standard/issues/3) (open).
 
 **The gap.** `integrated/grammar-surface.json` records every entry
 in the YDB list-manipulation function family — `$LIST`,
