@@ -394,3 +394,73 @@ of the change. Key mechanical updates:
 
 The IRIS extractors for commands/functions/ISVs are the natural
 v0.2.x follow-up; the architectural plumbing is in place.
+
+---
+
+## BL-014 — Downstream gap: list-function abbreviations missing from grammar-surface (2026-04-26)
+
+**Phase:** v0.2.x — downstream feedback from `tree-sitter-m`.
+**Surfaced by:** [tree-sitter-m DISC-001](https://github.com/rafael5/tree-sitter-m/blob/main/docs/discoveries.md#disc-001)
+during VS Code extension test-routine authoring.
+
+**The gap.** `integrated/grammar-surface.json` records every entry
+in the YDB list-manipulation function family — `$LIST`,
+`$LISTBUILD`, `$LISTDATA`, `$LISTFIND`, `$LISTFROMSTRING`,
+`$LISTGET`, `$LISTLENGTH`, `$LISTNEXT`, `$LISTSAME`, `$LISTTOSTRING`,
+`$LISTUPDATE`, `$LISTVALID` — with `abbreviation=""` and
+`all_forms=["$LISTBUILD"]` (the canonical form only). The standard
+2-letter abbreviations that **both YDB and IRIS implementations
+accept** — `$LB` (build), `$LI` (get), `$LL` (length), `$LD` (data),
+`$LF` (find), `$LFS` (fromstring), `$LN` (next), `$LS` (same),
+`$LTS` (tostring), `$LU` (update), `$LV` (valid) — are not in the
+data.
+
+**Evidence.**
+
+```python
+import json
+d = json.load(open("integrated/grammar-surface.json"))
+for it in d["intrinsic_functions"]:
+    if it["canonical"].startswith("$LIST"):
+        print(it["canonical"], it["abbreviation"], it["all_forms"])
+# $LIST          ['$LIST']
+# $LISTBUILD     ['$LISTBUILD']
+# $LISTDATA      ['$LISTDATA']
+# $LISTFIND      ['$LISTFIND']
+# $LISTGET       ['$LISTGET']
+# $LISTLENGTH    ['$LISTLENGTH']
+# ... (all canonicals only; no abbreviations)
+```
+
+The canonical YDB documentation (`MLAB001.html`) and the IRIS
+ObjectScript reference both publish the abbreviations. The gap is in
+m-standard's YDB intrinsic-function extractor — when the original
+crawler ran, it captured the canonical name from the section header
+but didn't pick up the abbreviation table that follows.
+
+**Impact downstream.** `tree-sitter-m` parses by walking the union
+of `all_forms`; with abbreviations missing, code like
+`$LB(1,2,3)` produces an ERROR node. Real YDB-style code uses
+abbreviations frequently (the docs themselves do), so any tool that
+parses real YDB code via tree-sitter-m miscolours / mis-analyses
+those calls. VistA itself uses canonicals, so the VistA smoke gate
+doesn't surface this.
+
+**Fix plan.**
+
+1. Audit `m_standard/extractors/ydb_functions.py` (or wherever the
+   $LIST family is extracted from) — confirm the abbreviation table
+   is being read, not just the section title.
+2. Re-extract; confirm `integrated/grammar-surface.json` now lists
+   `$LB`, `$LI`, `$LL`, etc. in `all_forms`.
+3. Spot-check the related Z* function families
+   (`$ZBITAND`/`$ZB`, `$ZCONVERT`/`$ZC`, etc.) — same
+   crawler-reads-only-the-header bug may affect them too.
+4. Bump the m-standard release; tree-sitter-m's regen pulls the
+   abbreviations through automatically per AD-04.
+
+**Schema impact.** None. Adding entries to `all_forms` is additive;
+`schema_version` stays at `"1"`.
+
+**Cross-reference.** [tree-sitter-m DISC-001](https://github.com/rafael5/tree-sitter-m/blob/main/docs/discoveries.md#disc-001)
+captures the parser-side observation and links back here.
